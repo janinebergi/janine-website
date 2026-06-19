@@ -118,7 +118,7 @@ export default function Home() {
           <div className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
             {projects.map((project) => (
               <Link
-                key={project.title}
+                key={project.id}
                 href="/arbeiten"
                 className="group relative aspect-[4/5] overflow-hidden rounded-2xl border border-border"
               >
@@ -155,7 +155,7 @@ export default function Home() {
           <div className="mt-12 grid gap-5 lg:grid-cols-3">
             {testimonials.map((t) => (
               <figure
-                key={t.name}
+                key={t.id}
                 className="flex flex-col gap-5 rounded-2xl border border-border bg-surface/60 p-7"
               >
                 <Quote className="text-accent" size={28} />

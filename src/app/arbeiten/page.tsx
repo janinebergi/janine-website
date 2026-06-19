@@ -13,6 +13,7 @@ export const metadata: Metadata = {
 // PLATZHALTER: Echte Referenzprojekte hier eintragen (Titel, Kategorie, Ergebnis, Beschreibung, Bild).
 const work = [
   {
+    id: "website-texte",
     title: "Referenzprojekt folgt",
     category: "Website-Texte",
     result: "Referenz folgt",
@@ -21,6 +22,7 @@ const work = [
     image: "https://picsum.photos/seed/reise1/1200/900",
   },
   {
+    id: "blogbeitraege",
     title: "Referenzprojekt folgt",
     category: "Blogbeiträge",
     result: "Referenz folgt",
@@ -29,6 +31,7 @@ const work = [
     image: "https://picsum.photos/seed/reise2/1200/900",
   },
   {
+    id: "newsletter",
     title: "Referenzprojekt folgt",
     category: "Newsletter",
     result: "Referenz folgt",
@@ -63,7 +66,7 @@ export default function ArbeitenPage() {
           <div className="grid gap-6 sm:grid-cols-2">
             {work.map((item) => (
               <article
-                key={item.title}
+                key={item.id}
                 className="group overflow-hidden rounded-2xl border border-border bg-surface/60"
               >
                 <div className="relative aspect-[16/10] overflow-hidden">

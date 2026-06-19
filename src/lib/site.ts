@@ -50,18 +50,21 @@ export const stats = [
 // PLATZHALTER: Echte Kundenstimmen hier eintragen (Zitat, Name, Unternehmen).
 export const testimonials = [
   {
+    id: "stimme-1",
     quote:
       "Hier erscheint bald eine echte Kundenstimme. Wir arbeiten zusammen? Dann ist dein Zitat vielleicht das nächste an dieser Stelle.",
     name: "Dein Name",
     role: "Dein Unternehmen",
   },
   {
+    id: "stimme-2",
     quote:
       "Platzhalter für ein Kundenzitat aus einem Reise- oder Tourismusprojekt – über Texte, die Fernweh geweckt und Buchungen gebracht haben.",
     name: "Dein Name",
     role: "Dein Unternehmen",
   },
   {
+    id: "stimme-3",
     quote:
       "Platzhalter für eine weitere Stimme aus der Zusammenarbeit – ehrlich, konkret und mit Ergebnis.",
     name: "Dein Name",
@@ -72,21 +75,25 @@ export const testimonials = [
 // PLATZHALTER: Echte Referenzprojekte hier eintragen (Titel, Kategorie, Bild).
 export const projects = [
   {
+    id: "website-texte",
     title: "Referenzprojekt folgt",
     category: "Website-Texte",
     image: "https://picsum.photos/seed/reise1/900/1100",
   },
   {
+    id: "blogbeitraege",
     title: "Referenzprojekt folgt",
     category: "Blogbeiträge",
     image: "https://picsum.photos/seed/reise2/900/1100",
   },
   {
+    id: "newsletter",
     title: "Referenzprojekt folgt",
     category: "Newsletter",
     image: "https://picsum.photos/seed/reise3/900/1100",
   },
   {
+    id: "storytelling",
     title: "Referenzprojekt folgt",
     category: "Storytelling",
     image: "https://picsum.photos/seed/reise4/900/1100",
