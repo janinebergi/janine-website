@@ -1,0 +1,88 @@
+import Link from "next/link";
+import { nav, site } from "@/lib/site";
+
+export function Footer() {
+  return (
+    <footer className="mt-24 border-t border-border/60 bg-surface/40">
+      <div className="mx-auto w-full max-w-6xl px-6 py-14 lg:px-8">
+        <div className="flex flex-col gap-10 md:flex-row md:items-start md:justify-between">
+          <div className="max-w-sm">
+            <Link href="/" className="flex items-center gap-2 text-base font-semibold">
+              <span className="inline-block h-2.5 w-2.5 rounded-full bg-accent shadow-[0_0_12px_var(--color-accent)]" />
+              {site.name}
+            </Link>
+            <p className="mt-4 text-sm leading-relaxed text-muted">
+              {site.role}. {site.tagline} Texte, die Fernweh wecken und Reisende
+              zur Buchung bewegen.
+            </p>
+          </div>
+
+          <div className="flex flex-col gap-3">
+            <span className="text-xs font-medium uppercase tracking-widest text-muted">
+              Navigation
+            </span>
+            {nav.map((item) => (
+              <Link
+                key={item.href}
+                href={item.href}
+                className="text-sm text-muted transition-colors hover:text-foreground"
+              >
+                {item.label}
+              </Link>
+            ))}
+          </div>
+
+          <div className="flex flex-col gap-3">
+            <span className="text-xs font-medium uppercase tracking-widest text-muted">
+              Kontakt
+            </span>
+            <a
+              href={`mailto:${site.email}`}
+              className="text-sm text-muted transition-colors hover:text-foreground"
+            >
+              {site.email}
+            </a>
+            <a
+              href={site.social.linkedin}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-sm text-muted transition-colors hover:text-foreground"
+            >
+              LinkedIn
+            </a>
+            <a
+              href={site.social.instagram}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-sm text-muted transition-colors hover:text-foreground"
+            >
+              Instagram
+            </a>
+            <a
+              href={site.social.tiktok}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-sm text-muted transition-colors hover:text-foreground"
+            >
+              TikTok
+            </a>
+          </div>
+        </div>
+
+        <div className="mt-12 flex flex-col gap-2 border-t border-border/60 pt-6 text-xs text-muted sm:flex-row sm:items-center sm:justify-between">
+          <span>
+            © {new Date().getFullYear()} {site.name}. Alle Rechte vorbehalten.
+          </span>
+          <div className="flex gap-4">
+            <Link href="/impressum" className="hover:text-foreground">
+              Impressum
+            </Link>
+            <Link href="/datenschutz" className="hover:text-foreground">
+              Datenschutz
+            </Link>
+          </div>
+        </div>
+      </div>
+    </footer>
+  );
+}
