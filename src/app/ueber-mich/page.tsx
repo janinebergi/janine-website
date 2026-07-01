@@ -41,11 +41,11 @@ export default function UeberMichPage() {
         <div className="glow-radial pointer-events-none absolute inset-0 -z-10" />
         <Container className="py-20 sm:py-28">
           <div className="grid items-center gap-12 lg:grid-cols-[0.9fr_1.1fr]">
-            <div className="relative">
-              <div className="absolute -inset-4 -z-10 rounded-[2rem] bg-accent/10 blur-2xl" />
-              <div className="relative aspect-[4/5] overflow-hidden rounded-[1.5rem] border border-border">
+            <div className="relative mx-auto w-full max-w-md lg:mx-0">
+              <div className="absolute -inset-6 -z-10 rounded-full bg-accent/15 blur-3xl" />
+              <div className="relative aspect-square overflow-hidden rounded-full border border-border">
                 <Image
-                  src="https://picsum.photos/seed/janine-portrait/900/1100"
+                  src="/assets/ueber-mich-1.png"
                   alt="Porträt von Janine Bergmann"
                   fill
                   priority

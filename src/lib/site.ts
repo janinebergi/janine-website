@@ -6,6 +6,9 @@ export const site = {
     "Janine Bergmann ist Copywriterin für Reise- und Tourismusunternehmen. Texte für Websites, Blogs und Newsletter, die Emotionen wecken, Fernweh auslösen und Reisende zur Buchung bewegen.",
   email: "hallo@janinebergmann.de",
   url: "https://janinebergmann.de",
+  // PLATZHALTER: später durch ein aussagekräftiges Header-Bild ersetzen
+  // (z. B. "/assets/mein-header.jpg") und in page.tsx das `unoptimized`-Flag entfernen.
+  heroImage: "/assets/placeholder-header.svg",
   social: {
     linkedin: "https://www.linkedin.com/in/janine-bergmann/",
     instagram: "https://www.instagram.com/",
@@ -78,24 +81,24 @@ export const projects = [
     id: "website-texte",
     title: "Referenzprojekt folgt",
     category: "Website-Texte",
-    image: "https://picsum.photos/seed/reise1/900/1100",
+    image: "/assets/copywriting-1.png",
   },
   {
     id: "blogbeitraege",
     title: "Referenzprojekt folgt",
     category: "Blogbeiträge",
-    image: "https://picsum.photos/seed/reise2/900/1100",
+    image: "/assets/sri-lanka-cover.png",
   },
   {
     id: "newsletter",
     title: "Referenzprojekt folgt",
     category: "Newsletter",
-    image: "https://picsum.photos/seed/reise3/900/1100",
+    image: "/assets/copywriting-2.png",
   },
   {
     id: "storytelling",
     title: "Referenzprojekt folgt",
     category: "Storytelling",
-    image: "https://picsum.photos/seed/reise4/900/1100",
+    image: "/assets/copywriting-3.png",
   },
 ];

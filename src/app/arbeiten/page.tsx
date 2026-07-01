@@ -19,7 +19,7 @@ const work = [
     result: "Referenz folgt",
     description:
       "Platzhalter für ein Website-Projekt aus dem Tourismus – z. B. Neutextung einer Destinations- oder Hotelseite.",
-    image: "https://picsum.photos/seed/reise1/1200/900",
+    image: "/assets/copywriting-1.png",
   },
   {
     id: "blogbeitraege",
@@ -28,7 +28,7 @@ const work = [
     result: "Referenz folgt",
     description:
       "Platzhalter für einen SEO-Reiseblog, der Fernweh weckt und Angebote mit Geschichten zum Leben erweckt.",
-    image: "https://picsum.photos/seed/reise2/1200/900",
+    image: "/assets/sri-lanka-1.png",
   },
   {
     id: "newsletter",
@@ -37,7 +37,7 @@ const work = [
     result: "Referenz folgt",
     description:
       "Platzhalter für eine Newsletter-Strecke, die Nähe schafft und zuverlässig zu Buchungen führt.",
-    image: "https://picsum.photos/seed/reise3/1200/900",
+    image: "/assets/copywriting-2.png",
   },
 ];
 

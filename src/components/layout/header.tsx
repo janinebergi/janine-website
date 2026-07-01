@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useState } from "react";
@@ -16,10 +17,17 @@ export function Header() {
       <div className="mx-auto flex h-16 w-full max-w-6xl items-center justify-between px-6 lg:px-8">
         <Link
           href="/"
-          className="flex items-center gap-2 text-base font-semibold tracking-tight"
+          className="flex items-center gap-2.5 text-base font-semibold tracking-tight"
           onClick={() => setOpen(false)}
         >
-          <span className="inline-block h-2.5 w-2.5 rounded-full bg-accent shadow-[0_0_12px_var(--color-accent)]" />
+          <Image
+            src="/assets/logo.png"
+            alt={site.name}
+            width={40}
+            height={40}
+            priority
+            className="h-9 w-9 rounded-full ring-1 ring-border"
+          />
           {site.name}
         </Link>
 

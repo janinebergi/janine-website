@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 import { nav, site } from "@/lib/site";
 
@@ -7,8 +8,14 @@ export function Footer() {
       <div className="mx-auto w-full max-w-6xl px-6 py-14 lg:px-8">
         <div className="flex flex-col gap-10 md:flex-row md:items-start md:justify-between">
           <div className="max-w-sm">
-            <Link href="/" className="flex items-center gap-2 text-base font-semibold">
-              <span className="inline-block h-2.5 w-2.5 rounded-full bg-accent shadow-[0_0_12px_var(--color-accent)]" />
+            <Link href="/" className="flex items-center gap-2.5 text-base font-semibold">
+              <Image
+                src="/assets/logo.png"
+                alt={site.name}
+                width={40}
+                height={40}
+                className="h-9 w-9 rounded-full ring-1 ring-border"
+              />
               {site.name}
             </Link>
             <p className="mt-4 text-sm leading-relaxed text-muted">

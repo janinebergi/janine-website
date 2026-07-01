@@ -4,6 +4,16 @@ import matter from "gray-matter";
 
 const BLOG_DIR = path.join(process.cwd(), "content", "blog");
 
+export type GalleryImage = {
+  src: string;
+  alt: string;
+};
+
+export type FaqItem = {
+  question: string;
+  answer: string;
+};
+
 export type PostMeta = {
   slug: string;
   title: string;
@@ -12,6 +22,8 @@ export type PostMeta = {
   coverImage: string;
   tags: string[];
   readingTime: number;
+  gallery: GalleryImage[];
+  faq: FaqItem[];
 };
 
 export type Post = PostMeta & {
@@ -36,6 +48,8 @@ function fileToPost(fileName: string): Post {
     coverImage: data.coverImage ?? `https://picsum.photos/seed/${slug}/1200/700`,
     tags: data.tags ?? [],
     readingTime: readingTime(content),
+    gallery: data.gallery ?? [],
+    faq: data.faq ?? [],
     content,
   };
 }

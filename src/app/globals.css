@@ -2,21 +2,21 @@
 @plugin "@tailwindcss/typography";
 
 @theme {
-  /* Surfaces — dark, green-tinted near-black */
-  --color-bg: #07100c;
-  --color-surface: #0d1813;
-  --color-surface-2: #122019;
-  --color-border: #1d3328;
+  /* Surfaces — deep, warm forest near-black */
+  --color-bg: #0a1009;
+  --color-surface: #111a10;
+  --color-surface-2: #182317;
+  --color-border: #283a26;
 
   /* Text */
-  --color-foreground: #e9f1ec;
-  --color-muted: #8fa89a;
+  --color-foreground: #eaf0e6;
+  --color-muted: #97a98c;
 
-  /* Accent — deep emerald green */
-  --color-accent: #1f9d62;
-  --color-accent-hover: #25b974;
-  --color-accent-soft: #123626;
-  --color-accent-foreground: #03150c;
+  /* Accent — natural forest / moss green */
+  --color-accent: #5a8c5a;
+  --color-accent-hover: #74a96f;
+  --color-accent-soft: #1c3320;
+  --color-accent-foreground: #06140a;
 
   /* Fonts (wired up via next/font in layout) */
   --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;

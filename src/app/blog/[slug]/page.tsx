@@ -90,6 +90,52 @@ export default async function BlogPostPage({
           <MDXRemote source={post.content} components={mdxComponents} />
         </div>
 
+        {post.gallery.length > 0 && (
+          <section className="mt-16">
+            <h2 className="text-2xl font-semibold leading-tight">Galerie</h2>
+            <div className="mt-6 grid grid-cols-2 gap-4 sm:grid-cols-3">
+              {post.gallery.map((image) => (
+                <div
+                  key={image.src}
+                  className="group relative aspect-square overflow-hidden rounded-2xl border border-border bg-surface/60"
+                >
+                  <Image
+                    src={image.src}
+                    alt={image.alt}
+                    fill
+                    sizes="(max-width: 640px) 50vw, 240px"
+                    className="object-cover transition-transform duration-500 group-hover:scale-105"
+                  />
+                </div>
+              ))}
+            </div>
+          </section>
+        )}
+
+        {post.faq.length > 0 && (
+          <section className="mt-16">
+            <h2 className="text-2xl font-semibold leading-tight">Q &amp; A</h2>
+            <div className="mt-6 flex flex-col gap-4">
+              {post.faq.map((item) => (
+                <details
+                  key={item.question}
+                  className="group rounded-2xl border border-border bg-surface/60 p-6"
+                >
+                  <summary className="flex cursor-pointer items-center justify-between gap-4 text-lg font-semibold marker:content-['']">
+                    {item.question}
+                    <span className="text-accent-hover transition-transform duration-300 group-open:rotate-45">
+                      +
+                    </span>
+                  </summary>
+                  <p className="mt-4 leading-relaxed text-muted">
+                    {item.answer}
+                  </p>
+                </details>
+              ))}
+            </div>
+          </section>
+        )}
+
         <footer className="mt-16 rounded-2xl border border-border bg-surface/60 p-8 text-center">
           <p className="text-muted">Geschrieben von</p>
           <p className="mt-1 text-lg font-semibold">{site.name}</p>

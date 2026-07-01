@@ -15,57 +15,56 @@ import {
 export default function Home() {
   return (
     <>
-      {/* Hero */}
-      <section className="relative overflow-hidden">
-        <div className="glow-radial pointer-events-none absolute inset-0 -z-10" />
-        <Container className="relative pb-20 pt-20 sm:pt-28">
-          <div className="grid items-center gap-12 lg:grid-cols-[1.1fr_0.9fr]">
-            <div className="flex flex-col items-start gap-6">
-              <Eyebrow>{site.role} · {site.tagline}</Eyebrow>
-              <h1 className="text-4xl font-semibold leading-[1.05] sm:text-6xl">
-                Texte, die <span className="text-gradient">Fernweh</span> wecken
-                — und Reisende zur Buchung bewegen.
-              </h1>
-              <p className="max-w-xl text-lg leading-relaxed text-muted">
-                Ich bin {site.name}, Copywriterin für Reise- und
-                Tourismusunternehmen. Ich helfe dir, deine Angebote mit Worten
-                ins beste Licht zu rücken – auf Websites, in Blogs und
-                Newslettern.
-              </p>
-              <div className="flex flex-wrap items-center gap-4 pt-2">
-                <Button href="/kontakt">Projekt anfragen</Button>
-                <Button href="/arbeiten" variant="secondary">
-                  Arbeiten ansehen
-                </Button>
-              </div>
+      {/* Großer Header über der Startseite */}
+      <section className="relative isolate flex min-h-[88vh] flex-col justify-center overflow-hidden">
+        {/* PLATZHALTER-Header-Bild: Quelle in src/lib/site.ts (site.heroImage).
+            Später durch ein echtes, aussagekräftiges Bild ersetzen und das
+            `unoptimized`-Flag entfernen. */}
+        <div className="absolute inset-0 -z-10">
+          <Image
+            src={site.heroImage}
+            alt="Platzhalter – hier folgt das große Header-Bild"
+            fill
+            priority
+            unoptimized
+            sizes="100vw"
+            className="object-cover"
+          />
+          {/* Overlays: Text links lesbar halten, Bild sichtbar lassen */}
+          <div className="absolute inset-0 bg-gradient-to-r from-bg/90 via-bg/55 to-bg/20" />
+          <div className="absolute inset-0 bg-gradient-to-t from-bg via-transparent to-transparent" />
+        </div>
 
-              <dl className="mt-10 grid grid-cols-3 gap-8 border-t border-border/60 pt-8">
-                {stats.map((s) => (
-                  <div key={s.label}>
-                    <dt className="text-3xl font-semibold text-foreground">
-                      {s.value}
-                    </dt>
-                    <dd className="mt-1 text-sm text-muted">{s.label}</dd>
-                  </div>
-                ))}
-              </dl>
-            </div>
-
-            <div className="relative">
-              <div className="absolute -inset-4 -z-10 rounded-[2rem] bg-accent/10 blur-2xl" />
-              <div className="relative aspect-[4/5] overflow-hidden rounded-[1.5rem] border border-border">
-                <Image
-                  src="https://picsum.photos/seed/janine-hero/900/1100"
-                  alt="Janine Bergmann bei der Arbeit"
-                  fill
-                  priority
-                  sizes="(max-width: 1024px) 100vw, 45vw"
-                  className="object-cover"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-bg/80 via-transparent to-transparent" />
-              </div>
+        <Container className="relative py-28">
+          <div className="flex max-w-3xl flex-col items-start gap-6">
+            <Eyebrow>{site.role} · {site.tagline}</Eyebrow>
+            <h1 className="text-5xl font-semibold leading-[1.03] sm:text-6xl lg:text-7xl">
+              Texte, die <span className="text-gradient">Fernweh</span> wecken —
+              und Reisende zur Buchung bewegen.
+            </h1>
+            <p className="max-w-xl text-lg leading-relaxed text-foreground/80">
+              Ich bin {site.name}, Copywriterin für Reise- und
+              Tourismusunternehmen. Ich helfe dir, deine Angebote mit Worten ins
+              beste Licht zu rücken – auf Websites, in Blogs und Newslettern.
+            </p>
+            <div className="flex flex-wrap items-center gap-4 pt-2">
+              <Button href="/kontakt">Projekt anfragen</Button>
+              <Button href="/arbeiten" variant="secondary">
+                Arbeiten ansehen
+              </Button>
             </div>
           </div>
+
+          <dl className="mt-16 grid max-w-xl grid-cols-3 gap-8 border-t border-border/60 pt-8">
+            {stats.map((s) => (
+              <div key={s.label}>
+                <dt className="text-3xl font-semibold text-foreground">
+                  {s.value}
+                </dt>
+                <dd className="mt-1 text-sm text-muted">{s.label}</dd>
+              </div>
+            ))}
+          </dl>
         </Container>
       </section>
 
