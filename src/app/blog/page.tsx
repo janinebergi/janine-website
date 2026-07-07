@@ -19,7 +19,7 @@ export default function BlogPage() {
   return (
     <>
       <PageHeader
-        image="/assets/website/blog-header.jpg"
+        image="/assets/website/blog-header.avif"
         imageAlt="Saftig grüne Reisterrassen mit Palmen unter dramatischem Wolkenhimmel"
         imagePosition="center 40%"
         eyebrow="Blog"

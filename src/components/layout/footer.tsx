@@ -12,7 +12,7 @@ export function Footer() {
           <div className="max-w-sm">
             <Link href="/" className="flex items-center gap-2.5 text-base font-semibold">
               <Image
-                src="/assets/logo.png"
+                src="/assets/logo.avif"
                 alt={site.name}
                 width={40}
                 height={40}

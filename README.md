@@ -57,9 +57,31 @@ Aktuell Platzhalter von `picsum.photos`. Zum Austauschen die URLs in
 `src/lib/site.ts`, den Seiten und den Artikel-Frontmattern ersetzen — oder
 eigene Bilder unter `public/` ablegen und relativ referenzieren.
 
+## Texte bearbeiten mit Login (`/admin`)
+
+Unter `/admin` gibt es einen passwortgeschützten Editor für alle Texte aus
+`src/content/site.json`. Er funktioniert **auch auf der veröffentlichten
+Seite**: Beim Speichern wird die Änderung per GitHub-API ins Repo committet,
+wodurch Vercel automatisch neu deployt (nach ~1 Minute live).
+
+Dafür zwei Umgebungsvariablen setzen (siehe `.env.example`):
+
+- `ADMIN_PASSWORD` — dein Login-Passwort.
+- `GITHUB_TOKEN` — Fine-grained Personal Access Token mit
+  „Contents: Read and write“ für dieses Repository
+  ([erstellen](https://github.com/settings/personal-access-tokens)).
+
+**Lokal:** `.env.local` mit `ADMIN_PASSWORD` anlegen, dann `npm run dev` und
+`/admin` öffnen. Ohne `GITHUB_TOKEN` schreibt der Editor lokal direkt in die
+Datei.
+
+**Live (Vercel):** beide Variablen unter Project → Settings → Environment
+Variables hinterlegen und einmal neu deployen.
+
 ## Deployment (Vercel)
 
 1. Repository zu GitHub pushen.
 2. Auf [vercel.com](https://vercel.com) das Repo importieren — Next.js wird
    automatisch erkannt, keine zusätzliche Konfiguration nötig.
-3. Deploy. Fertig.
+3. Umgebungsvariablen `ADMIN_PASSWORD` und `GITHUB_TOKEN` setzen (siehe oben).
+4. Deploy. Fertig.

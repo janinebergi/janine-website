@@ -21,7 +21,7 @@ export function Header() {
           onClick={() => setOpen(false)}
         >
           <Image
-            src="/assets/logo.png"
+            src="/assets/logo.avif"
             alt={site.name}
             width={40}
             height={40}
