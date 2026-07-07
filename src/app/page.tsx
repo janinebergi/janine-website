@@ -5,6 +5,7 @@ import { Container } from "@/components/ui/container";
 import { Button } from "@/components/ui/button";
 import { Eyebrow, SectionHeading } from "@/components/ui/section-heading";
 import { pages, services, site, stats, testimonials } from "@/lib/site";
+import { iconForStat } from "@/lib/stat-icons";
 
 const t = pages.home;
 
@@ -59,14 +60,22 @@ export default function Home() {
           </div>
 
           <dl className="mt-16 grid max-w-md grid-cols-2 gap-8 border-t border-border/60 pt-8">
-            {stats.map((s) => (
-              <div key={s.label}>
-                <dt className="text-3xl font-semibold text-foreground">
-                  {s.value}
-                </dt>
-                <dd className="mt-1 text-sm text-muted">{s.label}</dd>
-              </div>
-            ))}
+            {stats.map((s) => {
+              const Icon = iconForStat(s.label);
+              return (
+                <div key={s.label} className="group flex items-center gap-4">
+                  <span className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-accent-soft text-accent-hover transition-transform duration-300 group-hover:scale-110 group-hover:rotate-6">
+                    <Icon className="h-6 w-6" />
+                  </span>
+                  <div>
+                    <dt className="text-gradient text-3xl font-semibold">
+                      {s.value}
+                    </dt>
+                    <dd className="mt-1 text-sm text-muted">{s.label}</dd>
+                  </div>
+                </div>
+              );
+            })}
           </dl>
         </Container>
       </section>

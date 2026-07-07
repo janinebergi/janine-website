@@ -1,27 +1,74 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
-import { Globe, CalendarDays, Compass, Sparkles, type LucideIcon } from "lucide-react";
+import {
+  GraduationCap,
+  Award,
+  Newspaper,
+  Plane,
+  FerrisWheel,
+  MapPin,
+  Waves,
+  Wind,
+  Trees,
+  Dumbbell,
+} from "lucide-react";
 import { Container } from "@/components/ui/container";
 import { Button } from "@/components/ui/button";
 import { SectionHeading } from "@/components/ui/section-heading";
 import { PageHeader } from "@/components/ui/page-header";
 import { pages, stats } from "@/lib/site";
+import { iconForStat } from "@/lib/stat-icons";
 import { getAllPosts, formatDate } from "@/lib/blog";
 
 const t = pages.ueberMich;
 const values = t.values;
 const blogTeaser = t.blogTeaser;
 
-// Ordnet jedem Fakt anhand des Labels ein passendes Icon zu, ohne die
-// Datenstruktur (und damit den Admin-Editor) anfassen zu müssen.
-function iconForStat(label: string): LucideIcon {
-  const l = label.toLowerCase();
-  if (l.includes("länder") || l.includes("reise")) return Globe;
-  if (l.includes("jahr")) return CalendarDays;
-  if (l.includes("abenteuer") || l.includes("sport")) return Compass;
-  return Sparkles;
-}
+// Werdegang und Hobbys als grafische Darstellung der Einleitungstexte.
+// Direkt aus den Absätzen von t.paragraphs übernommen, nichts erfunden.
+const timeline = [
+  {
+    icon: GraduationCap,
+    title: "Ausbildung zur Kauffrau für Tourismus und Freizeit",
+    description:
+      "Schon während der Ausbildung erste Texte für Website und Social Media geschrieben.",
+  },
+  {
+    icon: Award,
+    title: "Staatlich geprüfte Betriebswirtin, Fachrichtung Tourismus",
+    description: "Zusätzliche Weiterbildung im Anschluss an die Ausbildung.",
+  },
+  {
+    icon: Newspaper,
+    title: "Medienagentur",
+    description: "Ein kurzer Abstecher, bevor es zum Reiseveranstalter ging.",
+  },
+  {
+    icon: Plane,
+    title: "alltours – Vertriebsmarketing",
+    description:
+      "Newsletter und Magazine verfasst – von Buchungshilfen für Reisende bis zu Magazinen für Reisebüros.",
+  },
+  {
+    icon: FerrisWheel,
+    title: "Freizeitpark Wisseler See GmbH",
+    description: "Bei der Bild- und Textgestaltung der neuen Website mitgeholfen.",
+  },
+  {
+    icon: MapPin,
+    title: "Tourismus NRW e.V. (heute)",
+    description:
+      "Referentin für Kommunikation B2C – schreibt fürs NRW Magazin und ist die Stimme für Social Media.",
+  },
+];
+
+const hobbies = [
+  { icon: Waves, label: "Surfen" },
+  { icon: Wind, label: "Inlinern am Rhein" },
+  { icon: Trees, label: "Ausritte durch den Wald" },
+  { icon: Dumbbell, label: "Kickboxen" },
+];
 
 export const metadata: Metadata = {
   title: t.metaTitle,
@@ -93,6 +140,48 @@ export default function UeberMichPage() {
             {/* Perforations-Kreise oben/unten für den Ticket-Look */}
             <div className="pointer-events-none absolute left-1/2 top-0 hidden h-4 w-4 -translate-x-1/2 -translate-y-1/2 rounded-full bg-bg sm:block" />
             <div className="pointer-events-none absolute bottom-0 left-1/2 hidden h-4 w-4 -translate-x-1/2 translate-y-1/2 rounded-full bg-bg sm:block" />
+          </div>
+        </Container>
+      </section>
+
+      {/* Grafische Darstellung des Einleitungstexts: Werdegang als Timeline
+          und Hobbys als Icon-Reihe – im selben Icon-Stil wie die Fakten oben. */}
+      <section className="pb-20">
+        <Container>
+          <SectionHeading
+            eyebrow="Mein Weg"
+            title="Werdegang"
+            align="center"
+          />
+
+          <div className="mx-auto mt-12 max-w-2xl">
+            <ol className="relative flex flex-col gap-10 border-l border-dashed border-border pl-8 sm:pl-10">
+              {timeline.map((step) => (
+                <li key={step.title} className="group relative">
+                  <span className="absolute -left-[calc(2rem+1px)] top-0 flex h-10 w-10 -translate-x-1/2 items-center justify-center rounded-full bg-accent-soft text-accent-hover ring-4 ring-bg transition-transform duration-300 group-hover:scale-110 group-hover:rotate-6 sm:-left-[calc(2.5rem+1px)] sm:h-12 sm:w-12">
+                    <step.icon className="h-5 w-5 sm:h-6 sm:w-6" />
+                  </span>
+                  <h3 className="text-lg font-semibold text-foreground">
+                    {step.title}
+                  </h3>
+                  <p className="mt-1 leading-relaxed text-muted">
+                    {step.description}
+                  </p>
+                </li>
+              ))}
+            </ol>
+          </div>
+
+          <div className="mx-auto mt-16 flex max-w-2xl flex-wrap justify-center gap-3">
+            {hobbies.map((h) => (
+              <span
+                key={h.label}
+                className="inline-flex items-center gap-2 rounded-full border border-border bg-surface/60 px-4 py-2 text-sm text-foreground transition-colors hover:bg-surface-2/60"
+              >
+                <h.icon className="h-4 w-4 text-accent-hover" />
+                {h.label}
+              </span>
+            ))}
           </div>
         </Container>
       </section>
