@@ -24,7 +24,7 @@ export default function Home() {
             priority
             unoptimized
             sizes="100vw"
-            className="object-cover"
+            className="object-cover object-[73%_center] sm:object-center md:object-[72%_center]"
           />
           {/* Overlays: Text links lesbar halten, Bild sichtbar lassen */}
           <div className="absolute inset-0 bg-gradient-to-r from-bg/90 via-bg/55 to-bg/20" />
