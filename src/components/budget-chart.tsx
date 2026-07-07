@@ -18,7 +18,11 @@ const budgets: Record<string, Budget> = {
     title: "Kosten für 2 Personen",
     items: [
       { label: "Flüge", amount: 1754 },
-      { label: "Aktivitäten", amount: 1101.39 },
+      {
+        label: "Aktivitäten",
+        amount: 1101.39,
+        note: "inkl. Tauchtrips, 35–45 € pro Tauchgang inkl. kompletter Ausrüstung, 13 Tauchgänge",
+      },
       { label: "Restaurants", amount: 429.39 },
       { label: "Getränke", amount: 393.49 },
       { label: "Unterkünfte", amount: 343.03 },

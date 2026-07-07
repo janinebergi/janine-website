@@ -40,21 +40,36 @@
       "image": "/assets/website/leistung-blog.avif",
       "imagePosition": "center 30%",
       "teaser": "Abenteuer spürbar machen und deine Angebote mit Geschichten zum Leben erwecken – SEO-optimiert, vom ersten Satz bis zum letzten Klick.",
-      "description": "Ich schreibe Blogbeiträge für Reise- und Tourismusunternehmen, die Fernweh wecken, Abenteuer spürbar machen und deine Angebote mit Geschichten zum Leben erwecken. Meine Texte lassen Hotels, Reiseziele und Erlebnisangebote greifbar werden, während deine Marke Emotionen vermittelt und im Gedächtnis bleibt. SEO-optimierte Reisetexte sorgen dafür, dass deine Inhalte sichtbar sind und gleichzeitig Leser begeistern – vom ersten Satz bis zum letzten Klick."
+      "points": [
+        "Weckt Fernweh und macht Abenteuer spürbar",
+        "Hotels, Reiseziele & Erlebnisse werden greifbar",
+        "Deine Marke bleibt emotional in Erinnerung",
+        "SEO-optimiert – sichtbar vom ersten Satz bis zum letzten Klick"
+      ]
     },
     {
       "title": "Website-Texte, die Reiseträume verkaufen",
       "image": "/assets/website/IMG_2961.avif",
       "imagePosition": "center",
       "teaser": "Deine Angebote lebendig präsentieren und deine Marke authentisch zeigen – SEO-optimiert, damit aus Aufmerksamkeit neue Kunden werden.",
-      "description": "Ich erstelle Website-Texte für Reise- und Tourismusunternehmen, die deine Angebote lebendig präsentieren und deine Marke authentisch zeigen. Mit meinem Copywriting werden Inhalte greifbar, Geschichten erzählt und Emotionen geweckt – so fühlen sich deine Besucher sofort angesprochen und bleiben auf deiner Seite. SEO-optimierte Texte sorgen zusätzlich dafür, dass deine Angebote gefunden werden. So gewinnst du nicht nur Aufmerksamkeit, sondern auch neue Kunden."
+      "points": [
+        "Angebote werden lebendig präsentiert, Marke authentisch gezeigt",
+        "Geschichten und Emotionen statt trockener Fakten",
+        "Besucher fühlen sich angesprochen und bleiben auf der Seite",
+        "SEO-optimiert – aus Aufmerksamkeit werden neue Kunden"
+      ]
     },
     {
       "title": "Newsletter, die Geschichten erzählen",
       "image": "/assets/website/leistung-newsletter.avif",
       "imagePosition": "center",
       "teaser": "Deine Angebote klar kommunizieren und dabei Nähe sowie Vertrauen schaffen – durch Geschichten, Tipps und Inspiration, ohne aufdringlich zu wirken.",
-      "description": "Ich erstelle Newsletter-Texte für den Tourismus, die deine Angebote klar und verständlich kommunizieren und dabei Nähe sowie Vertrauen schaffen. Durch Geschichten, Tipps und Inspiration fühlen sich deine Leser wirklich abgeholt – ohne dass es aufdringlich oder zu werblich wirkt. So bleiben deine Botschaften im Posteingang nicht einfach liegen, sondern öffnen zuverlässig Türen zu echten und nachhaltigen Kundenbeziehungen."
+      "points": [
+        "Angebote klar und verständlich kommuniziert",
+        "Geschichten, Tipps und Inspiration statt Werbedruck",
+        "Schafft Nähe und Vertrauen bei deinen Lesern",
+        "Öffnet Türen zu echten, nachhaltigen Kundenbeziehungen"
+      ]
     }
   ],
   "stats": [
@@ -95,6 +110,7 @@
       "heroText": "Ich bin Janine, Copywriterin für Reise- und Tourismusunternehmen. Ich helfe dir, deine Angebote mit Worten ins beste Licht zu rücken – auf Websites, in Blogs und Newslettern.",
       "heroPrimaryCta": "Projekt anfragen",
       "heroReferenceNote": "Referenzen sende ich dir gerne auf Anfrage zu.",
+      "blogNote": "Willst du meinen Schreibstil vorab kennenlernen? Wirf einen Blick in meinen",
       "servicesEyebrow": "Leistungen",
       "servicesTitle": "Worte, die deine Reiseangebote verkaufen",
       "servicesDescription": "Von der Website über den Blog bis zum Newsletter — Texte, die Emotionen wecken, Fernweh entfachen und deine Marke unvergesslich machen.",
@@ -121,8 +137,8 @@
         "Reise-Blogbeiträge mit SEO",
         "Newsletter & E-Mail-Strecken",
         "Destinations- & Hotelbeschreibungen",
-        "Magazine & Buchungsunterlagen",
-        "Storytelling & Über-uns-Seiten"
+        "Storytelling & Über-uns-Seiten",
+        "Reiseführer & Guides"
       ],
       "processEyebrow": "Ablauf",
       "processTitle": "So arbeiten wir zusammen",
@@ -166,6 +182,7 @@
         "Auch für die Freizeitpark Wisseler See GmbH war ich tätig und habe bei der Bild- und Textgestaltung der neuen Website mitgeholfen.",
         "Heute bin ich bei Tourismus NRW e.V. als Referentin für Kommunikation B2C tätig, schreibe für das NRW Magazin und bin die Stimme für Social Media. So vermarkte ich Nordrhein-Westfalen mit seinen vielen Schlössern, Burgen und Naturerlebnissen als eines der schönsten Reiseländer Deutschlands – und lebe dabei meine Leidenschaft für Reisen, Outdoor-Abenteuer und Storytelling jeden Tag aus."
       ],
+      "blogNote": "Lust auf eine Leseprobe meines Schreibstils? Ich schreibe regelmäßig eigene Reisegeschichten in meinem",
       "ctaButton": "Lass uns sprechen",
       "gallery": {
         "eyebrow": "Unterwegs",
@@ -216,7 +233,12 @@
           "title": "Zuverlässigkeit & Markenstimme",
           "description": "Pünktliche Lieferung, klare Sprache und ein konsistenter Auftritt über alle Kanäle hinweg."
         }
-      ]
+      ],
+      "blogTeaser": {
+        "eyebrow": "Aus dem Blog",
+        "title": "Meine neuesten Reisegeschichten",
+        "linkText": "Alle Beiträge im Blog"
+      }
     },
     "mediakit": {
       "metaTitle": "Media Kit",

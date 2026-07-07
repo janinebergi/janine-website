@@ -29,6 +29,7 @@ const LABELS: Record<string, string> = {
   label: "Beschriftung",
   services: "Leistungen (Kacheln)",
   title: "Titel",
+  points: "Stichpunkte",
   stats: "Zahlen / Statistik",
   value: "Wert",
   testimonials: "Kundenstimmen",
@@ -42,6 +43,19 @@ const LABELS: Record<string, string> = {
   arbeiten: "Seite „Arbeiten“",
   ueberMich: "Seite „Über mich“",
   kontakt: "Seite „Kontakt“",
+  mediakit: "Media Kit",
+  ratesEyebrow: "Raten – Label",
+  ratesTitle: "Raten – Überschrift",
+  ratesIntro: "Raten – Text",
+  rates: "Preisliste",
+  subtitle: "Untertitel",
+  steps: "Zeitaufwand-Schritte",
+  price: "Preis",
+  pricingNoteTitle: "Preis-Erklärung – Überschrift",
+  pricingNoteText: "Preis-Erklärung – Text",
+  brandsTitle: "Marken – Überschrift",
+  brands: "Marken",
+  intro: "Einleitung",
   header: "Kopfzeile",
   footer: "Fußzeile",
   metaTitle: "Seitentitel (Browser-Tab / SEO)",
@@ -49,6 +63,7 @@ const LABELS: Record<string, string> = {
   heroEyebrow: "Hero – kleines Label",
   heroTitle: "Hero – Überschrift",
   heroText: "Hero – Text",
+  blogNote: "Blog-Hinweis",
   heroHeadingPre: "Hero – Überschrift (Teil 1)",
   heroHeadingHighlight: "Hero – hervorgehobenes Wort",
   heroHeadingPost: "Hero – Überschrift (Teil 2)",
@@ -80,6 +95,8 @@ const LABELS: Record<string, string> = {
   valuesEyebrow: "Warum ich – Label",
   valuesTitle: "Warum ich – Überschrift",
   values: "Warum-ich-Punkte",
+  blogTeaser: "Blog-Kacheln (Über mich)",
+  linkText: "Link-Beschriftung",
   emailTitle: "E-Mail – Beschriftung",
   responseTitle: "Antwortzeit – Beschriftung",
   responseValue: "Antwortzeit – Wert",
@@ -185,9 +202,10 @@ function Node({
 
   return (
     <section
+      id={depth === 0 ? nodeKey : undefined}
       className={
         depth === 0
-          ? "rounded-2xl border border-border bg-surface/60 p-6"
+          ? "rounded-2xl border border-border bg-surface/60 p-6 scroll-mt-24"
           : "flex flex-col gap-4 rounded-xl border border-border/60 bg-bg/40 p-4"
       }
     >

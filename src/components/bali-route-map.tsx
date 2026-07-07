@@ -17,7 +17,7 @@ const stops: Stop[] = [
   { n: 1, name: "Uluwatu", highlight: "Surfen & Klippen", lon: 115.08, lat: -8.82, lx: 108, ly: 196, anchor: "end" },
   { n: 2, name: "Ubud", highlight: "Tempel & Vulkan", lon: 115.26, lat: -8.51, lx: 120, ly: 14, anchor: "middle" },
   { n: 3, name: "Nusa Penida", highlight: "Manta-Tauchen", lon: 115.51, lat: -8.73, lx: 226, ly: 174, anchor: "start" },
-  { n: 4, name: "Gili T", highlight: "Wracktauchen", lon: 116.04, lat: -8.35, lx: 295, ly: 108, anchor: "middle" },
+  { n: 4, name: "Gili T", highlight: "Wracktauchen", lon: 115.97, lat: -8.33, lx: 295, ly: 108, anchor: "middle" },
   { n: 5, name: "Tulamben", highlight: "Liberty-Wrack", lon: 115.59, lat: -8.28, lx: 255, ly: 30, anchor: "middle" },
   { n: 6, name: "Canggu", highlight: "Beachbars & Abreise", lon: 115.13, lat: -8.65, lx: 110, ly: 140, anchor: "end" },
 ];
@@ -54,6 +54,16 @@ const nusaPenida: [number, number][] = [
   [115.58, -8.79],
   [115.46, -8.78],
   [115.42, -8.72],
+];
+
+// Gili-Inseln (Trawangan, Meno, Air) als kleine Inselgruppe vor Lomboks Westküste
+const giliIslands: [number, number][] = [
+  [115.9, -8.28],
+  [115.99, -8.27],
+  [116.03, -8.33],
+  [116.0, -8.4],
+  [115.93, -8.39],
+  [115.88, -8.34],
 ];
 
 const lombok: [number, number][] = [
@@ -102,7 +112,7 @@ export function BaliRouteMap() {
           className="h-auto w-full max-w-[520px]"
         >
           {/* Landflächen */}
-          {[bali, nusaPenida, lombok].map((shape, i) => (
+          {[bali, nusaPenida, giliIslands, lombok].map((shape, i) => (
             <path
               key={i}
               d={toPath(shape)}

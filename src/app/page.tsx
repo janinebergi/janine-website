@@ -46,6 +46,16 @@ export default function Home() {
               <Button href="/kontakt">{t.heroPrimaryCta}</Button>
             </div>
             <p className="text-sm text-muted">{t.heroReferenceNote}</p>
+            <p className="text-sm text-muted">
+              {t.blogNote}{" "}
+              <Link
+                href="/blog"
+                className="font-medium text-accent-hover underline underline-offset-4 hover:opacity-80"
+              >
+                Blog
+              </Link>
+              .
+            </p>
           </div>
 
           <dl className="mt-16 grid max-w-md grid-cols-2 gap-8 border-t border-border/60 pt-8">
