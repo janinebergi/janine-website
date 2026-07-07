@@ -4,7 +4,7 @@ import { Analytics } from "@vercel/analytics/next";
 import "./globals.css";
 import { Header } from "@/components/layout/header";
 import { Footer } from "@/components/layout/footer";
-import { site } from "@/lib/site";
+import { getSiteContent } from "@/lib/site";
 import { getLang } from "@/lib/i18n";
 
 const inter = Inter({
@@ -19,27 +19,32 @@ const display = Space_Grotesk({
   display: "swap",
 });
 
-export const metadata: Metadata = {
-  metadataBase: new URL(site.url),
-  title: {
-    default: `${site.name} — ${site.role}`,
-    template: `%s — ${site.name}`,
-  },
-  description: site.description,
-  openGraph: {
-    title: `${site.name} — ${site.role}`,
+export async function generateMetadata(): Promise<Metadata> {
+  const lang = await getLang();
+  const { site } = getSiteContent(lang);
+
+  return {
+    metadataBase: new URL(site.url),
+    title: {
+      default: `${site.name} — ${site.role}`,
+      template: `%s — ${site.name}`,
+    },
     description: site.description,
-    url: site.url,
-    siteName: site.name,
-    locale: "de_DE",
-    type: "website",
-  },
-  twitter: {
-    card: "summary_large_image",
-    title: `${site.name} — ${site.role}`,
-    description: site.description,
-  },
-};
+    openGraph: {
+      title: `${site.name} — ${site.role}`,
+      description: site.description,
+      url: site.url,
+      siteName: site.name,
+      locale: lang === "en" ? "en_US" : "de_DE",
+      type: "website",
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: `${site.name} — ${site.role}`,
+      description: site.description,
+    },
+  };
+}
 
 export default async function RootLayout({
   children,

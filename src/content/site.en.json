@@ -355,7 +355,13 @@
     },
     "header": {
       "cta": "Enquire about a project",
-      "menuAriaLabel": "Open menu"
+      "menuAriaLabel": "Open menu",
+      "searchAriaLabelOpen": "Open search",
+      "searchAriaLabelClose": "Close search",
+      "searchPlaceholder": "Search pages & blog …",
+      "searchNoResults": "No results found.",
+      "searchTypeBlog": "Blog",
+      "searchTypePage": "Page"
     },
     "blog": {
       "metaTitle": "Blog",

@@ -9,10 +9,12 @@ import { getSiteContent } from "@/lib/site";
 import type { Lang } from "@/lib/i18n-constants";
 import { Button } from "@/components/ui/button";
 import { LanguageToggle } from "@/components/layout/language-toggle";
+import { SiteSearch } from "@/components/layout/site-search";
 
 export function Header({ lang }: { lang: Lang }) {
   const pathname = usePathname();
   const [open, setOpen] = useState(false);
+  const [searchOpen, setSearchOpen] = useState(false);
   const { nav, pages, site } = getSiteContent(lang);
 
   return (
@@ -57,22 +59,33 @@ export function Header({ lang }: { lang: Lang }) {
         </nav>
 
         <div className="hidden items-center gap-3 md:flex">
+          <SiteSearch lang={lang} labels={pages.header} />
           <LanguageToggle lang={lang} />
           <Button href="/kontakt" className="px-5 py-2.5">
             {pages.header.cta}
           </Button>
         </div>
 
-        <div className="flex items-center gap-3 md:hidden">
-          <LanguageToggle lang={lang} />
-          <button
-            type="button"
-            aria-label={pages.header.menuAriaLabel}
-            className="text-foreground"
-            onClick={() => setOpen((v) => !v)}
-          >
-            {open ? <X size={24} /> : <Menu size={24} />}
-          </button>
+        <div className="flex min-w-0 flex-1 items-center justify-end gap-3 md:hidden">
+          <SiteSearch
+            lang={lang}
+            labels={pages.header}
+            onOpenChange={setSearchOpen}
+            className={searchOpen ? "min-w-0 flex-1" : ""}
+          />
+          {!searchOpen && (
+            <>
+              <LanguageToggle lang={lang} />
+              <button
+                type="button"
+                aria-label={pages.header.menuAriaLabel}
+                className="shrink-0 text-foreground"
+                onClick={() => setOpen((v) => !v)}
+              >
+                {open ? <X size={24} /> : <Menu size={24} />}
+              </button>
+            </>
+          )}
         </div>
       </div>
 

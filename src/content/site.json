@@ -355,7 +355,13 @@
     },
     "header": {
       "cta": "Projekt anfragen",
-      "menuAriaLabel": "Menü öffnen"
+      "menuAriaLabel": "Menü öffnen",
+      "searchAriaLabelOpen": "Suche öffnen",
+      "searchAriaLabelClose": "Suche schließen",
+      "searchPlaceholder": "Seiten & Blog durchsuchen …",
+      "searchNoResults": "Keine Ergebnisse gefunden.",
+      "searchTypeBlog": "Blog",
+      "searchTypePage": "Seite"
     },
     "blog": {
       "metaTitle": "Blog",

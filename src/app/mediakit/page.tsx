@@ -26,9 +26,9 @@ export default async function MediakitPage() {
   const values = pages.ueberMich.values;
 
   return (
-    <div className="bg-surface-2/40 py-10 print:bg-bg print:py-0">
+    <div className="bg-surface-2/40 px-4 py-8 sm:px-6 sm:py-10 print:bg-bg print:p-0">
       {/* Bedienleiste – erscheint nicht im PDF */}
-      <div className="mk-no-print mx-auto mb-8 flex w-full max-w-[210mm] flex-col gap-4 px-6 sm:flex-row sm:items-center sm:justify-between">
+      <div className="mk-no-print mx-auto mb-6 flex w-full max-w-[210mm] flex-col gap-4 sm:mb-8 sm:flex-row sm:items-center sm:justify-between">
         <div>
           <h1 className="text-2xl font-semibold">Media Kit</h1>
           <p className="mt-1 max-w-xl text-sm text-muted">{t.printHint}</p>
@@ -39,13 +39,13 @@ export default async function MediakitPage() {
       {/* ---------------------------------------------------------------- */}
       {/* Blatt 1 – Profil, Warum ich, Marken                              */}
       {/* ---------------------------------------------------------------- */}
-      <article className="mk-sheet relative flex flex-col gap-8 rounded-[1.5rem] border border-border p-[16mm] shadow-2xl shadow-black/40 print:gap-8">
+      <article className="mk-sheet relative flex flex-col gap-6 rounded-[1.5rem] border border-border p-6 shadow-2xl shadow-black/40 sm:gap-8 sm:p-10 lg:p-[16mm] print:gap-8 print:p-[16mm]">
         <div className="glow-radial pointer-events-none absolute inset-x-0 top-0 h-56" />
 
         {/* Kopf */}
         <header className="relative flex flex-col gap-3">
           <Eyebrow>{t.coverEyebrow}</Eyebrow>
-          <h2 className="text-5xl font-semibold leading-[1.02] tracking-tight">
+          <h2 className="text-3xl font-semibold leading-[1.02] tracking-tight sm:text-4xl lg:text-5xl print:text-5xl">
             {site.name}
           </h2>
           <p className="text-lg text-accent-hover">{t.coverRole}</p>
@@ -53,13 +53,13 @@ export default async function MediakitPage() {
         </header>
 
         {/* Portrait + Intro */}
-        <section className="relative grid grid-cols-[68mm_1fr] gap-8">
-          <div className="relative aspect-[3/4] overflow-hidden rounded-2xl border border-border">
+        <section className="relative grid grid-cols-1 gap-6 lg:grid-cols-[68mm_1fr] lg:gap-8 print:grid-cols-[68mm_1fr] print:gap-8">
+          <div className="relative mx-auto aspect-[3/4] w-full max-w-[240px] overflow-hidden rounded-2xl border border-border lg:mx-0 lg:w-auto lg:max-w-none print:mx-0 print:w-auto print:max-w-none">
             <Image
               src={t.portraitImage}
               alt={t.portraitAlt}
               fill
-              sizes="68mm"
+              sizes="(min-width: 1024px) 68mm, 240px"
               className="object-cover"
             />
           </div>
@@ -83,7 +83,7 @@ export default async function MediakitPage() {
         {/* Warum ich */}
         <section className="relative flex flex-col gap-5">
           <Eyebrow>{t.valuesTitle}</Eyebrow>
-          <div className="grid grid-cols-2 gap-4">
+          <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
             {values.map((v) => (
               <div
                 key={v.title}
@@ -119,10 +119,10 @@ export default async function MediakitPage() {
       {/* ---------------------------------------------------------------- */}
       {/* Blatt 2 – Services & Raten                                        */}
       {/* ---------------------------------------------------------------- */}
-      <article className="mk-sheet relative mt-10 flex flex-col gap-8 rounded-[1.5rem] border border-border p-[16mm] shadow-2xl shadow-black/40 print:mt-0">
+      <article className="mk-sheet relative mt-6 flex flex-col gap-6 rounded-[1.5rem] border border-border p-6 shadow-2xl shadow-black/40 sm:mt-10 sm:gap-8 sm:p-10 lg:p-[16mm] print:mt-0 print:p-[16mm]">
         <header className="flex flex-col gap-3">
           <Eyebrow>{t.ratesEyebrow}</Eyebrow>
-          <h2 className="text-4xl font-semibold tracking-tight">
+          <h2 className="text-2xl font-semibold tracking-tight sm:text-3xl lg:text-4xl print:text-4xl">
             {t.ratesTitle}
           </h2>
           <p className="max-w-2xl text-sm leading-relaxed text-muted">
@@ -130,7 +130,7 @@ export default async function MediakitPage() {
           </p>
         </header>
 
-        <section className="grid grid-cols-3 gap-5">
+        <section className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3 print:grid-cols-3">
           {t.rates.map((rate) => (
             <div
               key={rate.title}
@@ -167,7 +167,7 @@ export default async function MediakitPage() {
         </section>
 
         {/* Preis-Erklärung */}
-        <section className="rounded-2xl border border-accent/30 bg-accent-soft/40 p-8">
+        <section className="rounded-2xl border border-accent/30 bg-accent-soft/40 p-5 sm:p-8">
           <h3 className="text-xl font-semibold">{t.pricingNoteTitle}</h3>
           <p className="mt-3 max-w-3xl text-sm leading-relaxed text-foreground/85">
             {t.pricingNoteText}

@@ -102,8 +102,8 @@
    Auf dem Bildschirm als zentrierte Karten, im Druck als saubere A4-Seiten.
    --------------------------------------------------------------------------- */
 .mk-sheet {
-  width: 210mm;
-  min-height: 297mm;
+  width: 100%;
+  max-width: 210mm;
   margin-inline: auto;
   background-color: var(--color-bg);
   color: var(--color-foreground);
@@ -114,6 +114,12 @@
   @page {
     size: A4;
     margin: 0;
+  }
+
+  .mk-sheet {
+    width: 210mm;
+    max-width: none;
+    min-height: 297mm;
   }
 
   /* Nur das Media Kit drucken: Header, Footer und Bedienelemente ausblenden. */
