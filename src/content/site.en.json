@@ -1,0 +1,437 @@
+{
+  "site": {
+    "name": "Janine",
+    "role": "Travel & Tourism Copywriter",
+    "tagline": "Because great copy isn't luck — it's word choice.",
+    "description": "Janine is a copywriter for travel and tourism businesses. Copy for websites, blogs and newsletters that stirs emotion, sparks wanderlust and moves travellers to book.",
+    "email": "hallo@janinebergmann.de",
+    "url": "https://janinebergmann.de",
+    "heroImage": "/assets/website/header.avif",
+    "social": {
+      "linkedin": "https://www.linkedin.com/in/janine-bergmann/",
+      "instagram": "https://www.instagram.com/"
+    }
+  },
+  "nav": [
+    {
+      "href": "/",
+      "label": "Home"
+    },
+    {
+      "href": "/leistungen",
+      "label": "Services"
+    },
+    {
+      "href": "/ueber-mich",
+      "label": "About me"
+    },
+    {
+      "href": "/blog",
+      "label": "Blog"
+    },
+    {
+      "href": "/kontakt",
+      "label": "Contact"
+    }
+  ],
+  "services": [
+    {
+      "title": "Blog posts that spark wanderlust",
+      "image": "/assets/website/leistung-blog.avif",
+      "imagePosition": "center 30%",
+      "teaser": "Make adventure tangible and bring your offers to life with stories – SEO-optimised, from the first sentence to the last click.",
+      "points": [
+        "Sparks wanderlust and makes adventure tangible",
+        "Hotels, destinations & experiences become vivid",
+        "Your brand stays emotionally memorable",
+        "SEO-optimised – visible from the first sentence to the last click"
+      ]
+    },
+    {
+      "title": "Website copy that sells travel dreams",
+      "image": "/assets/website/IMG_2961.avif",
+      "imagePosition": "center",
+      "teaser": "Present your offers vividly and show your brand authentically – SEO-optimised, so attention turns into new customers.",
+      "points": [
+        "Offers presented vividly, brand shown authentically",
+        "Stories and emotion instead of dry facts",
+        "Visitors feel spoken to and stay on the page",
+        "SEO-optimised – attention turns into new customers"
+      ]
+    },
+    {
+      "title": "Newsletters that tell stories",
+      "image": "/assets/website/leistung-newsletter.avif",
+      "imagePosition": "center",
+      "teaser": "Communicate your offers clearly while building closeness and trust – through stories, tips and inspiration, never pushy.",
+      "points": [
+        "Offers communicated clearly and comprehensibly",
+        "Stories, tips and inspiration instead of sales pressure",
+        "Builds closeness and trust with your readers",
+        "Opens doors to genuine, lasting customer relationships"
+      ]
+    }
+  ],
+  "stats": [
+    {
+      "value": "17",
+      "label": "Countries travelled"
+    },
+    {
+      "value": "8",
+      "label": "Years in tourism"
+    }
+  ],
+  "testimonials": [
+    {
+      "id": "stimme-1",
+      "quote": "Janine's copy completely transformed our website. Dry descriptions became stories people actually want to read.",
+      "name": "Sarah Klein",
+      "role": ""
+    },
+    {
+      "id": "stimme-2",
+      "quote": "We hired Janine for our blog and were convinced after the very first piece. She nails our tone, researches thoroughly and always delivers reliably.",
+      "name": "Markus Weber",
+      "role": ""
+    },
+    {
+      "id": "stimme-3",
+      "quote": "Finally newsletter copy that doesn't read like advertising, but like real travel stories. Our open rates have been noticeably better ever since.",
+      "name": "Lena Hoffmann",
+      "role": ""
+    }
+  ],
+  "pages": {
+    "home": {
+      "heroHeadingPre": "Copy that sparks ",
+      "heroHeadingHighlight": "wanderlust",
+      "heroHeadingPost": ".",
+      "heroText": "I'm Janine, a copywriter for travel and tourism businesses. I help you put your offers in the best possible light with words – on websites, in blogs and newsletters.",
+      "heroPrimaryCta": "Enquire about a project",
+      "heroReferenceNote": "I'm happy to send references on request.",
+      "blogNote": "Want to get a feel for my writing style first? Take a look at my",
+      "servicesEyebrow": "Services",
+      "servicesTitle": "Words that sell your travel offers",
+      "servicesDescription": "From the website to the blog to the newsletter — copy that stirs emotion, ignites wanderlust and makes your brand unforgettable.",
+      "servicesLink": "All services",
+      "testimonialsEyebrow": "Voices",
+      "testimonialsTitle": "What clients say",
+      "ctaTitle": "Ready for copy that works?",
+      "ctaText": "Tell me about your project — I'll get back to you as soon as possible with next steps.",
+      "ctaButton": "Enquire about a project now"
+    },
+    "leistungen": {
+      "metaTitle": "Services",
+      "metaDescription": "Copywriting for travel and tourism businesses: website copy, blog posts and newsletters that spark wanderlust and move travellers to book.",
+      "heroEyebrow": "Services",
+      "heroTitle": "Because great copy isn't luck — it's word choice.",
+      "heroImage": "/assets/website/leistungen-header.avif",
+      "heroImageAlt": "Camel caravan at sunset",
+      "heroText": "I help travel and tourism businesses put their offers in the best possible light with words. Whether it's a website, blog or newsletter – I write copy that doesn't just inform, but stirs emotion, ignites wanderlust and successfully sells your offers. With the right words, travel experiences become tangible, the urge to explore becomes palpable, and your brand becomes unforgettable. Let's tell stories together that excite your customers – and lead them to your solution.",
+      "deliverablesEyebrow": "What you get",
+      "deliverablesTitle": "Everything from one pen",
+      "deliverablesDescription": "A selection of the formats I write regularly. Need something else? Just ask.",
+      "deliverables": [
+        "Website & landing page copy",
+        "Travel blog posts with SEO",
+        "Newsletters & email sequences",
+        "Destination & hotel descriptions",
+        "Storytelling & about pages",
+        "Travel guides"
+      ],
+      "mediakitEditLabel": "Edit media kit",
+      "referencesEyebrow": "References",
+      "processEyebrow": "Process",
+      "processTitle": "How we work together",
+      "process": [
+        {
+          "step": "01",
+          "title": "Getting to know each other & briefing",
+          "description": "We clarify goals, target audience and tone. I dive deep into your brand."
+        },
+        {
+          "step": "02",
+          "title": "Research & strategy",
+          "description": "Market, competitors and customer voices — this is where the copy strategy takes shape."
+        },
+        {
+          "step": "03",
+          "title": "Writing & polishing",
+          "description": "First draft, joint feedback, two rounds of revisions included."
+        },
+        {
+          "step": "04",
+          "title": "Handover & impact",
+          "description": "Finished copy, cleanly documented and ready to use."
+        }
+      ],
+      "ctaButton": "Get in touch, no obligation"
+    },
+    "ueberMich": {
+      "metaTitle": "About me",
+      "metaDescription": "Get to know Janine — a copywriter with a passion for clear, effective language.",
+      "heroEyebrow": "About me",
+      "heroTitle": "Who am I?",
+      "heroImage": "/assets/website/ueber-mich-2.avif",
+      "heroImageAlt": "Janine surfing",
+      "paragraphs": [
+        "I'm Janine, and I don't just love to travel – I love writing about it too. I'm an absolute action fan and always up for the next adventure.",
+        "When I'm not out catching the next wave, I live in Düsseldorf on the beautiful Rhine. Even here, away from work, I'm looking for action: whether it's inline skating along the Rhine, a horseback ride through the forest, or kickboxing – I'm always on the lookout for new challenges.",
+        "Travel, sport and adventure shape my everyday life and my stories. Whether far away or right on my doorstep – I love seizing every opportunity to experience something new and gather authentic travel experiences.",
+        "Since tourism excites me professionally as much as my private travels do, after training as a certified travel and leisure specialist I went on to complete a state-certified business economics qualification specialising in tourism. Even during that time, I was already writing copy for the website and social media at my training company.",
+        "After a brief stint at a media agency, my path led me to the tour operator alltours. In sales marketing, I was able to deepen my writing skills further, producing numerous newsletters and magazines – from booking guides for travellers to magazines that kept travel agencies informed of the latest news. Always with the goal of presenting trips and destinations in an appealing way.",
+        "I've also worked for Freizeitpark Wisseler See GmbH, helping shape the imagery and copy for their new website.",
+        "Today I work at Tourismus NRW e.V. as a communications specialist for B2C, writing for the NRW Magazin and serving as the voice for social media. This is how I market North Rhine-Westphalia, with its many castles, fortresses and natural experiences, as one of Germany's most beautiful travel destinations – living out my passion for travel, outdoor adventure and storytelling every day."
+      ],
+      "blogNote": "Fancy a sample of my writing style? I regularly write my own travel stories on my",
+      "ctaButton": "Let's talk",
+      "gallery": {
+        "eyebrow": "On the road",
+        "title": "Moments from my travels",
+        "images": [
+          {
+            "src": "/assets/website/ueber-mich.avif",
+            "alt": "Janine in a red dress at sunset"
+          },
+          {
+            "src": "/assets/website/ueber-mich-3.avif",
+            "alt": "Janine in front of the Eiffel Tower in Paris"
+          },
+          {
+            "src": "/assets/website/ueber-mich-4.avif",
+            "alt": "Janine at a mountain lake"
+          },
+          {
+            "src": "/assets/website/ueber-mich-5.avif",
+            "alt": "Janine in a pickup truck wearing a cowboy hat"
+          },
+          {
+            "src": "/assets/website/ueber-mich-6.avif",
+            "alt": "Janine with a surfboard on the beach"
+          },
+          {
+            "src": "/assets/website/ueber-mich-7.avif",
+            "alt": "Janine swimming in the sea"
+          }
+        ]
+      },
+      "valuesEyebrow": "Why me?",
+      "valuesTitle": "What you get from me",
+      "values": [
+        {
+          "title": "Travel expertise & storytelling",
+          "description": "Copy that stirs emotion, sparks wanderlust and moves travellers to book."
+        },
+        {
+          "title": "SEO-optimised content",
+          "description": "Search-friendly travel copy that makes your website more visible – without forced keywords."
+        },
+        {
+          "title": "Tailor-made solutions",
+          "description": "Bespoke copy for your travel business – from the website to the blog to the newsletter."
+        },
+        {
+          "title": "Reliability & brand voice",
+          "description": "On-time delivery, clear language and a consistent presence across every channel."
+        }
+      ],
+      "blogTeaser": {
+        "eyebrow": "From the blog",
+        "title": "My latest travel stories",
+        "linkText": "All blog posts"
+      }
+    },
+    "mediakit": {
+      "metaTitle": "Media Kit",
+      "metaDescription": "Janine's media kit – travel & tourism copywriter. Profile, services and rates at a glance, as a downloadable PDF.",
+      "downloadLabel": "Save as PDF",
+      "printHint": "Tip: In the print dialog, choose \"Save as PDF\", set margins to \"None\" and enable \"Background graphics\".",
+      "coverEyebrow": "Media Kit",
+      "coverRole": "Travel & Tourism Copywriter",
+      "intro": "I'm Janine, a tourism expert and content creator specialising in travel and destination marketing. After training as a certified travel and leisure specialist and completing a state-certified business economics qualification in tourism, I've written professional copy for websites, social media, newsletters and magazines across several roles – including in sales marketing at alltours. Today I market North Rhine-Westphalia as a versatile travel destination, combining my experience in tourism with my passion for authentic, inspiring travel content.",
+      "portraitImage": "/assets/website/ueber-mich.avif",
+      "portraitAlt": "Janine",
+      "brandsTitle": "Brands I've written for",
+      "brands": [
+        "Tourismus NRW e.V.",
+        "alltours",
+        "Ferien- und Campingpark Wisseler See",
+        "Niederrhein Medien"
+      ],
+      "valuesTitle": "Why me?",
+      "ratesEyebrow": "Services & rates",
+      "ratesTitle": "Services I offer",
+      "ratesIntro": "Blog posts, website copy and newsletters – storytelling that stirs emotion, presents offers clearly and builds lasting relationships with customers.",
+      "rates": [
+        {
+          "title": "Website copy",
+          "subtitle": "e.g. homepage",
+          "steps": [
+            "Briefing & structure: 1.5–2 h",
+            "Writing: 3–4 h",
+            "Revisions: 1–1.5 h",
+            "Total: approx. 5.5–7.5 hours"
+          ],
+          "price": "€275–375"
+        },
+        {
+          "title": "Blog post",
+          "subtitle": "approx. 1,000–1,200 words",
+          "steps": [
+            "Research & concept: 1–1.5 h",
+            "Writing: 2–3 h",
+            "Revisions & polish: 1 h",
+            "Total: approx. 4–5.5 hours"
+          ],
+          "price": "€200–275"
+        },
+        {
+          "title": "Newsletter",
+          "subtitle": "1 issue",
+          "steps": [
+            "Topic & structure: 0.5–1 h",
+            "Writing: 1–1.5 h",
+            "Polish: 0.5 h",
+            "Total: approx. 2–3 hours"
+          ],
+          "price": "€100–150"
+        }
+      ],
+      "pricingNoteTitle": "How are my prices calculated?",
+      "pricingNoteText": "My prices aren't based on writing time alone, but on the entire creative process: research, concept, writing, revisions and coordination. This is how copy is created that doesn't just sound good, but actually works.",
+      "priceLabel": "Price"
+    },
+    "kontakt": {
+      "metaTitle": "Contact",
+      "metaDescription": "Get in touch with Janine about your next copywriting project — a reply as soon as possible.",
+      "heroEyebrow": "Contact",
+      "heroTitle": "Tell me about your project.",
+      "heroImage": "/assets/website/ueber-mich-4.avif",
+      "heroImageAlt": "Sunset over the sea with palm trees",
+      "heroText": "Interested in my copy or want to talk about your project? Just drop me a quick note about what you have in mind – I'll get back to you personally, soon.",
+      "emailTitle": "Email",
+      "responseTitle": "Response time",
+      "responseValue": "As soon as possible",
+      "callTitle": "Initial call",
+      "callValue": "Free & no obligation",
+      "blogEyebrow": "Blog",
+      "blogTitle": "Not ready yet? Have a read.",
+      "allPostsLabel": "All posts"
+    },
+    "header": {
+      "cta": "Enquire about a project",
+      "menuAriaLabel": "Open menu"
+    },
+    "blog": {
+      "metaTitle": "Blog",
+      "metaDescription": "Stories and tips about travel — and thoughts on copywriting. Personally from Janine.",
+      "heroImageAlt": "Lush green rice terraces with palm trees under a dramatic cloudy sky",
+      "heroEyebrow": "Blog",
+      "heroTitle": "Stories and tips about travel.",
+      "heroText": "Travel is my inspiration, writing is my passion. Here I share routes, budgets and adventures – and every now and then, thoughts on copywriting.",
+      "emptyState": "The first posts are coming soon.",
+      "featuredLabel": "Latest post",
+      "readingTimeShort": "min",
+      "readingTimeLong": "min read",
+      "collabEyebrow": "Collaboration",
+      "collabTitle": "Want to work together?",
+      "collabText": "Came across one of my posts and interested in a collaboration? Got a product, a hotel, an accommodation or a travel experience you'd like me to try out and feature here on the blog? Feel free to get in touch – I'd love to hear from you.",
+      "collabCta": "Get in touch"
+    },
+    "blogPost": {
+      "backToBlog": "Back to blog",
+      "galleryTitle": "Gallery",
+      "qaTitle": "Q & A",
+      "writtenBy": "Written by",
+      "projectCta": "Enquire about a project →"
+    },
+    "impressum": {
+      "metaTitle": "Legal Notice",
+      "metaDescription": "Legal notice and provider identification for Janine.",
+      "eyebrow": "Legal",
+      "title": "Legal Notice",
+      "contact": {
+        "street": "⟨Street and house number⟩",
+        "city": "⟨Postcode City⟩",
+        "country": "Germany",
+        "phone": "⟨Phone number⟩"
+      },
+      "addressHeading": "Information according to § 5 DDG",
+      "contactHeading": "Contact",
+      "phoneLabel": "Phone:",
+      "emailLabel": "Email:",
+      "editorialHeading": "Responsible for editorial content",
+      "disputeHeading": "Consumer dispute resolution / universal arbitration board",
+      "disputeText": "I am not willing and not obliged to participate in dispute resolution proceedings before a consumer arbitration board.",
+      "liabilityContentHeading": "Liability for content",
+      "liabilityContentText": "As a service provider, I am responsible for my own content on these pages in accordance with general law, pursuant to § 7 (1) DDG. However, pursuant to §§ 8 to 10 DDG, I am not obliged as a service provider to monitor transmitted or stored third-party information or to investigate circumstances that indicate illegal activity. Obligations to remove or block the use of information under general law remain unaffected. However, liability in this regard is only possible from the point in time at which a specific infringement becomes known. Upon becoming aware of any such infringements, I will remove this content immediately.",
+      "liabilityLinksHeading": "Liability for links",
+      "liabilityLinksText": "My site contains links to external third-party websites, over whose content I have no influence. Therefore, I cannot accept any liability for this external content. The respective provider or operator of the linked pages is always responsible for their content. The linked pages were checked for possible legal violations at the time of linking. Illegal content was not recognisable at the time of linking. However, permanent monitoring of the content of linked pages is not reasonable without concrete evidence of a legal violation. Upon becoming aware of any legal infringements, I will remove such links immediately.",
+      "copyrightHeading": "Copyright",
+      "copyrightText": "The content and works created by the site operator on these pages are subject to German copyright law. Reproduction, editing, distribution and any kind of exploitation beyond the limits of copyright law require the written consent of the respective author. Downloads and copies of this page are only permitted for private, non-commercial use. Insofar as the content on this page was not created by the operator, the copyrights of third parties are respected. In particular, third-party content is identified as such. Should you nevertheless become aware of a copyright infringement, please notify me accordingly. Upon becoming aware of any infringements, I will remove such content immediately."
+    },
+    "datenschutz": {
+      "metaTitle": "Privacy Policy",
+      "metaDescription": "Privacy policy for Janine – information on the processing of personal data under the GDPR.",
+      "eyebrow": "Legal",
+      "title": "Privacy Policy",
+      "intro": "Protecting your personal data matters to me. Below, I explain what data is processed when you visit this website and what rights you have.",
+      "controller": {
+        "street": "⟨Street and house number⟩",
+        "city": "⟨Postcode City⟩",
+        "country": "Germany",
+        "phone": "⟨Phone number⟩"
+      },
+      "phoneLabel": "Phone:",
+      "emailLabel": "Email:",
+      "sections": [
+        {
+          "heading": "1. Controller",
+          "text": "The controller responsible for data processing on this website within the meaning of the General Data Protection Regulation (GDPR) is:"
+        },
+        {
+          "heading": "2. Access data & server log files",
+          "text": "When you visit this website, the hosting provider automatically collects information that your browser transmits. This includes in particular: IP address, date and time of access, the page accessed, browser and operating system used, and the previously visited page (referrer). This data is technically necessary to display the website and ensure its stability and security. The legal basis is Art. 6(1)(f) GDPR (legitimate interest in a secure and functional offering). This data is not combined with other data sources or evaluated for marketing purposes."
+        },
+        {
+          "heading": "3. Hosting",
+          "text": "This website is hosted by an external service provider: ⟨name and address of the hosting provider, e.g. Vercel Inc.⟩. The provider processes the data generated in connection with visits to the website (see \"Access data & server log files\") on my behalf, based on Art. 6(1)(f) GDPR. A data processing agreement (Art. 28 GDPR) is in place with the provider, ensuring compliant handling of the data."
+        },
+        {
+          "heading": "4. Contact",
+          "text": "The contact form on this website does not store your input on a server. When submitted, it simply opens your own email programme with the details you entered (name, email address and message), so you send the message yourself. If you contact me by email or phone, I process the information you provide in order to handle your enquiry. The legal basis is Art. 6(1)(b) GDPR (initiation or performance of a contract) or Art. 6(1)(f) GDPR (legitimate interest in responding to your enquiry). I delete this data as soon as it is no longer required for the purpose for which it was collected, and no statutory retention obligations apply."
+        },
+        {
+          "heading": "5. Fonts",
+          "text": "For a consistent display of fonts, this website uses locally hosted fonts. The font files are loaded directly from this website's server; no connection is made to third-party servers (such as Google Fonts), and no IP address is transmitted to third parties."
+        },
+        {
+          "heading": "6. Cookies & analytics",
+          "text": "This website does not use cookies for tracking or marketing purposes and does not use any analytics or reach-measurement services."
+        },
+        {
+          "heading": "7. Your rights",
+          "text": "You have the following rights regarding your personal data: access (Art. 15 GDPR), rectification (Art. 16 GDPR), erasure (Art. 17 GDPR), restriction of processing (Art. 18 GDPR), data portability (Art. 20 GDPR), and objection to processing (Art. 21 GDPR). To exercise these rights, an informal message to the contact details given above is sufficient."
+        },
+        {
+          "heading": "8. Right to complain to a supervisory authority",
+          "text": "Independent of the above, you have the right to lodge a complaint with a data protection supervisory authority if you believe that the processing of your personal data violates the GDPR."
+        },
+        {
+          "heading": "9. Currency of this privacy policy",
+          "text": "This privacy policy is updated as needed to reflect changed legal requirements or changes to the website. The version published here is always the current one."
+        }
+      ]
+    },
+    "footer": {
+      "tagline": "Copy that sparks wanderlust and moves travellers to book.",
+      "navLabel": "Navigation",
+      "contactLabel": "Contact",
+      "mediakitLabel": "Media Kit (PDF)",
+      "rights": "All rights reserved.",
+      "impressum": "Legal Notice",
+      "datenschutz": "Privacy Policy"
+    }
+  }
+}

@@ -5,12 +5,15 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useState } from "react";
 import { Menu, X } from "lucide-react";
-import { nav, pages, site } from "@/lib/site";
+import { getSiteContent } from "@/lib/site";
+import type { Lang } from "@/lib/i18n";
 import { Button } from "@/components/ui/button";
+import { LanguageToggle } from "@/components/layout/language-toggle";
 
-export function Header() {
+export function Header({ lang }: { lang: Lang }) {
   const pathname = usePathname();
   const [open, setOpen] = useState(false);
+  const { nav, pages, site } = getSiteContent(lang);
 
   return (
     <header className="sticky top-0 z-50 border-b border-border/60 bg-bg/80 backdrop-blur-md">
@@ -53,20 +56,24 @@ export function Header() {
           })}
         </nav>
 
-        <div className="hidden md:block">
+        <div className="hidden items-center gap-3 md:flex">
+          <LanguageToggle lang={lang} />
           <Button href="/kontakt" className="px-5 py-2.5">
             {pages.header.cta}
           </Button>
         </div>
 
-        <button
-          type="button"
-          aria-label="Menü öffnen"
-          className="text-foreground md:hidden"
-          onClick={() => setOpen((v) => !v)}
-        >
-          {open ? <X size={24} /> : <Menu size={24} />}
-        </button>
+        <div className="flex items-center gap-3 md:hidden">
+          <LanguageToggle lang={lang} />
+          <button
+            type="button"
+            aria-label={pages.header.menuAriaLabel}
+            className="text-foreground"
+            onClick={() => setOpen((v) => !v)}
+          >
+            {open ? <X size={24} /> : <Menu size={24} />}
+          </button>
+        </div>
       </div>
 
       {open && (

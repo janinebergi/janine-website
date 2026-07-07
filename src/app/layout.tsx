@@ -5,6 +5,7 @@ import "./globals.css";
 import { Header } from "@/components/layout/header";
 import { Footer } from "@/components/layout/footer";
 import { site } from "@/lib/site";
+import { getLang } from "@/lib/i18n";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -40,15 +41,17 @@ export const metadata: Metadata = {
   },
 };
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: {
   children: React.ReactNode;
 }) {
+  const lang = await getLang();
+
   return (
-    <html lang="de" className={`${inter.variable} ${display.variable}`}>
+    <html lang={lang} className={`${inter.variable} ${display.variable}`}>
       <body className="min-h-screen antialiased">
-        <Header />
+        <Header lang={lang} />
         <main>{children}</main>
         <Footer />
         <Analytics />

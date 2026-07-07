@@ -3,7 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 import {
   GraduationCap,
-  Award,
+  Landmark,
   Newspaper,
   Plane,
   FerrisWheel,
@@ -26,40 +26,48 @@ const values = t.values;
 const blogTeaser = t.blogTeaser;
 
 // Werdegang und Hobbys als grafische Darstellung der Einleitungstexte.
-// Direkt aus den Absätzen von t.paragraphs übernommen, nichts erfunden.
 const timeline = [
   {
-    icon: GraduationCap,
-    title: "Ausbildung zur Kauffrau für Tourismus und Freizeit",
-    description:
-      "Schon während der Ausbildung erste Texte für Website und Social Media geschrieben.",
+    icon: FerrisWheel,
+    title: "Ausbildung: Kauffrau für Tourismus und Freizeit",
+    subtitle: "Alfred-Müller-Armack-Berufskolleg Köln · bei Freizeitpark Wisseler See GmbH",
+    date: "Aug. 2018 – Juni 2021",
+    description: "Abschluss mit der Note 1,1.",
   },
   {
-    icon: Award,
-    title: "Staatlich geprüfte Betriebswirtin, Fachrichtung Tourismus",
-    description: "Zusätzliche Weiterbildung im Anschluss an die Ausbildung.",
+    icon: Landmark,
+    title: "Praktikum: Wirtschaftsförderung und Stadtmarketing",
+    subtitle: "Stadt Kevelaer",
+    date: "Nov. 2019 – Feb. 2020",
+    description: "",
+  },
+  {
+    icon: GraduationCap,
+    title: "Staatlich geprüfte Betriebswirtin, Fachrichtung Tourismus, Wirtschaft",
+    subtitle: "Kölner Fachschule für Tourismus · parallel zur Vollzeitstelle bei Freizeitpark Wisseler See GmbH",
+    date: "Aug. 2021 – Mai 2023",
+    description: "",
   },
   {
     icon: Newspaper,
-    title: "Medienagentur",
-    description: "Ein kurzer Abstecher, bevor es zum Reiseveranstalter ging.",
+    title: "Online-Redakteurin und Social Media Management",
+    subtitle: "Niederrhein Medien GmbH",
+    date: "Juli 2023 – Feb. 2024",
+    description: "",
   },
   {
     icon: Plane,
-    title: "alltours – Vertriebsmarketing",
-    description:
-      "Newsletter und Magazine verfasst – von Buchungshilfen für Reisende bis zu Magazinen für Reisebüros.",
-  },
-  {
-    icon: FerrisWheel,
-    title: "Freizeitpark Wisseler See GmbH",
-    description: "Bei der Bild- und Textgestaltung der neuen Website mitgeholfen.",
+    title: "Mitarbeiterin Vertriebsmarketing (B2B Marketing)",
+    subtitle: "alltours flugreisen gmbh",
+    date: "März 2024 – Juli 2025",
+    description: "",
   },
   {
     icon: MapPin,
-    title: "Tourismus NRW e.V. (heute)",
-    description:
-      "Referentin für Kommunikation B2C – schreibt fürs NRW Magazin und ist die Stimme für Social Media.",
+    title: "Referentin Kommunikation B2C",
+    subtitle: "Tourismus NRW e.V.",
+    date: "Juli 2025 – heute",
+    description: "Schreibt fürs NRW Magazin und ist die Stimme für Social Media.",
   },
 ];
 
@@ -161,12 +169,20 @@ export default function UeberMichPage() {
                   <span className="absolute -left-[calc(2rem+1px)] top-0 flex h-10 w-10 -translate-x-1/2 items-center justify-center rounded-full bg-accent-soft text-accent-hover ring-4 ring-bg transition-transform duration-300 group-hover:scale-110 group-hover:rotate-6 sm:-left-[calc(2.5rem+1px)] sm:h-12 sm:w-12">
                     <step.icon className="h-5 w-5 sm:h-6 sm:w-6" />
                   </span>
-                  <h3 className="text-lg font-semibold text-foreground">
-                    {step.title}
-                  </h3>
-                  <p className="mt-1 leading-relaxed text-muted">
-                    {step.description}
-                  </p>
+                  <div className="flex flex-wrap items-baseline justify-between gap-x-4 gap-y-1">
+                    <h3 className="text-lg font-semibold text-foreground">
+                      {step.title}
+                    </h3>
+                    <span className="whitespace-nowrap text-xs uppercase tracking-wide text-accent-hover">
+                      {step.date}
+                    </span>
+                  </div>
+                  <p className="mt-1 text-sm text-muted">{step.subtitle}</p>
+                  {step.description && (
+                    <p className="mt-2 leading-relaxed text-muted">
+                      {step.description}
+                    </p>
+                  )}
                 </li>
               ))}
             </ol>

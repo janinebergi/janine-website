@@ -1,9 +1,8 @@
 import { cookies } from "next/headers";
+import { DEFAULT_LANG, LANG_COOKIE, type Lang } from "@/lib/i18n-constants";
 
-export type Lang = "de" | "en";
-
-export const LANG_COOKIE = "lang";
-export const DEFAULT_LANG: Lang = "de";
+export type { Lang };
+export { LANG_COOKIE, DEFAULT_LANG };
 
 export async function getLang(): Promise<Lang> {
   const store = await cookies();

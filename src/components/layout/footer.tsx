@@ -1,10 +1,13 @@
 import Image from "next/image";
 import Link from "next/link";
-import { nav, pages, site } from "@/lib/site";
+import { getSiteContent } from "@/lib/site";
+import { getLang } from "@/lib/i18n";
 
-const t = pages.footer;
+export async function Footer() {
+  const lang = await getLang();
+  const { nav, pages, site } = getSiteContent(lang);
+  const t = pages.footer;
 
-export function Footer() {
   return (
     <footer className="mt-24 border-t border-border/60 bg-surface/40">
       <div className="mx-auto w-full max-w-6xl px-6 py-14 lg:px-8">
