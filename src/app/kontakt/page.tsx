@@ -1,53 +1,60 @@
 import type { Metadata } from "next";
-import { Mail, Clock, MessageCircle } from "lucide-react";
+import Image from "next/image";
+import Link from "next/link";
+import { Mail, Clock, MessageCircle, ArrowRight } from "lucide-react";
 import { Container } from "@/components/ui/container";
-import { Eyebrow } from "@/components/ui/section-heading";
+import { PageHeader } from "@/components/ui/page-header";
 import { ContactForm } from "@/components/contact-form";
-import { site } from "@/lib/site";
+import { pages, site } from "@/lib/site";
+import { getAllPosts, formatDate } from "@/lib/blog";
+
+const t = pages.kontakt;
 
 export const metadata: Metadata = {
-  title: "Kontakt",
-  description:
-    "Schreib Janine Bergmann für dein nächstes Copywriting-Projekt — Antwort innerhalb von 24 Stunden.",
+  title: t.metaTitle,
+  description: t.metaDescription,
 };
 
 const points = [
   {
     icon: Mail,
-    title: "E-Mail",
+    title: t.emailTitle,
     value: site.email,
     href: `mailto:${site.email}`,
   },
   {
     icon: Clock,
-    title: "Antwortzeit",
-    value: "Innerhalb von 24 Stunden",
+    title: t.responseTitle,
+    value: t.responseValue,
   },
   {
     icon: MessageCircle,
-    title: "Erstgespräch",
-    value: "Kostenlos & unverbindlich",
+    title: t.callTitle,
+    value: t.callValue,
   },
 ];
 
 export default function KontaktPage() {
-  return (
-    <section className="relative overflow-hidden">
-      <div className="glow-radial pointer-events-none absolute inset-0 -z-10" />
-      <Container className="py-20 sm:py-28">
-        <div className="grid gap-12 lg:grid-cols-[0.9fr_1.1fr]">
-          <div>
-            <Eyebrow>Kontakt</Eyebrow>
-            <h1 className="mt-6 text-4xl font-semibold leading-tight sm:text-5xl">
-              Erzähl mir von deinem Projekt.
-            </h1>
-            <p className="mt-6 text-lg leading-relaxed text-muted">
-              Du hast Interesse an meinen Texten oder möchtest über dein Projekt
-              sprechen? Dann schreib mir einfach kurz, worum es geht – ich melde
-              mich zeitnah und persönlich bei dir zurück.
-            </p>
+  const posts = getAllPosts().slice(0, 3);
 
-            <div className="mt-10 flex flex-col gap-5">
+  return (
+    <>
+      <PageHeader
+        image={t.heroImage}
+        imageAlt={t.heroImageAlt}
+        eyebrow={t.heroEyebrow}
+        title={t.heroTitle}
+      />
+
+      <section className="py-16 sm:py-20">
+        <Container>
+          <div className="grid gap-12 lg:grid-cols-[0.9fr_1.1fr]">
+            <div>
+              <p className="text-lg leading-relaxed text-muted">
+                {t.heroText}
+              </p>
+
+              <div className="mt-10 flex flex-col gap-5">
               {points.map((p) => {
                 const Icon = p.icon;
                 const content = (
@@ -75,8 +82,72 @@ export default function KontaktPage() {
           <div className="rounded-2xl border border-border bg-surface/60 p-8">
             <ContactForm />
           </div>
-        </div>
-      </Container>
-    </section>
+          </div>
+        </Container>
+      </section>
+
+      {posts.length > 0 && (
+        <section className="border-t border-border py-16 sm:py-20">
+          <Container>
+            <div className="flex items-end justify-between gap-6">
+              <div>
+                <p className="text-sm text-accent-hover">Blog</p>
+                <h2 className="mt-2 text-2xl font-semibold leading-snug sm:text-3xl">
+                  Noch nicht bereit? Lies dich ein.
+                </h2>
+              </div>
+              <Link
+                href="/blog"
+                className="hidden flex-none items-center gap-2 text-sm font-medium text-accent-hover transition-opacity hover:opacity-80 sm:inline-flex"
+              >
+                Alle Beiträge
+                <ArrowRight size={16} />
+              </Link>
+            </div>
+
+            <div className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+              {posts.map((post) => (
+                <Link
+                  key={post.slug}
+                  href={`/blog/${post.slug}`}
+                  className="group flex flex-col overflow-hidden rounded-2xl border border-border bg-surface/60"
+                >
+                  <div className="relative aspect-[16/10] overflow-hidden">
+                    <Image
+                      src={post.coverImage}
+                      alt={post.title}
+                      fill
+                      sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                      className="object-cover transition-transform duration-500 group-hover:scale-105"
+                    />
+                  </div>
+                  <div className="flex flex-1 flex-col p-6">
+                    <div className="flex items-center gap-2 text-xs text-muted">
+                      <span>{formatDate(post.date)}</span>
+                      <span>·</span>
+                      <span>{post.readingTime} Min.</span>
+                    </div>
+                    <h3 className="mt-2 text-lg font-semibold leading-snug group-hover:text-accent-hover">
+                      {post.title}
+                    </h3>
+                    <p className="mt-2 text-sm leading-relaxed text-muted">
+                      {post.excerpt}
+                    </p>
+                  </div>
+                </Link>
+              ))}
+            </div>
+
+            <Link
+              href="/blog"
+              className="mt-8 inline-flex items-center gap-2 text-sm font-medium text-accent-hover transition-opacity hover:opacity-80 sm:hidden"
+            >
+              Alle Beiträge
+              <ArrowRight size={16} />
+            </Link>
+          </Container>
+        </section>
+      )}
+    </>
   );
 }

@@ -1,6 +1,8 @@
 import Image from "next/image";
 import Link from "next/link";
-import { nav, site } from "@/lib/site";
+import { nav, pages, site } from "@/lib/site";
+
+const t = pages.footer;
 
 export function Footer() {
   return (
@@ -19,14 +21,13 @@ export function Footer() {
               {site.name}
             </Link>
             <p className="mt-4 text-sm leading-relaxed text-muted">
-              {site.role}. {site.tagline} Texte, die Fernweh wecken und Reisende
-              zur Buchung bewegen.
+              {site.role}. {site.tagline} {t.tagline}
             </p>
           </div>
 
           <div className="flex flex-col gap-3">
             <span className="text-xs font-medium uppercase tracking-widest text-muted">
-              Navigation
+              {t.navLabel}
             </span>
             {nav.map((item) => (
               <Link
@@ -41,7 +42,7 @@ export function Footer() {
 
           <div className="flex flex-col gap-3">
             <span className="text-xs font-medium uppercase tracking-widest text-muted">
-              Kontakt
+              {t.contactLabel}
             </span>
             <a
               href={`mailto:${site.email}`}
@@ -65,27 +66,25 @@ export function Footer() {
             >
               Instagram
             </a>
-            <a
-              href={site.social.tiktok}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-sm text-muted transition-colors hover:text-foreground"
+            <Link
+              href="/mediakit"
+              className="text-sm text-accent-hover transition-colors hover:text-foreground"
             >
-              TikTok
-            </a>
+              {t.mediakitLabel}
+            </Link>
           </div>
         </div>
 
         <div className="mt-12 flex flex-col gap-2 border-t border-border/60 pt-6 text-xs text-muted sm:flex-row sm:items-center sm:justify-between">
           <span>
-            © {new Date().getFullYear()} {site.name}. Alle Rechte vorbehalten.
+            © {new Date().getFullYear()} {site.name}. {t.rights}
           </span>
           <div className="flex gap-4">
             <Link href="/impressum" className="hover:text-foreground">
-              Impressum
+              {t.impressum}
             </Link>
             <Link href="/datenschutz" className="hover:text-foreground">
-              Datenschutz
+              {t.datenschutz}
             </Link>
           </div>
         </div>

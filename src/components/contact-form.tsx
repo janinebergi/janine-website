@@ -55,7 +55,7 @@ export function ContactForm() {
       </div>
       <div className="flex flex-col gap-2">
         <label htmlFor="message" className="text-sm text-muted">
-          Worum geht's?
+          Deine Nachricht für mich
         </label>
         <textarea
           id="message"

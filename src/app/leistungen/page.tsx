@@ -2,69 +2,34 @@ import type { Metadata } from "next";
 import { Check } from "lucide-react";
 import { Container } from "@/components/ui/container";
 import { Button } from "@/components/ui/button";
-import { Eyebrow, SectionHeading } from "@/components/ui/section-heading";
-import { services } from "@/lib/site";
+import { SectionHeading } from "@/components/ui/section-heading";
+import { PageHeader } from "@/components/ui/page-header";
+import { pages, services } from "@/lib/site";
+
+const t = pages.leistungen;
+const deliverables = t.deliverables;
+const process = t.process;
 
 export const metadata: Metadata = {
-  title: "Leistungen",
-  description:
-    "Copywriting für Reise- und Tourismusunternehmen: Website-Texte, Blogbeiträge und Newsletter, die Fernweh wecken und Reisende zur Buchung bewegen.",
+  title: t.metaTitle,
+  description: t.metaDescription,
 };
-
-const deliverables = [
-  "Website- & Landingpage-Texte",
-  "Reise-Blogbeiträge mit SEO",
-  "Newsletter & E-Mail-Strecken",
-  "Destinations- & Hotelbeschreibungen",
-  "Magazine & Buchungsunterlagen",
-  "Storytelling & Über-uns-Seiten",
-];
-
-const process = [
-  {
-    step: "01",
-    title: "Kennenlernen & Briefing",
-    description:
-      "Wir klären Ziele, Zielgruppe und Tonalität. Ich tauche tief in deine Marke ein.",
-  },
-  {
-    step: "02",
-    title: "Recherche & Strategie",
-    description:
-      "Markt, Wettbewerb und Kundenstimmen — daraus entsteht die Textstrategie.",
-  },
-  {
-    step: "03",
-    title: "Schreiben & Feinschliff",
-    description:
-      "Erste Fassung, gemeinsames Feedback, zwei Korrekturschleifen inklusive.",
-  },
-  {
-    step: "04",
-    title: "Übergabe & Wirkung",
-    description:
-      "Fertige Texte, sauber dokumentiert und bereit für den Einsatz.",
-  },
-];
 
 export default function LeistungenPage() {
   return (
     <>
-      <section className="relative overflow-hidden">
-        <div className="glow-radial pointer-events-none absolute inset-0 -z-10" />
-        <Container className="py-20 sm:py-28">
-          <div className="max-w-3xl">
-            <Eyebrow>Leistungen</Eyebrow>
-            <h1 className="mt-6 text-4xl font-semibold leading-tight sm:text-5xl">
-              Weil gute Werbung kein Zufall, sondern Wortwahl ist.
-            </h1>
-            <p className="mt-6 text-lg leading-relaxed text-muted">
-              Ich helfe Reise- und Tourismusunternehmen dabei, ihre Angebote mit
-              Texten ins beste Licht zu rücken. Ob Website, Blog oder Newsletter –
-              ich schreibe Texte, die nicht nur informieren, sondern Emotionen
-              wecken, Fernweh entfachen und deine Angebote erfolgreich verkaufen.
-            </p>
-          </div>
+      <PageHeader
+        image={t.heroImage}
+        imageAlt={t.heroImageAlt}
+        eyebrow={t.heroEyebrow}
+        title={t.heroTitle}
+      />
+
+      <section className="py-16 sm:py-20">
+        <Container>
+          <p className="max-w-3xl text-lg leading-relaxed text-muted">
+            {t.heroText}
+          </p>
         </Container>
       </section>
 
@@ -90,9 +55,9 @@ export default function LeistungenPage() {
         <Container>
           <div className="grid gap-12 lg:grid-cols-2">
             <SectionHeading
-              eyebrow="Was du bekommst"
-              title="Alles aus einer Feder"
-              description="Eine Auswahl der Formate, die ich regelmäßig schreibe. Du brauchst etwas anderes? Frag einfach."
+              eyebrow={t.deliverablesEyebrow}
+              title={t.deliverablesTitle}
+              description={t.deliverablesDescription}
             />
             <ul className="grid gap-4 sm:grid-cols-2">
               {deliverables.map((item) => (
@@ -113,8 +78,8 @@ export default function LeistungenPage() {
       <section className="py-20">
         <Container>
           <SectionHeading
-            eyebrow="Ablauf"
-            title="So arbeiten wir zusammen"
+            eyebrow={t.processEyebrow}
+            title={t.processTitle}
             align="center"
           />
           <div className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
@@ -134,7 +99,7 @@ export default function LeistungenPage() {
             ))}
           </div>
           <div className="mt-12 flex justify-center">
-            <Button href="/kontakt">Unverbindlich anfragen</Button>
+            <Button href="/kontakt">{t.ctaButton}</Button>
           </div>
         </Container>
       </section>

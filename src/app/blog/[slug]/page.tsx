@@ -83,6 +83,11 @@ export default async function BlogPostPage({
             priority
             sizes="(max-width: 768px) 100vw, 768px"
             className="object-cover"
+            style={
+              post.coverPosition
+                ? { objectPosition: post.coverPosition }
+                : undefined
+            }
           />
         </div>
 

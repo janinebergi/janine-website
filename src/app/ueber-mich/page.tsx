@@ -2,111 +2,38 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import { Container } from "@/components/ui/container";
 import { Button } from "@/components/ui/button";
-import { Eyebrow, SectionHeading } from "@/components/ui/section-heading";
-import { site, stats } from "@/lib/site";
+import { SectionHeading } from "@/components/ui/section-heading";
+import { PageHeader } from "@/components/ui/page-header";
+import { pages, stats } from "@/lib/site";
+
+const t = pages.ueberMich;
+const values = t.values;
 
 export const metadata: Metadata = {
-  title: "Über mich",
-  description:
-    "Lerne Janine Bergmann kennen — Copywriterin mit einem Faible für klare, wirksame Sprache.",
+  title: t.metaTitle,
+  description: t.metaDescription,
 };
-
-const values = [
-  {
-    title: "Reise-Expertise & Storytelling",
-    description:
-      "Texte, die Emotionen wecken, Fernweh auslösen und Reisende zur Buchung bewegen.",
-  },
-  {
-    title: "SEO-optimierte Inhalte",
-    description:
-      "Suchmaschinenfreundliche Reisetexte, die deine Website sichtbarer machen – ohne gekünstelte Keywords.",
-  },
-  {
-    title: "Maßgeschneiderte Lösungen",
-    description:
-      "Individuelle Texte für dein Reisebusiness – von der Website über den Blog bis zum Newsletter.",
-  },
-  {
-    title: "Zuverlässigkeit & Markenstimme",
-    description:
-      "Pünktliche Lieferung, klare Sprache und ein konsistenter Auftritt über alle Kanäle hinweg.",
-  },
-];
 
 export default function UeberMichPage() {
   return (
     <>
-      <section className="relative overflow-hidden">
-        <div className="glow-radial pointer-events-none absolute inset-0 -z-10" />
-        <Container className="py-20 sm:py-28">
-          <div className="grid items-center gap-12 lg:grid-cols-[0.9fr_1.1fr]">
-            <div className="relative mx-auto w-full max-w-md lg:mx-0">
-              <div className="absolute -inset-6 -z-10 rounded-full bg-accent/15 blur-3xl" />
-              <div className="relative aspect-square overflow-hidden rounded-full border border-border">
-                <Image
-                  src="/assets/ueber-mich-1.png"
-                  alt="Porträt von Janine Bergmann"
-                  fill
-                  priority
-                  sizes="(max-width: 1024px) 100vw, 45vw"
-                  className="object-cover"
-                />
-              </div>
-            </div>
+      <PageHeader
+        image={t.heroImage}
+        imageAlt={t.heroImageAlt}
+        eyebrow={t.heroEyebrow}
+        title={t.heroTitle}
+      />
 
-            <div>
-              <Eyebrow>Über mich</Eyebrow>
-              <h1 className="mt-6 text-4xl font-semibold leading-tight sm:text-5xl">
-                Wer bin ich?
-              </h1>
-              <div className="mt-6 space-y-4 text-lg leading-relaxed text-muted">
-                <p>
-                  Ich bin {site.name} und liebe es nicht nur zu reisen, sondern
-                  auch darüber zu schreiben. Ich bin ein absoluter Action-Fan und
-                  stürze mich gern in das nächste Abenteuer.
-                </p>
-                <p>
-                  Wenn ich gerade nicht auf der nächsten Welle unterwegs bin,
-                  wohne ich in Düsseldorf am schönen Rhein. Auch hier suche ich
-                  abseits der Arbeit nach Action: ob mit Inlinern am Rhein
-                  entlang, einem Ausritt durch den Wald oder beim Kickboxen – ich
-                  bin immer auf der Suche nach neuen Herausforderungen.
-                </p>
-                <p>
-                  Reisen, Sport und Abenteuer prägen meinen Alltag und meine
-                  Geschichten. Egal ob weit weg oder direkt vor der Haustür – ich
-                  liebe es, jede Gelegenheit zu nutzen, um Neues zu erleben und
-                  authentische Reiseerfahrungen zu sammeln.
-                </p>
-                <p>
-                  Da mich neben meinen privaten Reisen auch der Tourismus
-                  beruflich begeistert, habe ich nach meiner Ausbildung als
-                  Kauffrau für Tourismus und Freizeit zusätzlich meinen staatlich
-                  geprüften Betriebswirt in der Fachrichtung Tourismus
-                  abgeschlossen. Schon während dieser Zeit habe ich in meinem
-                  Ausbildungsbetrieb Texte für die Website sowie Social Media
-                  geschrieben.
-                </p>
-                <p>
-                  Nach einem kurzen Abstecher in eine Medienagentur führte mich
-                  mein Weg zum Reiseveranstalter alltours. Im Vertriebsmarketing
-                  konnte ich meine Schreibkenntnisse weiter vertiefen und
-                  verfasste zahlreiche Newsletter, Magazine und Buchungshilfen –
-                  immer mit dem Ziel, Reisen und Destinationen ansprechend zu
-                  präsentieren.
-                </p>
-                <p>
-                  Heute vermarkte ich Nordrhein-Westfalen mit seinen vielen
-                  Schlössern, Burgen und Naturerlebnissen als eines der schönsten
-                  Reiseländer Deutschlands – und lebe dabei meine Leidenschaft für
-                  Reisen, Outdoor-Abenteuer und Storytelling jeden Tag aus.
-                </p>
-              </div>
-              <div className="mt-8">
-                <Button href="/kontakt">Lass uns sprechen</Button>
-              </div>
-            </div>
+      {/* Einleitungstext */}
+      <section className="py-16 sm:py-20">
+        <Container>
+          <div className="mx-auto max-w-3xl space-y-4 text-lg leading-relaxed text-muted">
+            {t.paragraphs.map((paragraph, i) => (
+              <p key={i}>{paragraph}</p>
+            ))}
+          </div>
+          <div className="mx-auto mt-8 max-w-3xl">
+            <Button href="/kontakt">{t.ctaButton}</Button>
           </div>
         </Container>
       </section>
@@ -129,8 +56,34 @@ export default function UeberMichPage() {
       <section className="py-20">
         <Container>
           <SectionHeading
-            eyebrow="Warum ich?"
-            title="Was du von mir bekommst"
+            eyebrow={t.gallery.eyebrow}
+            title={t.gallery.title}
+            align="center"
+          />
+          <div className="mt-12 grid grid-cols-2 gap-4 sm:gap-5 lg:grid-cols-3">
+            {t.gallery.images.map((img) => (
+              <div
+                key={img.src}
+                className="relative aspect-square overflow-hidden rounded-2xl border border-border"
+              >
+                <Image
+                  src={img.src}
+                  alt={img.alt}
+                  fill
+                  sizes="(max-width: 640px) 50vw, (max-width: 1024px) 50vw, 25vw"
+                  className="object-cover transition-transform duration-500 hover:scale-105"
+                />
+              </div>
+            ))}
+          </div>
+        </Container>
+      </section>
+
+      <section className="pb-20">
+        <Container>
+          <SectionHeading
+            eyebrow={t.valuesEyebrow}
+            title={t.valuesTitle}
             align="center"
           />
           <div className="mt-12 grid gap-5 sm:grid-cols-2">

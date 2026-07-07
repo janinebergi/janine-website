@@ -4,13 +4,9 @@ import { ArrowUpRight, Quote } from "lucide-react";
 import { Container } from "@/components/ui/container";
 import { Button } from "@/components/ui/button";
 import { Eyebrow, SectionHeading } from "@/components/ui/section-heading";
-import {
-  projects,
-  services,
-  site,
-  stats,
-  testimonials,
-} from "@/lib/site";
+import { pages, services, site, stats, testimonials } from "@/lib/site";
+
+const t = pages.home;
 
 export default function Home() {
   return (
@@ -39,23 +35,20 @@ export default function Home() {
           <div className="flex max-w-3xl flex-col items-start gap-6">
             <Eyebrow>{site.role} · {site.tagline}</Eyebrow>
             <h1 className="text-5xl font-semibold leading-[1.03] sm:text-6xl lg:text-7xl">
-              Texte, die <span className="text-gradient">Fernweh</span> wecken —
-              und Reisende zur Buchung bewegen.
+              {t.heroHeadingPre}
+              <span className="text-gradient">{t.heroHeadingHighlight}</span>
+              {t.heroHeadingPost}
             </h1>
             <p className="max-w-xl text-lg leading-relaxed text-foreground/80">
-              Ich bin {site.name}, Copywriterin für Reise- und
-              Tourismusunternehmen. Ich helfe dir, deine Angebote mit Worten ins
-              beste Licht zu rücken – auf Websites, in Blogs und Newslettern.
+              {t.heroText}
             </p>
             <div className="flex flex-wrap items-center gap-4 pt-2">
-              <Button href="/kontakt">Projekt anfragen</Button>
-              <Button href="/arbeiten" variant="secondary">
-                Arbeiten ansehen
-              </Button>
+              <Button href="/kontakt">{t.heroPrimaryCta}</Button>
             </div>
+            <p className="text-sm text-muted">{t.heroReferenceNote}</p>
           </div>
 
-          <dl className="mt-16 grid max-w-xl grid-cols-3 gap-8 border-t border-border/60 pt-8">
+          <dl className="mt-16 grid max-w-md grid-cols-2 gap-8 border-t border-border/60 pt-8">
             {stats.map((s) => (
               <div key={s.label}>
                 <dt className="text-3xl font-semibold text-foreground">
@@ -72,20 +65,32 @@ export default function Home() {
       <section className="py-20">
         <Container>
           <SectionHeading
-            eyebrow="Leistungen"
-            title="Worte, die deine Reiseangebote verkaufen"
-            description="Von der Website über den Blog bis zum Newsletter — Texte, die Emotionen wecken, Fernweh entfachen und deine Marke unvergesslich machen."
+            eyebrow={t.servicesEyebrow}
+            title={t.servicesTitle}
+            description={t.servicesDescription}
           />
-          <div className="mt-12 grid gap-5 sm:grid-cols-2">
+          <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
             {services.map((service) => (
               <div
                 key={service.title}
-                className="group rounded-2xl border border-border bg-surface/60 p-7 transition-colors hover:border-accent/60"
+                className="group flex flex-col overflow-hidden rounded-2xl border border-border bg-surface/60 transition-colors hover:border-accent/60"
               >
-                <h3 className="text-xl font-semibold">{service.title}</h3>
-                <p className="mt-3 leading-relaxed text-muted">
-                  {service.description}
-                </p>
+                <div className="relative aspect-square overflow-hidden sm:aspect-[16/10]">
+                  <Image
+                    src={service.image}
+                    alt={service.title}
+                    fill
+                    sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                    style={{ objectPosition: service.imagePosition }}
+                    className="object-cover transition-transform duration-500 group-hover:scale-105"
+                  />
+                </div>
+                <div className="flex flex-1 flex-col p-7">
+                  <h3 className="text-xl font-semibold">{service.title}</h3>
+                  <p className="mt-3 leading-relaxed text-muted">
+                    {service.teaser}
+                  </p>
+                </div>
               </div>
             ))}
           </div>
@@ -94,51 +99,8 @@ export default function Home() {
               href="/leistungen"
               className="inline-flex items-center gap-1 text-sm font-medium text-accent-hover hover:gap-2 transition-all"
             >
-              Alle Leistungen <ArrowUpRight size={16} />
+              {t.servicesLink} <ArrowUpRight size={16} />
             </Link>
-          </div>
-        </Container>
-      </section>
-
-      {/* Featured work */}
-      <section className="py-20">
-        <Container>
-          <div className="flex flex-wrap items-end justify-between gap-6">
-            <SectionHeading
-              eyebrow="Arbeiten"
-              title="Ausgewählte Projekte"
-              description="Ein Auszug aus Reise- und Tourismusprojekten. Echte Referenzen folgen in Kürze."
-            />
-            <Button href="/arbeiten" variant="secondary" className="hidden sm:inline-flex">
-              Alle Arbeiten
-            </Button>
-          </div>
-
-          <div className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
-            {projects.map((project) => (
-              <Link
-                key={project.id}
-                href="/arbeiten"
-                className="group relative aspect-[4/5] overflow-hidden rounded-2xl border border-border"
-              >
-                <Image
-                  src={project.image}
-                  alt={project.title}
-                  fill
-                  sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
-                  className="object-cover transition-transform duration-500 group-hover:scale-105"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-bg via-bg/30 to-transparent" />
-                <div className="absolute inset-x-0 bottom-0 p-5">
-                  <span className="text-xs uppercase tracking-widest text-accent-hover">
-                    {project.category}
-                  </span>
-                  <h3 className="mt-1 text-sm font-medium leading-snug">
-                    {project.title}
-                  </h3>
-                </div>
-              </Link>
-            ))}
           </div>
         </Container>
       </section>
@@ -147,8 +109,8 @@ export default function Home() {
       <section className="py-20">
         <Container>
           <SectionHeading
-            eyebrow="Stimmen"
-            title="Was Kund:innen sagen"
+            eyebrow={t.testimonialsEyebrow}
+            title={t.testimonialsTitle}
             align="center"
           />
           <div className="mt-12 grid gap-5 lg:grid-cols-3">
@@ -178,13 +140,10 @@ export default function Home() {
             <div className="glow-radial pointer-events-none absolute inset-0" />
             <div className="relative mx-auto flex max-w-2xl flex-col items-center gap-6">
               <h2 className="text-3xl font-semibold sm:text-4xl">
-                Bereit für Texte, die wirken?
+                {t.ctaTitle}
               </h2>
-              <p className="text-lg text-muted">
-                Erzähl mir von deinem Projekt — ich melde mich innerhalb von 24
-                Stunden mit den nächsten Schritten.
-              </p>
-              <Button href="/kontakt">Jetzt Projekt anfragen</Button>
+              <p className="text-lg text-muted">{t.ctaText}</p>
+              <Button href="/kontakt">{t.ctaButton}</Button>
             </div>
           </div>
         </Container>

@@ -1,0 +1,307 @@
+{
+  "site": {
+    "name": "Janine Bergmann",
+    "role": "Copywriterin für Reise & Tourismus",
+    "tagline": "Weil gute Werbung kein Zufall, sondern Wortwahl ist.",
+    "description": "Janine Bergmann ist Copywriterin für Reise- und Tourismusunternehmen. Texte für Websites, Blogs und Newsletter, die Emotionen wecken, Fernweh auslösen und Reisende zur Buchung bewegen.",
+    "email": "hallo@janinebergmann.de",
+    "url": "https://janinebergmann.de",
+    "heroImage": "/assets/website/header.png",
+    "social": {
+      "linkedin": "https://www.linkedin.com/in/janine-bergmann/",
+      "instagram": "https://www.instagram.com/"
+    }
+  },
+  "nav": [
+    {
+      "href": "/",
+      "label": "Start"
+    },
+    {
+      "href": "/leistungen",
+      "label": "Leistungen"
+    },
+    {
+      "href": "/ueber-mich",
+      "label": "Über mich"
+    },
+    {
+      "href": "/blog",
+      "label": "Blog"
+    },
+    {
+      "href": "/kontakt",
+      "label": "Kontakt"
+    }
+  ],
+  "services": [
+    {
+      "title": "Blogbeiträge, die Fernweh wecken",
+      "image": "/assets/website/leistung-blog.jpg",
+      "imagePosition": "center 30%",
+      "teaser": "Abenteuer spürbar machen und deine Angebote mit Geschichten zum Leben erwecken – SEO-optimiert, vom ersten Satz bis zum letzten Klick.",
+      "description": "Ich schreibe Blogbeiträge für Reise- und Tourismusunternehmen, die Fernweh wecken, Abenteuer spürbar machen und deine Angebote mit Geschichten zum Leben erwecken. Meine Texte lassen Hotels, Reiseziele und Erlebnisangebote greifbar werden, während deine Marke Emotionen vermittelt und im Gedächtnis bleibt. SEO-optimierte Reisetexte sorgen dafür, dass deine Inhalte sichtbar sind und gleichzeitig Leser begeistern – vom ersten Satz bis zum letzten Klick."
+    },
+    {
+      "title": "Website-Texte, die Reiseträume verkaufen",
+      "image": "/assets/website/IMG_2961.JPG",
+      "imagePosition": "center",
+      "teaser": "Deine Angebote lebendig präsentieren und deine Marke authentisch zeigen – SEO-optimiert, damit aus Aufmerksamkeit neue Kunden werden.",
+      "description": "Ich erstelle Website-Texte für Reise- und Tourismusunternehmen, die deine Angebote lebendig präsentieren und deine Marke authentisch zeigen. Mit meinem Copywriting werden Inhalte greifbar, Geschichten erzählt und Emotionen geweckt – so fühlen sich deine Besucher sofort angesprochen und bleiben auf deiner Seite. SEO-optimierte Texte sorgen zusätzlich dafür, dass deine Angebote gefunden werden. So gewinnst du nicht nur Aufmerksamkeit, sondern auch neue Kunden."
+    },
+    {
+      "title": "Newsletter, die Geschichten erzählen",
+      "image": "/assets/website/leistung-newsletter.jpg",
+      "imagePosition": "center",
+      "teaser": "Deine Angebote klar kommunizieren und dabei Nähe sowie Vertrauen schaffen – durch Geschichten, Tipps und Inspiration, ohne aufdringlich zu wirken.",
+      "description": "Ich erstelle Newsletter-Texte für den Tourismus, die deine Angebote klar und verständlich kommunizieren und dabei Nähe sowie Vertrauen schaffen. Durch Geschichten, Tipps und Inspiration fühlen sich deine Leser wirklich abgeholt – ohne dass es aufdringlich oder zu werblich wirkt. So bleiben deine Botschaften im Posteingang nicht einfach liegen, sondern öffnen zuverlässig Türen zu echten und nachhaltigen Kundenbeziehungen."
+    }
+  ],
+  "stats": [
+    {
+      "value": "17",
+      "label": "Länder bereist"
+    },
+    {
+      "value": "8",
+      "label": "Jahre im Tourismus"
+    }
+  ],
+  "testimonials": [
+    {
+      "id": "stimme-1",
+      "quote": "Hier erscheint bald eine echte Kundenstimme. Wir arbeiten zusammen? Dann ist dein Zitat vielleicht das nächste an dieser Stelle.",
+      "name": "Dein Name",
+      "role": "Dein Unternehmen"
+    },
+    {
+      "id": "stimme-2",
+      "quote": "Platzhalter für ein Kundenzitat aus einem Reise- oder Tourismusprojekt – über Texte, die Fernweh geweckt und Buchungen gebracht haben.",
+      "name": "Dein Name",
+      "role": "Dein Unternehmen"
+    },
+    {
+      "id": "stimme-3",
+      "quote": "Platzhalter für eine weitere Stimme aus der Zusammenarbeit – ehrlich, konkret und mit Ergebnis.",
+      "name": "Dein Name",
+      "role": "Dein Unternehmen"
+    }
+  ],
+  "pages": {
+    "home": {
+      "heroHeadingPre": "Texte, die ",
+      "heroHeadingHighlight": "Fernweh",
+      "heroHeadingPost": " wecken.",
+      "heroText": "Ich bin Janine Bergmann, Copywriterin für Reise- und Tourismusunternehmen. Ich helfe dir, deine Angebote mit Worten ins beste Licht zu rücken – auf Websites, in Blogs und Newslettern.",
+      "heroPrimaryCta": "Projekt anfragen",
+      "heroReferenceNote": "Referenzen sende ich dir gerne auf Anfrage zu.",
+      "servicesEyebrow": "Leistungen",
+      "servicesTitle": "Worte, die deine Reiseangebote verkaufen",
+      "servicesDescription": "Von der Website über den Blog bis zum Newsletter — Texte, die Emotionen wecken, Fernweh entfachen und deine Marke unvergesslich machen.",
+      "servicesLink": "Alle Leistungen",
+      "testimonialsEyebrow": "Stimmen",
+      "testimonialsTitle": "Was Kund:innen sagen",
+      "ctaTitle": "Bereit für Texte, die wirken?",
+      "ctaText": "Erzähl mir von deinem Projekt — ich melde mich so schnell wie möglich mit den nächsten Schritten.",
+      "ctaButton": "Jetzt Projekt anfragen"
+    },
+    "leistungen": {
+      "metaTitle": "Leistungen",
+      "metaDescription": "Copywriting für Reise- und Tourismusunternehmen: Website-Texte, Blogbeiträge und Newsletter, die Fernweh wecken und Reisende zur Buchung bewegen.",
+      "heroEyebrow": "Leistungen",
+      "heroTitle": "Weil gute Werbung kein Zufall, sondern Wortwahl ist.",
+      "heroImage": "/assets/website/leistungen-header.jpg",
+      "heroImageAlt": "Kamel-Karawane im Sonnenuntergang",
+      "heroText": "Ich helfe Reise- und Tourismusunternehmen dabei, ihre Angebote mit Texten ins beste Licht zu rücken. Ob Website, Blog oder Newsletter – ich schreibe Texte, die nicht nur informieren, sondern Emotionen wecken, Fernweh entfachen und deine Angebote erfolgreich verkaufen. Mit der richtigen Wortwahl werden Reiseerlebnisse greifbar, Abenteuerlust spürbar und deine Marke unvergesslich. Lass uns gemeinsam Geschichten erzählen, die deine Kunden begeistern – und sie zu deiner Lösung führen.",
+      "deliverablesEyebrow": "Was du bekommst",
+      "deliverablesTitle": "Alles aus einer Feder",
+      "deliverablesDescription": "Eine Auswahl der Formate, die ich regelmäßig schreibe. Du brauchst etwas anderes? Frag einfach.",
+      "deliverables": [
+        "Website- & Landingpage-Texte",
+        "Reise-Blogbeiträge mit SEO",
+        "Newsletter & E-Mail-Strecken",
+        "Destinations- & Hotelbeschreibungen",
+        "Magazine & Buchungsunterlagen",
+        "Storytelling & Über-uns-Seiten"
+      ],
+      "processEyebrow": "Ablauf",
+      "processTitle": "So arbeiten wir zusammen",
+      "process": [
+        {
+          "step": "01",
+          "title": "Kennenlernen & Briefing",
+          "description": "Wir klären Ziele, Zielgruppe und Tonalität. Ich tauche tief in deine Marke ein."
+        },
+        {
+          "step": "02",
+          "title": "Recherche & Strategie",
+          "description": "Markt, Wettbewerb und Kundenstimmen — daraus entsteht die Textstrategie."
+        },
+        {
+          "step": "03",
+          "title": "Schreiben & Feinschliff",
+          "description": "Erste Fassung, gemeinsames Feedback, zwei Korrekturschleifen inklusive."
+        },
+        {
+          "step": "04",
+          "title": "Übergabe & Wirkung",
+          "description": "Fertige Texte, sauber dokumentiert und bereit für den Einsatz."
+        }
+      ],
+      "ctaButton": "Unverbindlich anfragen"
+    },
+    "ueberMich": {
+      "metaTitle": "Über mich",
+      "metaDescription": "Lerne Janine Bergmann kennen — Copywriterin mit einem Faible für klare, wirksame Sprache.",
+      "heroEyebrow": "Über mich",
+      "heroTitle": "Wer bin ich?",
+      "heroImage": "/assets/website/ueber-mich-2.jpg",
+      "heroImageAlt": "Janine Bergmann beim Surfen",
+      "paragraphs": [
+        "Ich bin Janine Bergmann und liebe es nicht nur zu reisen, sondern auch darüber zu schreiben. Ich bin ein absoluter Action-Fan und stürze mich gern in das nächste Abenteuer.",
+        "Wenn ich gerade nicht auf der nächsten Welle unterwegs bin, wohne ich in Düsseldorf am schönen Rhein. Auch hier suche ich abseits der Arbeit nach Action: ob mit Inlinern am Rhein entlang, einem Ausritt durch den Wald oder beim Kickboxen – ich bin immer auf der Suche nach neuen Herausforderungen.",
+        "Reisen, Sport und Abenteuer prägen meinen Alltag und meine Geschichten. Egal ob weit weg oder direkt vor der Haustür – ich liebe es, jede Gelegenheit zu nutzen, um Neues zu erleben und authentische Reiseerfahrungen zu sammeln.",
+        "Da mich neben meinen privaten Reisen auch der Tourismus beruflich begeistert, habe ich nach meiner Ausbildung als Kauffrau für Tourismus und Freizeit zusätzlich meinen staatlich geprüften Betriebswirt in der Fachrichtung Tourismus abgeschlossen. Schon während dieser Zeit habe ich in meinem Ausbildungsbetrieb Texte für die Website sowie Social Media geschrieben.",
+        "Nach einem kurzen Abstecher in eine Medienagentur führte mich mein Weg zum Reiseveranstalter alltours. Im Vertriebsmarketing konnte ich meine Schreibkenntnisse weiter vertiefen und verfasste zahlreiche Newsletter sowie Magazine – von Buchungshilfen für Reisende bis hin zu Magazinen, die Reisebüros über Neuigkeiten informierten. Immer mit dem Ziel, Reisen und Destinationen ansprechend zu präsentieren.",
+        "Auch für die Freizeitpark Wisseler See GmbH war ich tätig und habe bei der Bild- und Textgestaltung der neuen Website mitgeholfen.",
+        "Heute bin ich bei Tourismus NRW e.V. als Referentin für Kommunikation B2C tätig, schreibe für das NRW Magazin und bin die Stimme für Social Media. So vermarkte ich Nordrhein-Westfalen mit seinen vielen Schlössern, Burgen und Naturerlebnissen als eines der schönsten Reiseländer Deutschlands – und lebe dabei meine Leidenschaft für Reisen, Outdoor-Abenteuer und Storytelling jeden Tag aus."
+      ],
+      "ctaButton": "Lass uns sprechen",
+      "gallery": {
+        "eyebrow": "Unterwegs",
+        "title": "Momente meiner Reisen",
+        "images": [
+          {
+            "src": "/assets/website/ueber-mich.jpg",
+            "alt": "Janine im roten Kleid bei Sonnenuntergang"
+          },
+          {
+            "src": "/assets/website/ueber-mich-3.jpg",
+            "alt": "Janine vor dem Eiffelturm in Paris"
+          },
+          {
+            "src": "/assets/website/ueber-mich-4.jpg",
+            "alt": "Janine an einem Bergsee"
+          },
+          {
+            "src": "/assets/website/ueber-mich-5.jpg",
+            "alt": "Janine im Pickup mit Cowboyhut"
+          },
+          {
+            "src": "/assets/website/ueber-mich-6.jpg",
+            "alt": "Janine mit Surfboard am Strand"
+          },
+          {
+            "src": "/assets/website/ueber-mich-7.jpg",
+            "alt": "Janine beim Schwimmen im Meer"
+          }
+        ]
+      },
+      "valuesEyebrow": "Warum ich?",
+      "valuesTitle": "Was du von mir bekommst",
+      "values": [
+        {
+          "title": "Reise-Expertise & Storytelling",
+          "description": "Texte, die Emotionen wecken, Fernweh auslösen und Reisende zur Buchung bewegen."
+        },
+        {
+          "title": "SEO-optimierte Inhalte",
+          "description": "Suchmaschinenfreundliche Reisetexte, die deine Website sichtbarer machen – ohne gekünstelte Keywords."
+        },
+        {
+          "title": "Maßgeschneiderte Lösungen",
+          "description": "Individuelle Texte für dein Reisebusiness – von der Website über den Blog bis zum Newsletter."
+        },
+        {
+          "title": "Zuverlässigkeit & Markenstimme",
+          "description": "Pünktliche Lieferung, klare Sprache und ein konsistenter Auftritt über alle Kanäle hinweg."
+        }
+      ]
+    },
+    "mediakit": {
+      "metaTitle": "Media Kit",
+      "metaDescription": "Das Media Kit von Janine Bergmann – Copywriterin für Reise & Tourismus. Profil, Leistungen und Konditionen auf einen Blick, als PDF zum Download.",
+      "downloadLabel": "Als PDF speichern",
+      "printHint": "Tipp: Im Druckdialog „Als PDF speichern“ wählen, Ränder auf „Keine“ und „Hintergrundgrafiken“ aktivieren.",
+      "coverEyebrow": "Media Kit",
+      "coverRole": "Copywriterin für Reise & Tourismus",
+      "intro": "Ich bin Janine, Tourismusexpertin und Content Creatorin mit Schwerpunkt auf Reise- und Destinationsmarketing. Nach meiner Ausbildung als Kauffrau für Tourismus und Freizeit und meinem staatlich geprüften Betriebswirt im Bereich Tourismus habe ich in verschiedenen Stationen – unter anderem im Vertriebsmarketing bei alltours – professionelle Texte für Websites, Social Media, Newsletter und Magazine erstellt. Heute vermarkte ich Nordrhein-Westfalen als vielseitiges Reiseziel und verbinde dabei meine Erfahrung im Tourismus mit meiner Leidenschaft für authentischen, inspirierenden Reise-Content.",
+      "portraitImage": "/assets/website/ueber-mich.jpg",
+      "portraitAlt": "Janine Bergmann",
+      "brandsTitle": "Marken, für die ich schon geschrieben habe",
+      "brands": [
+        "Tourismus NRW e.V.",
+        "alltours",
+        "Ferien- und Campingpark Wisseler See",
+        "Niederrhein Medien"
+      ],
+      "valuesTitle": "Warum ich?",
+      "ratesEyebrow": "Services & Raten",
+      "ratesTitle": "Dienstleistungen, die ich anbiete",
+      "ratesIntro": "Blogbeiträge, Website-Texte und Newsletter – Storytelling, das Emotionen weckt, Angebote klar präsentiert und Kund:innen langfristig bindet.",
+      "rates": [
+        {
+          "title": "Website-Texte",
+          "subtitle": "z. B. Startseite",
+          "steps": [
+            "Briefing & Struktur: 1,5–2 h",
+            "Text: 3–4 h",
+            "Überarbeitung: 1–1,5 h",
+            "Gesamt: ca. 5,5–7,5 Stunden"
+          ],
+          "price": "275–375 €"
+        },
+        {
+          "title": "Blogbeitrag",
+          "subtitle": "ca. 1.000–1.200 Wörter",
+          "steps": [
+            "Recherche & Konzept: 1–1,5 h",
+            "Schreiben: 2–3 h",
+            "Überarbeitung & Feinschliff: 1 h",
+            "Gesamt: ca. 4–5,5 Stunden"
+          ],
+          "price": "200–275 €"
+        },
+        {
+          "title": "Newsletter",
+          "subtitle": "1 Ausgabe",
+          "steps": [
+            "Themenfindung & Aufbau: 0,5–1 h",
+            "Text: 1–1,5 h",
+            "Feinschliff: 0,5 h",
+            "Gesamt: ca. 2–3 Stunden"
+          ],
+          "price": "100–150 €"
+        }
+      ],
+      "pricingNoteTitle": "Wie setzen sich meine Preise zusammen?",
+      "pricingNoteText": "Meine Preise basieren nicht nur auf der reinen Schreibzeit, sondern auf dem gesamten kreativen Prozess: Recherche, Konzeption, Text, Überarbeitung und Abstimmung. So entstehen Inhalte, die nicht nur gut klingen, sondern wirken."
+    },
+    "kontakt": {
+      "metaTitle": "Kontakt",
+      "metaDescription": "Schreib Janine Bergmann für dein nächstes Copywriting-Projekt — Antwort innerhalb von 24 Stunden.",
+      "heroEyebrow": "Kontakt",
+      "heroTitle": "Erzähl mir von deinem Projekt.",
+      "heroImage": "/assets/website/ueber-mich-4.jpg",
+      "heroImageAlt": "Sonnenuntergang am Meer mit Palmen",
+      "heroText": "Du hast Interesse an meinen Texten oder möchtest über dein Projekt sprechen? Dann schreib mir einfach kurz, worum es geht – ich melde mich zeitnah und persönlich bei dir zurück.",
+      "emailTitle": "E-Mail",
+      "responseTitle": "Antwortzeit",
+      "responseValue": "Innerhalb von 24 Stunden",
+      "callTitle": "Erstgespräch",
+      "callValue": "Kostenlos & unverbindlich"
+    },
+    "header": {
+      "cta": "Projekt anfragen"
+    },
+    "footer": {
+      "tagline": "Texte, die Fernweh wecken und Reisende zur Buchung bewegen.",
+      "navLabel": "Navigation",
+      "contactLabel": "Kontakt",
+      "mediakitLabel": "Media Kit (PDF)",
+      "rights": "Alle Rechte vorbehalten.",
+      "impressum": "Impressum",
+      "datenschutz": "Datenschutz"
+    }
+  }
+}

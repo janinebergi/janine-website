@@ -20,6 +20,7 @@ export type PostMeta = {
   date: string;
   excerpt: string;
   coverImage: string;
+  coverPosition?: string;
   tags: string[];
   readingTime: number;
   gallery: GalleryImage[];
@@ -46,6 +47,7 @@ function fileToPost(fileName: string): Post {
     date: data.date ?? new Date().toISOString(),
     excerpt: data.excerpt ?? "",
     coverImage: data.coverImage ?? `https://picsum.photos/seed/${slug}/1200/700`,
+    coverPosition: data.coverPosition,
     tags: data.tags ?? [],
     readingTime: readingTime(content),
     gallery: data.gallery ?? [],

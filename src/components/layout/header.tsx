@@ -5,7 +5,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useState } from "react";
 import { Menu, X } from "lucide-react";
-import { nav, site } from "@/lib/site";
+import { nav, pages, site } from "@/lib/site";
 import { Button } from "@/components/ui/button";
 
 export function Header() {
@@ -55,7 +55,7 @@ export function Header() {
 
         <div className="hidden md:block">
           <Button href="/kontakt" className="px-5 py-2.5">
-            Projekt anfragen
+            {pages.header.cta}
           </Button>
         </div>
 
@@ -83,7 +83,7 @@ export function Header() {
               </Link>
             ))}
             <Button href="/kontakt" className="mt-3" >
-              Projekt anfragen
+              {pages.header.cta}
             </Button>
           </nav>
         </div>

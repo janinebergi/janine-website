@@ -2,7 +2,8 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import { Container } from "@/components/ui/container";
-import { Eyebrow } from "@/components/ui/section-heading";
+import { PageHeader } from "@/components/ui/page-header";
+import { ArrowRight } from "lucide-react";
 import { getAllPosts, formatDate } from "@/lib/blog";
 
 export const metadata: Metadata = {
@@ -17,22 +18,14 @@ export default function BlogPage() {
 
   return (
     <>
-      <section className="relative overflow-hidden">
-        <div className="glow-radial pointer-events-none absolute inset-0 -z-10" />
-        <Container className="py-20 sm:py-28">
-          <div className="max-w-3xl">
-            <Eyebrow>Blog</Eyebrow>
-            <h1 className="mt-6 text-4xl font-semibold leading-tight sm:text-5xl">
-              Geschichten und Tipps rund ums Reisen.
-            </h1>
-            <p className="mt-6 text-lg leading-relaxed text-muted">
-              Reisen ist meine Inspiration, Schreiben meine Leidenschaft. Hier
-              teile ich Routen, Budgets und Abenteuer – und ab und zu Gedanken
-              zum Copywriting.
-            </p>
-          </div>
-        </Container>
-      </section>
+      <PageHeader
+        image="/assets/website/blog-header.jpg"
+        imageAlt="Saftig grüne Reisterrassen mit Palmen unter dramatischem Wolkenhimmel"
+        imagePosition="center 40%"
+        eyebrow="Blog"
+        title="Geschichten und Tipps rund ums Reisen."
+        text="Reisen ist meine Inspiration, Schreiben meine Leidenschaft. Hier teile ich Routen, Budgets und Abenteuer – und ab und zu Gedanken zum Copywriting."
+      />
 
       <section className="pb-20">
         <Container>
@@ -108,6 +101,27 @@ export default function BlogPage() {
               )}
             </div>
           )}
+
+          <section className="mt-16 rounded-2xl border border-border bg-surface/60 p-8 sm:p-10">
+            <p className="text-sm text-accent-hover">Zusammenarbeit</p>
+            <h2 className="mt-2 text-2xl font-semibold leading-snug">
+              Du möchtest mit mir zusammenarbeiten?
+            </h2>
+            <p className="mt-4 max-w-2xl leading-relaxed text-muted">
+              Du bist auf einen meiner Beiträge gestoßen und interessierst dich
+              für eine Zusammenarbeit? Du hast ein Produkt, ein Hotel, eine
+              Unterkunft oder ein Reiseerlebnis, das ich austesten und hier im
+              Blog vorstellen soll? Dann melde dich gerne bei mir – ich freue
+              mich auf deine Nachricht.
+            </p>
+            <Link
+              href="/kontakt"
+              className="mt-6 inline-flex items-center gap-2 text-sm font-medium text-accent-hover transition-opacity hover:opacity-80"
+            >
+              Schreib mir
+              <ArrowRight size={16} />
+            </Link>
+          </section>
         </Container>
       </section>
     </>

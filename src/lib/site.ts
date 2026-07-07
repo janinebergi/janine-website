@@ -1,104 +1,19 @@
-export const site = {
-  name: "Janine Bergmann",
-  role: "Copywriterin für Reise & Tourismus",
-  tagline: "Weil gute Werbung kein Zufall, sondern Wortwahl ist.",
-  description:
-    "Janine Bergmann ist Copywriterin für Reise- und Tourismusunternehmen. Texte für Websites, Blogs und Newsletter, die Emotionen wecken, Fernweh auslösen und Reisende zur Buchung bewegen.",
-  email: "hallo@janinebergmann.de",
-  url: "https://janinebergmann.de",
-  // PLATZHALTER: später durch ein aussagekräftiges Header-Bild ersetzen
-  // (z. B. "/assets/mein-header.jpg") und in page.tsx das `unoptimized`-Flag entfernen.
-  heroImage: "/assets/placeholder-header.svg",
-  social: {
-    linkedin: "https://www.linkedin.com/in/janine-bergmann/",
-    instagram: "https://www.instagram.com/",
-    tiktok: "https://www.tiktok.com/",
-  },
-};
+// Alle bearbeitbaren Texte der Website liegen zentral in src/content/site.json.
+// Diese Datei kann über die Editor-Seite /admin bearbeitet werden – die Änderungen
+// werden zurück in die JSON-Datei geschrieben (und landen so in Git).
+import content from "@/content/site.json";
 
-export const nav = [
-  { href: "/", label: "Start" },
-  { href: "/leistungen", label: "Leistungen" },
-  { href: "/arbeiten", label: "Arbeiten" },
-  { href: "/ueber-mich", label: "Über mich" },
-  { href: "/blog", label: "Blog" },
-  { href: "/kontakt", label: "Kontakt" },
-];
+export const site = content.site;
+export const nav = content.nav;
+export const services = content.services;
+export const stats = content.stats;
+export const testimonials = content.testimonials;
 
-export const services = [
-  {
-    title: "Blogbeiträge, die Fernweh wecken",
-    description:
-      "Blogbeiträge für Reise- und Tourismusunternehmen, die Fernweh wecken, Abenteuer spürbar machen und deine Angebote mit Geschichten zum Leben erwecken. SEO-optimierte Reisetexte sorgen für Sichtbarkeit – vom ersten Satz bis zum letzten Klick.",
-  },
-  {
-    title: "Website-Texte, die Reiseträume verkaufen",
-    description:
-      "Website-Texte für Reise- und Tourismusunternehmen, die deine Angebote lebendig präsentieren und deine Marke authentisch zeigen. SEO-optimiert, damit du gefunden wirst – und aus Aufmerksamkeit neue Kunden werden.",
-  },
-  {
-    title: "Newsletter, die Geschichten erzählen",
-    description:
-      "Newsletter-Texte für den Tourismus, die deine Angebote klar und verständlich kommunizieren und dabei Nähe sowie Vertrauen schaffen. Durch Geschichten, Tipps und Inspiration fühlen sich deine Leser wirklich abgeholt – ohne aufdringlich zu wirken.",
-  },
-];
+// Seiten-spezifische Texte (Überschriften, Absätze, Buttons …)
+export const pages = content.pages;
 
-// PLATZHALTER: Durch echte Zahlen ersetzen, sobald verfügbar.
-export const stats = [
-  { value: "XX", label: "Reiseziele bereist" },
-  { value: "XX+", label: "Texte veröffentlicht" },
-  { value: "XX", label: "Jahre im Tourismus" },
-];
+// Media Kit (eigene Downloadseite unter /mediakit)
+export const mediakit = content.pages.mediakit;
 
-// PLATZHALTER: Echte Kundenstimmen hier eintragen (Zitat, Name, Unternehmen).
-export const testimonials = [
-  {
-    id: "stimme-1",
-    quote:
-      "Hier erscheint bald eine echte Kundenstimme. Wir arbeiten zusammen? Dann ist dein Zitat vielleicht das nächste an dieser Stelle.",
-    name: "Dein Name",
-    role: "Dein Unternehmen",
-  },
-  {
-    id: "stimme-2",
-    quote:
-      "Platzhalter für ein Kundenzitat aus einem Reise- oder Tourismusprojekt – über Texte, die Fernweh geweckt und Buchungen gebracht haben.",
-    name: "Dein Name",
-    role: "Dein Unternehmen",
-  },
-  {
-    id: "stimme-3",
-    quote:
-      "Platzhalter für eine weitere Stimme aus der Zusammenarbeit – ehrlich, konkret und mit Ergebnis.",
-    name: "Dein Name",
-    role: "Dein Unternehmen",
-  },
-];
-
-// PLATZHALTER: Echte Referenzprojekte hier eintragen (Titel, Kategorie, Bild).
-export const projects = [
-  {
-    id: "website-texte",
-    title: "Referenzprojekt folgt",
-    category: "Website-Texte",
-    image: "/assets/copywriting-1.png",
-  },
-  {
-    id: "blogbeitraege",
-    title: "Referenzprojekt folgt",
-    category: "Blogbeiträge",
-    image: "/assets/sri-lanka-cover.png",
-  },
-  {
-    id: "newsletter",
-    title: "Referenzprojekt folgt",
-    category: "Newsletter",
-    image: "/assets/copywriting-2.png",
-  },
-  {
-    id: "storytelling",
-    title: "Referenzprojekt folgt",
-    category: "Storytelling",
-    image: "/assets/copywriting-3.png",
-  },
-];
+// Das komplette Content-Objekt – wird u. a. vom Editor unter /admin genutzt.
+export const siteContent = content;
