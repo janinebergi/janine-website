@@ -244,8 +244,7 @@ export function SriLankaRouteMap({ lang = "de" }: { lang?: Lang }) {
 
       <p className="flex items-center gap-2 border-t border-border px-6 py-3 text-xs text-muted sm:px-8">
         <MapPin size={13} className="shrink-0 text-accent-hover" />
-        Rundreise im Uhrzeigersinn zurück nach Colombo · Klammer = Nächte vor Ort ·
-        gepunktete Abzweige = Tagesausflüge von Weligama · 14 Nächte / 15 Tage
+        {captions[lang]}
       </p>
     </div>
   );

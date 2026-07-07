@@ -16,7 +16,8 @@ export const metadata: Metadata = {
 
 export default async function LeistungenPage() {
   const lang = await getLang();
-  const { pages, services, mediakit } = getSiteContent(lang);
+  const { pages, services } = getSiteContent(lang);
+  const mediakit = pages.mediakit;
   const t = pages.leistungen;
   const deliverables = t.deliverables;
   const process = t.process;
