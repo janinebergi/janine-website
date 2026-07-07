@@ -9,7 +9,7 @@ import { getAllPosts, formatDate } from "@/lib/blog";
 export const metadata: Metadata = {
   title: "Blog",
   description:
-    "Geschichten und Tipps rund ums Reisen — und Gedanken zu Copywriting. Persönlich von Janine Bergmann.",
+    "Geschichten und Tipps rund ums Reisen — und Gedanken zu Copywriting. Persönlich von Janine.",
 };
 
 export default function BlogPage() {
@@ -54,6 +54,12 @@ export default function BlogPage() {
                       <span>{formatDate(featured.date)}</span>
                       <span>·</span>
                       <span>{featured.readingTime} Min. Lesezeit</span>
+                      {featured.country && (
+                        <>
+                          <span>·</span>
+                          <span>{featured.country}</span>
+                        </>
+                      )}
                     </div>
                     <h2 className="mt-3 text-2xl font-semibold leading-snug group-hover:text-accent-hover">
                       {featured.title}
@@ -87,6 +93,12 @@ export default function BlogPage() {
                           <span>{formatDate(post.date)}</span>
                           <span>·</span>
                           <span>{post.readingTime} Min.</span>
+                          {post.country && (
+                            <>
+                              <span>·</span>
+                              <span>{post.country}</span>
+                            </>
+                          )}
                         </div>
                         <h3 className="mt-2 text-lg font-semibold leading-snug group-hover:text-accent-hover">
                           {post.title}

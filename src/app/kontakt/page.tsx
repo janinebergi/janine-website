@@ -44,6 +44,7 @@ export default function KontaktPage() {
         imageAlt={t.heroImageAlt}
         eyebrow={t.heroEyebrow}
         title={t.heroTitle}
+        align="center"
       />
 
       <section className="py-16 sm:py-20">

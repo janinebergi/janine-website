@@ -58,6 +58,12 @@ export default async function BlogPostPage({
             <span>{formatDate(post.date)}</span>
             <span>·</span>
             <span>{post.readingTime} Min. Lesezeit</span>
+            {post.country && (
+              <>
+                <span>·</span>
+                <span>{post.country}</span>
+              </>
+            )}
             {post.tags.map((tag) => (
               <span
                 key={tag}

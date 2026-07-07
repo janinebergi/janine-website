@@ -22,6 +22,7 @@ export default function UeberMichPage() {
         imageAlt={t.heroImageAlt}
         eyebrow={t.heroEyebrow}
         title={t.heroTitle}
+        align="center"
       />
 
       {/* Einleitungstext */}

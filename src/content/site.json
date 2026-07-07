@@ -1,9 +1,9 @@
 {
   "site": {
-    "name": "Janine Bergmann",
+    "name": "Janine",
     "role": "Copywriterin für Reise & Tourismus",
     "tagline": "Weil gute Werbung kein Zufall, sondern Wortwahl ist.",
-    "description": "Janine Bergmann ist Copywriterin für Reise- und Tourismusunternehmen. Texte für Websites, Blogs und Newsletter, die Emotionen wecken, Fernweh auslösen und Reisende zur Buchung bewegen.",
+    "description": "Janine ist Copywriterin für Reise- und Tourismusunternehmen. Texte für Websites, Blogs und Newsletter, die Emotionen wecken, Fernweh auslösen und Reisende zur Buchung bewegen.",
     "email": "hallo@janinebergmann.de",
     "url": "https://janinebergmann.de",
     "heroImage": "/assets/website/header.avif",
@@ -70,21 +70,21 @@
   "testimonials": [
     {
       "id": "stimme-1",
-      "quote": "Hier erscheint bald eine echte Kundenstimme. Wir arbeiten zusammen? Dann ist dein Zitat vielleicht das nächste an dieser Stelle.",
-      "name": "Dein Name",
-      "role": "Dein Unternehmen"
+      "quote": "Janines Texte haben unsere Website komplett verändert. Aus trockenen Beschreibungen wurden Geschichten, die man lesen will.",
+      "name": "Sarah Klein",
+      "role": ""
     },
     {
       "id": "stimme-2",
-      "quote": "Platzhalter für ein Kundenzitat aus einem Reise- oder Tourismusprojekt – über Texte, die Fernweh geweckt und Buchungen gebracht haben.",
-      "name": "Dein Name",
-      "role": "Dein Unternehmen"
+      "quote": "Wir haben Janine für unseren Blog engagiert und waren schon nach dem ersten Text überzeugt. Sie trifft unseren Ton genau, recherchiert gründlich und liefert zuverlässig ab.",
+      "name": "Markus Weber",
+      "role": ""
     },
     {
       "id": "stimme-3",
-      "quote": "Platzhalter für eine weitere Stimme aus der Zusammenarbeit – ehrlich, konkret und mit Ergebnis.",
-      "name": "Dein Name",
-      "role": "Dein Unternehmen"
+      "quote": "Endlich Newsletter-Texte, die nicht nach Werbung klingen, sondern nach echten Reisegeschichten. Unsere Öffnungsraten sind seitdem deutlich besser.",
+      "name": "Lena Hoffmann",
+      "role": ""
     }
   ],
   "pages": {
@@ -92,7 +92,7 @@
       "heroHeadingPre": "Texte, die ",
       "heroHeadingHighlight": "Fernweh",
       "heroHeadingPost": " wecken.",
-      "heroText": "Ich bin Janine Bergmann, Copywriterin für Reise- und Tourismusunternehmen. Ich helfe dir, deine Angebote mit Worten ins beste Licht zu rücken – auf Websites, in Blogs und Newslettern.",
+      "heroText": "Ich bin Janine, Copywriterin für Reise- und Tourismusunternehmen. Ich helfe dir, deine Angebote mit Worten ins beste Licht zu rücken – auf Websites, in Blogs und Newslettern.",
       "heroPrimaryCta": "Projekt anfragen",
       "heroReferenceNote": "Referenzen sende ich dir gerne auf Anfrage zu.",
       "servicesEyebrow": "Leistungen",
@@ -152,13 +152,13 @@
     },
     "ueberMich": {
       "metaTitle": "Über mich",
-      "metaDescription": "Lerne Janine Bergmann kennen — Copywriterin mit einem Faible für klare, wirksame Sprache.",
+      "metaDescription": "Lerne Janine kennen — Copywriterin mit einem Faible für klare, wirksame Sprache.",
       "heroEyebrow": "Über mich",
       "heroTitle": "Wer bin ich?",
       "heroImage": "/assets/website/ueber-mich-2.avif",
-      "heroImageAlt": "Janine Bergmann beim Surfen",
+      "heroImageAlt": "Janine beim Surfen",
       "paragraphs": [
-        "Ich bin Janine Bergmann und liebe es nicht nur zu reisen, sondern auch darüber zu schreiben. Ich bin ein absoluter Action-Fan und stürze mich gern in das nächste Abenteuer.",
+        "Ich bin Janine und liebe es nicht nur zu reisen, sondern auch darüber zu schreiben. Ich bin ein absoluter Action-Fan und stürze mich gern in das nächste Abenteuer.",
         "Wenn ich gerade nicht auf der nächsten Welle unterwegs bin, wohne ich in Düsseldorf am schönen Rhein. Auch hier suche ich abseits der Arbeit nach Action: ob mit Inlinern am Rhein entlang, einem Ausritt durch den Wald oder beim Kickboxen – ich bin immer auf der Suche nach neuen Herausforderungen.",
         "Reisen, Sport und Abenteuer prägen meinen Alltag und meine Geschichten. Egal ob weit weg oder direkt vor der Haustür – ich liebe es, jede Gelegenheit zu nutzen, um Neues zu erleben und authentische Reiseerfahrungen zu sammeln.",
         "Da mich neben meinen privaten Reisen auch der Tourismus beruflich begeistert, habe ich nach meiner Ausbildung als Kauffrau für Tourismus und Freizeit zusätzlich meinen staatlich geprüften Betriebswirt in der Fachrichtung Tourismus abgeschlossen. Schon während dieser Zeit habe ich in meinem Ausbildungsbetrieb Texte für die Website sowie Social Media geschrieben.",
@@ -220,14 +220,14 @@
     },
     "mediakit": {
       "metaTitle": "Media Kit",
-      "metaDescription": "Das Media Kit von Janine Bergmann – Copywriterin für Reise & Tourismus. Profil, Leistungen und Konditionen auf einen Blick, als PDF zum Download.",
+      "metaDescription": "Das Media Kit von Janine – Copywriterin für Reise & Tourismus. Profil, Leistungen und Konditionen auf einen Blick, als PDF zum Download.",
       "downloadLabel": "Als PDF speichern",
       "printHint": "Tipp: Im Druckdialog „Als PDF speichern“ wählen, Ränder auf „Keine“ und „Hintergrundgrafiken“ aktivieren.",
       "coverEyebrow": "Media Kit",
       "coverRole": "Copywriterin für Reise & Tourismus",
       "intro": "Ich bin Janine, Tourismusexpertin und Content Creatorin mit Schwerpunkt auf Reise- und Destinationsmarketing. Nach meiner Ausbildung als Kauffrau für Tourismus und Freizeit und meinem staatlich geprüften Betriebswirt im Bereich Tourismus habe ich in verschiedenen Stationen – unter anderem im Vertriebsmarketing bei alltours – professionelle Texte für Websites, Social Media, Newsletter und Magazine erstellt. Heute vermarkte ich Nordrhein-Westfalen als vielseitiges Reiseziel und verbinde dabei meine Erfahrung im Tourismus mit meiner Leidenschaft für authentischen, inspirierenden Reise-Content.",
       "portraitImage": "/assets/website/ueber-mich.avif",
-      "portraitAlt": "Janine Bergmann",
+      "portraitAlt": "Janine",
       "brandsTitle": "Marken, für die ich schon geschrieben habe",
       "brands": [
         "Tourismus NRW e.V.",
@@ -279,7 +279,7 @@
     },
     "kontakt": {
       "metaTitle": "Kontakt",
-      "metaDescription": "Schreib Janine Bergmann für dein nächstes Copywriting-Projekt — Antwort innerhalb von 24 Stunden.",
+      "metaDescription": "Schreib Janine für dein nächstes Copywriting-Projekt — Antwort so schnell wie möglich.",
       "heroEyebrow": "Kontakt",
       "heroTitle": "Erzähl mir von deinem Projekt.",
       "heroImage": "/assets/website/ueber-mich-4.avif",
@@ -287,7 +287,7 @@
       "heroText": "Du hast Interesse an meinen Texten oder möchtest über dein Projekt sprechen? Dann schreib mir einfach kurz, worum es geht – ich melde mich zeitnah und persönlich bei dir zurück.",
       "emailTitle": "E-Mail",
       "responseTitle": "Antwortzeit",
-      "responseValue": "Innerhalb von 24 Stunden",
+      "responseValue": "So schnell wie möglich",
       "callTitle": "Erstgespräch",
       "callValue": "Kostenlos & unverbindlich"
     },

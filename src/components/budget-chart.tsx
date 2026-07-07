@@ -7,6 +7,10 @@ type Item = {
 type Budget = {
   title: string;
   items: Item[];
+  avgPerDay: {
+    total: number;
+    perPerson: number;
+  };
 };
 
 const budgets: Record<string, Budget> = {
@@ -22,6 +26,7 @@ const budgets: Record<string, Budget> = {
       { label: "Wechselgebühren", amount: 255 },
       { label: "Andere", amount: 183.66, note: "Transport, Einkäufe, Sonstiges" },
     ],
+    avgPerDay: { total: 217, perPerson: 108 },
   },
   srilanka: {
     title: "Kosten für 2 Personen",
@@ -33,6 +38,7 @@ const budgets: Record<string, Budget> = {
       { label: "Transport vor Ort", amount: 297, note: "Zug, TukTuk, Fahrer" },
       { label: "Freizeitaktivitäten & Eintritte", amount: 261 },
     ],
+    avgPerDay: { total: 142, perPerson: 71 },
   },
 };
 
@@ -41,7 +47,7 @@ const euro = (value: number) =>
 
 export function BudgetChart({ trip = "bali" }: { trip?: keyof typeof budgets }) {
   const budget = budgets[trip] ?? budgets.bali;
-  const { title, items } = budget;
+  const { title, items, avgPerDay } = budget;
 
   const total = items.reduce((sum, item) => sum + item.amount, 0);
   const max = Math.max(...items.map((item) => item.amount));
@@ -57,6 +63,13 @@ export function BudgetChart({ trip = "bali" }: { trip?: keyof typeof budgets }) 
           </strong>
         </span>
       </div>
+      <p className="mt-1 text-sm text-muted">
+        ⌀ pro Tag{" "}
+        <strong className="font-semibold text-foreground">
+          {euro(avgPerDay.total)}
+        </strong>{" "}
+        für 2 Personen ({euro(avgPerDay.perPerson)} p. P.) · ohne Flüge
+      </p>
 
       <ul className="mt-6 flex flex-col gap-4">
         {items.map((item) => {
