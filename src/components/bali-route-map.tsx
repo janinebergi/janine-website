@@ -1,4 +1,5 @@
 import { MapPin } from "lucide-react";
+import type { Lang } from "@/lib/i18n-constants";
 
 type Stop = {
   n: number;
@@ -13,14 +14,29 @@ type Stop = {
 };
 
 // Stationen in Reihenfolge der Reise (Süd → Zentrum → Inseln)
-const stops: Stop[] = [
-  { n: 1, name: "Uluwatu", highlight: "Surfen & Klippen", lon: 115.08, lat: -8.82, lx: 108, ly: 196, anchor: "end" },
-  { n: 2, name: "Ubud", highlight: "Tempel & Vulkan", lon: 115.26, lat: -8.51, lx: 120, ly: 14, anchor: "middle" },
-  { n: 3, name: "Nusa Penida", highlight: "Manta-Tauchen", lon: 115.51, lat: -8.73, lx: 226, ly: 174, anchor: "start" },
-  { n: 4, name: "Gili T", highlight: "Wracktauchen", lon: 115.97, lat: -8.33, lx: 295, ly: 108, anchor: "middle" },
-  { n: 5, name: "Tulamben", highlight: "Liberty-Wrack", lon: 115.59, lat: -8.28, lx: 255, ly: 30, anchor: "middle" },
-  { n: 6, name: "Canggu", highlight: "Beachbars & Abreise", lon: 115.13, lat: -8.65, lx: 110, ly: 140, anchor: "end" },
-];
+const stopsByLang: Record<Lang, Stop[]> = {
+  de: [
+    { n: 1, name: "Uluwatu", highlight: "Surfen & Klippen", lon: 115.08, lat: -8.82, lx: 108, ly: 196, anchor: "end" },
+    { n: 2, name: "Ubud", highlight: "Tempel & Vulkan", lon: 115.26, lat: -8.51, lx: 120, ly: 14, anchor: "middle" },
+    { n: 3, name: "Nusa Penida", highlight: "Manta-Tauchen", lon: 115.51, lat: -8.73, lx: 226, ly: 174, anchor: "start" },
+    { n: 4, name: "Gili T", highlight: "Wracktauchen", lon: 115.97, lat: -8.33, lx: 295, ly: 108, anchor: "middle" },
+    { n: 5, name: "Tulamben", highlight: "Liberty-Wrack", lon: 115.59, lat: -8.28, lx: 255, ly: 30, anchor: "middle" },
+    { n: 6, name: "Canggu", highlight: "Beachbars & Abreise", lon: 115.13, lat: -8.65, lx: 110, ly: 140, anchor: "end" },
+  ],
+  en: [
+    { n: 1, name: "Uluwatu", highlight: "Surfing & cliffs", lon: 115.08, lat: -8.82, lx: 108, ly: 196, anchor: "end" },
+    { n: 2, name: "Ubud", highlight: "Temples & volcano", lon: 115.26, lat: -8.51, lx: 120, ly: 14, anchor: "middle" },
+    { n: 3, name: "Nusa Penida", highlight: "Manta diving", lon: 115.51, lat: -8.73, lx: 226, ly: 174, anchor: "start" },
+    { n: 4, name: "Gili T", highlight: "Wreck diving", lon: 115.97, lat: -8.33, lx: 295, ly: 108, anchor: "middle" },
+    { n: 5, name: "Tulamben", highlight: "Liberty wreck", lon: 115.59, lat: -8.28, lx: 255, ly: 30, anchor: "middle" },
+    { n: 6, name: "Canggu", highlight: "Beach bars & departure", lon: 115.13, lat: -8.65, lx: 110, ly: 140, anchor: "end" },
+  ],
+};
+
+const captions: Record<Lang, string> = {
+  de: "Zwei Wochen von der Bukit-Halbinsel über Ubud bis zu den Tauchspots vor Nusa Penida, Gili Trawangan und Tulamben",
+  en: "Two weeks from the Bukit Peninsula via Ubud to the dive spots off Nusa Penida, Gili Trawangan and Tulamben",
+};
 
 // Vereinfachte Küstenumrisse (lon, lat)
 const bali: [number, number][] = [
@@ -94,21 +110,26 @@ function toPath(points: [number, number][]): string {
   );
 }
 
-const routePath = stops
-  .map((s, i) => {
-    const [x, y] = project(s.lon, s.lat);
-    return `${i === 0 ? "M" : "L"}${x.toFixed(1)} ${y.toFixed(1)}`;
-  })
-  .join(" ");
+export function BaliRouteMap({ lang = "de" }: { lang?: Lang }) {
+  const stops = stopsByLang[lang];
+  const routePath = stops
+    .map((s, i) => {
+      const [x, y] = project(s.lon, s.lat);
+      return `${i === 0 ? "M" : "L"}${x.toFixed(1)} ${y.toFixed(1)}`;
+    })
+    .join(" ");
 
-export function BaliRouteMap() {
   return (
     <div className="not-prose my-10 overflow-hidden rounded-2xl border border-border bg-surface/60">
       <div className="flex justify-center p-6 sm:p-8">
         <svg
           viewBox="-35 -8 425 222"
           role="img"
-          aria-label="Karte der Bali-Rundreise mit allen Stationen"
+          aria-label={
+            lang === "en"
+              ? "Map of the Bali road trip with all stops"
+              : "Karte der Bali-Rundreise mit allen Stationen"
+          }
           className="h-auto w-full max-w-[520px]"
         >
           {/* Landflächen */}
@@ -216,8 +237,7 @@ export function BaliRouteMap() {
 
       <p className="flex items-center gap-2 border-t border-border px-6 py-3 text-xs text-muted sm:px-8">
         <MapPin size={13} className="shrink-0 text-accent-hover" />
-        Zwei Wochen von der Bukit-Halbinsel über Ubud bis zu den Tauchspots vor
-        Nusa Penida, Gili Trawangan und Tulamben
+        {captions[lang]}
       </p>
     </div>
   );

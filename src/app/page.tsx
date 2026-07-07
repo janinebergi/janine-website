@@ -4,12 +4,15 @@ import { ArrowUpRight, Quote } from "lucide-react";
 import { Container } from "@/components/ui/container";
 import { Button } from "@/components/ui/button";
 import { Eyebrow, SectionHeading } from "@/components/ui/section-heading";
-import { pages, services, site, stats, testimonials } from "@/lib/site";
+import { getSiteContent } from "@/lib/site";
+import { getLang } from "@/lib/i18n";
 import { iconForStat } from "@/lib/stat-icons";
 
-const t = pages.home;
+export default async function Home() {
+  const lang = await getLang();
+  const { pages, services, site, stats, testimonials } = getSiteContent(lang);
+  const t = pages.home;
 
-export default function Home() {
   return (
     <>
       {/* Großer Header über der Startseite */}

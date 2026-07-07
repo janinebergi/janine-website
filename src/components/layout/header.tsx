@@ -6,7 +6,7 @@ import { usePathname } from "next/navigation";
 import { useState } from "react";
 import { Menu, X } from "lucide-react";
 import { getSiteContent } from "@/lib/site";
-import type { Lang } from "@/lib/i18n";
+import type { Lang } from "@/lib/i18n-constants";
 import { Button } from "@/components/ui/button";
 import { LanguageToggle } from "@/components/layout/language-toggle";
 

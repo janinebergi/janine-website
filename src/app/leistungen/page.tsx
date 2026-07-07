@@ -4,18 +4,23 @@ import { Container } from "@/components/ui/container";
 import { Button } from "@/components/ui/button";
 import { SectionHeading } from "@/components/ui/section-heading";
 import { PageHeader } from "@/components/ui/page-header";
-import { pages, services, mediakit } from "@/lib/site";
+import { pages as pagesDe, getSiteContent } from "@/lib/site";
+import { getLang } from "@/lib/i18n";
 
-const t = pages.leistungen;
-const deliverables = t.deliverables;
-const process = t.process;
+const tDe = pagesDe.leistungen;
 
 export const metadata: Metadata = {
-  title: t.metaTitle,
-  description: t.metaDescription,
+  title: tDe.metaTitle,
+  description: tDe.metaDescription,
 };
 
-export default function LeistungenPage() {
+export default async function LeistungenPage() {
+  const lang = await getLang();
+  const { pages, services, mediakit } = getSiteContent(lang);
+  const t = pages.leistungen;
+  const deliverables = t.deliverables;
+  const process = t.process;
+
   return (
     <>
       <PageHeader
@@ -93,7 +98,7 @@ export default function LeistungenPage() {
               className="inline-flex items-center gap-1.5 whitespace-nowrap text-sm font-medium text-accent-hover transition-colors hover:text-accent"
             >
               <Pencil size={14} />
-              Media Kit bearbeiten
+              {t.mediakitEditLabel}
             </a>
           </div>
           <div className="mt-10 grid gap-5 sm:grid-cols-3">
@@ -120,7 +125,7 @@ export default function LeistungenPage() {
                   ))}
                 </ul>
                 <div className="mt-5 border-t border-border/60 pt-4">
-                  <span className="text-xs text-muted">Preis</span>
+                  <span className="text-xs text-muted">{mediakit.priceLabel}</span>
                   <div className="text-2xl font-semibold text-foreground">
                     {rate.price}
                   </div>
@@ -140,7 +145,7 @@ export default function LeistungenPage() {
       <section className="pb-20">
         <Container>
           <SectionHeading
-            eyebrow="Referenzen"
+            eyebrow={t.referencesEyebrow}
             title={mediakit.brandsTitle}
             align="center"
           />

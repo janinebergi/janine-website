@@ -2,14 +2,12 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import { Check, Mail, Globe, Linkedin } from "lucide-react";
 import { MediakitDownload } from "@/components/mediakit-download";
-import { mediakit, pages, site, stats } from "@/lib/site";
-
-const t = mediakit;
-const values = pages.ueberMich.values;
+import { mediakit as mediakitDe, getSiteContent } from "@/lib/site";
+import { getLang } from "@/lib/i18n";
 
 export const metadata: Metadata = {
-  title: t.metaTitle,
-  description: t.metaDescription,
+  title: mediakitDe.metaTitle,
+  description: mediakitDe.metaDescription,
 };
 
 function Eyebrow({ children }: { children: React.ReactNode }) {
@@ -21,7 +19,12 @@ function Eyebrow({ children }: { children: React.ReactNode }) {
   );
 }
 
-export default function MediakitPage() {
+export default async function MediakitPage() {
+  const lang = await getLang();
+  const { pages, site, stats } = getSiteContent(lang);
+  const t = pages.mediakit;
+  const values = pages.ueberMich.values;
+
   return (
     <div className="bg-surface-2/40 py-10 print:bg-bg print:py-0">
       {/* Bedienleiste – erscheint nicht im PDF */}
@@ -154,7 +157,7 @@ export default function MediakitPage() {
                 ))}
               </ul>
               <div className="mt-5 border-t border-border/60 pt-4">
-                <span className="text-xs text-muted">Preis</span>
+                <span className="text-xs text-muted">{t.priceLabel}</span>
                 <div className="text-2xl font-semibold text-foreground">
                   {rate.price}
                 </div>

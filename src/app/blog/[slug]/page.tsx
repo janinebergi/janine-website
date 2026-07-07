@@ -7,7 +7,8 @@ import { MDXRemote } from "next-mdx-remote/rsc";
 import { Container } from "@/components/ui/container";
 import { mdxComponents } from "@/components/mdx-components";
 import { getPostBySlug, getPostSlugs, formatDate } from "@/lib/blog";
-import { site } from "@/lib/site";
+import { getSiteContent } from "@/lib/site";
+import { getLang } from "@/lib/i18n";
 
 export function generateStaticParams() {
   return getPostSlugs().map((slug) => ({ slug }));
@@ -19,7 +20,8 @@ export async function generateMetadata({
   params: Promise<{ slug: string }>;
 }): Promise<Metadata> {
   const { slug } = await params;
-  const post = getPostBySlug(slug);
+  const lang = await getLang();
+  const post = getPostBySlug(slug, lang);
   if (!post) return {};
   return {
     title: post.title,
@@ -40,7 +42,10 @@ export default async function BlogPostPage({
   params: Promise<{ slug: string }>;
 }) {
   const { slug } = await params;
-  const post = getPostBySlug(slug);
+  const lang = await getLang();
+  const { site, pages } = getSiteContent(lang);
+  const t = pages.blogPost;
+  const post = getPostBySlug(slug, lang);
   if (!post) notFound();
 
   return (
@@ -50,14 +55,14 @@ export default async function BlogPostPage({
           href="/blog"
           className="inline-flex items-center gap-2 text-sm text-muted transition-colors hover:text-foreground"
         >
-          <ArrowLeft size={16} /> Zurück zum Blog
+          <ArrowLeft size={16} /> {t.backToBlog}
         </Link>
 
         <header className="mt-8">
           <div className="flex flex-wrap items-center gap-2 text-xs text-muted">
-            <span>{formatDate(post.date)}</span>
+            <span>{formatDate(post.date, lang)}</span>
             <span>·</span>
-            <span>{post.readingTime} Min. Lesezeit</span>
+            <span>{post.readingTime} {pages.blog.readingTimeLong}</span>
             {post.country && (
               <>
                 <span>·</span>
@@ -103,7 +108,7 @@ export default async function BlogPostPage({
 
         {post.gallery.length > 0 && (
           <section className="mt-16">
-            <h2 className="text-2xl font-semibold leading-tight">Galerie</h2>
+            <h2 className="text-2xl font-semibold leading-tight">{t.galleryTitle}</h2>
             <div className="mt-6 grid grid-cols-2 gap-4 sm:grid-cols-3">
               {post.gallery.map((image) => (
                 <div
@@ -125,7 +130,7 @@ export default async function BlogPostPage({
 
         {post.faq.length > 0 && (
           <section className="mt-16">
-            <h2 className="text-2xl font-semibold leading-tight">Q &amp; A</h2>
+            <h2 className="text-2xl font-semibold leading-tight">{t.qaTitle}</h2>
             <div className="mt-6 flex flex-col gap-4">
               {post.faq.map((item) => (
                 <details
@@ -148,13 +153,13 @@ export default async function BlogPostPage({
         )}
 
         <footer className="mt-16 rounded-2xl border border-border bg-surface/60 p-8 text-center">
-          <p className="text-muted">Geschrieben von</p>
+          <p className="text-muted">{t.writtenBy}</p>
           <p className="mt-1 text-lg font-semibold">{site.name}</p>
           <Link
             href="/kontakt"
             className="mt-4 inline-flex text-sm font-medium text-accent-hover hover:underline"
           >
-            Projekt anfragen →
+            {t.projectCta}
           </Link>
         </footer>
       </Container>

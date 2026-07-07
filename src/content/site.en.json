@@ -186,6 +186,40 @@
       ],
       "blogNote": "Fancy a sample of my writing style? I regularly write my own travel stories on my",
       "ctaButton": "Let's talk",
+      "timelineEyebrow": "My path",
+      "timelineTitle": "Career",
+      "timeline": [
+        {
+          "title": "Training: certified travel and leisure specialist",
+          "description": "Alfred-Müller-Armack-Berufskolleg Cologne, at Freizeitpark Wisseler See GmbH · Aug 2018 – Jun 2021"
+        },
+        {
+          "title": "Internship: Economic Development and City Marketing",
+          "description": "City of Kevelaer · Nov 2019 – Feb 2020"
+        },
+        {
+          "title": "State-certified business economist, specialising in tourism and business",
+          "description": "Kölner Fachschule für Tourismus · Aug 2021 – May 2023"
+        },
+        {
+          "title": "Online editor and social media management",
+          "description": "Niederrhein Medien GmbH · Jul 2023 – Feb 2024"
+        },
+        {
+          "title": "Sales marketing associate (B2B marketing)",
+          "description": "alltours flugreisen gmbh · Mar 2024 – Jul 2025"
+        },
+        {
+          "title": "Communications specialist B2C",
+          "description": "Tourismus NRW e.V. · since Jul 2025"
+        }
+      ],
+      "hobbies": [
+        { "label": "Surfing" },
+        { "label": "Inline skating along the Rhine" },
+        { "label": "Horseback rides through the forest" },
+        { "label": "Kickboxing" }
+      ],
       "gallery": {
         "eyebrow": "On the road",
         "title": "Moments from my travels",

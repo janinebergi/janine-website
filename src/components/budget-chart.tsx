@@ -1,3 +1,5 @@
+import type { Lang } from "@/lib/i18n-constants";
+
 type Item = {
   label: string;
   amount: number;
@@ -13,45 +15,95 @@ type Budget = {
   };
 };
 
-const budgets: Record<string, Budget> = {
-  bali: {
-    title: "Kosten für 2 Personen",
-    items: [
-      { label: "Flüge", amount: 1754 },
-      {
-        label: "Aktivitäten",
-        amount: 1101.39,
-        note: "inkl. Tauchtrips, 35–45 € pro Tauchgang inkl. kompletter Ausrüstung, 13 Tauchgänge",
-      },
-      { label: "Restaurants", amount: 429.39 },
-      { label: "Getränke", amount: 393.49 },
-      { label: "Unterkünfte", amount: 343.03 },
-      { label: "Gebühren", amount: 330.21 },
-      { label: "Wechselgebühren", amount: 255 },
-      { label: "Andere", amount: 183.66, note: "Transport, Einkäufe, Sonstiges" },
-    ],
-    avgPerDay: { total: 217, perPerson: 108 },
+const budgetsByLang: Record<Lang, Record<string, Budget>> = {
+  de: {
+    bali: {
+      title: "Kosten für 2 Personen",
+      items: [
+        { label: "Flüge", amount: 1754 },
+        {
+          label: "Aktivitäten",
+          amount: 1101.39,
+          note: "inkl. Tauchtrips, 35–45 € pro Tauchgang inkl. kompletter Ausrüstung, 13 Tauchgänge",
+        },
+        { label: "Restaurants", amount: 429.39 },
+        { label: "Getränke", amount: 393.49 },
+        { label: "Unterkünfte", amount: 343.03 },
+        { label: "Gebühren", amount: 330.21 },
+        { label: "Wechselgebühren", amount: 255 },
+        { label: "Andere", amount: 183.66, note: "Transport, Einkäufe, Sonstiges" },
+      ],
+      avgPerDay: { total: 217, perPerson: 108 },
+    },
+    srilanka: {
+      title: "Kosten für 2 Personen",
+      items: [
+        { label: "Flüge", amount: 1664 },
+        { label: "Unterkünfte", amount: 725 },
+        { label: "Sonstige Ausgaben", amount: 454 },
+        { label: "Restaurants & Essen", amount: 393 },
+        { label: "Transport vor Ort", amount: 297, note: "Zug, TukTuk, Fahrer" },
+        { label: "Freizeitaktivitäten & Eintritte", amount: 261 },
+      ],
+      avgPerDay: { total: 142, perPerson: 71 },
+    },
   },
-  srilanka: {
-    title: "Kosten für 2 Personen",
-    items: [
-      { label: "Flüge", amount: 1664 },
-      { label: "Unterkünfte", amount: 725 },
-      { label: "Sonstige Ausgaben", amount: 454 },
-      { label: "Restaurants & Essen", amount: 393 },
-      { label: "Transport vor Ort", amount: 297, note: "Zug, TukTuk, Fahrer" },
-      { label: "Freizeitaktivitäten & Eintritte", amount: 261 },
-    ],
-    avgPerDay: { total: 142, perPerson: 71 },
+  en: {
+    bali: {
+      title: "Cost for 2 people",
+      items: [
+        { label: "Flights", amount: 1754 },
+        {
+          label: "Activities",
+          amount: 1101.39,
+          note: "incl. dive trips, €35–45 per dive incl. full gear, 13 dives",
+        },
+        { label: "Restaurants", amount: 429.39 },
+        { label: "Drinks", amount: 393.49 },
+        { label: "Accommodation", amount: 343.03 },
+        { label: "Fees", amount: 330.21 },
+        { label: "Exchange fees", amount: 255 },
+        { label: "Other", amount: 183.66, note: "Transport, shopping, miscellaneous" },
+      ],
+      avgPerDay: { total: 217, perPerson: 108 },
+    },
+    srilanka: {
+      title: "Cost for 2 people",
+      items: [
+        { label: "Flights", amount: 1664 },
+        { label: "Accommodation", amount: 725 },
+        { label: "Other expenses", amount: 454 },
+        { label: "Restaurants & food", amount: 393 },
+        { label: "Local transport", amount: 297, note: "Train, tuk-tuk, driver" },
+        { label: "Activities & admission fees", amount: 261 },
+      ],
+      avgPerDay: { total: 142, perPerson: 71 },
+    },
   },
 };
 
-const euro = (value: number) =>
-  value.toLocaleString("de-DE", { maximumFractionDigits: 0 }) + " €";
+const labels: Record<Lang, { total: string; avgPerDay: string; perPerson: string; excludingFlights: string }> = {
+  de: { total: "Gesamt", avgPerDay: "⌀ pro Tag", perPerson: "p. P.", excludingFlights: "ohne Flüge" },
+  en: { total: "Total", avgPerDay: "⌀ per day", perPerson: "p.p.", excludingFlights: "excluding flights" },
+};
 
-export function BudgetChart({ trip = "bali" }: { trip?: keyof typeof budgets }) {
+const euroDe = (value: number) =>
+  value.toLocaleString("de-DE", { maximumFractionDigits: 0 }) + " €";
+const euroEn = (value: number) =>
+  "€" + value.toLocaleString("en-GB", { maximumFractionDigits: 0 });
+
+export function BudgetChart({
+  trip = "bali",
+  lang = "de",
+}: {
+  trip?: keyof typeof budgetsByLang.de;
+  lang?: Lang;
+}) {
+  const budgets = budgetsByLang[lang];
   const budget = budgets[trip] ?? budgets.bali;
   const { title, items, avgPerDay } = budget;
+  const t = labels[lang];
+  const euro = lang === "en" ? euroEn : euroDe;
 
   const total = items.reduce((sum, item) => sum + item.amount, 0);
   const max = Math.max(...items.map((item) => item.amount));
@@ -61,18 +113,18 @@ export function BudgetChart({ trip = "bali" }: { trip?: keyof typeof budgets }) 
       <div className="flex items-baseline justify-between gap-4">
         <h3 className="text-base font-semibold text-foreground">{title}</h3>
         <span className="text-sm text-muted">
-          Gesamt{" "}
+          {t.total}{" "}
           <strong className="font-semibold text-foreground">
             {euro(total)}
           </strong>
         </span>
       </div>
       <p className="mt-1 text-sm text-muted">
-        ⌀ pro Tag{" "}
+        {t.avgPerDay}{" "}
         <strong className="font-semibold text-foreground">
           {euro(avgPerDay.total)}
         </strong>{" "}
-        für 2 Personen ({euro(avgPerDay.perPerson)} p. P.) · ohne Flüge
+        {lang === "en" ? "for 2 people" : "für 2 Personen"} ({euro(avgPerDay.perPerson)} {t.perPerson}) · {t.excludingFlights}
       </p>
 
       <ul className="mt-6 flex flex-col gap-4">

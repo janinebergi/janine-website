@@ -5,32 +5,38 @@ import { Container } from "@/components/ui/container";
 import { PageHeader } from "@/components/ui/page-header";
 import { ArrowRight } from "lucide-react";
 import { getAllPosts, formatDate } from "@/lib/blog";
+import { pages as pagesDe, getSiteContent } from "@/lib/site";
+import { getLang } from "@/lib/i18n";
+
+const tDe = pagesDe.blog;
 
 export const metadata: Metadata = {
-  title: "Blog",
-  description:
-    "Geschichten und Tipps rund ums Reisen — und Gedanken zu Copywriting. Persönlich von Janine.",
+  title: tDe.metaTitle,
+  description: tDe.metaDescription,
 };
 
-export default function BlogPage() {
-  const posts = getAllPosts();
+export default async function BlogPage() {
+  const lang = await getLang();
+  const { pages } = getSiteContent(lang);
+  const t = pages.blog;
+  const posts = getAllPosts(lang);
   const [featured, ...rest] = posts;
 
   return (
     <>
       <PageHeader
         image="/assets/website/blog-header.avif"
-        imageAlt="Saftig grüne Reisterrassen mit Palmen unter dramatischem Wolkenhimmel"
+        imageAlt={t.heroImageAlt}
         imagePosition="center 40%"
-        eyebrow="Blog"
-        title="Geschichten und Tipps rund ums Reisen."
-        text="Reisen ist meine Inspiration, Schreiben meine Leidenschaft. Hier teile ich Routen, Budgets und Abenteuer – und ab und zu Gedanken zum Copywriting."
+        eyebrow={t.heroEyebrow}
+        title={t.heroTitle}
+        text={t.heroText}
       />
 
       <section className="pb-20">
         <Container>
           {posts.length === 0 ? (
-            <p className="text-muted">Bald gibt es hier die ersten Artikel.</p>
+            <p className="text-muted">{t.emptyState}</p>
           ) : (
             <div className="flex flex-col gap-12">
               {featured && (
@@ -49,11 +55,11 @@ export default function BlogPage() {
                   </div>
                   <div className="flex flex-col justify-center p-8">
                     <div className="flex items-center gap-3 text-xs text-muted">
-                      <span className="text-accent-hover">Neuester Beitrag</span>
+                      <span className="text-accent-hover">{t.featuredLabel}</span>
                       <span>·</span>
-                      <span>{formatDate(featured.date)}</span>
+                      <span>{formatDate(featured.date, lang)}</span>
                       <span>·</span>
-                      <span>{featured.readingTime} Min. Lesezeit</span>
+                      <span>{featured.readingTime} {t.readingTimeLong}</span>
                       {featured.country && (
                         <>
                           <span>·</span>
@@ -90,9 +96,9 @@ export default function BlogPage() {
                       </div>
                       <div className="flex flex-1 flex-col p-6">
                         <div className="flex items-center gap-2 text-xs text-muted">
-                          <span>{formatDate(post.date)}</span>
+                          <span>{formatDate(post.date, lang)}</span>
                           <span>·</span>
-                          <span>{post.readingTime} Min.</span>
+                          <span>{post.readingTime} {t.readingTimeShort}</span>
                           {post.country && (
                             <>
                               <span>·</span>
@@ -115,22 +121,18 @@ export default function BlogPage() {
           )}
 
           <section className="mt-16 rounded-2xl border border-border bg-surface/60 p-8 sm:p-10">
-            <p className="text-sm text-accent-hover">Zusammenarbeit</p>
+            <p className="text-sm text-accent-hover">{t.collabEyebrow}</p>
             <h2 className="mt-2 text-2xl font-semibold leading-snug">
-              Du möchtest mit mir zusammenarbeiten?
+              {t.collabTitle}
             </h2>
             <p className="mt-4 max-w-2xl leading-relaxed text-muted">
-              Du bist auf einen meiner Beiträge gestoßen und interessierst dich
-              für eine Zusammenarbeit? Du hast ein Produkt, ein Hotel, eine
-              Unterkunft oder ein Reiseerlebnis, das ich austesten und hier im
-              Blog vorstellen soll? Dann melde dich gerne bei mir – ich freue
-              mich auf deine Nachricht.
+              {t.collabText}
             </p>
             <Link
               href="/kontakt"
               className="mt-6 inline-flex items-center gap-2 text-sm font-medium text-accent-hover transition-opacity hover:opacity-80"
             >
-              Schreib mir
+              {t.collabCta}
               <ArrowRight size={16} />
             </Link>
           </section>

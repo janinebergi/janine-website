@@ -1,8 +1,14 @@
 import fs from "node:fs";
 import path from "node:path";
 import matter from "gray-matter";
+import type { Lang } from "@/lib/i18n-constants";
 
-const BLOG_DIR = path.join(process.cwd(), "content", "blog");
+const BLOG_DIR_DE = path.join(process.cwd(), "content", "blog");
+const BLOG_DIR_EN = path.join(BLOG_DIR_DE, "en");
+
+function blogDir(lang: Lang): string {
+  return lang === "en" ? BLOG_DIR_EN : BLOG_DIR_DE;
+}
 
 export type GalleryImage = {
   src: string;
@@ -37,9 +43,9 @@ function readingTime(text: string): number {
   return Math.max(1, Math.round(words / 200));
 }
 
-function fileToPost(fileName: string): Post {
+function fileToPost(dir: string, fileName: string): Post {
   const slug = fileName.replace(/\.mdx?$/, "");
-  const raw = fs.readFileSync(path.join(BLOG_DIR, fileName), "utf8");
+  const raw = fs.readFileSync(path.join(dir, fileName), "utf8");
   const { data, content } = matter(raw);
 
   return {
@@ -58,36 +64,39 @@ function fileToPost(fileName: string): Post {
   };
 }
 
-export function getAllPosts(): PostMeta[] {
-  if (!fs.existsSync(BLOG_DIR)) return [];
+// Slugs sind immer die deutschen Originaldateien – das ist die Quelle der
+// Wahrheit dafür, welche Beiträge existieren.
+export function getPostSlugs(): string[] {
+  if (!fs.existsSync(BLOG_DIR_DE)) return [];
   return fs
-    .readdirSync(BLOG_DIR)
+    .readdirSync(BLOG_DIR_DE)
     .filter((file) => /\.mdx?$/.test(file))
-    .map((file) => {
-      const { content: _content, ...meta } = fileToPost(file);
+    .map((file) => file.replace(/\.mdx?$/, ""));
+}
+
+export function getAllPosts(lang: Lang = "de"): PostMeta[] {
+  return getPostSlugs()
+    .map((slug) => {
+      const { content: _content, ...meta } = getPostBySlug(slug, lang)!;
       return meta;
     })
     .sort((a, b) => +new Date(b.date) - +new Date(a.date));
 }
 
-export function getPostSlugs(): string[] {
-  if (!fs.existsSync(BLOG_DIR)) return [];
-  return fs
-    .readdirSync(BLOG_DIR)
-    .filter((file) => /\.mdx?$/.test(file))
-    .map((file) => file.replace(/\.mdx?$/, ""));
-}
-
-export function getPostBySlug(slug: string): Post | null {
-  const mdx = path.join(BLOG_DIR, `${slug}.mdx`);
-  const md = path.join(BLOG_DIR, `${slug}.md`);
+// Liest den Beitrag in der gewünschten Sprache; fällt auf Deutsch zurück,
+// falls für einen Slug (noch) keine englische Übersetzung existiert.
+export function getPostBySlug(slug: string, lang: Lang = "de"): Post | null {
+  const dir = blogDir(lang);
+  const mdx = path.join(dir, `${slug}.mdx`);
+  const md = path.join(dir, `${slug}.md`);
   const file = fs.existsSync(mdx) ? `${slug}.mdx` : fs.existsSync(md) ? `${slug}.md` : null;
-  if (!file) return null;
-  return fileToPost(file);
+  if (file) return fileToPost(dir, file);
+  if (lang === "en") return getPostBySlug(slug, "de");
+  return null;
 }
 
-export function formatDate(date: string): string {
-  return new Date(date).toLocaleDateString("de-DE", {
+export function formatDate(date: string, lang: Lang = "de"): string {
+  return new Date(date).toLocaleDateString(lang === "en" ? "en-GB" : "de-DE", {
     day: "numeric",
     month: "long",
     year: "numeric",

@@ -1,4 +1,5 @@
 import { MapPin } from "lucide-react";
+import type { Lang } from "@/lib/i18n-constants";
 
 type Stop = {
   n: number;
@@ -18,17 +19,35 @@ type Stop = {
 
 // Stopps in Reihenfolge der Route (Koordinaten leicht entzerrt,
 // damit die Marker im dicht besiedelten Süden lesbar bleiben)
-const stops: Stop[] = [
-  { n: 1, name: "Colombo", nights: "2", highlight: "Ankunft", lon: 79.85, lat: 6.93, lx: 36, ly: 465, anchor: "end" },
-  { n: 2, name: "Sigiriya", nights: "1", highlight: "Pidurangala Rock", lon: 80.76, lat: 7.95, lx: 205, ly: 311, anchor: "start" },
-  { n: 3, name: "Kandy", nights: "2", highlight: "Zahntempel", lon: 80.63, lat: 7.29, lx: 153, ly: 410, anchor: "end" },
-  { n: 4, name: "Ella", nights: "2", highlight: "Zugfahrt & Teeplantage", lon: 81.05, lat: 6.87, lx: 248, ly: 473, anchor: "start" },
-  { n: 5, name: "Safari", nights: "Tagesstopp", highlight: "Safari", lon: 80.89, lat: 6.44, lx: 225, ly: 538, anchor: "start" },
-  { n: 6, name: "Hiriketiya", nights: "3", highlight: "Surfen & Entspannen", lon: 80.7, lat: 5.97, lx: 320, ly: 690, anchor: "middle", leader: true },
-  { n: 7, name: "Weligama", nights: "4", highlight: "Surfen · Basis im Süden", lon: 80.4, lat: 5.98, lx: 150, ly: 690, anchor: "middle", leader: true },
-  { n: 8, name: "Mirissa", nights: "Tagesausflug", highlight: "Schildkröten", lon: 80.53, lat: 5.92, lx: 250, ly: 664, anchor: "middle", leader: true, dayTrip: true },
-  { n: 9, name: "Galle", nights: "Tagesausflug", highlight: "Altstadt & Fort", lon: 80.22, lat: 6.03, lx: 70, ly: 664, anchor: "middle", leader: true, dayTrip: true },
-];
+const stopsByLang: Record<Lang, Stop[]> = {
+  de: [
+    { n: 1, name: "Colombo", nights: "2", highlight: "Ankunft", lon: 79.85, lat: 6.93, lx: 36, ly: 465, anchor: "end" },
+    { n: 2, name: "Sigiriya", nights: "1", highlight: "Pidurangala Rock", lon: 80.76, lat: 7.95, lx: 205, ly: 311, anchor: "start" },
+    { n: 3, name: "Kandy", nights: "2", highlight: "Zahntempel", lon: 80.63, lat: 7.29, lx: 153, ly: 410, anchor: "end" },
+    { n: 4, name: "Ella", nights: "2", highlight: "Zugfahrt & Teeplantage", lon: 81.05, lat: 6.87, lx: 248, ly: 473, anchor: "start" },
+    { n: 5, name: "Safari", nights: "Tagesstopp", highlight: "Safari", lon: 80.89, lat: 6.44, lx: 225, ly: 538, anchor: "start" },
+    { n: 6, name: "Hiriketiya", nights: "3", highlight: "Surfen & Entspannen", lon: 80.7, lat: 5.97, lx: 320, ly: 690, anchor: "middle", leader: true },
+    { n: 7, name: "Weligama", nights: "4", highlight: "Surfen · Basis im Süden", lon: 80.4, lat: 5.98, lx: 150, ly: 690, anchor: "middle", leader: true },
+    { n: 8, name: "Mirissa", nights: "Tagesausflug", highlight: "Schildkröten", lon: 80.53, lat: 5.92, lx: 250, ly: 664, anchor: "middle", leader: true, dayTrip: true },
+    { n: 9, name: "Galle", nights: "Tagesausflug", highlight: "Altstadt & Fort", lon: 80.22, lat: 6.03, lx: 70, ly: 664, anchor: "middle", leader: true, dayTrip: true },
+  ],
+  en: [
+    { n: 1, name: "Colombo", nights: "2", highlight: "Arrival", lon: 79.85, lat: 6.93, lx: 36, ly: 465, anchor: "end" },
+    { n: 2, name: "Sigiriya", nights: "1", highlight: "Pidurangala Rock", lon: 80.76, lat: 7.95, lx: 205, ly: 311, anchor: "start" },
+    { n: 3, name: "Kandy", nights: "2", highlight: "Temple of the Tooth", lon: 80.63, lat: 7.29, lx: 153, ly: 410, anchor: "end" },
+    { n: 4, name: "Ella", nights: "2", highlight: "Train ride & tea plantation", lon: 81.05, lat: 6.87, lx: 248, ly: 473, anchor: "start" },
+    { n: 5, name: "Safari", nights: "Day stop", highlight: "Safari", lon: 80.89, lat: 6.44, lx: 225, ly: 538, anchor: "start" },
+    { n: 6, name: "Hiriketiya", nights: "3", highlight: "Surfing & relaxing", lon: 80.7, lat: 5.97, lx: 320, ly: 690, anchor: "middle", leader: true },
+    { n: 7, name: "Weligama", nights: "4", highlight: "Surfing · base in the south", lon: 80.4, lat: 5.98, lx: 150, ly: 690, anchor: "middle", leader: true },
+    { n: 8, name: "Mirissa", nights: "Day trip", highlight: "Turtles", lon: 80.53, lat: 5.92, lx: 250, ly: 664, anchor: "middle", leader: true, dayTrip: true },
+    { n: 9, name: "Galle", nights: "Day trip", highlight: "Old Town & Fort", lon: 80.22, lat: 6.03, lx: 70, ly: 664, anchor: "middle", leader: true, dayTrip: true },
+  ],
+};
+
+const captions: Record<Lang, string> = {
+  de: "Rundreise im Uhrzeigersinn zurück nach Colombo · Klammer = Nächte vor Ort · gepunktete Abzweige = Tagesausflüge von Weligama · 14 Nächte / 15 Tage",
+  en: "Clockwise loop back to Colombo · brackets = nights spent there · dotted branches = day trips from Weligama · 14 nights / 15 days",
+};
 
 // Vereinfachter Küstenumriss von Sri Lanka (lon, lat)
 const outline: [number, number][] = [
@@ -72,28 +91,34 @@ const outlinePath =
     })
     .join(" ") + " Z";
 
-// Route verbindet alle Übernachtungsstopps und schließt am Ende zurück zu
-// Colombo (Z). Tagesausflüge (Mirissa, Galle) liegen nicht auf der Route.
-const routePath =
-  stops
-    .filter((s) => !s.dayTrip)
-    .map((s, i) => {
-      const [x, y] = project(s.lon, s.lat);
-      return `${i === 0 ? "M" : "L"}${x.toFixed(1)} ${y.toFixed(1)}`;
-    })
-    .join(" ") + " Z";
+export function SriLankaRouteMap({ lang = "de" }: { lang?: Lang }) {
+  const stops = stopsByLang[lang];
 
-// Basis, von der aus die Tagesausflüge gemacht wurden
-const dayTripBase = stops.find((s) => s.name === "Weligama")!;
+  // Route verbindet alle Übernachtungsstopps und schließt am Ende zurück zu
+  // Colombo (Z). Tagesausflüge (Mirissa, Galle) liegen nicht auf der Route.
+  const routePath =
+    stops
+      .filter((s) => !s.dayTrip)
+      .map((s, i) => {
+        const [x, y] = project(s.lon, s.lat);
+        return `${i === 0 ? "M" : "L"}${x.toFixed(1)} ${y.toFixed(1)}`;
+      })
+      .join(" ") + " Z";
 
-export function SriLankaRouteMap() {
+  // Basis, von der aus die Tagesausflüge gemacht wurden
+  const dayTripBase = stops.find((s) => s.name === "Weligama")!;
+
   return (
     <div className="not-prose my-10 overflow-hidden rounded-2xl border border-border bg-surface/60">
       <div className="flex justify-center p-6 sm:p-8">
         <svg
           viewBox="-60 -15 460 720"
           role="img"
-          aria-label="Karte der Sri-Lanka-Rundreise mit allen Stationen und Übernachtungen"
+          aria-label={
+            lang === "en"
+              ? "Map of the Sri Lanka road trip with all stops and overnight stays"
+              : "Karte der Sri-Lanka-Rundreise mit allen Stationen und Übernachtungen"
+          }
           className="h-auto w-full max-w-[420px]"
         >
           {/* Landfläche */}

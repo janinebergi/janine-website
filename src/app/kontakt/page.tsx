@@ -5,37 +5,41 @@ import { Mail, Clock, MessageCircle, ArrowRight } from "lucide-react";
 import { Container } from "@/components/ui/container";
 import { PageHeader } from "@/components/ui/page-header";
 import { ContactForm } from "@/components/contact-form";
-import { pages, site } from "@/lib/site";
+import { pages as pagesDe, getSiteContent } from "@/lib/site";
+import { getLang } from "@/lib/i18n";
 import { getAllPosts, formatDate } from "@/lib/blog";
 
-const t = pages.kontakt;
+const tDe = pagesDe.kontakt;
 
 export const metadata: Metadata = {
-  title: t.metaTitle,
-  description: t.metaDescription,
+  title: tDe.metaTitle,
+  description: tDe.metaDescription,
 };
 
-const points = [
-  {
-    icon: Mail,
-    title: t.emailTitle,
-    value: site.email,
-    href: `mailto:${site.email}`,
-  },
-  {
-    icon: Clock,
-    title: t.responseTitle,
-    value: t.responseValue,
-  },
-  {
-    icon: MessageCircle,
-    title: t.callTitle,
-    value: t.callValue,
-  },
-];
+export default async function KontaktPage() {
+  const lang = await getLang();
+  const { pages, site } = getSiteContent(lang);
+  const t = pages.kontakt;
+  const posts = getAllPosts(lang).slice(0, 3);
 
-export default function KontaktPage() {
-  const posts = getAllPosts().slice(0, 3);
+  const points = [
+    {
+      icon: Mail,
+      title: t.emailTitle,
+      value: site.email,
+      href: `mailto:${site.email}`,
+    },
+    {
+      icon: Clock,
+      title: t.responseTitle,
+      value: t.responseValue,
+    },
+    {
+      icon: MessageCircle,
+      title: t.callTitle,
+      value: t.callValue,
+    },
+  ];
 
   return (
     <>
@@ -91,16 +95,16 @@ export default function KontaktPage() {
           <Container>
             <div className="flex items-end justify-between gap-6">
               <div>
-                <p className="text-sm text-accent-hover">Blog</p>
+                <p className="text-sm text-accent-hover">{t.blogEyebrow}</p>
                 <h2 className="mt-2 text-2xl font-semibold leading-snug sm:text-3xl">
-                  Noch nicht bereit? Lies dich ein.
+                  {t.blogTitle}
                 </h2>
               </div>
               <Link
                 href="/blog"
                 className="hidden flex-none items-center gap-2 text-sm font-medium text-accent-hover transition-opacity hover:opacity-80 sm:inline-flex"
               >
-                Alle Beiträge
+                {t.allPostsLabel}
                 <ArrowRight size={16} />
               </Link>
             </div>
@@ -123,9 +127,9 @@ export default function KontaktPage() {
                   </div>
                   <div className="flex flex-1 flex-col p-6">
                     <div className="flex items-center gap-2 text-xs text-muted">
-                      <span>{formatDate(post.date)}</span>
+                      <span>{formatDate(post.date, lang)}</span>
                       <span>·</span>
-                      <span>{post.readingTime} Min.</span>
+                      <span>{post.readingTime} {pages.blog.readingTimeShort}</span>
                     </div>
                     <h3 className="mt-2 text-lg font-semibold leading-snug group-hover:text-accent-hover">
                       {post.title}
@@ -142,7 +146,7 @@ export default function KontaktPage() {
               href="/blog"
               className="mt-8 inline-flex items-center gap-2 text-sm font-medium text-accent-hover transition-opacity hover:opacity-80 sm:hidden"
             >
-              Alle Beiträge
+              {t.allPostsLabel}
               <ArrowRight size={16} />
             </Link>
           </Container>

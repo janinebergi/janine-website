@@ -17,74 +17,31 @@ import { Container } from "@/components/ui/container";
 import { Button } from "@/components/ui/button";
 import { SectionHeading } from "@/components/ui/section-heading";
 import { PageHeader } from "@/components/ui/page-header";
-import { pages, stats } from "@/lib/site";
+import { pages as pagesDe, getSiteContent } from "@/lib/site";
+import { getLang } from "@/lib/i18n";
 import { iconForStat } from "@/lib/stat-icons";
 import { getAllPosts, formatDate } from "@/lib/blog";
 
-const t = pages.ueberMich;
-const values = t.values;
-const blogTeaser = t.blogTeaser;
-
-// Werdegang und Hobbys als grafische Darstellung der Einleitungstexte.
-const timeline = [
-  {
-    icon: FerrisWheel,
-    title: "Ausbildung: Kauffrau für Tourismus und Freizeit",
-    subtitle: "Alfred-Müller-Armack-Berufskolleg Köln · bei Freizeitpark Wisseler See GmbH",
-    date: "Aug. 2018 – Juni 2021",
-    description: "Abschluss mit der Note 1,1.",
-  },
-  {
-    icon: Landmark,
-    title: "Praktikum: Wirtschaftsförderung und Stadtmarketing",
-    subtitle: "Stadt Kevelaer",
-    date: "Nov. 2019 – Feb. 2020",
-    description: "",
-  },
-  {
-    icon: GraduationCap,
-    title: "Staatlich geprüfte Betriebswirtin, Fachrichtung Tourismus, Wirtschaft",
-    subtitle: "Kölner Fachschule für Tourismus · parallel zur Vollzeitstelle bei Freizeitpark Wisseler See GmbH",
-    date: "Aug. 2021 – Mai 2023",
-    description: "",
-  },
-  {
-    icon: Newspaper,
-    title: "Online-Redakteurin und Social Media Management",
-    subtitle: "Niederrhein Medien GmbH",
-    date: "Juli 2023 – Feb. 2024",
-    description: "",
-  },
-  {
-    icon: Plane,
-    title: "Mitarbeiterin Vertriebsmarketing (B2B Marketing)",
-    subtitle: "alltours flugreisen gmbh",
-    date: "März 2024 – Juli 2025",
-    description: "",
-  },
-  {
-    icon: MapPin,
-    title: "Referentin Kommunikation B2C",
-    subtitle: "Tourismus NRW e.V.",
-    date: "Juli 2025 – heute",
-    description: "Schreibt fürs NRW Magazin und ist die Stimme für Social Media.",
-  },
-];
-
-const hobbies = [
-  { icon: Waves, label: "Surfen" },
-  { icon: Wind, label: "Inlinern am Rhein" },
-  { icon: Trees, label: "Ausritte durch den Wald" },
-  { icon: Dumbbell, label: "Kickboxen" },
-];
+const tDe = pagesDe.ueberMich;
 
 export const metadata: Metadata = {
-  title: t.metaTitle,
-  description: t.metaDescription,
+  title: tDe.metaTitle,
+  description: tDe.metaDescription,
 };
 
-export default function UeberMichPage() {
-  const recentPosts = getAllPosts().slice(0, 3);
+// Icons für Werdegang & Hobbys – Reihenfolge entspricht t.timeline / t.hobbies.
+const timelineIcons = [FerrisWheel, Landmark, GraduationCap, Newspaper, Plane, MapPin];
+const hobbyIcons = [Waves, Wind, Trees, Dumbbell];
+
+export default async function UeberMichPage() {
+  const lang = await getLang();
+  const { pages, stats } = getSiteContent(lang);
+  const t = pages.ueberMich;
+  const values = t.values;
+  const blogTeaser = t.blogTeaser;
+  const timeline = t.timeline.map((step, i) => ({ ...step, icon: timelineIcons[i] }));
+  const hobbies = t.hobbies.map((h, i) => ({ ...h, icon: hobbyIcons[i] }));
+  const recentPosts = getAllPosts(lang).slice(0, 3);
 
   return (
     <>
@@ -157,8 +114,8 @@ export default function UeberMichPage() {
       <section className="pb-20">
         <Container>
           <SectionHeading
-            eyebrow="Mein Weg"
-            title="Werdegang"
+            eyebrow={t.timelineEyebrow}
+            title={t.timelineTitle}
             align="center"
           />
 
@@ -169,20 +126,12 @@ export default function UeberMichPage() {
                   <span className="absolute -left-[calc(2rem+1px)] top-0 flex h-10 w-10 -translate-x-1/2 items-center justify-center rounded-full bg-accent-soft text-accent-hover ring-4 ring-bg transition-transform duration-300 group-hover:scale-110 group-hover:rotate-6 sm:-left-[calc(2.5rem+1px)] sm:h-12 sm:w-12">
                     <step.icon className="h-5 w-5 sm:h-6 sm:w-6" />
                   </span>
-                  <div className="flex flex-wrap items-baseline justify-between gap-x-4 gap-y-1">
-                    <h3 className="text-lg font-semibold text-foreground">
-                      {step.title}
-                    </h3>
-                    <span className="whitespace-nowrap text-xs uppercase tracking-wide text-accent-hover">
-                      {step.date}
-                    </span>
-                  </div>
-                  <p className="mt-1 text-sm text-muted">{step.subtitle}</p>
-                  {step.description && (
-                    <p className="mt-2 leading-relaxed text-muted">
-                      {step.description}
-                    </p>
-                  )}
+                  <h3 className="text-lg font-semibold text-foreground">
+                    {step.title}
+                  </h3>
+                  <p className="mt-1 leading-relaxed text-muted">
+                    {step.description}
+                  </p>
                 </li>
               ))}
             </ol>
@@ -277,9 +226,9 @@ export default function UeberMichPage() {
                   </div>
                   <div className="flex flex-1 flex-col p-6">
                     <div className="flex items-center gap-2 text-xs text-muted">
-                      <span>{formatDate(post.date)}</span>
+                      <span>{formatDate(post.date, lang)}</span>
                       <span>·</span>
-                      <span>{post.readingTime} Min.</span>
+                      <span>{post.readingTime} {pages.blog.readingTimeShort}</span>
                       {post.country && (
                         <>
                           <span>·</span>
