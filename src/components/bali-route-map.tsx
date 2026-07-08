@@ -4,6 +4,7 @@ import type { Lang } from "@/lib/i18n-constants";
 type Stop = {
   n: number;
   name: string;
+  nights: number;
   highlight: string;
   lon: number;
   lat: number;
@@ -16,22 +17,27 @@ type Stop = {
 // Stationen in Reihenfolge der Reise (Süd → Zentrum → Inseln)
 const stopsByLang: Record<Lang, Stop[]> = {
   de: [
-    { n: 1, name: "Uluwatu", highlight: "Surfen & Klippen", lon: 115.08, lat: -8.82, lx: 108, ly: 196, anchor: "end" },
-    { n: 2, name: "Ubud", highlight: "Tempel & Vulkan", lon: 115.26, lat: -8.51, lx: 120, ly: 14, anchor: "middle" },
-    { n: 3, name: "Nusa Penida", highlight: "Manta-Tauchen", lon: 115.51, lat: -8.73, lx: 226, ly: 174, anchor: "start" },
-    { n: 4, name: "Gili T", highlight: "Wracktauchen", lon: 115.97, lat: -8.33, lx: 295, ly: 108, anchor: "middle" },
-    { n: 5, name: "Tulamben", highlight: "Liberty-Wrack", lon: 115.59, lat: -8.28, lx: 255, ly: 30, anchor: "middle" },
-    { n: 6, name: "Canggu", highlight: "Beachbars & Abreise", lon: 115.13, lat: -8.65, lx: 110, ly: 140, anchor: "end" },
+    { n: 1, name: "Uluwatu", nights: 3, highlight: "Surfen & Klippen", lon: 115.08, lat: -8.82, lx: 108, ly: 196, anchor: "end" },
+    { n: 2, name: "Ubud", nights: 2, highlight: "Tempel & Vulkan", lon: 115.26, lat: -8.51, lx: 120, ly: 14, anchor: "middle" },
+    { n: 3, name: "Nusa Penida", nights: 3, highlight: "Manta-Tauchen", lon: 115.51, lat: -8.73, lx: 226, ly: 174, anchor: "start" },
+    { n: 4, name: "Gili T", nights: 4, highlight: "Wracktauchen", lon: 115.97, lat: -8.33, lx: 295, ly: 108, anchor: "middle" },
+    { n: 5, name: "Tulamben", nights: 1, highlight: "Liberty-Wrack", lon: 115.59, lat: -8.28, lx: 255, ly: 30, anchor: "middle" },
+    { n: 6, name: "Canggu", nights: 2, highlight: "Beachbars & Abreise", lon: 115.13, lat: -8.65, lx: 110, ly: 140, anchor: "end" },
   ],
   en: [
-    { n: 1, name: "Uluwatu", highlight: "Surfing & cliffs", lon: 115.08, lat: -8.82, lx: 108, ly: 196, anchor: "end" },
-    { n: 2, name: "Ubud", highlight: "Temples & volcano", lon: 115.26, lat: -8.51, lx: 120, ly: 14, anchor: "middle" },
-    { n: 3, name: "Nusa Penida", highlight: "Manta diving", lon: 115.51, lat: -8.73, lx: 226, ly: 174, anchor: "start" },
-    { n: 4, name: "Gili T", highlight: "Wreck diving", lon: 115.97, lat: -8.33, lx: 295, ly: 108, anchor: "middle" },
-    { n: 5, name: "Tulamben", highlight: "Liberty wreck", lon: 115.59, lat: -8.28, lx: 255, ly: 30, anchor: "middle" },
-    { n: 6, name: "Canggu", highlight: "Beach bars & departure", lon: 115.13, lat: -8.65, lx: 110, ly: 140, anchor: "end" },
+    { n: 1, name: "Uluwatu", nights: 3, highlight: "Surfing & cliffs", lon: 115.08, lat: -8.82, lx: 108, ly: 196, anchor: "end" },
+    { n: 2, name: "Ubud", nights: 2, highlight: "Temples & volcano", lon: 115.26, lat: -8.51, lx: 120, ly: 14, anchor: "middle" },
+    { n: 3, name: "Nusa Penida", nights: 3, highlight: "Manta diving", lon: 115.51, lat: -8.73, lx: 226, ly: 174, anchor: "start" },
+    { n: 4, name: "Gili T", nights: 4, highlight: "Wreck diving", lon: 115.97, lat: -8.33, lx: 295, ly: 108, anchor: "middle" },
+    { n: 5, name: "Tulamben", nights: 1, highlight: "Liberty wreck", lon: 115.59, lat: -8.28, lx: 255, ly: 30, anchor: "middle" },
+    { n: 6, name: "Canggu", nights: 2, highlight: "Beach bars & departure", lon: 115.13, lat: -8.65, lx: 110, ly: 140, anchor: "end" },
   ],
 };
+
+function nightsLabel(nights: number, lang: Lang): string {
+  if (lang === "en") return nights === 1 ? "night" : "nights";
+  return nights === 1 ? "Nacht" : "Nächte";
+}
 
 const captions: Record<Lang, string> = {
   de: "Zwei Wochen von der Bukit-Halbinsel über Ubud bis zu den Tauchspots vor Nusa Penida, Gili Trawangan und Tulamben",
@@ -167,7 +173,7 @@ export function BaliRouteMap({ lang = "de" }: { lang?: Lang }) {
               />
             );
           })}
-          {/* Beschriftung (nur Ortsname) */}
+          {/* Beschriftung: Ortsname + Anzahl Nächte in Klammern */}
           {stops.map((s) => (
             <text
               key={`label-${s.n}`}
@@ -180,6 +186,10 @@ export function BaliRouteMap({ lang = "de" }: { lang?: Lang }) {
               fontWeight={600}
             >
               {s.name}
+              <tspan className="fill-muted" fontSize={11} fontWeight={400}>
+                {" "}
+                ({s.nights} {nightsLabel(s.nights, lang)})
+              </tspan>
             </text>
           ))}
           {/* Marker mit Aktivität als Tooltip beim Hovern über die Zahl */}

@@ -381,6 +381,7 @@
     },
     "blogPost": {
       "backToBlog": "Zurück zum Blog",
+      "tocLabel": "Inhalt",
       "galleryTitle": "Galerie",
       "qaTitle": "Q & A",
       "writtenBy": "Geschrieben von",

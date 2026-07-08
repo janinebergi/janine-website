@@ -6,9 +6,12 @@ import { ArrowLeft } from "lucide-react";
 import { MDXRemote } from "next-mdx-remote/rsc";
 import { Container } from "@/components/ui/container";
 import { mdxComponents } from "@/components/mdx-components";
+import { BlogToc } from "@/components/blog-toc";
 import { getPostBySlug, getPostSlugs, formatDate } from "@/lib/blog";
 import { getSiteContent } from "@/lib/site";
 import { getLang } from "@/lib/i18n";
+import { extractHeadings } from "@/lib/toc";
+import { slugify } from "@/lib/slugify";
 
 export function generateStaticParams() {
   return getPostSlugs().map((slug) => ({ slug }));
@@ -47,6 +50,14 @@ export default async function BlogPostPage({
   const t = pages.blogPost;
   const post = getPostBySlug(slug, lang);
   if (!post) notFound();
+
+  const galleryId = slugify(t.galleryTitle);
+  const faqId = slugify(t.qaTitle);
+  const tocItems = [
+    ...extractHeadings(post.content),
+    ...(post.gallery.length > 0 ? [{ id: galleryId, text: t.galleryTitle }] : []),
+    ...(post.faq.length > 0 ? [{ id: faqId, text: t.qaTitle }] : []),
+  ];
 
   return (
     <article className="py-16 sm:py-20">
@@ -102,12 +113,14 @@ export default async function BlogPostPage({
           />
         </div>
 
+        <BlogToc items={tocItems} label={t.tocLabel} />
+
         <div className="prose prose-invert mt-12 max-w-none prose-headings:font-semibold prose-headings:tracking-tight prose-a:text-accent-hover prose-a:no-underline hover:prose-a:underline prose-strong:text-foreground prose-blockquote:border-l-accent prose-blockquote:text-foreground/90 prose-img:rounded-2xl">
           <MDXRemote source={post.content} components={mdxComponents} />
         </div>
 
         {post.gallery.length > 0 && (
-          <section className="mt-16">
+          <section id={galleryId} className="mt-16 scroll-mt-28">
             <h2 className="text-2xl font-semibold leading-tight">{t.galleryTitle}</h2>
             <div className="mt-6 grid grid-cols-2 gap-4 sm:grid-cols-3">
               {post.gallery.map((image) => (
@@ -129,7 +142,7 @@ export default async function BlogPostPage({
         )}
 
         {post.faq.length > 0 && (
-          <section className="mt-16">
+          <section id={faqId} className="mt-16 scroll-mt-28">
             <h2 className="text-2xl font-semibold leading-tight">{t.qaTitle}</h2>
             <div className="mt-6 flex flex-col gap-4">
               {post.faq.map((item) => (
