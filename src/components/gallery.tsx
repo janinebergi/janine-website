@@ -12,14 +12,22 @@ type GalleryImage = {
 // Es werden immer nur so viele Bilder gleichzeitig angezeigt.
 const VISIBLE = 3;
 
-export function Gallery({ images }: { images: GalleryImage[] }) {
+export function Gallery({
+  images,
+  // paged=true zeigt immer nur VISIBLE Bilder mit Pfeil-Navigation (z. B. Über mich).
+  // paged=false zeigt alle Bilder als Raster – Lightbox funktioniert in beiden Fällen.
+  paged = true,
+}: {
+  images: GalleryImage[];
+  paged?: boolean;
+}) {
   // null = Lightbox geschlossen, sonst Index des angezeigten Bildes.
   const [active, setActive] = useState<number | null>(null);
   // Index des ersten sichtbaren Bildes im Fenster.
   const [start, setStart] = useState(0);
 
   const maxStart = Math.max(0, images.length - VISIBLE);
-  const canPage = images.length > VISIBLE;
+  const canPage = paged && images.length > VISIBLE;
 
   const pagePrev = useCallback(() => setStart((s) => Math.max(0, s - 1)), []);
   const pageNext = useCallback(
@@ -57,58 +65,63 @@ export function Gallery({ images }: { images: GalleryImage[] }) {
     };
   }, [active, close, prev, next]);
 
-  const visible = images.slice(start, start + VISIBLE);
+  const visible = paged ? images.slice(start, start + VISIBLE) : images;
+
+  const thumb = (img: GalleryImage, i: number) => (
+    <button
+      key={img.src}
+      type="button"
+      onClick={() => setActive(i)}
+      aria-label={`${img.alt} – vergrößern`}
+      className="group relative aspect-square cursor-zoom-in overflow-hidden rounded-2xl border border-border outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-background"
+    >
+      <Image
+        src={img.src}
+        alt={img.alt}
+        fill
+        sizes="(max-width: 640px) 50vw, (max-width: 1024px) 30vw, 25vw"
+        className="object-cover transition-transform duration-500 group-hover:scale-105"
+      />
+    </button>
+  );
 
   return (
     <>
-      <div className="mt-12 flex items-center gap-2 sm:gap-4">
-        {canPage && (
-          <button
-            type="button"
-            onClick={pagePrev}
-            disabled={start === 0}
-            aria-label="Vorherige Bilder"
-            className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full border border-border text-foreground transition-colors hover:bg-surface disabled:cursor-not-allowed disabled:opacity-30 sm:h-11 sm:w-11"
-          >
-            <ChevronLeft className="h-5 w-5" />
-          </button>
-        )}
+      {paged ? (
+        <div className="mt-12 flex items-center gap-2 sm:gap-4">
+          {canPage && (
+            <button
+              type="button"
+              onClick={pagePrev}
+              disabled={start === 0}
+              aria-label="Vorherige Bilder"
+              className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full border border-border text-foreground transition-colors hover:bg-surface disabled:cursor-not-allowed disabled:opacity-30 sm:h-11 sm:w-11"
+            >
+              <ChevronLeft className="h-5 w-5" />
+            </button>
+          )}
 
-        <div className="grid flex-1 grid-cols-3 gap-3 sm:gap-5">
-          {visible.map((img, localIndex) => {
-            const i = start + localIndex;
-            return (
-              <button
-                key={img.src}
-                type="button"
-                onClick={() => setActive(i)}
-                aria-label={`${img.alt} – vergrößern`}
-                className="group relative aspect-square cursor-zoom-in overflow-hidden rounded-2xl border border-border outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-background"
-              >
-                <Image
-                  src={img.src}
-                  alt={img.alt}
-                  fill
-                  sizes="(max-width: 640px) 33vw, (max-width: 1024px) 30vw, 25vw"
-                  className="object-cover transition-transform duration-500 group-hover:scale-105"
-                />
-              </button>
-            );
-          })}
+          <div className="grid flex-1 grid-cols-3 gap-3 sm:gap-5">
+            {visible.map((img, localIndex) => thumb(img, start + localIndex))}
+          </div>
+
+          {canPage && (
+            <button
+              type="button"
+              onClick={pageNext}
+              disabled={start >= maxStart}
+              aria-label="Nächste Bilder"
+              className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full border border-border text-foreground transition-colors hover:bg-surface disabled:cursor-not-allowed disabled:opacity-30 sm:h-11 sm:w-11"
+            >
+              <ChevronRight className="h-5 w-5" />
+            </button>
+          )}
         </div>
-
-        {canPage && (
-          <button
-            type="button"
-            onClick={pageNext}
-            disabled={start >= maxStart}
-            aria-label="Nächste Bilder"
-            className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full border border-border text-foreground transition-colors hover:bg-surface disabled:cursor-not-allowed disabled:opacity-30 sm:h-11 sm:w-11"
-          >
-            <ChevronRight className="h-5 w-5" />
-          </button>
-        )}
-      </div>
+      ) : (
+        <div className="mt-6 grid grid-cols-2 gap-4 sm:grid-cols-3 sm:gap-5">
+          {images.map((img, i) => thumb(img, i))}
+        </div>
+      )}
 
       {active !== null && (
         <div
