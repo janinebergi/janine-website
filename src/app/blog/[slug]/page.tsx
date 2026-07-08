@@ -8,7 +8,7 @@ import { Container } from "@/components/ui/container";
 import { mdxComponents } from "@/components/mdx-components";
 import { BlogToc } from "@/components/blog-toc";
 import { Gallery } from "@/components/gallery";
-import { getPostBySlug, getPostSlugs, formatDate } from "@/lib/blog";
+import { getPostBySlug, getPostSlugs, getAllPosts, formatDate } from "@/lib/blog";
 import { getSiteContent } from "@/lib/site";
 import { getLang } from "@/lib/i18n";
 import { extractHeadings } from "@/lib/toc";
@@ -51,6 +51,10 @@ export default async function BlogPostPage({
   const t = pages.blogPost;
   const post = getPostBySlug(slug, lang);
   if (!post) notFound();
+
+  const morePosts = getAllPosts(lang)
+    .filter((p) => p.slug !== slug)
+    .slice(0, 3);
 
   const galleryId = slugify(t.galleryTitle);
   const faqId = slugify(t.qaTitle);
@@ -161,6 +165,55 @@ export default async function BlogPostPage({
             {t.projectCta}
           </Link>
         </footer>
+
+        {morePosts.length > 0 && (
+          <section className="mt-16">
+            <h2 className="text-2xl font-semibold leading-tight">{t.moreTitle}</h2>
+            <div className="mt-6 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+              {morePosts.map((more) => (
+                <Link
+                  key={more.slug}
+                  href={`/blog/${more.slug}`}
+                  className="group flex flex-col overflow-hidden rounded-2xl border border-border bg-surface/60"
+                >
+                  <div className="relative aspect-[16/10] overflow-hidden">
+                    <Image
+                      src={more.coverImage}
+                      alt={more.title}
+                      fill
+                      sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                      className="object-cover transition-transform duration-500 group-hover:scale-105"
+                      style={
+                        more.coverPosition
+                          ? { objectPosition: more.coverPosition }
+                          : undefined
+                      }
+                    />
+                  </div>
+                  <div className="flex flex-1 flex-col p-6">
+                    <div className="flex items-center gap-2 text-xs text-muted">
+                      <span>{formatDate(more.date, lang)}</span>
+                      <span>·</span>
+                      <span>{more.readingTime} {pages.blog.readingTimeShort}</span>
+                      {more.country && (
+                        <>
+                          <span>·</span>
+                          <span>{more.country}</span>
+                        </>
+                      )}
+                    </div>
+                    <h3 className="mt-2 text-lg font-semibold leading-snug group-hover:text-accent-hover">
+                      {more.title}
+                    </h3>
+                    <p className="mt-2 text-sm leading-relaxed text-muted">
+                      {more.excerpt}
+                    </p>
+                  </div>
+                </Link>
+              ))}
+            </div>
+          </section>
+        )}
       </Container>
     </article>
   );

@@ -47,6 +47,19 @@ const budgetsByLang: Record<Lang, Record<string, Budget>> = {
       ],
       avgPerDay: { total: 142, perPerson: 71 },
     },
+    morocco: {
+      title: "Kosten für 2 Personen",
+      items: [
+        { label: "Aktivitäten", amount: 284.14 },
+        { label: "Unterkünfte", amount: 266.5 },
+        { label: "Flüge", amount: 192.05 },
+        { label: "Restaurants", amount: 132.27 },
+        { label: "Transport", amount: 91 },
+        { label: "Wechselgebühren", amount: 75.82 },
+        { label: "Gebühren", amount: 13 },
+      ],
+      avgPerDay: { total: 144, perPerson: 72 },
+    },
   },
   en: {
     bali: {
@@ -78,6 +91,19 @@ const budgetsByLang: Record<Lang, Record<string, Budget>> = {
         { label: "Activities & admission fees", amount: 261 },
       ],
       avgPerDay: { total: 142, perPerson: 71 },
+    },
+    morocco: {
+      title: "Cost for 2 people",
+      items: [
+        { label: "Activities", amount: 284.14 },
+        { label: "Accommodation", amount: 266.5 },
+        { label: "Flights", amount: 192.05 },
+        { label: "Restaurants", amount: 132.27 },
+        { label: "Transport", amount: 91 },
+        { label: "Exchange fees", amount: 75.82 },
+        { label: "Fees", amount: 13 },
+      ],
+      avgPerDay: { total: 144, perPerson: 72 },
     },
   },
 };
