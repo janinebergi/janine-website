@@ -35,7 +35,7 @@ export default async function Home() {
           <div className="absolute inset-0 bg-gradient-to-t from-bg via-transparent to-transparent" />
         </div>
 
-        <Container className="relative py-28">
+        <Container className="relative pt-28 pb-14">
           <div className="flex max-w-3xl flex-col items-start gap-6">
             <Eyebrow>{site.role} · {site.tagline}</Eyebrow>
             <h1 className="text-5xl font-semibold leading-[1.03] sm:text-6xl lg:text-7xl">
@@ -49,17 +49,6 @@ export default async function Home() {
             <div className="flex flex-wrap items-center gap-4 pt-2">
               <Button href="/kontakt">{t.heroPrimaryCta}</Button>
             </div>
-            <p className="text-sm text-muted">{t.heroReferenceNote}</p>
-            <p className="text-sm text-muted">
-              {t.blogNote}{" "}
-              <Link
-                href="/blog"
-                className="font-medium text-accent-hover underline underline-offset-4 hover:opacity-80"
-              >
-                Blog
-              </Link>
-              .
-            </p>
           </div>
 
           <dl className="mt-16 grid max-w-md grid-cols-2 gap-8 border-t border-border/60 pt-8">
@@ -84,7 +73,7 @@ export default async function Home() {
       </section>
 
       {/* Services */}
-      <section className="py-20">
+      <section className="pt-10 pb-20">
         <Container>
           <SectionHeading
             eyebrow={t.servicesEyebrow}

@@ -17,6 +17,7 @@ import { Container } from "@/components/ui/container";
 import { Button } from "@/components/ui/button";
 import { SectionHeading } from "@/components/ui/section-heading";
 import { PageHeader } from "@/components/ui/page-header";
+import { Gallery } from "@/components/gallery";
 import { pages as pagesDe, getSiteContent } from "@/lib/site";
 import { getLang } from "@/lib/i18n";
 import { iconForStat } from "@/lib/stat-icons";
@@ -158,22 +159,7 @@ export default async function UeberMichPage() {
             title={t.gallery.title}
             align="center"
           />
-          <div className="mt-12 grid grid-cols-2 gap-4 sm:gap-5 lg:grid-cols-3">
-            {t.gallery.images.map((img) => (
-              <div
-                key={img.src}
-                className="relative aspect-square overflow-hidden rounded-2xl border border-border"
-              >
-                <Image
-                  src={img.src}
-                  alt={img.alt}
-                  fill
-                  sizes="(max-width: 640px) 50vw, (max-width: 1024px) 50vw, 25vw"
-                  className="object-cover transition-transform duration-500 hover:scale-105"
-                />
-              </div>
-            ))}
-          </div>
+          <Gallery images={t.gallery.images} />
         </Container>
       </section>
 

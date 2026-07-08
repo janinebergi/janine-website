@@ -160,6 +160,9 @@ export default async function LeistungenPage() {
               </span>
             ))}
           </div>
+          <p className="mt-6 text-center text-sm text-muted">
+            {t.referenceNote}
+          </p>
         </Container>
       </section>
 

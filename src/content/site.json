@@ -110,8 +110,6 @@
       "heroHeadingPost": " wecken.",
       "heroText": "Ich bin Janine, Copywriterin für Reise- und Tourismusunternehmen. Ich helfe dir, deine Angebote mit Worten ins beste Licht zu rücken – auf Websites, in Blogs und Newslettern.",
       "heroPrimaryCta": "Projekt anfragen",
-      "heroReferenceNote": "Referenzen sende ich dir gerne auf Anfrage zu.",
-      "blogNote": "Willst du meinen Schreibstil vorab kennenlernen? Wirf einen Blick in meinen",
       "servicesEyebrow": "Leistungen",
       "servicesTitle": "Worte, die deine Reiseangebote verkaufen",
       "servicesDescription": "Von der Website über den Blog bis zum Newsletter — Texte, die Emotionen wecken, Fernweh entfachen und deine Marke unvergesslich machen.",
@@ -134,8 +132,8 @@
       "deliverablesTitle": "Alles aus einer Feder",
       "deliverablesDescription": "Eine Auswahl der Formate, die ich regelmäßig schreibe. Du brauchst etwas anderes? Frag einfach.",
       "deliverables": [
-        "Website- & Landingpage-Texte",
         "Reise-Blogbeiträge mit SEO",
+        "Website- & Landingpage-Texte",
         "Newsletter & E-Mail-Strecken",
         "Destinations- & Hotelbeschreibungen",
         "Storytelling & Über-uns-Seiten",
@@ -143,6 +141,7 @@
       ],
       "mediakitEditLabel": "Media Kit bearbeiten",
       "referencesEyebrow": "Referenzen",
+      "referenceNote": "Referenzen sende ich dir gerne auf Anfrage zu.",
       "processEyebrow": "Ablauf",
       "processTitle": "So arbeiten wir zusammen",
       "process": [
@@ -283,7 +282,7 @@
       "coverEyebrow": "Media Kit",
       "coverRole": "Copywriterin für Reise & Tourismus",
       "intro": "Ich bin Janine, Tourismusexpertin und Content Creatorin mit Schwerpunkt auf Reise- und Destinationsmarketing. Nach meiner Ausbildung als Kauffrau für Tourismus und Freizeit und meinem staatlich geprüften Betriebswirt im Bereich Tourismus habe ich in verschiedenen Stationen – unter anderem im Vertriebsmarketing bei alltours – professionelle Texte für Websites, Social Media, Newsletter und Magazine erstellt. Heute vermarkte ich Nordrhein-Westfalen als vielseitiges Reiseziel und verbinde dabei meine Erfahrung im Tourismus mit meiner Leidenschaft für authentischen, inspirierenden Reise-Content.",
-      "portraitImage": "/assets/website/ueber-mich.avif",
+      "portraitImage": "/assets/website/JanineMediakit.avif",
       "portraitAlt": "Janine",
       "brandsTitle": "Marken, für die ich schon geschrieben habe",
       "brands": [
@@ -298,17 +297,6 @@
       "ratesIntro": "Blogbeiträge, Website-Texte und Newsletter – Storytelling, das Emotionen weckt, Angebote klar präsentiert und Kund:innen langfristig bindet.",
       "rates": [
         {
-          "title": "Website-Texte",
-          "subtitle": "z. B. Startseite",
-          "steps": [
-            "Briefing & Struktur: 1,5–2 h",
-            "Text: 3–4 h",
-            "Überarbeitung: 1–1,5 h",
-            "Gesamt: ca. 5,5–7,5 Stunden"
-          ],
-          "price": "275–375 €"
-        },
-        {
           "title": "Blogbeitrag",
           "subtitle": "ca. 1.000–1.200 Wörter",
           "steps": [
@@ -318,6 +306,17 @@
             "Gesamt: ca. 4–5,5 Stunden"
           ],
           "price": "200–275 €"
+        },
+        {
+          "title": "Website-Texte",
+          "subtitle": "z. B. Startseite",
+          "steps": [
+            "Briefing & Struktur: 1,5–2 h",
+            "Text: 3–4 h",
+            "Überarbeitung: 1–1,5 h",
+            "Gesamt: ca. 5,5–7,5 Stunden"
+          ],
+          "price": "275–375 €"
         },
         {
           "title": "Newsletter",

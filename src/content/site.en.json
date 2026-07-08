@@ -110,8 +110,6 @@
       "heroHeadingPost": ".",
       "heroText": "I'm Janine, a copywriter for travel and tourism businesses. I help you put your offers in the best possible light with words – on websites, in blogs and newsletters.",
       "heroPrimaryCta": "Enquire about a project",
-      "heroReferenceNote": "I'm happy to send references on request.",
-      "blogNote": "Want to get a feel for my writing style first? Take a look at my",
       "servicesEyebrow": "Services",
       "servicesTitle": "Words that sell your travel offers",
       "servicesDescription": "From the website to the blog to the newsletter — copy that stirs emotion, ignites wanderlust and makes your brand unforgettable.",
@@ -134,8 +132,8 @@
       "deliverablesTitle": "Everything from one pen",
       "deliverablesDescription": "A selection of the formats I write regularly. Need something else? Just ask.",
       "deliverables": [
-        "Website & landing page copy",
         "Travel blog posts with SEO",
+        "Website & landing page copy",
         "Newsletters & email sequences",
         "Destination & hotel descriptions",
         "Storytelling & about pages",
@@ -143,6 +141,7 @@
       ],
       "mediakitEditLabel": "Edit media kit",
       "referencesEyebrow": "References",
+      "referenceNote": "I'm happy to send references on request.",
       "processEyebrow": "Process",
       "processTitle": "How we work together",
       "process": [
@@ -285,7 +284,7 @@
       "coverEyebrow": "Media Kit",
       "coverRole": "Travel & Tourism Copywriter",
       "intro": "I'm Janine, a tourism expert and content creator specialising in travel and destination marketing. After training as a certified travel and leisure specialist and completing a state-certified business economics qualification in tourism, I've written professional copy for websites, social media, newsletters and magazines across several roles – including in sales marketing at alltours. Today I market North Rhine-Westphalia as a versatile travel destination, combining my experience in tourism with my passion for authentic, inspiring travel content.",
-      "portraitImage": "/assets/website/ueber-mich.avif",
+      "portraitImage": "/assets/website/JanineMediakit.avif",
       "portraitAlt": "Janine",
       "brandsTitle": "Brands I've written for",
       "brands": [
@@ -300,17 +299,6 @@
       "ratesIntro": "Blog posts, website copy and newsletters – storytelling that stirs emotion, presents offers clearly and builds lasting relationships with customers.",
       "rates": [
         {
-          "title": "Website copy",
-          "subtitle": "e.g. homepage",
-          "steps": [
-            "Briefing & structure: 1.5–2 h",
-            "Writing: 3–4 h",
-            "Revisions: 1–1.5 h",
-            "Total: approx. 5.5–7.5 hours"
-          ],
-          "price": "€275–375"
-        },
-        {
           "title": "Blog post",
           "subtitle": "approx. 1,000–1,200 words",
           "steps": [
@@ -320,6 +308,17 @@
             "Total: approx. 4–5.5 hours"
           ],
           "price": "€200–275"
+        },
+        {
+          "title": "Website copy",
+          "subtitle": "e.g. homepage",
+          "steps": [
+            "Briefing & structure: 1.5–2 h",
+            "Writing: 3–4 h",
+            "Revisions: 1–1.5 h",
+            "Total: approx. 5.5–7.5 hours"
+          ],
+          "price": "€275–375"
         },
         {
           "title": "Newsletter",

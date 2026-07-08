@@ -7,6 +7,7 @@ import { MDXRemote } from "next-mdx-remote/rsc";
 import { Container } from "@/components/ui/container";
 import { mdxComponents } from "@/components/mdx-components";
 import { BlogToc } from "@/components/blog-toc";
+import { Gallery } from "@/components/gallery";
 import { getPostBySlug, getPostSlugs, formatDate } from "@/lib/blog";
 import { getSiteContent } from "@/lib/site";
 import { getLang } from "@/lib/i18n";
@@ -122,22 +123,7 @@ export default async function BlogPostPage({
         {post.gallery.length > 0 && (
           <section id={galleryId} className="mt-16 scroll-mt-28">
             <h2 className="text-2xl font-semibold leading-tight">{t.galleryTitle}</h2>
-            <div className="mt-6 grid grid-cols-2 gap-4 sm:grid-cols-3">
-              {post.gallery.map((image) => (
-                <div
-                  key={image.src}
-                  className="group relative aspect-square overflow-hidden rounded-2xl border border-border bg-surface/60"
-                >
-                  <Image
-                    src={image.src}
-                    alt={image.alt}
-                    fill
-                    sizes="(max-width: 640px) 50vw, 240px"
-                    className="object-cover transition-transform duration-500 group-hover:scale-105"
-                  />
-                </div>
-              ))}
-            </div>
+            <Gallery images={post.gallery} />
           </section>
         )}
 
