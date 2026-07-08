@@ -1,6 +1,7 @@
 {
   "site": {
     "name": "Janine",
+    "fullName": "Janine Bergmann",
     "role": "Travel & Tourism Copywriter",
     "tagline": "Because great copy isn't luck — it's word choice.",
     "description": "Janine is a copywriter for travel and tourism businesses. Copy for websites, blogs and newsletters that stirs emotion, sparks wanderlust and moves travellers to book.",
@@ -369,7 +370,7 @@
       "heroImageAlt": "Lush green rice terraces with palm trees under a dramatic cloudy sky",
       "heroEyebrow": "Blog",
       "heroTitle": "Stories and tips about travel.",
-      "heroText": "Travel is my inspiration, writing is my passion. Here I share routes, budgets and adventures – and every now and then, thoughts on copywriting.",
+      "heroText": "Enjoy the read!",
       "emptyState": "The first posts are coming soon.",
       "featuredLabel": "Latest post",
       "readingTimeShort": "min",
@@ -410,7 +411,7 @@
       "liabilityLinksHeading": "Liability for links",
       "liabilityLinksText": "My site contains links to external third-party websites, over whose content I have no influence. Therefore, I cannot accept any liability for this external content. The respective provider or operator of the linked pages is always responsible for their content. The linked pages were checked for possible legal violations at the time of linking. Illegal content was not recognisable at the time of linking. However, permanent monitoring of the content of linked pages is not reasonable without concrete evidence of a legal violation. Upon becoming aware of any legal infringements, I will remove such links immediately.",
       "copyrightHeading": "Copyright",
-      "copyrightText": "The content and works created by the site operator on these pages are subject to German copyright law. Reproduction, editing, distribution and any kind of exploitation beyond the limits of copyright law require the written consent of the respective author. Downloads and copies of this page are only permitted for private, non-commercial use. Insofar as the content on this page was not created by the operator, the copyrights of third parties are respected. In particular, third-party content is identified as such. Should you nevertheless become aware of a copyright infringement, please notify me accordingly. Upon becoming aware of any infringements, I will remove such content immediately."
+      "copyrightText": "The content and works created by the site operator on these pages are subject to German copyright law. Reproduction, editing, distribution and any kind of exploitation beyond the limits of copyright law require the written consent of the respective author. Downloads and copies of this page are only permitted for private, non-commercial use. The photographs used on this website are copyrighted by Janine Bergmann, with the exception of the photo \"Janine & Philipp\", which was taken by Jens Maus. Use, reproduction or further distribution of these images by third parties is not permitted without my express written consent. Insofar as the content on this page was not created by the operator, the copyrights of third parties are respected. In particular, third-party content is identified as such. Should you nevertheless become aware of a copyright infringement, please notify me accordingly. Upon becoming aware of any infringements, I will remove such content immediately."
     },
     "datenschutz": {
       "metaTitle": "Privacy Policy",

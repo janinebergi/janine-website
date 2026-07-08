@@ -67,12 +67,19 @@ export function SiteSearch({
     const q = query.trim().toLowerCase();
     if (!q) return [];
     return index
-      .filter(
-        (item) =>
-          item.title.toLowerCase().includes(q) ||
-          item.description.toLowerCase().includes(q)
-      )
-      .slice(0, 8);
+      .map((item) => {
+        // Treffer im Titel/in der Beschreibung wiegen schwerer als Treffer,
+        // die nur im Volltext (Seiteninhalt, Blogtext, FAQ) stecken.
+        let score = 0;
+        if (item.title.toLowerCase().includes(q)) score += 3;
+        if (item.description.toLowerCase().includes(q)) score += 2;
+        if (item.content.toLowerCase().includes(q)) score += 1;
+        return { item, score };
+      })
+      .filter(({ score }) => score > 0)
+      .sort((a, b) => b.score - a.score)
+      .slice(0, 8)
+      .map(({ item }) => item);
   }, [query, index]);
 
   useEffect(() => {

@@ -27,13 +27,13 @@ export function Header({ lang }: { lang: Lang }) {
         >
           <Image
             src="/assets/logo.avif"
-            alt={site.name}
+            alt={site.fullName}
             width={40}
             height={40}
             priority
             className="h-9 w-9 rounded-full ring-1 ring-border"
           />
-          {site.name}
+          {site.fullName}
         </Link>
 
         <nav className="hidden items-center gap-1 md:flex">
@@ -48,7 +48,7 @@ export function Header({ lang }: { lang: Lang }) {
                 href={item.href}
                 className={`rounded-full px-4 py-2 text-sm transition-colors ${
                   active
-                    ? "text-accent-hover"
+                    ? "bg-accent-soft font-semibold text-accent-hover"
                     : "text-muted hover:text-foreground"
                 }`}
               >
@@ -60,10 +60,10 @@ export function Header({ lang }: { lang: Lang }) {
 
         <div className="hidden items-center gap-3 md:flex">
           <SiteSearch lang={lang} labels={pages.header} />
-          <LanguageToggle lang={lang} />
           <Button href="/kontakt" className="px-5 py-2.5">
             {pages.header.cta}
           </Button>
+          <LanguageToggle lang={lang} />
         </div>
 
         <div className="flex min-w-0 flex-1 items-center justify-end gap-3 md:hidden">
@@ -75,7 +75,6 @@ export function Header({ lang }: { lang: Lang }) {
           />
           {!searchOpen && (
             <>
-              <LanguageToggle lang={lang} />
               <button
                 type="button"
                 aria-label={pages.header.menuAriaLabel}
@@ -84,6 +83,7 @@ export function Header({ lang }: { lang: Lang }) {
               >
                 {open ? <X size={24} /> : <Menu size={24} />}
               </button>
+              <LanguageToggle lang={lang} />
             </>
           )}
         </div>
@@ -92,16 +92,26 @@ export function Header({ lang }: { lang: Lang }) {
       {open && (
         <div className="border-t border-border/60 bg-bg md:hidden">
           <nav className="flex flex-col px-6 py-4">
-            {nav.map((item) => (
-              <Link
-                key={item.href}
-                href={item.href}
-                onClick={() => setOpen(false)}
-                className="py-3 text-base text-muted hover:text-foreground"
-              >
-                {item.label}
-              </Link>
-            ))}
+            {nav.map((item) => {
+              const active =
+                item.href === "/"
+                  ? pathname === "/"
+                  : pathname.startsWith(item.href);
+              return (
+                <Link
+                  key={item.href}
+                  href={item.href}
+                  onClick={() => setOpen(false)}
+                  className={`py-3 text-base transition-colors ${
+                    active
+                      ? "font-semibold text-accent-hover"
+                      : "text-muted hover:text-foreground"
+                  }`}
+                >
+                  {item.label}
+                </Link>
+              );
+            })}
             <Button href="/kontakt" className="mt-3" >
               {pages.header.cta}
             </Button>
