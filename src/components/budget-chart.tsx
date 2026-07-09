@@ -60,6 +60,18 @@ const budgetsByLang: Record<Lang, Record<string, Budget>> = {
       ],
       avgPerDay: { total: 144, perPerson: 72 },
     },
+    portugal: {
+      title: "Kosten für 2 Personen",
+      items: [
+        { label: "Unterkünfte", amount: 1870 },
+        { label: "Surfcamp-Pauschale", amount: 1500 },
+        { label: "Restaurants", amount: 509.8 },
+        { label: "Getränke", amount: 369.8 },
+        { label: "Andere", amount: 378, note: "Shopping, Aktivitäten, Einkäufe, Unterhaltung" },
+        { label: "Transport", amount: 298.7 },
+      ],
+      avgPerDay: { total: 290, perPerson: 145 },
+    },
   },
   en: {
     bali: {
@@ -104,6 +116,18 @@ const budgetsByLang: Record<Lang, Record<string, Budget>> = {
         { label: "Fees", amount: 13 },
       ],
       avgPerDay: { total: 144, perPerson: 72 },
+    },
+    portugal: {
+      title: "Cost for 2 people",
+      items: [
+        { label: "Accommodation", amount: 1870 },
+        { label: "Surf camp package", amount: 1500 },
+        { label: "Restaurants", amount: 509.8 },
+        { label: "Drinks", amount: 369.8 },
+        { label: "Other", amount: 378, note: "Shopping, activities, purchases, entertainment" },
+        { label: "Transport", amount: 298.7 },
+      ],
+      avgPerDay: { total: 290, perPerson: 145 },
     },
   },
 };

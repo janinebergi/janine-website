@@ -4,6 +4,7 @@ import type { MDXRemoteProps } from "next-mdx-remote/rsc";
 import { SriLankaRouteMap } from "@/components/route-map";
 import { BaliRouteMap } from "@/components/bali-route-map";
 import { MoroccoRouteMap } from "@/components/morocco-route-map";
+import { PortugalRouteMap } from "@/components/portugal-route-map";
 import { BudgetChart } from "@/components/budget-chart";
 import { Faq, FaqItem } from "@/components/faq";
 import { slugify } from "@/lib/slugify";
@@ -34,6 +35,7 @@ export const mdxComponents: MDXRemoteProps["components"] = {
   SriLankaRouteMap,
   BaliRouteMap,
   MoroccoRouteMap,
+  PortugalRouteMap,
   BudgetChart,
   Faq,
   FaqItem,
