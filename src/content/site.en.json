@@ -7,7 +7,7 @@
     "description": "Janine is a copywriter for travel and tourism businesses. Copy for websites, blogs and newsletters that stirs emotion, sparks wanderlust and moves travellers to book.",
     "email": "hallo@janinebergmann.de",
     "url": "https://janinebergmann.de",
-    "heroImage": "/assets/website/header.avif",
+    "heroImage": "/assets/website/allgemein/header.avif",
     "social": {
       "linkedin": "https://www.linkedin.com/in/janine-bergmann/",
       "instagram": "https://www.instagram.com/"
@@ -38,7 +38,7 @@
   "services": [
     {
       "title": "Blog posts that spark wanderlust",
-      "image": "/assets/website/leistung-blog.avif",
+      "image": "/assets/website/allgemein/leistung-blog.avif",
       "imagePosition": "center 30%",
       "teaser": "Make adventure tangible and bring your offers to life with stories – SEO-optimised, from the first sentence to the last click.",
       "points": [
@@ -50,7 +50,7 @@
     },
     {
       "title": "Website copy that sells travel dreams",
-      "image": "/assets/website/IMG_2961.avif",
+      "image": "/assets/website/allgemein/IMG_2961.avif",
       "imagePosition": "center",
       "teaser": "Present your offers vividly and show your brand authentically – SEO-optimised, so attention turns into new customers.",
       "points": [
@@ -62,7 +62,7 @@
     },
     {
       "title": "Newsletters that tell stories",
-      "image": "/assets/website/leistung-newsletter.avif",
+      "image": "/assets/website/allgemein/leistung-newsletter.avif",
       "imagePosition": "center",
       "teaser": "Communicate your offers clearly while building closeness and trust – through stories, tips and inspiration, never pushy.",
       "points": [
@@ -125,7 +125,7 @@
       "metaDescription": "Copywriting for travel and tourism businesses: website copy, blog posts and newsletters that spark wanderlust and move travellers to book.",
       "heroEyebrow": "Services",
       "heroTitle": "Because great copy isn't luck — it's word choice.",
-      "heroImage": "/assets/website/leistungen-header.avif",
+      "heroImage": "/assets/website/allgemein/leistungen-header.avif",
       "heroImageAlt": "Camel caravan at sunset",
       "heroText": "I help travel and tourism businesses put their offers in the best possible light with words. Whether it's a website, blog or newsletter – I write copy that doesn't just inform, but stirs emotion, ignites wanderlust and successfully sells your offers. With the right words, travel experiences become tangible, the urge to explore becomes palpable, and your brand becomes unforgettable. Let's tell stories together that excite your customers – and lead them to your solution.",
       "deliverablesEyebrow": "What you get",
@@ -173,7 +173,7 @@
       "metaDescription": "Get to know Janine — a copywriter with a passion for clear, effective language.",
       "heroEyebrow": "About me",
       "heroTitle": "Who am I?",
-      "heroImage": "/assets/website/ueber-mich-2.avif",
+      "heroImage": "/assets/website/allgemein/ueber-mich-2.avif",
       "heroImageAlt": "Janine surfing",
       "paragraphs": [
         "I'm Janine, and I don't just love to travel – I love writing about it too. I'm an absolute action fan and always up for the next adventure.",
@@ -225,27 +225,27 @@
         "title": "Moments from my travels",
         "images": [
           {
-            "src": "/assets/website/ueber-mich.avif",
+            "src": "/assets/website/allgemein/ueber-mich.avif",
             "alt": "Janine in a red dress at sunset"
           },
           {
-            "src": "/assets/website/ueber-mich-3.avif",
+            "src": "/assets/website/allgemein/ueber-mich-3.avif",
             "alt": "Janine in front of the Eiffel Tower in Paris"
           },
           {
-            "src": "/assets/website/ueber-mich-4.avif",
+            "src": "/assets/website/allgemein/ueber-mich-4.avif",
             "alt": "Janine at a mountain lake"
           },
           {
-            "src": "/assets/website/ueber-mich-5.avif",
+            "src": "/assets/website/allgemein/ueber-mich-5.avif",
             "alt": "Janine in a pickup truck wearing a cowboy hat"
           },
           {
-            "src": "/assets/website/ueber-mich-6.avif",
+            "src": "/assets/website/allgemein/ueber-mich-6.avif",
             "alt": "Janine with a surfboard on the beach"
           },
           {
-            "src": "/assets/website/ueber-mich-7.avif",
+            "src": "/assets/website/allgemein/ueber-mich-7.avif",
             "alt": "Janine swimming in the sea"
           }
         ]
@@ -284,7 +284,7 @@
       "coverEyebrow": "Media Kit",
       "coverRole": "Travel & Tourism Copywriter",
       "intro": "I'm Janine, a tourism expert and content creator specialising in travel and destination marketing. After training as a certified travel and leisure specialist and completing a state-certified business economics qualification in tourism, I've written professional copy for websites, social media, newsletters and magazines across several roles – including in sales marketing at alltours. Today I market North Rhine-Westphalia as a versatile travel destination, combining my experience in tourism with my passion for authentic, inspiring travel content.",
-      "portraitImage": "/assets/website/JanineMediakit.avif",
+      "portraitImage": "/assets/website/allgemein/JanineMediakit.avif",
       "portraitAlt": "Janine",
       "brandsTitle": "Brands I've written for",
       "brands": [
@@ -341,7 +341,7 @@
       "metaDescription": "Get in touch with Janine about your next copywriting project — a reply as soon as possible.",
       "heroEyebrow": "Contact",
       "heroTitle": "Tell me about your project.",
-      "heroImage": "/assets/website/ueber-mich-4.avif",
+      "heroImage": "/assets/website/allgemein/ueber-mich-4.avif",
       "heroImageAlt": "Sunset over the sea with palm trees",
       "heroText": "Interested in my copy or want to talk about your project? Just drop me a quick note about what you have in mind – I'll get back to you personally, soon.",
       "emailTitle": "Email",

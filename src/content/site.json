@@ -7,7 +7,7 @@
     "description": "Janine ist Copywriterin für Reise- und Tourismusunternehmen. Texte für Websites, Blogs und Newsletter, die Emotionen wecken, Fernweh auslösen und Reisende zur Buchung bewegen.",
     "email": "hallo@janinebergmann.de",
     "url": "https://janinebergmann.de",
-    "heroImage": "/assets/website/header.avif",
+    "heroImage": "/assets/website/allgemein/header.avif",
     "social": {
       "linkedin": "https://www.linkedin.com/in/janine-bergmann/",
       "instagram": "https://www.instagram.com/"
@@ -38,7 +38,7 @@
   "services": [
     {
       "title": "Blogbeiträge, die Fernweh wecken",
-      "image": "/assets/website/leistung-blog.avif",
+      "image": "/assets/website/allgemein/leistung-blog.avif",
       "imagePosition": "center 30%",
       "teaser": "Abenteuer spürbar machen und deine Angebote mit Geschichten zum Leben erwecken – SEO-optimiert, vom ersten Satz bis zum letzten Klick.",
       "points": [
@@ -50,7 +50,7 @@
     },
     {
       "title": "Website-Texte, die Reiseträume verkaufen",
-      "image": "/assets/website/IMG_2961.avif",
+      "image": "/assets/website/allgemein/IMG_2961.avif",
       "imagePosition": "center",
       "teaser": "Deine Angebote lebendig präsentieren und deine Marke authentisch zeigen – SEO-optimiert, damit aus Aufmerksamkeit neue Kunden werden.",
       "points": [
@@ -62,7 +62,7 @@
     },
     {
       "title": "Newsletter, die Geschichten erzählen",
-      "image": "/assets/website/leistung-newsletter.avif",
+      "image": "/assets/website/allgemein/leistung-newsletter.avif",
       "imagePosition": "center",
       "teaser": "Deine Angebote klar kommunizieren und dabei Nähe sowie Vertrauen schaffen – durch Geschichten, Tipps und Inspiration, ohne aufdringlich zu wirken.",
       "points": [
@@ -125,7 +125,7 @@
       "metaDescription": "Copywriting für Reise- und Tourismusunternehmen: Website-Texte, Blogbeiträge und Newsletter, die Fernweh wecken und Reisende zur Buchung bewegen.",
       "heroEyebrow": "Leistungen",
       "heroTitle": "Weil gute Werbung kein Zufall, sondern Wortwahl ist.",
-      "heroImage": "/assets/website/leistungen-header.avif",
+      "heroImage": "/assets/website/allgemein/leistungen-header.avif",
       "heroImageAlt": "Kamel-Karawane im Sonnenuntergang",
       "heroText": "Ich helfe Reise- und Tourismusunternehmen dabei, ihre Angebote mit Texten ins beste Licht zu rücken. Ob Website, Blog oder Newsletter – ich schreibe Texte, die nicht nur informieren, sondern Emotionen wecken, Fernweh entfachen und deine Angebote erfolgreich verkaufen. Mit der richtigen Wortwahl werden Reiseerlebnisse greifbar, Abenteuerlust spürbar und deine Marke unvergesslich. Lass uns gemeinsam Geschichten erzählen, die deine Kunden begeistern – und sie zu deiner Lösung führen.",
       "deliverablesEyebrow": "Was du bekommst",
@@ -173,7 +173,7 @@
       "metaDescription": "Lerne Janine kennen — Copywriterin mit einem Faible für klare, wirksame Sprache.",
       "heroEyebrow": "Über mich",
       "heroTitle": "Wer bin ich?",
-      "heroImage": "/assets/website/ueber-mich-2.avif",
+      "heroImage": "/assets/website/allgemein/ueber-mich-2.avif",
       "heroImageAlt": "Janine beim Surfen",
       "paragraphs": [
         "Ich bin Janine und liebe es nicht nur zu reisen, sondern auch darüber zu schreiben. Ich bin ein absoluter Action-Fan und stürze mich gern in das nächste Abenteuer.",
@@ -223,27 +223,27 @@
         "title": "Momente meiner Reisen",
         "images": [
           {
-            "src": "/assets/website/ueber-mich.avif",
+            "src": "/assets/website/allgemein/ueber-mich.avif",
             "alt": "Janine im roten Kleid bei Sonnenuntergang"
           },
           {
-            "src": "/assets/website/ueber-mich-3.avif",
+            "src": "/assets/website/allgemein/ueber-mich-3.avif",
             "alt": "Janine vor dem Eiffelturm in Paris"
           },
           {
-            "src": "/assets/website/ueber-mich-4.avif",
+            "src": "/assets/website/allgemein/ueber-mich-4.avif",
             "alt": "Janine an einem Bergsee"
           },
           {
-            "src": "/assets/website/ueber-mich-5.avif",
+            "src": "/assets/website/allgemein/ueber-mich-5.avif",
             "alt": "Janine im Pickup mit Cowboyhut"
           },
           {
-            "src": "/assets/website/ueber-mich-6.avif",
+            "src": "/assets/website/allgemein/ueber-mich-6.avif",
             "alt": "Janine mit Surfboard am Strand"
           },
           {
-            "src": "/assets/website/ueber-mich-7.avif",
+            "src": "/assets/website/allgemein/ueber-mich-7.avif",
             "alt": "Janine beim Schwimmen im Meer"
           }
         ]
@@ -282,7 +282,7 @@
       "coverEyebrow": "Media Kit",
       "coverRole": "Copywriterin für Reise & Tourismus",
       "intro": "Ich bin Janine, Tourismusexpertin und Content Creatorin mit Schwerpunkt auf Reise- und Destinationsmarketing. Nach meiner Ausbildung als Kauffrau für Tourismus und Freizeit und meinem staatlich geprüften Betriebswirt im Bereich Tourismus habe ich in verschiedenen Stationen – unter anderem im Vertriebsmarketing bei alltours – professionelle Texte für Websites, Social Media, Newsletter und Magazine erstellt. Heute vermarkte ich Nordrhein-Westfalen als vielseitiges Reiseziel und verbinde dabei meine Erfahrung im Tourismus mit meiner Leidenschaft für authentischen, inspirierenden Reise-Content.",
-      "portraitImage": "/assets/website/JanineMediakit.avif",
+      "portraitImage": "/assets/website/allgemein/JanineMediakit.avif",
       "portraitAlt": "Janine",
       "brandsTitle": "Marken, für die ich schon geschrieben habe",
       "brands": [
@@ -339,7 +339,7 @@
       "metaDescription": "Schreib Janine für dein nächstes Copywriting-Projekt — Antwort so schnell wie möglich.",
       "heroEyebrow": "Kontakt",
       "heroTitle": "Erzähl mir von deinem Projekt.",
-      "heroImage": "/assets/website/ueber-mich-4.avif",
+      "heroImage": "/assets/website/allgemein/ueber-mich-4.avif",
       "heroImageAlt": "Sonnenuntergang am Meer mit Palmen",
       "heroText": "Du hast Interesse an meinen Texten oder möchtest über dein Projekt sprechen? Dann schreib mir einfach kurz, worum es geht – ich melde mich zeitnah und persönlich bei dir zurück.",
       "emailTitle": "E-Mail",

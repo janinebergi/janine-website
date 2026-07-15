@@ -25,7 +25,7 @@ export default async function BlogPage() {
   return (
     <>
       <PageHeader
-        image="/assets/website/IMG_1873.avif"
+        image="/assets/website/allgemein/IMG_1873.avif"
         imageAlt={t.heroImageAlt}
         imagePosition="center 60%"
         eyebrow={t.heroEyebrow}

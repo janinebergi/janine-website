@@ -72,6 +72,17 @@ const budgetsByLang: Record<Lang, Record<string, Budget>> = {
       ],
       avgPerDay: { total: 290, perPerson: 145 },
     },
+    scotland: {
+      title: "Kosten für 2 Personen",
+      items: [
+        { label: "Unterkünfte", amount: 1764 },
+        { label: "Transport", amount: 284.25 },
+        { label: "Andere", amount: 210.68, note: "Getränke, Sehenswürdigkeiten, Gebühren, Unterhaltung" },
+        { label: "Einkäufe", amount: 161.95 },
+        { label: "Restaurants", amount: 131.69 },
+      ],
+      avgPerDay: { total: 319, perPerson: 160 },
+    },
   },
   en: {
     bali: {
@@ -128,6 +139,17 @@ const budgetsByLang: Record<Lang, Record<string, Budget>> = {
         { label: "Transport", amount: 298.7 },
       ],
       avgPerDay: { total: 290, perPerson: 145 },
+    },
+    scotland: {
+      title: "Cost for 2 people",
+      items: [
+        { label: "Accommodation", amount: 1764 },
+        { label: "Transport", amount: 284.25 },
+        { label: "Other", amount: 210.68, note: "Drinks, sights, fees, entertainment" },
+        { label: "Shopping", amount: 161.95 },
+        { label: "Restaurants", amount: 131.69 },
+      ],
+      avgPerDay: { total: 319, perPerson: 160 },
     },
   },
 };
