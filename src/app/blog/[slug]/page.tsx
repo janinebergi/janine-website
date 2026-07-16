@@ -127,7 +127,7 @@ export default async function BlogPostPage({
         {post.gallery.length > 0 && (
           <section id={galleryId} className="mt-16 scroll-mt-28">
             <h2 className="text-2xl font-semibold leading-tight">{t.galleryTitle}</h2>
-            <Gallery images={post.gallery} paged={false} />
+            <Gallery images={post.gallery} paged={false} showCaptions />
           </section>
         )}
 

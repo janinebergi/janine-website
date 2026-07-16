@@ -17,9 +17,16 @@ export function Gallery({
   // paged=true zeigt immer nur VISIBLE Bilder mit Pfeil-Navigation (z. B. Über mich).
   // paged=false zeigt alle Bilder als Raster – Lightbox funktioniert in beiden Fällen.
   paged = true,
+  // showCaptions blendet den alt-Text als sichtbare Bildunterschrift unter jedem
+  // Bild ein (für die Blog-Galerien).
+  showCaptions = false,
+  // credit zeigt unten links ein kleines ©-Zeichen; beim Hovern erscheint der Name.
+  credit = "Janine Bergmann",
 }: {
   images: GalleryImage[];
   paged?: boolean;
+  showCaptions?: boolean;
+  credit?: string;
 }) {
   // null = Lightbox geschlossen, sonst Index des angezeigten Bildes.
   const [active, setActive] = useState<number | null>(null);
@@ -68,21 +75,40 @@ export function Gallery({
   const visible = paged ? images.slice(start, start + VISIBLE) : images;
 
   const thumb = (img: GalleryImage, i: number) => (
-    <button
-      key={img.src}
-      type="button"
-      onClick={() => setActive(i)}
-      aria-label={`${img.alt} – vergrößern`}
-      className="group relative aspect-square cursor-zoom-in overflow-hidden rounded-2xl border border-border outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-background"
-    >
-      <Image
-        src={img.src}
-        alt={img.alt}
-        fill
-        sizes="(max-width: 640px) 50vw, (max-width: 1024px) 30vw, 25vw"
-        className="object-cover transition-transform duration-500 group-hover:scale-105"
-      />
-    </button>
+    <figure key={img.src} className="flex flex-col">
+      <button
+        type="button"
+        onClick={() => setActive(i)}
+        aria-label={`${img.alt} – vergrößern`}
+        className="group relative aspect-square cursor-zoom-in overflow-hidden rounded-2xl border border-border outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-background"
+      >
+        <Image
+          src={img.src}
+          alt={img.alt}
+          fill
+          sizes="(max-width: 640px) 50vw, (max-width: 1024px) 30vw, 25vw"
+          className="object-cover transition-transform duration-500 group-hover:scale-105"
+        />
+        {credit && (
+          <span className="group/credit absolute bottom-2 left-2 z-10 flex items-center">
+            <span
+              aria-hidden="true"
+              className="flex h-6 w-6 items-center justify-center rounded-full bg-black/55 text-[11px] font-medium text-white backdrop-blur-sm transition-colors group-hover/credit:bg-black/80"
+            >
+              ©
+            </span>
+            <span className="pointer-events-none absolute bottom-8 left-0 whitespace-nowrap rounded-md bg-foreground px-2 py-1 text-xs font-medium text-bg opacity-0 shadow-lg transition-opacity duration-150 group-hover/credit:opacity-100">
+              © {credit}
+            </span>
+          </span>
+        )}
+      </button>
+      {showCaptions && (
+        <figcaption className="mt-2 px-1 text-sm leading-snug text-muted">
+          {img.alt}
+        </figcaption>
+      )}
+    </figure>
   );
 
   return (
@@ -185,6 +211,9 @@ export function Gallery({
               {active + 1} / {images.length}
             </span>
           </p>
+          {credit && (
+            <p className="mt-1 text-center text-xs text-white/50">© {credit}</p>
+          )}
         </div>
       )}
     </>
