@@ -52,9 +52,22 @@ export default async function BlogPostPage({
   const post = getPostBySlug(slug, lang);
   if (!post) notFound();
 
-  const morePosts = getAllPosts(lang)
-    .filter((p) => p.slug !== slug)
-    .slice(0, 3);
+  // Show a varied set of "more posts" rather than always the newest three:
+  // prefer posts sharing this one's country/tags, and rotate the rest by the
+  // current post's position so different posts surface different suggestions.
+  const allPosts = getAllPosts(lang);
+  const currentIndex = allPosts.findIndex((p) => p.slug === slug);
+  const others = allPosts.filter((p) => p.slug !== slug);
+  const offset = others.length > 0 ? currentIndex % others.length : 0;
+  const rotated = [...others.slice(offset), ...others.slice(0, offset)];
+  const relevance = (p: (typeof rotated)[number]) =>
+    (post.country && p.country === post.country ? 3 : 0) +
+    p.tags.filter((tag) => post.tags.includes(tag)).length;
+  const morePosts = rotated
+    .map((p, index) => ({ p, index, score: relevance(p) }))
+    .sort((a, b) => b.score - a.score || a.index - b.index)
+    .slice(0, 3)
+    .map((entry) => entry.p);
 
   const galleryId = slugify(t.galleryTitle);
   const faqId = slugify(t.qaTitle);

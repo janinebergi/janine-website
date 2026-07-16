@@ -75,12 +75,12 @@ export function Gallery({
   const visible = paged ? images.slice(start, start + VISIBLE) : images;
 
   const thumb = (img: GalleryImage, i: number) => (
-    <figure key={img.src} className="flex flex-col">
+    <figure key={img.src} className="group relative">
       <button
         type="button"
         onClick={() => setActive(i)}
         aria-label={`${img.alt} – vergrößern`}
-        className="group relative aspect-square cursor-zoom-in overflow-hidden rounded-2xl border border-border outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-background"
+        className="relative block aspect-square w-full cursor-zoom-in overflow-hidden rounded-2xl border border-border outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-background"
       >
         <Image
           src={img.src}
@@ -90,7 +90,7 @@ export function Gallery({
           className="object-cover transition-transform duration-500 group-hover:scale-105"
         />
         {credit && (
-          <span className="group/credit absolute bottom-2 left-2 z-10 flex items-center">
+          <span className="group/credit absolute bottom-2 left-2 z-20 flex items-center">
             <span
               aria-hidden="true"
               className="flex h-6 w-6 items-center justify-center rounded-full bg-black/55 text-[11px] font-medium text-white backdrop-blur-sm transition-colors group-hover/credit:bg-black/80"
@@ -103,8 +103,10 @@ export function Gallery({
           </span>
         )}
       </button>
+      {/* Bildunterschrift bleibt in der Kachel unsichtbar und erscheint erst beim
+          Hovern (oder Tastaturfokus) als Overlay – angeklickt zeigt sie die Lightbox. */}
       {showCaptions && (
-        <figcaption className="mt-2 px-1 text-sm leading-snug text-muted">
+        <figcaption className="pointer-events-none absolute inset-x-0 bottom-0 z-10 rounded-b-2xl bg-gradient-to-t from-black/80 via-black/45 to-transparent pb-2 pl-11 pr-3 pt-8 text-left text-sm leading-snug text-white opacity-0 transition-opacity duration-200 group-hover:opacity-100 group-focus-within:opacity-100">
           {img.alt}
         </figcaption>
       )}
