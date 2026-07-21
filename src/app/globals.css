@@ -116,10 +116,22 @@
     margin: 0;
   }
 
-  .mk-sheet {
-    width: 210mm;
-    max-width: none;
-    min-height: 297mm;
+  /* Für den Druck wird das dunkle Ozean-Design in ein helles, tintensparendes
+     Layout mit dunkler Schrift auf Weiß übersetzt. Da alle Bausteine dieselben
+     CSS-Variablen nutzen, genügt es, die Farbtoken hier umzudefinieren – das
+     Markup bleibt unverändert. Vorteil: Das PDF bleibt lesbar, egal ob der
+     Browser Hintergrundgrafiken mitdruckt oder nicht. */
+  :root {
+    --color-bg: #ffffff;
+    --color-surface: #f5f8fb;
+    --color-surface-2: #eef4f9;
+    --color-border: #d3dde7;
+    --color-foreground: #0b1a29;
+    --color-muted: #54677c;
+    --color-accent: #2f7fb5;
+    --color-accent-hover: #2b6f9f;
+    --color-accent-soft: #e9f2f9;
+    --color-accent-foreground: #ffffff;
   }
 
   /* Nur das Media Kit drucken: Header, Footer und Bedienelemente ausblenden. */
@@ -131,7 +143,7 @@
 
   html,
   body {
-    background: var(--color-bg) !important;
+    background: #ffffff !important;
   }
 
   main {
@@ -139,8 +151,18 @@
     padding: 0 !important;
   }
 
+  /* Dekorativer Farbverlauf stört im Druck – ausblenden. */
+  .glow-radial {
+    display: none !important;
+  }
+
   .mk-sheet {
+    width: 210mm;
+    max-width: none;
+    min-height: 0;
     margin: 0;
+    overflow: visible;
+    background-color: #ffffff !important;
     box-shadow: none !important;
     border: 0 !important;
     border-radius: 0 !important;
@@ -151,6 +173,21 @@
   .mk-sheet:last-of-type {
     page-break-after: auto;
     break-after: auto;
+  }
+
+  /* Saubere Übergänge: zusammengehörige Blöcke nicht über die Seitenkante
+     hinweg auseinanderreißen. */
+  .mk-sheet header,
+  .mk-sheet footer,
+  .mk-sheet section,
+  .mk-sheet dl > div,
+  .mk-sheet .grid > div {
+    break-inside: avoid;
+  }
+
+  /* Karten im Druck mit dezentem, klar sichtbarem Rahmen statt Halbtransparenz. */
+  .mk-sheet .border {
+    border-color: var(--color-border) !important;
   }
 
   /* Hintergründe und Akzentfarben im PDF erhalten. */
