@@ -7,6 +7,8 @@ import { ChevronLeft, ChevronRight, X } from "lucide-react";
 type GalleryImage = {
   src: string;
   alt: string;
+  // Überschreibt für dieses eine Bild das Galerie-Copyright.
+  credit?: string;
 };
 
 // Es werden immer nur so viele Bilder gleichzeitig angezeigt.
@@ -74,7 +76,10 @@ export function Gallery({
 
   const visible = paged ? images.slice(start, start + VISIBLE) : images;
 
-  const thumb = (img: GalleryImage, i: number) => (
+  const thumb = (img: GalleryImage, i: number) => {
+    // Pro-Bild-Copyright hat Vorrang vor dem Galerie-Copyright.
+    const imgCredit = img.credit ?? credit;
+    return (
     <figure key={img.src} className="group relative">
       <button
         type="button"
@@ -89,7 +94,7 @@ export function Gallery({
           sizes="(max-width: 640px) 50vw, (max-width: 1024px) 30vw, 25vw"
           className="object-cover transition-transform duration-500 group-hover:scale-105"
         />
-        {credit && (
+        {imgCredit && (
           <span className="group/credit absolute bottom-2 left-2 z-20 flex items-center">
             <span
               aria-hidden="true"
@@ -98,7 +103,7 @@ export function Gallery({
               ©
             </span>
             <span className="pointer-events-none absolute bottom-8 left-0 whitespace-nowrap rounded-md bg-foreground px-2 py-1 text-xs font-medium text-bg opacity-0 shadow-lg transition-opacity duration-150 group-hover/credit:opacity-100">
-              © {credit}
+              © {imgCredit}
             </span>
           </span>
         )}
@@ -111,7 +116,8 @@ export function Gallery({
         </figcaption>
       )}
     </figure>
-  );
+    );
+  };
 
   return (
     <>
@@ -213,8 +219,10 @@ export function Gallery({
               {active + 1} / {images.length}
             </span>
           </p>
-          {credit && (
-            <p className="mt-1 text-center text-xs text-white/50">© {credit}</p>
+          {(images[active].credit ?? credit) && (
+            <p className="mt-1 text-center text-xs text-white/50">
+              © {images[active].credit ?? credit}
+            </p>
           )}
         </div>
       )}

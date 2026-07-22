@@ -13,6 +13,9 @@ function blogDir(lang: Lang): string {
 export type GalleryImage = {
   src: string;
   alt: string;
+  // Überschreibt für dieses eine Bild das Galerie-Copyright (z. B. Fotos von
+  // Gästen). Fehlt es, gilt der credit-Wert der Galerie.
+  credit?: string;
 };
 
 export type FaqItem = {
