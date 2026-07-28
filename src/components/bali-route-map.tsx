@@ -1,5 +1,6 @@
 import { MapPin } from "lucide-react";
 import type { Lang } from "@/lib/i18n-constants";
+import { RouteMarkers } from "@/components/route-map-marker";
 
 type Stop = {
   n: number;
@@ -38,6 +39,26 @@ function nightsLabel(nights: number, lang: Lang): string {
   if (lang === "en") return nights === 1 ? "night" : "nights";
   return nights === 1 ? "Nacht" : "Nächte";
 }
+
+// Zielüberschrift je Station (Titel der ## -Überschrift im Beitrag).
+const sectionsByLang: Record<Lang, Record<number, string>> = {
+  de: {
+    1: "Ankunft in Uluwatu",
+    2: "Ubud – Körper und Geist reinigen",
+    3: "Nusa Penida – Mantas und private Riffe",
+    4: "Gili Trawangan – vom Fahrrad ins Wrack",
+    5: "Tulamben – noch ein Wrack zum Abschluss",
+    6: "Canggu und Abreise",
+  },
+  en: {
+    1: "Arrival in Uluwatu",
+    2: "Ubud – Cleansing Body and Mind",
+    3: "Nusa Penida – Manta Rays and Private Reefs",
+    4: "Gili Trawangan – From Bicycle to Shipwreck",
+    5: "Tulamben – One More Wreck to Finish",
+    6: "Canggu and Departure",
+  },
+};
 
 const captions: Record<Lang, string> = {
   de: "Zwei Wochen von der Bukit-Halbinsel über Ubud bis zu den Tauchspots vor Nusa Penida, Gili Trawangan und Tulamben",
@@ -192,56 +213,20 @@ export function BaliRouteMap({ lang = "de" }: { lang?: Lang }) {
               </tspan>
             </text>
           ))}
-          {/* Marker mit Aktivität als Tooltip beim Hovern über die Zahl */}
-          {stops.map((s) => {
-            const [x, y] = project(s.lon, s.lat);
-            const tipW = s.highlight.length * 6.6 + 20;
-            const tipY = y - 18;
-            return (
-              <g key={s.n} className="group cursor-pointer">
-                <circle
-                  cx={x}
-                  cy={y}
-                  r={12}
-                  className="fill-accent-hover stroke-bg"
-                  strokeWidth={2.5}
-                />
-                <text
-                  x={x}
-                  y={y}
-                  textAnchor="middle"
-                  dominantBaseline="central"
-                  className="pointer-events-none fill-accent-foreground"
-                  fontSize={13}
-                  fontWeight={600}
-                >
-                  {s.n}
-                </text>
-                {/* Tooltip */}
-                <g className="pointer-events-none opacity-0 transition-opacity duration-150 group-hover:opacity-100">
-                  <rect
-                    x={x - tipW / 2}
-                    y={tipY - 12}
-                    width={tipW}
-                    height={22}
-                    rx={6}
-                    className="fill-foreground"
-                  />
-                  <text
-                    x={x}
-                    y={tipY - 1}
-                    textAnchor="middle"
-                    dominantBaseline="central"
-                    className="fill-bg"
-                    fontSize={12}
-                    fontWeight={500}
-                  >
-                    {s.highlight}
-                  </text>
-                </g>
-              </g>
-            );
-          })}
+          {/* Marker: Hover/Tipp zeigt das Stichwort, Klick führt zur Textstelle */}
+          <RouteMarkers
+            stops={stops.map((s) => {
+              const [x, y] = project(s.lon, s.lat);
+              return {
+                n: s.n,
+                x,
+                y,
+                name: s.name,
+                highlight: s.highlight,
+                section: sectionsByLang[lang][s.n],
+              };
+            })}
+          />
         </svg>
       </div>
 

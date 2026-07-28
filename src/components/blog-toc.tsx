@@ -22,9 +22,12 @@ export function BlogToc({ items, label }: { items: TocItem[]; label: string }) {
           +
         </span>
       </summary>
-      <ul className="mt-3 grid gap-x-6 gap-y-2 sm:grid-cols-2">
+      {/* Zweispaltig als Spaltenfluss (columns) statt Grid: so wird erst die
+          linke Spalte von oben nach unten und dann die rechte gelesen –
+          chronologisch, nicht abwechselnd links/rechts. */}
+      <ul className="mt-3 sm:columns-2 sm:[column-gap:1.5rem]">
         {items.map((item) => (
-          <li key={item.id}>
+          <li key={item.id} className="mb-2 break-inside-avoid last:mb-0">
             <a
               href={`#${item.id}`}
               className="text-sm text-muted transition-colors hover:text-accent-hover"

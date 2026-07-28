@@ -1,5 +1,6 @@
 import { MapPin } from "lucide-react";
 import type { Lang } from "@/lib/i18n-constants";
+import { RouteMarkers } from "@/components/route-map-marker";
 
 type Stop = {
   n: number;
@@ -48,6 +49,27 @@ const stopsByLang: Record<Lang, Stop[]> = {
     { n: 11, name: "Sarasota", note: "manatees", highlight: "Manatee search · Siesta Beach", lon: -82.53, lat: 27.34, lx: 40, ly: 212, anchor: "end" },
     { n: 12, name: "St. Pete Beach", note: "Helene", highlight: "Hurricane Helene · change of plans", lon: -82.74, lat: 27.73, lx: 40, ly: 172, anchor: "end" },
   ],
+};
+
+// Zielüberschrift je Station (Titel der ## -Überschrift im Beitrag). Der
+// englische Beitrag ist noch ein Platzhalter ohne passende Abschnitte und
+// bindet die Karte nicht ein, daher bleibt `en` leer.
+const sectionsByLang: Record<Lang, Record<number, string>> = {
+  de: {
+    1: "Ankunft in Orlando",
+    2: "Kennedy Space Center",
+    3: "Cocoa Beach und die Hurricane Greek Bar",
+    4: "West Palm Beach und ein Attentatsversuch",
+    5: "Miami",
+    6: "Ankunft auf den Florida Keys",
+    7: "Key West",
+    8: "Airboat-Tour durch die Everglades",
+    9: "Weiter an die Westküste",
+    10: "Weiter an die Westküste",
+    11: "Auf der Suche nach Manatees",
+    12: "St. Petersburg im Ausnahmezustand",
+  },
+  en: {},
 };
 
 const captions: Record<Lang, string> = {
@@ -232,56 +254,21 @@ export function FloridaRouteMap({ lang = "de" }: { lang?: Lang }) {
               <tspan className="fill-muted"> ({s.note})</tspan>
             </text>
           ))}
-          {/* Marker mit Aktivität als Tooltip beim Hovern über die Zahl */}
-          {stops.map((s) => {
-            const [x, y] = project(s.lon, s.lat);
-            const tipW = s.highlight.length * 6.2 + 18;
-            const tipY = y - 16;
-            return (
-              <g key={s.n} className="group cursor-pointer">
-                <circle
-                  cx={x}
-                  cy={y}
-                  r={8}
-                  className="fill-accent-hover stroke-bg"
-                  strokeWidth={2}
-                />
-                <text
-                  x={x}
-                  y={y}
-                  textAnchor="middle"
-                  dominantBaseline="central"
-                  className="pointer-events-none fill-accent-foreground"
-                  fontSize={10}
-                  fontWeight={600}
-                >
-                  {s.n}
-                </text>
-                {/* Tooltip */}
-                <g className="pointer-events-none opacity-0 transition-opacity duration-150 group-hover:opacity-100">
-                  <rect
-                    x={x - tipW / 2}
-                    y={tipY - 11}
-                    width={tipW}
-                    height={20}
-                    rx={6}
-                    className="fill-foreground"
-                  />
-                  <text
-                    x={x}
-                    y={tipY - 1}
-                    textAnchor="middle"
-                    dominantBaseline="central"
-                    className="fill-bg"
-                    fontSize={11}
-                    fontWeight={500}
-                  >
-                    {s.highlight}
-                  </text>
-                </g>
-              </g>
-            );
-          })}
+          {/* Marker: Hover/Tipp zeigt das Stichwort, Klick führt zur Textstelle */}
+          <RouteMarkers
+            size="sm"
+            stops={stops.map((s) => {
+              const [x, y] = project(s.lon, s.lat);
+              return {
+                n: s.n,
+                x,
+                y,
+                name: s.name,
+                highlight: s.highlight,
+                section: sectionsByLang[lang][s.n],
+              };
+            })}
+          />
         </svg>
       </div>
 

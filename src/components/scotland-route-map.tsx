@@ -1,5 +1,6 @@
 import { MapPin } from "lucide-react";
 import type { Lang } from "@/lib/i18n-constants";
+import { RouteMarkers } from "@/components/route-map-marker";
 
 type Stop = {
   n: number;
@@ -29,6 +30,20 @@ const stopsByLang: Record<Lang, Stop[]> = {
     { n: 2, name: "Fort William", note: "4 nights", highlight: "Base for the Highlands", lon: -5.11, lat: 56.82, lx: 105, ly: 168, anchor: "start" },
     { n: 3, name: "Edinburgh", note: "2 nights", highlight: "Airport · start & end of the loop", lon: -3.19, lat: 55.95, lx: 195, ly: 278, anchor: "start" },
   ],
+};
+
+// Zielüberschrift je Station (Titel der ## -Überschrift im Beitrag).
+const sectionsByLang: Record<Lang, Record<number, string>> = {
+  de: {
+    1: "Ein wirklich Tiny House",
+    2: "Panoramafahrt in die Highlands",
+    3: "Zaubertränke und Whisky in Edinburgh",
+  },
+  en: {
+    1: "A truly tiny house",
+    2: "A panoramic drive into the Highlands",
+    3: "Potions and whisky in Edinburgh",
+  },
 };
 
 const captions: Record<Lang, string> = {
@@ -173,56 +188,20 @@ export function ScotlandRouteMap({ lang = "de" }: { lang?: Lang }) {
               <tspan className="fill-muted"> ({s.note})</tspan>
             </text>
           ))}
-          {/* Marker mit Aktivität als Tooltip beim Hovern über die Zahl */}
-          {stops.map((s) => {
-            const [x, y] = project(s.lon, s.lat);
-            const tipW = s.highlight.length * 6.6 + 20;
-            const tipY = y - 18;
-            return (
-              <g key={s.n} className="group cursor-pointer">
-                <circle
-                  cx={x}
-                  cy={y}
-                  r={12}
-                  className="fill-accent-hover stroke-bg"
-                  strokeWidth={2.5}
-                />
-                <text
-                  x={x}
-                  y={y}
-                  textAnchor="middle"
-                  dominantBaseline="central"
-                  className="pointer-events-none fill-accent-foreground"
-                  fontSize={13}
-                  fontWeight={600}
-                >
-                  {s.n}
-                </text>
-                {/* Tooltip */}
-                <g className="pointer-events-none opacity-0 transition-opacity duration-150 group-hover:opacity-100">
-                  <rect
-                    x={x - tipW / 2}
-                    y={tipY - 12}
-                    width={tipW}
-                    height={22}
-                    rx={6}
-                    className="fill-foreground"
-                  />
-                  <text
-                    x={x}
-                    y={tipY - 1}
-                    textAnchor="middle"
-                    dominantBaseline="central"
-                    className="fill-bg"
-                    fontSize={12}
-                    fontWeight={500}
-                  >
-                    {s.highlight}
-                  </text>
-                </g>
-              </g>
-            );
-          })}
+          {/* Marker: Hover/Tipp zeigt das Stichwort, Klick führt zur Textstelle */}
+          <RouteMarkers
+            stops={stops.map((s) => {
+              const [x, y] = project(s.lon, s.lat);
+              return {
+                n: s.n,
+                x,
+                y,
+                name: s.name,
+                highlight: s.highlight,
+                section: sectionsByLang[lang][s.n],
+              };
+            })}
+          />
         </svg>
       </div>
 

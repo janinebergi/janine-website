@@ -1,5 +1,6 @@
 import { MapPin } from "lucide-react";
 import type { Lang } from "@/lib/i18n-constants";
+import { RouteMarkers } from "@/components/route-map-marker";
 
 type Stop = {
   n: number;
@@ -42,6 +43,31 @@ const stopsByLang: Record<Lang, Stop[]> = {
     { n: 8, name: "Mirissa", nights: "Day trip", highlight: "Turtles", lon: 80.53, lat: 5.92, lx: 250, ly: 664, anchor: "middle", leader: true, dayTrip: true },
     { n: 9, name: "Galle", nights: "Day trip", highlight: "Old Town & Fort", lon: 80.22, lat: 6.03, lx: 70, ly: 664, anchor: "middle", leader: true, dayTrip: true },
   ],
+};
+
+// Zielüberschrift je Station (Titel der ## -Überschrift im Beitrag). Colombo
+// hat keinen eigenen Abschnitt und bleibt daher ohne Verweis.
+const sectionsByLang: Record<Lang, Record<number, string>> = {
+  de: {
+    2: "Sigiriya – ein Hotel mitten im Dschungel",
+    3: "Kandy – Zahntempel und verschlossene Türen",
+    4: "Ella – Wasserfall, Teeplantage und Kochkurs",
+    5: "Safari-Reinfall und Fahrt an die Küste",
+    6: "Hiriketiya – Surfen und Entspannen",
+    7: "Weligama und Mirissa",
+    8: "Weligama und Mirissa",
+    9: "Galle – heißer Tag in der Altstadt",
+  },
+  en: {
+    2: "Sigiriya – a hotel in the middle of the jungle",
+    3: "Kandy – the Temple of the Tooth and locked doors",
+    4: "Ella – waterfall, tea plantation and cooking class",
+    5: "A safari letdown and the drive to the coast",
+    6: "Hiriketiya – surfing and relaxing",
+    7: "Weligama and Mirissa",
+    8: "Weligama and Mirissa",
+    9: "Galle – a hot day in the old town",
+  },
 };
 
 const captions: Record<Lang, string> = {
@@ -189,56 +215,20 @@ export function SriLankaRouteMap({ lang = "de" }: { lang?: Lang }) {
               <tspan className="fill-muted"> ({s.nights})</tspan>
             </text>
           ))}
-          {/* Marker mit kurzem Stichwort als Tooltip beim Hovern über die Zahl */}
-          {stops.map((s) => {
-            const [x, y] = project(s.lon, s.lat);
-            const tipW = s.highlight.length * 6.6 + 20;
-            const tipY = y - 18;
-            return (
-              <g key={s.n} className="group cursor-pointer">
-                <circle
-                  cx={x}
-                  cy={y}
-                  r={12}
-                  className="fill-accent-hover stroke-bg"
-                  strokeWidth={2.5}
-                />
-                <text
-                  x={x}
-                  y={y}
-                  textAnchor="middle"
-                  dominantBaseline="central"
-                  className="pointer-events-none fill-accent-foreground"
-                  fontSize={13}
-                  fontWeight={600}
-                >
-                  {s.n}
-                </text>
-                {/* Tooltip */}
-                <g className="pointer-events-none opacity-0 transition-opacity duration-150 group-hover:opacity-100">
-                  <rect
-                    x={x - tipW / 2}
-                    y={tipY - 12}
-                    width={tipW}
-                    height={22}
-                    rx={6}
-                    className="fill-foreground"
-                  />
-                  <text
-                    x={x}
-                    y={tipY - 1}
-                    textAnchor="middle"
-                    dominantBaseline="central"
-                    className="fill-bg"
-                    fontSize={12}
-                    fontWeight={500}
-                  >
-                    {s.highlight}
-                  </text>
-                </g>
-              </g>
-            );
-          })}
+          {/* Marker: Hover/Tipp zeigt das Stichwort, Klick führt zur Textstelle */}
+          <RouteMarkers
+            stops={stops.map((s) => {
+              const [x, y] = project(s.lon, s.lat);
+              return {
+                n: s.n,
+                x,
+                y,
+                name: s.name,
+                highlight: s.highlight,
+                section: sectionsByLang[lang][s.n],
+              };
+            })}
+          />
         </svg>
       </div>
 
