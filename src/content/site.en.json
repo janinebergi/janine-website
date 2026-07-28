@@ -381,6 +381,10 @@
     },
     "blogPost": {
       "backToBlog": "Back to blog",
+      "readAloud": "Read post aloud",
+      "readAloudPause": "Pause",
+      "readAloudResume": "Resume",
+      "readAloudStop": "Stop",
       "tocLabel": "Contents",
       "galleryTitle": "Gallery",
       "qaTitle": "Q & A",

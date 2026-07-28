@@ -379,6 +379,10 @@
     },
     "blogPost": {
       "backToBlog": "Zurück zum Blog",
+      "readAloud": "Beitrag vorlesen",
+      "readAloudPause": "Pausieren",
+      "readAloudResume": "Weiter",
+      "readAloudStop": "Stopp",
       "tocLabel": "Inhalt",
       "galleryTitle": "Galerie",
       "qaTitle": "Q & A",

@@ -96,6 +96,19 @@ const budgetsByLang: Record<Lang, Record<string, Budget>> = {
       ],
       avgPerDay: { total: 240, perPerson: 120 },
     },
+    florida: {
+      title: "Kosten für 2 Personen",
+      items: [
+        { label: "Flüge", amount: 1560 },
+        { label: "Unterkünfte", amount: 1113.32 },
+        { label: "Transport", amount: 828.11, note: "Mietwagen, Sprit, Maut, Parken" },
+        { label: "Restaurants", amount: 719.66 },
+        { label: "Aktivitäten", amount: 519.1 },
+        { label: "Unterhaltung", amount: 275.2 },
+        { label: "Andere", amount: 442.68, note: "Einkäufe, Sehenswürdigkeiten, Shopping, Getränke, Gebühren" },
+      ],
+      avgPerDay: { total: 278, perPerson: 139 },
+    },
   },
   en: {
     bali: {
@@ -177,6 +190,19 @@ const budgetsByLang: Record<Lang, Record<string, Budget>> = {
       ],
       avgPerDay: { total: 240, perPerson: 120 },
     },
+    florida: {
+      title: "Cost for 2 people",
+      items: [
+        { label: "Flights", amount: 1560 },
+        { label: "Accommodation", amount: 1113.32 },
+        { label: "Transport", amount: 828.11, note: "Rental car, fuel, tolls, parking" },
+        { label: "Restaurants", amount: 719.66 },
+        { label: "Activities", amount: 519.1 },
+        { label: "Entertainment", amount: 275.2 },
+        { label: "Other", amount: 442.68, note: "Purchases, sights, shopping, drinks, fees" },
+      ],
+      avgPerDay: { total: 278, perPerson: 139 },
+    },
   },
 };
 
@@ -189,6 +215,33 @@ const euroDe = (value: number) =>
   value.toLocaleString("de-DE", { maximumFractionDigits: 0 }) + " €";
 const euroEn = (value: number) =>
   "€" + value.toLocaleString("en-GB", { maximumFractionDigits: 0 });
+
+// Wandelt die Kostenübersicht einer Reise in vorlesbaren Fließtext um (ohne
+// €-Zeichen, mit ausgeschriebenem "Euro" und runden Beträgen, damit die
+// Sprachausgabe die Zahlen sauber vorliest). Wird vom Vorlese-Button genutzt.
+export function budgetToSpeechText(trip: string, lang: Lang): string {
+  const budgets = budgetsByLang[lang] ?? budgetsByLang.de;
+  const budget = budgets[trip] ?? budgets.bali;
+  const unit = lang === "en" ? "euros" : "Euro";
+  const total = Math.round(
+    budget.items.reduce((sum, item) => sum + item.amount, 0),
+  );
+
+  const items = budget.items
+    .map((item) => `${item.label}: ${Math.round(item.amount)} ${unit}`)
+    .join(". ");
+
+  const intro =
+    lang === "en"
+      ? `${budget.title}. Total: ${total} ${unit}.`
+      : `${budget.title}. Gesamt: ${total} ${unit}.`;
+  const average =
+    lang === "en"
+      ? `On average ${budget.avgPerDay.total} ${unit} per day for 2 people, that is ${budget.avgPerDay.perPerson} ${unit} per person.`
+      : `Durchschnittlich ${budget.avgPerDay.total} ${unit} pro Tag für 2 Personen, also ${budget.avgPerDay.perPerson} ${unit} pro Person.`;
+
+  return `${intro} ${items}. ${average}`;
+}
 
 export function BudgetChart({
   trip = "bali",

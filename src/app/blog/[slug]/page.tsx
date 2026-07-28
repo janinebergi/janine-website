@@ -7,7 +7,9 @@ import { MDXRemote } from "next-mdx-remote/rsc";
 import { Container } from "@/components/ui/container";
 import { mdxComponents } from "@/components/mdx-components";
 import { BlogToc } from "@/components/blog-toc";
+import { BlogReadAloud } from "@/components/blog-read-aloud";
 import { Gallery } from "@/components/gallery";
+import { postToSpeechText } from "@/lib/post-text";
 import { getPostBySlug, getPostSlugs, getAllPosts, formatDate } from "@/lib/blog";
 import { getSiteContent } from "@/lib/site";
 import { getLang } from "@/lib/i18n";
@@ -69,6 +71,7 @@ export default async function BlogPostPage({
     .slice(0, 3)
     .map((entry) => entry.p);
 
+  const speechText = postToSpeechText(post, lang, { qaTitle: t.qaTitle });
   const galleryId = slugify(t.galleryTitle);
   const faqId = slugify(t.qaTitle);
   const tocItems = [
@@ -113,6 +116,17 @@ export default async function BlogPostPage({
           <p className="mt-4 text-lg leading-relaxed text-muted">
             {post.excerpt}
           </p>
+
+          <BlogReadAloud
+            text={speechText}
+            lang={lang}
+            labels={{
+              play: t.readAloud,
+              pause: t.readAloudPause,
+              resume: t.readAloudResume,
+              stop: t.readAloudStop,
+            }}
+          />
         </header>
 
         <div className="relative mt-10 aspect-[16/9] overflow-hidden rounded-2xl border border-border">
