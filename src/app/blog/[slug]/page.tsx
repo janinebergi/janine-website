@@ -6,6 +6,7 @@ import { ArrowLeft } from "lucide-react";
 import { MDXRemote } from "next-mdx-remote/rsc";
 import { Container } from "@/components/ui/container";
 import { mdxComponents } from "@/components/mdx-components";
+import { postRouteMaps } from "@/components/post-route-maps";
 import { BlogToc } from "@/components/blog-toc";
 import { BlogReadAloud } from "@/components/blog-read-aloud";
 import { Gallery } from "@/components/gallery";
@@ -71,6 +72,8 @@ export default async function BlogPostPage({
     .slice(0, 3)
     .map((entry) => entry.p);
 
+  const RouteMap = postRouteMaps[slug];
+
   const speechText = postToSpeechText(post, lang, { qaTitle: t.qaTitle });
   const galleryId = slugify(t.galleryTitle);
   const faqId = slugify(t.qaTitle);
@@ -99,6 +102,12 @@ export default async function BlogPostPage({
               <>
                 <span>·</span>
                 <span>{post.country}</span>
+              </>
+            )}
+            {post.travelBuddy && (
+              <>
+                <span>·</span>
+                <span>{t.travelBuddy}: {post.travelBuddy}</span>
               </>
             )}
             {post.tags.map((tag) => (
@@ -144,6 +153,15 @@ export default async function BlogPostPage({
             }
           />
         </div>
+
+        {RouteMap && (
+          <section className="mt-10">
+            <h2 className="text-2xl font-semibold leading-tight">
+              {t.routeTitle}
+            </h2>
+            <RouteMap lang={lang} />
+          </section>
+        )}
 
         <BlogToc items={tocItems} label={t.tocLabel} />
 

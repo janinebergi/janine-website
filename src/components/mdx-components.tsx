@@ -1,12 +1,6 @@
 import type { ReactNode } from "react";
 import Image from "next/image";
 import type { MDXRemoteProps } from "next-mdx-remote/rsc";
-import { SriLankaRouteMap } from "@/components/route-map";
-import { BaliRouteMap } from "@/components/bali-route-map";
-import { MoroccoRouteMap } from "@/components/morocco-route-map";
-import { PortugalRouteMap } from "@/components/portugal-route-map";
-import { ScotlandRouteMap } from "@/components/scotland-route-map";
-import { FloridaRouteMap } from "@/components/florida-route-map";
 import { BudgetChart } from "@/components/budget-chart";
 import { Faq, FaqItem } from "@/components/faq";
 import { slugify } from "@/lib/slugify";
@@ -34,12 +28,6 @@ function headingText(children: ReactNode): string {
 }
 
 export const mdxComponents: MDXRemoteProps["components"] = {
-  SriLankaRouteMap,
-  BaliRouteMap,
-  MoroccoRouteMap,
-  PortugalRouteMap,
-  ScotlandRouteMap,
-  FloridaRouteMap,
   BudgetChart,
   Faq,
   FaqItem,

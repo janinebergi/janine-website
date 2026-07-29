@@ -37,11 +37,20 @@ export async function generateMetadata(): Promise<Metadata> {
       siteName: site.name,
       locale: lang === "en" ? "en_US" : "de_DE",
       type: "website",
+      images: [
+        {
+          url: "/assets/website/allgemein/og-home.jpg",
+          width: 1200,
+          height: 675,
+          alt: `${site.name} — ${site.role}`,
+        },
+      ],
     },
     twitter: {
       card: "summary_large_image",
       title: `${site.name} — ${site.role}`,
       description: site.description,
+      images: ["/assets/website/allgemein/og-home.jpg"],
     },
   };
 }
