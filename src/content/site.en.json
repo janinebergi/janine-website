@@ -2,9 +2,9 @@
   "site": {
     "name": "Janine",
     "fullName": "Janine Bergmann",
-    "role": "Travel & Tourism Copywriter",
-    "tagline": "Because great copy isn't luck — it's word choice.",
-    "description": "Janine is a copywriter for travel and tourism businesses. Copy for websites, blogs and newsletters that stirs emotion, sparks wanderlust and moves travellers to book.",
+    "role": "Writer & Copywriter",
+    "tagline": "Because great copy isn't luck, it's word choice.",
+    "description": "Janine is a writer and copywriter. Copy for websites, blogs and newsletters that stirs emotion, sparks wanderlust and tells stories.",
     "email": "hallo@janinebergmann.de",
     "url": "https://janinebergmann.de",
     "heroImage": "/assets/website/allgemein/header.avif",
@@ -40,31 +40,31 @@
       "title": "Blog posts that spark wanderlust",
       "image": "/assets/website/allgemein/leistung-blog.avif",
       "imagePosition": "center 30%",
-      "teaser": "Make adventure tangible and bring your offers to life with stories – SEO-optimised, from the first sentence to the last click.",
+      "teaser": "Make adventure tangible and bring your offers to life with stories. SEO-optimised, from the first sentence to the last click.",
       "points": [
         "Sparks wanderlust and makes adventure tangible",
         "Hotels, destinations & experiences become vivid",
         "Your brand stays emotionally memorable",
-        "SEO-optimised – visible from the first sentence to the last click"
+        "SEO-optimised and visible from the first sentence to the last click"
       ]
     },
     {
-      "title": "Website copy that sells travel dreams",
+      "title": "Website copy that brings dreams to life",
       "image": "/assets/website/allgemein/IMG_2961.avif",
       "imagePosition": "center",
-      "teaser": "Present your offers vividly and show your brand authentically – SEO-optimised, so attention turns into new customers.",
+      "teaser": "Present your offers vividly and show your brand authentically. SEO-oriented, so your content is easier to find.",
       "points": [
         "Offers presented vividly, brand shown authentically",
         "Stories and emotion instead of dry facts",
         "Visitors feel spoken to and stay on the page",
-        "SEO-optimised – attention turns into new customers"
+        "SEO-oriented copy that makes content easier to find"
       ]
     },
     {
       "title": "Newsletters that tell stories",
       "image": "/assets/website/allgemein/leistung-newsletter.avif",
       "imagePosition": "center",
-      "teaser": "Communicate your offers clearly while building closeness and trust – through stories, tips and inspiration, never pushy.",
+      "teaser": "Communicate your offers clearly while building closeness and trust through stories, tips and inspiration, never pushy.",
       "points": [
         "Offers communicated clearly and comprehensibly",
         "Stories, tips and inspiration instead of sales pressure",
@@ -108,26 +108,26 @@
       "heroHeadingPre": "Copy that sparks ",
       "heroHeadingHighlight": "wanderlust",
       "heroHeadingPost": ".",
-      "heroText": "I'm Janine, a copywriter for travel and tourism businesses. I help you put your offers in the best possible light with words – on websites, in blogs and newsletters.",
+      "heroText": "I'm Janine, a writer and copywriter. I help you put your offers in the best possible light with words: on websites, in blogs and newsletters.",
       "heroPrimaryCta": "Enquire about a project",
       "servicesEyebrow": "Services",
-      "servicesTitle": "Words that sell your travel offers",
-      "servicesDescription": "From the website to the blog to the newsletter — copy that stirs emotion, ignites wanderlust and makes your brand unforgettable.",
+      "servicesTitle": "Words that bring your offers to life",
+      "servicesDescription": "From the website to the blog to the newsletter: copy that stirs emotion, ignites wanderlust and makes your brand unforgettable.",
       "servicesLink": "All services",
       "testimonialsEyebrow": "Voices",
       "testimonialsTitle": "What clients say",
       "ctaTitle": "Ready for copy that works?",
-      "ctaText": "Tell me about your project — I'll get back to you as soon as possible with next steps.",
+      "ctaText": "Tell me about your project. I'll get back to you as soon as possible with next steps.",
       "ctaButton": "Enquire about a project now"
     },
     "leistungen": {
       "metaTitle": "Services",
-      "metaDescription": "Copywriting for travel and tourism businesses: website copy, blog posts and newsletters that spark wanderlust and move travellers to book.",
+      "metaDescription": "Copywriting for travel and tourism businesses: website copy, blog posts and newsletters that spark wanderlust and tell stories.",
       "heroEyebrow": "Services",
-      "heroTitle": "Because great copy isn't luck — it's word choice.",
+      "heroTitle": "Because great copy isn't luck, it's word choice.",
       "heroImage": "/assets/website/allgemein/leistungen-header.avif",
       "heroImageAlt": "Camel caravan at sunset",
-      "heroText": "I help travel and tourism businesses put their offers in the best possible light with words. Whether it's a website, blog or newsletter – I write copy that doesn't just inform, but stirs emotion, ignites wanderlust and successfully sells your offers. With the right words, travel experiences become tangible, the urge to explore becomes palpable, and your brand becomes unforgettable. Let's tell stories together that excite your customers – and lead them to your solution.",
+      "heroText": "I support businesses with professional copy for their own communication channels. Whether it's a website, blog or newsletter: I write copy that doesn't just inform, but stirs emotion, ignites wanderlust and presents your offers vividly. With the right words, travel experiences become tangible, the urge to explore becomes palpable, and your brand becomes unforgettable. Let's tell stories together that excite your customers and present your offers clearly, emotionally and authentically.",
       "deliverablesEyebrow": "What you get",
       "deliverablesTitle": "Everything from one pen",
       "deliverablesDescription": "A selection of the formats I write regularly. Need something else? Just ask.",
@@ -135,7 +135,7 @@
         "Travel blog posts with SEO",
         "Website & landing page copy",
         "Newsletters & email sequences",
-        "Destination & hotel descriptions",
+        "Hotel descriptions",
         "Storytelling & about pages",
         "Travel guides"
       ],
@@ -152,8 +152,8 @@
         },
         {
           "step": "02",
-          "title": "Research & strategy",
-          "description": "Market, competitors and customer voices — this is where the copy strategy takes shape."
+          "title": "Research & concept",
+          "description": "I research topics, target audiences and what makes the offer special, so the copy stays authentic and true to the brand."
         },
         {
           "step": "03",
@@ -170,19 +170,19 @@
     },
     "ueberMich": {
       "metaTitle": "About me",
-      "metaDescription": "Get to know Janine — a copywriter with a passion for clear, effective language.",
+      "metaDescription": "Get to know Janine, a copywriter with a passion for clear, effective language.",
       "heroEyebrow": "About me",
       "heroTitle": "Who am I?",
       "heroImage": "/assets/website/allgemein/ueber-mich-2.avif",
       "heroImageAlt": "Janine surfing",
       "paragraphs": [
-        "I'm Janine, and I don't just love to travel – I love writing about it too. I'm an absolute action fan and always up for the next adventure.",
-        "When I'm not out catching the next wave, I live in Düsseldorf on the beautiful Rhine. Even here, away from work, I'm looking for action: whether it's inline skating along the Rhine, a horseback ride through the forest, or kickboxing – I'm always on the lookout for new challenges.",
-        "Travel, sport and adventure shape my everyday life and my stories. Whether far away or right on my doorstep – I love seizing every opportunity to experience something new and gather authentic travel experiences.",
+        "I'm Janine, and I don't just love to travel, I love writing about it too. I'm an absolute action fan and always up for the next adventure.",
+        "When I'm not out catching the next wave, I live in Düsseldorf on the beautiful Rhine. Even here, away from work, I'm looking for action: whether it's inline skating along the Rhine, a horseback ride through the forest, or kickboxing. I'm always on the lookout for new challenges.",
+        "Travel, sport and adventure shape my everyday life and my stories. Whether far away or right on my doorstep, I love seizing every opportunity to experience something new and gather authentic travel experiences.",
         "Since tourism excites me professionally as much as my private travels do, after training as a certified travel and leisure specialist I went on to complete a state-certified business economics qualification specialising in tourism. Even during that time, I was already writing copy for the website and social media at my training company.",
-        "After a brief stint at a media agency, my path led me to the tour operator alltours. In sales marketing, I was able to deepen my writing skills further, producing numerous newsletters and magazines – from booking guides for travellers to magazines that kept travel agencies informed of the latest news. Always with the goal of presenting trips and destinations in an appealing way.",
+        "After a brief stint at a media agency, my path led me to the tour operator alltours. In sales marketing, I was able to deepen my writing skills further, producing numerous newsletters and magazines, from booking guides for travellers to magazines that kept travel agencies informed of the latest news. Always with the goal of presenting trips and destinations in an appealing way.",
         "I've also worked for Freizeitpark Wisseler See GmbH, helping shape the imagery and copy for their new website.",
-        "Today I work at Tourismus NRW e.V. as a communications specialist for B2C, writing for the NRW Magazin and serving as the voice for social media. This is how I market North Rhine-Westphalia, with its many castles, fortresses and natural experiences, as one of Germany's most beautiful travel destinations – living out my passion for travel, outdoor adventure and storytelling every day."
+        "I live out my passion for travel, outdoor adventure and storytelling every day."
       ],
       "blogNote": "Fancy a sample of my writing style? I regularly write my own travel stories on my",
       "ctaButton": "Let's talk",
@@ -210,8 +210,8 @@
           "description": "alltours flugreisen gmbh · Mar 2024 – Jul 2025"
         },
         {
-          "title": "Communications specialist B2C",
-          "description": "Tourismus NRW e.V. · since Jul 2025"
+          "title": "Communications & content in tourism",
+          "description": "since Jul 2025"
         }
       ],
       "hobbies": [
@@ -255,15 +255,15 @@
       "values": [
         {
           "title": "Travel expertise & storytelling",
-          "description": "Copy that stirs emotion, sparks wanderlust and moves travellers to book."
+          "description": "Copy that stirs emotion, sparks wanderlust and tells stories."
         },
         {
           "title": "SEO-optimised content",
-          "description": "Search-friendly travel copy that makes your website more visible – without forced keywords."
+          "description": "Search-friendly travel copy that makes your website more visible, without forced keywords."
         },
         {
           "title": "Tailor-made solutions",
-          "description": "Bespoke copy for your travel business – from the website to the blog to the newsletter."
+          "description": "Bespoke copy for your business, from the website to the blog to the newsletter."
         },
         {
           "title": "Reliability & brand voice",
@@ -278,17 +278,16 @@
     },
     "mediakit": {
       "metaTitle": "Media Kit",
-      "metaDescription": "Janine's media kit – travel & tourism copywriter. Profile, services and rates at a glance, as a downloadable PDF.",
+      "metaDescription": "Janine's media kit, writer & copywriter. Profile, services and rates at a glance, as a downloadable PDF.",
       "downloadLabel": "Save as PDF",
       "printHint": "Tip: In the print dialog, choose \"Save as PDF\", set margins to \"None\" and enable \"Background graphics\".",
       "coverEyebrow": "Media Kit",
-      "coverRole": "Travel & Tourism Copywriter",
-      "intro": "I'm Janine, a tourism expert and content creator specialising in travel and destination marketing. After training as a certified travel and leisure specialist and completing a state-certified business economics qualification in tourism, I've written professional copy for websites, social media, newsletters and magazines across several roles – including in sales marketing at alltours. Today I market North Rhine-Westphalia as a versatile travel destination, combining my experience in tourism with my passion for authentic, inspiring travel content.",
+      "coverRole": "Writer & Copywriter",
+      "intro": "I'm Janine, a copywriter specialising in travel and tourism topics. After training as a certified travel and leisure specialist and completing a state-certified business economics qualification in tourism, I've written professional copy for websites, social media, newsletters and magazines across several roles, including in sales marketing at alltours.",
       "portraitImage": "/assets/website/allgemein/JanineMediakit.avif",
       "portraitAlt": "Janine",
-      "brandsTitle": "Brands I've written for",
+      "brandsTitle": "Selected projects & experience",
       "brands": [
-        "Tourismus NRW e.V.",
         "alltours",
         "Ferien- und Campingpark Wisseler See",
         "Niederrhein Medien"
@@ -296,7 +295,7 @@
       "valuesTitle": "Why me?",
       "ratesEyebrow": "Services & rates",
       "ratesTitle": "Services I offer",
-      "ratesIntro": "Blog posts, website copy and newsletters – storytelling that stirs emotion, presents offers clearly and builds lasting relationships with customers.",
+      "ratesIntro": "Blog posts, website copy and newsletters: storytelling that stirs emotion and presents offers clearly and authentically.",
       "rates": [
         {
           "title": "Blog post",
@@ -338,12 +337,12 @@
     },
     "kontakt": {
       "metaTitle": "Contact",
-      "metaDescription": "Get in touch with Janine about your next copywriting project — a reply as soon as possible.",
+      "metaDescription": "Get in touch with Janine about your next copywriting project. A reply as soon as possible.",
       "heroEyebrow": "Contact",
       "heroTitle": "Tell me about your project.",
       "heroImage": "/assets/website/allgemein/ueber-mich-4.avif",
       "heroImageAlt": "Sunset over the sea with palm trees",
-      "heroText": "Interested in my copy or want to talk about your project? Just drop me a quick note about what you have in mind – I'll get back to you personally, soon.",
+      "heroText": "Interested in my copy or want to talk about your project? Just drop me a quick note about what you have in mind. I'll get back to you personally, soon.",
       "emailTitle": "Email",
       "responseTitle": "Response time",
       "responseValue": "As soon as possible",
@@ -365,7 +364,7 @@
     },
     "blog": {
       "metaTitle": "Blog",
-      "metaDescription": "Stories and tips about travel — and thoughts on copywriting. Personally from Janine.",
+      "metaDescription": "Stories and tips about travel, plus thoughts on copywriting. Personally from Janine.",
       "heroImageAlt": "Lush green rice terraces with palm trees under a dramatic cloudy sky",
       "heroEyebrow": "Blog",
       "heroTitle": "Stories and tips about travel.",
@@ -376,7 +375,7 @@
       "readingTimeLong": "min read",
       "collabEyebrow": "Collaboration",
       "collabTitle": "Want to work together?",
-      "collabText": "Came across one of my posts and interested in a collaboration? Got a product, a hotel, an accommodation or a travel experience you'd like me to try out and feature here on the blog? Feel free to get in touch – I'd love to hear from you.",
+      "collabText": "Came across one of my posts and interested in a collaboration? Got a product, a hotel, an accommodation or a travel experience you'd like me to try out and feature here on the blog? Feel free to get in touch. I'd love to hear from you.",
       "collabCta": "Get in touch"
     },
     "blogPost": {
@@ -421,7 +420,7 @@
     },
     "datenschutz": {
       "metaTitle": "Privacy Policy",
-      "metaDescription": "Privacy policy for Janine – information on the processing of personal data under the GDPR.",
+      "metaDescription": "Privacy policy for Janine: information on the processing of personal data under the GDPR.",
       "eyebrow": "Legal",
       "title": "Privacy Policy",
       "intro": "Protecting your personal data matters to me. Below, I explain what data is processed when you visit this website and what rights you have.",
@@ -473,7 +472,7 @@
       ]
     },
     "footer": {
-      "tagline": "Copy that sparks wanderlust and moves travellers to book.",
+      "tagline": "Copy that presents offers emotionally and tells stories.",
       "navLabel": "Navigation",
       "contactLabel": "Contact",
       "mediakitLabel": "Media Kit (PDF)",
