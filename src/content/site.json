@@ -2,9 +2,9 @@
   "site": {
     "name": "Janine",
     "fullName": "Janine Bergmann",
-    "role": "Texterin & Copywriterin",
-    "tagline": "Weil guter Text kein Zufall, sondern Wortwahl ist.",
-    "description": "Janine ist Texterin & Copywriterin. Texte für Websites, Blogs und Newsletter, die Emotionen wecken, Fernweh auslösen und Geschichten erzählen.",
+    "role": "«Rolle: wie du dich hier nennen willst, z. B. Reisebloggerin»",
+    "tagline": "«Tagline: ein kurzer Satz über den Blog, steht im Hero neben der Rolle»",
+    "description": "«Beschreibung des Blogs in 1–2 Sätzen, erscheint in Google-Ergebnissen und Social-Media-Vorschauen»",
     "email": "hallo@janinebergmann.de",
     "url": "https://janinebergmann.de",
     "heroImage": "/assets/website/allgemein/header.avif",
@@ -38,22 +38,22 @@
     },
     {
       "value": "8",
-      "label": "Jahre im Tourismus"
+      "label": "«Label der zweiten Zahl, z. B. Jahre unterwegs»"
     }
   ],
   "pages": {
     "home": {
-      "heroHeadingPre": "Texte, die ",
-      "heroHeadingHighlight": "Fernweh",
-      "heroHeadingPost": " wecken.",
-      "heroText": "Ich bin Janine, Texterin & Copywriterin. Ich helfe dir, deine Angebote mit Worten ins beste Licht zu rücken: auf Websites, in Blogs und Newslettern.",
-      "heroPrimaryCta": "Projekt anfragen",
+      "heroHeadingPre": "«Überschrift Teil 1, endet mit Leerzeichen, z. B. Geschichten, die »",
+      "heroHeadingHighlight": "«hervorgehobenes Wort, z. B. Fernweh»",
+      "heroHeadingPost": "«Überschrift Teil 3, beginnt mit Leerzeichen, z. B. wecken.»",
+      "heroText": "«Einleitungstext unter der Überschrift: wer du bist und worum es im Blog geht, 1–2 Sätze»",
+      "heroPrimaryCta": "«Button-Text im Hero, Link führt zu /kontakt, z. B. Schreib mir»",
       "latestEyebrow": "«Eyebrow über den neuesten Beiträgen, z. B. Aus dem Blog»",
       "latestTitle": "«Überschrift über den neuesten Beiträgen, z. B. Zuletzt erschienen»",
       "latestLink": "«Link-Text zum Archiv, z. B. Alle Beiträge»",
-      "ctaTitle": "Bereit für Texte, die wirken?",
-      "ctaText": "Erzähl mir von deinem Projekt. Ich melde mich so schnell wie möglich mit den nächsten Schritten.",
-      "ctaButton": "Jetzt Projekt anfragen"
+      "ctaTitle": "«Überschrift im CTA-Block am Seitenende, z. B. Lust auf mehr Reisegeschichten?»",
+      "ctaText": "«Text im CTA-Block, 1–2 Sätze: warum man dir schreiben soll»",
+      "ctaButton": "«Button-Text im CTA-Block, Link führt zu /kontakt, z. B. Schreib mir»"
     },
     "ueberMich": {
       "metaTitle": "Über mich",
@@ -69,8 +69,8 @@
         "Da mich neben meinen privaten Reisen auch der Tourismus beruflich begeistert, habe ich nach meiner Ausbildung als Kauffrau für Tourismus und Freizeit zusätzlich meinen staatlich geprüften Betriebswirt in der Fachrichtung Tourismus abgeschlossen. Schon während dieser Zeit habe ich in meinem Ausbildungsbetrieb Texte für die Website sowie Social Media geschrieben.",
         "Nach einem kurzen Abstecher in eine Medienagentur führte mich mein Weg zum Reiseveranstalter alltours. Im Vertriebsmarketing konnte ich meine Schreibkenntnisse weiter vertiefen und verfasste zahlreiche Newsletter sowie Magazine, von Buchungshilfen bis hin zu Magazinen, die Reisebüros über Neuigkeiten informierten. Immer mit dem Ziel, Reisen und Reiseziele ansprechend zu präsentieren."
       ],
-      "blogNote": "Lust auf eine Leseprobe meines Schreibstils? Ich schreibe regelmäßig eigene Reisegeschichten in meinem",
-      "ctaButton": "Lass uns sprechen",
+      "blogNote": "«Satz, der zum Blog überleitet; direkt danach folgt das verlinkte Wort „Blog“, z. B. Meine Reisegeschichten findest du in meinem»",
+      "ctaButton": "«Button-Text unter dem Text, Link führt zu /kontakt, z. B. Schreib mir»",
       "timelineEyebrow": "Mein Weg",
       "timelineTitle": "Werdegang",
       "timeline": [
@@ -173,10 +173,10 @@
       "metaTitle": "Kontakt",
       "metaDescription": "Schreib Janine für dein nächstes Copywriting-Projekt. Antwort so schnell wie möglich.",
       "heroEyebrow": "Kontakt",
-      "heroTitle": "Erzähl mir von deinem Projekt.",
+      "heroTitle": "«Überschrift der Kontaktseite, z. B. Sag Hallo.»",
       "heroImage": "/assets/website/allgemein/ueber-mich-4.avif",
       "heroImageAlt": "Sonnenuntergang am Meer mit Palmen",
-      "heroText": "Du hast Interesse an meinen Texten oder möchtest über dein Projekt sprechen? Dann schreib mir einfach kurz, worum es geht. Ich melde mich zeitnah und persönlich bei dir zurück.",
+      "heroText": "«Text auf der Kontaktseite: wofür man dir schreiben kann und wie schnell du antwortest»",
       "emailTitle": "E-Mail",
       "responseTitle": "Antwortzeit",
       "responseValue": "So schnell wie möglich",
@@ -187,7 +187,7 @@
       "allPostsLabel": "Alle Beiträge"
     },
     "header": {
-      "cta": "Projekt anfragen",
+      "cta": "«Button-Text im Header, Link führt zu /kontakt, z. B. Kontakt»",
       "menuAriaLabel": "Menü öffnen",
       "searchAriaLabelOpen": "Suche öffnen",
       "searchAriaLabelClose": "Suche schließen",
@@ -207,10 +207,10 @@
       "featuredLabel": "Neuester Beitrag",
       "readingTimeShort": "Min.",
       "readingTimeLong": "Min. Lesezeit",
-      "collabEyebrow": "Zusammenarbeit",
-      "collabTitle": "Du möchtest mit mir zusammenarbeiten?",
-      "collabText": "Du bist auf einen meiner Beiträge gestoßen und interessierst dich für eine Zusammenarbeit? Du hast ein Produkt, ein Hotel, eine Unterkunft oder ein Reiseerlebnis, das ich austesten und hier im Blog vorstellen soll? Dann melde dich gerne bei mir. Ich freue mich auf deine Nachricht.",
-      "collabCta": "Schreib mir"
+      "collabEyebrow": "«Eyebrow über dem Block unter der Blogliste, z. B. Zusammenarbeit»",
+      "collabTitle": "«Überschrift des Blocks unter der Blogliste, z. B. Du möchtest mit mir zusammenarbeiten?»",
+      "collabText": "«Text des Blocks unter der Blogliste: wofür man dich kontaktieren kann»",
+      "collabCta": "«Link-Text zum Kontakt, z. B. Schreib mir»"
     },
     "blogPost": {
       "backToBlog": "Zurück zum Blog",
@@ -222,7 +222,7 @@
       "galleryTitle": "Galerie",
       "qaTitle": "Q & A",
       "writtenBy": "Geschrieben von",
-      "projectCta": "Projekt anfragen →",
+      "projectCta": "«Link-Text unter jedem Beitrag, Link führt zu /kontakt, z. B. Schreib mir →»",
       "moreTitle": "Weiterlesen",
       "travelBuddy": "Travel Buddy",
       "routeTitle": "Unsere Route auf einen Blick"
@@ -306,7 +306,7 @@
       ]
     },
     "footer": {
-      "tagline": "Texte, die Angebote emotional präsentieren und Geschichten erzählen.",
+      "tagline": "«Kurzer Satz im Footer unter dem Namen, z. B. Reisegeschichten aus aller Welt»",
       "navLabel": "Navigation",
       "contactLabel": "Kontakt",
       "rights": "Alle Rechte vorbehalten.",

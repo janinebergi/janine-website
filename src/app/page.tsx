@@ -25,7 +25,7 @@ export default async function Home() {
         <div className="absolute inset-0 -z-10">
           <Image
             src={site.heroImage}
-            alt="Platzhalter – hier folgt das große Header-Bild"
+            alt="«Alt-Text für das Header-Bild, z. B. Blick über grüne Reisterrassen»"
             fill
             priority
             unoptimized

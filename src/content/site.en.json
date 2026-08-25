@@ -2,9 +2,9 @@
   "site": {
     "name": "Janine",
     "fullName": "Janine Bergmann",
-    "role": "Writer & Copywriter",
-    "tagline": "Because great copy isn't luck, it's word choice.",
-    "description": "Janine is a writer and copywriter. Copy for websites, blogs and newsletters that stirs emotion, sparks wanderlust and tells stories.",
+    "role": "«Role: what you want to call yourself here, e.g. travel blogger»",
+    "tagline": "«Tagline: one short sentence about the blog, shown next to the role in the hero»",
+    "description": "«Description of the blog in 1–2 sentences, shown in Google results and social media previews»",
     "email": "hallo@janinebergmann.de",
     "url": "https://janinebergmann.de",
     "heroImage": "/assets/website/allgemein/header.avif",
@@ -38,22 +38,22 @@
     },
     {
       "value": "8",
-      "label": "Years in tourism"
+      "label": "«Label for the second number, e.g. years on the road»"
     }
   ],
   "pages": {
     "home": {
-      "heroHeadingPre": "Copy that sparks ",
-      "heroHeadingHighlight": "wanderlust",
-      "heroHeadingPost": ".",
-      "heroText": "I'm Janine, a writer and copywriter. I help you put your offers in the best possible light with words: on websites, in blogs and newsletters.",
-      "heroPrimaryCta": "Enquire about a project",
+      "heroHeadingPre": "«Heading part 1, ends with a space, e.g. Stories that spark »",
+      "heroHeadingHighlight": "«highlighted word, e.g. wanderlust»",
+      "heroHeadingPost": "«Heading part 3, e.g. a closing full stop»",
+      "heroText": "«Intro text below the heading: who you are and what the blog is about, 1–2 sentences»",
+      "heroPrimaryCta": "«Hero button text, links to /kontakt, e.g. Get in touch»",
       "latestEyebrow": "«Eyebrow above the latest posts, e.g. From the blog»",
       "latestTitle": "«Heading above the latest posts, e.g. Latest posts»",
       "latestLink": "«Link text to the archive, e.g. All posts»",
-      "ctaTitle": "Ready for copy that works?",
-      "ctaText": "Tell me about your project. I'll get back to you as soon as possible with next steps.",
-      "ctaButton": "Enquire about a project now"
+      "ctaTitle": "«Heading of the CTA block at the bottom of the page, e.g. Want more travel stories?»",
+      "ctaText": "«Text in the CTA block, 1–2 sentences: why someone should get in touch»",
+      "ctaButton": "«CTA block button text, links to /kontakt, e.g. Get in touch»"
     },
     "ueberMich": {
       "metaTitle": "About me",
@@ -71,8 +71,8 @@
         "I've also worked for Freizeitpark Wisseler See GmbH, helping shape the imagery and copy for their new website.",
         "I live out my passion for travel, outdoor adventure and storytelling every day."
       ],
-      "blogNote": "Fancy a sample of my writing style? I regularly write my own travel stories on my",
-      "ctaButton": "Let's talk",
+      "blogNote": "«Sentence leading over to the blog; the linked word “Blog” follows right after, e.g. You’ll find my travel stories on my»",
+      "ctaButton": "«Button text below the copy, links to /kontakt, e.g. Get in touch»",
       "timelineEyebrow": "My path",
       "timelineTitle": "Career",
       "timeline": [
@@ -175,10 +175,10 @@
       "metaTitle": "Contact",
       "metaDescription": "Get in touch with Janine about your next copywriting project. A reply as soon as possible.",
       "heroEyebrow": "Contact",
-      "heroTitle": "Tell me about your project.",
+      "heroTitle": "«Contact page heading, e.g. Say hello.»",
       "heroImage": "/assets/website/allgemein/ueber-mich-4.avif",
       "heroImageAlt": "Sunset over the sea with palm trees",
-      "heroText": "Interested in my copy or want to talk about your project? Just drop me a quick note about what you have in mind. I'll get back to you personally, soon.",
+      "heroText": "«Text on the contact page: what people can write to you about and how quickly you reply»",
       "emailTitle": "Email",
       "responseTitle": "Response time",
       "responseValue": "As soon as possible",
@@ -189,7 +189,7 @@
       "allPostsLabel": "All posts"
     },
     "header": {
-      "cta": "Enquire about a project",
+      "cta": "«Header button text, links to /kontakt, e.g. Contact»",
       "menuAriaLabel": "Open menu",
       "searchAriaLabelOpen": "Open search",
       "searchAriaLabelClose": "Close search",
@@ -209,10 +209,10 @@
       "featuredLabel": "Latest post",
       "readingTimeShort": "min",
       "readingTimeLong": "min read",
-      "collabEyebrow": "Collaboration",
-      "collabTitle": "Want to work together?",
-      "collabText": "Came across one of my posts and interested in a collaboration? Got a product, a hotel, an accommodation or a travel experience you'd like me to try out and feature here on the blog? Feel free to get in touch. I'd love to hear from you.",
-      "collabCta": "Get in touch"
+      "collabEyebrow": "«Eyebrow above the block below the blog list, e.g. Collaboration»",
+      "collabTitle": "«Heading of the block below the blog list, e.g. Want to work together?»",
+      "collabText": "«Text of the block below the blog list: what people can get in touch about»",
+      "collabCta": "«Link text to the contact page, e.g. Get in touch»"
     },
     "blogPost": {
       "backToBlog": "Back to blog",
@@ -224,7 +224,7 @@
       "galleryTitle": "Gallery",
       "qaTitle": "Q & A",
       "writtenBy": "Written by",
-      "projectCta": "Enquire about a project →",
+      "projectCta": "«Link text below every post, links to /kontakt, e.g. Get in touch →»",
       "moreTitle": "Keep reading",
       "travelBuddy": "Travel buddy",
       "routeTitle": "Our Route at a Glance"
@@ -308,7 +308,7 @@
       ]
     },
     "footer": {
-      "tagline": "Copy that presents offers emotionally and tells stories.",
+      "tagline": "«Short sentence in the footer below the name, e.g. Travel stories from around the world»",
       "navLabel": "Navigation",
       "contactLabel": "Contact",
       "rights": "All rights reserved.",
