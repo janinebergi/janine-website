@@ -31,44 +31,6 @@
       "label": "Contact"
     }
   ],
-  "services": [
-    {
-      "title": "Blog posts that spark wanderlust",
-      "image": "/assets/website/allgemein/leistung-blog.avif",
-      "imagePosition": "center 30%",
-      "teaser": "Make adventure tangible and bring your offers to life with stories. SEO-optimised, from the first sentence to the last click.",
-      "points": [
-        "Sparks wanderlust and makes adventure tangible",
-        "Hotels, destinations & experiences become vivid",
-        "Your brand stays emotionally memorable",
-        "SEO-optimised and visible from the first sentence to the last click"
-      ]
-    },
-    {
-      "title": "Website copy that brings dreams to life",
-      "image": "/assets/website/allgemein/IMG_2961.avif",
-      "imagePosition": "center",
-      "teaser": "Present your offers vividly and show your brand authentically. SEO-oriented, so your content is easier to find.",
-      "points": [
-        "Offers presented vividly, brand shown authentically",
-        "Stories and emotion instead of dry facts",
-        "Visitors feel spoken to and stay on the page",
-        "SEO-oriented copy that makes content easier to find"
-      ]
-    },
-    {
-      "title": "Newsletters that tell stories",
-      "image": "/assets/website/allgemein/leistung-newsletter.avif",
-      "imagePosition": "center",
-      "teaser": "Communicate your offers clearly while building closeness and trust through stories, tips and inspiration, never pushy.",
-      "points": [
-        "Offers communicated clearly and comprehensibly",
-        "Stories, tips and inspiration instead of sales pressure",
-        "Builds closeness and trust with your readers",
-        "Opens doors to genuine, lasting customer relationships"
-      ]
-    }
-  ],
   "stats": [
     {
       "value": "17",
@@ -77,26 +39,6 @@
     {
       "value": "8",
       "label": "Years in tourism"
-    }
-  ],
-  "testimonials": [
-    {
-      "id": "stimme-1",
-      "quote": "Janine's copy completely transformed our website. Dry descriptions became stories people actually want to read.",
-      "name": "Sarah Klein",
-      "role": ""
-    },
-    {
-      "id": "stimme-2",
-      "quote": "We hired Janine for our blog and were convinced after the very first piece. She nails our tone, researches thoroughly and always delivers reliably.",
-      "name": "Markus Weber",
-      "role": ""
-    },
-    {
-      "id": "stimme-3",
-      "quote": "Finally newsletter copy that doesn't read like advertising, but like real travel stories. Our open rates have been noticeably better ever since.",
-      "name": "Lena Hoffmann",
-      "role": ""
     }
   ],
   "pages": {
@@ -109,63 +51,9 @@
       "latestEyebrow": "«Eyebrow above the latest posts, e.g. From the blog»",
       "latestTitle": "«Heading above the latest posts, e.g. Latest posts»",
       "latestLink": "«Link text to the archive, e.g. All posts»",
-      "servicesEyebrow": "Services",
-      "servicesTitle": "Words that bring your offers to life",
-      "servicesDescription": "From the website to the blog to the newsletter: copy that stirs emotion, ignites wanderlust and makes your brand unforgettable.",
-      "servicesLink": "All services",
-      "testimonialsEyebrow": "Voices",
-      "testimonialsTitle": "What clients say",
       "ctaTitle": "Ready for copy that works?",
       "ctaText": "Tell me about your project. I'll get back to you as soon as possible with next steps.",
       "ctaButton": "Enquire about a project now"
-    },
-    "leistungen": {
-      "metaTitle": "Services",
-      "metaDescription": "Copywriting for travel and tourism businesses: website copy, blog posts and newsletters that spark wanderlust and tell stories.",
-      "heroEyebrow": "Services",
-      "heroTitle": "Because great copy isn't luck, it's word choice.",
-      "heroImage": "/assets/website/allgemein/leistungen-header.avif",
-      "heroImageAlt": "Camel caravan at sunset",
-      "heroText": "I support businesses with professional copy for their own communication channels. Whether it's a website, blog or newsletter: I write copy that doesn't just inform, but stirs emotion, ignites wanderlust and presents your offers vividly. With the right words, travel experiences become tangible, the urge to explore becomes palpable, and your brand becomes unforgettable. Let's tell stories together that excite your customers and present your offers clearly, emotionally and authentically.",
-      "deliverablesEyebrow": "What you get",
-      "deliverablesTitle": "Everything from one pen",
-      "deliverablesDescription": "A selection of the formats I write regularly. Need something else? Just ask.",
-      "deliverables": [
-        "Travel blog posts with SEO",
-        "Website & landing page copy",
-        "Newsletters & email sequences",
-        "Hotel descriptions",
-        "Storytelling & about pages",
-        "Travel guides"
-      ],
-      "mediakitEditLabel": "Edit media kit",
-      "referencesEyebrow": "References",
-      "referenceNote": "I'm happy to send references on request.",
-      "processEyebrow": "Process",
-      "processTitle": "How we work together",
-      "process": [
-        {
-          "step": "01",
-          "title": "Getting to know each other & briefing",
-          "description": "We clarify goals, target audience and tone. I dive deep into your brand."
-        },
-        {
-          "step": "02",
-          "title": "Research & concept",
-          "description": "I research topics, target audiences and what makes the offer special, so the copy stays authentic and true to the brand."
-        },
-        {
-          "step": "03",
-          "title": "Writing & polishing",
-          "description": "First draft, joint feedback, two rounds of revisions included."
-        },
-        {
-          "step": "04",
-          "title": "Handover & impact",
-          "description": "Finished copy, cleanly documented and ready to use."
-        }
-      ],
-      "ctaButton": "Get in touch, no obligation"
     },
     "ueberMich": {
       "metaTitle": "About me",
@@ -214,10 +102,18 @@
         }
       ],
       "hobbies": [
-        { "label": "Surfing" },
-        { "label": "Inline skating along the Rhine" },
-        { "label": "Horseback rides through the forest" },
-        { "label": "Kickboxing" }
+        {
+          "label": "Surfing"
+        },
+        {
+          "label": "Inline skating along the Rhine"
+        },
+        {
+          "label": "Horseback rides through the forest"
+        },
+        {
+          "label": "Kickboxing"
+        }
       ],
       "gallery": {
         "eyebrow": "On the road",
@@ -274,65 +170,6 @@
         "title": "My latest travel stories",
         "linkText": "All blog posts"
       }
-    },
-    "mediakit": {
-      "metaTitle": "Media Kit",
-      "metaDescription": "Janine's media kit, writer & copywriter. Profile, services and rates at a glance, as a downloadable PDF.",
-      "downloadLabel": "Save as PDF",
-      "printHint": "Tip: In the print dialog, choose \"Save as PDF\", set margins to \"None\" and enable \"Background graphics\".",
-      "coverEyebrow": "Media Kit",
-      "coverRole": "Writer & Copywriter",
-      "intro": "I'm Janine, a copywriter specialising in travel and tourism topics. After training as a certified travel and leisure specialist and completing a state-certified business economics qualification in tourism, I've written professional copy for websites, social media, newsletters and magazines across several roles, including in sales marketing at alltours.",
-      "portraitImage": "/assets/website/allgemein/JanineMediakit.avif",
-      "portraitAlt": "Janine",
-      "brandsTitle": "Selected projects & experience",
-      "brands": [
-        "alltours",
-        "Ferien- und Campingpark Wisseler See",
-        "Niederrhein Medien"
-      ],
-      "valuesTitle": "Why me?",
-      "ratesEyebrow": "Services & rates",
-      "ratesTitle": "Services I offer",
-      "ratesIntro": "Blog posts, website copy and newsletters: storytelling that stirs emotion and presents offers clearly and authentically.",
-      "rates": [
-        {
-          "title": "Blog post",
-          "subtitle": "approx. 1,000–1,200 words",
-          "steps": [
-            "Research & concept: 1–1.5 h",
-            "Writing: 2–3 h",
-            "Revisions & polish: 1 h",
-            "Total: approx. 4–5.5 hours"
-          ],
-          "price": "€200–275"
-        },
-        {
-          "title": "Website copy",
-          "subtitle": "e.g. homepage",
-          "steps": [
-            "Briefing & structure: 1.5–2 h",
-            "Writing: 3–4 h",
-            "Revisions: 1–1.5 h",
-            "Total: approx. 5.5–7.5 hours"
-          ],
-          "price": "€275–375"
-        },
-        {
-          "title": "Newsletter",
-          "subtitle": "1 issue",
-          "steps": [
-            "Topic & structure: 0.5–1 h",
-            "Writing: 1–1.5 h",
-            "Polish: 0.5 h",
-            "Total: approx. 2–3 hours"
-          ],
-          "price": "€100–150"
-        }
-      ],
-      "pricingNoteTitle": "How are my prices calculated?",
-      "pricingNoteText": "My prices aren't based on writing time alone, but on the entire creative process: research, concept, writing, revisions and coordination. This is how copy is created that doesn't just sound good, but actually works.",
-      "priceLabel": "Price"
     },
     "kontakt": {
       "metaTitle": "Contact",

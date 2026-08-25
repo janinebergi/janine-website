@@ -31,44 +31,6 @@
       "label": "Kontakt"
     }
   ],
-  "services": [
-    {
-      "title": "Blogbeiträge, die Fernweh wecken",
-      "image": "/assets/website/allgemein/leistung-blog.avif",
-      "imagePosition": "center 30%",
-      "teaser": "Abenteuer spürbar machen und deine Angebote mit Geschichten zum Leben erwecken. SEO-optimiert, vom ersten Satz bis zum letzten Klick.",
-      "points": [
-        "Weckt Fernweh und macht Abenteuer spürbar",
-        "Hotels, Reiseziele & Erlebnisse werden greifbar",
-        "Deine Marke bleibt emotional in Erinnerung",
-        "SEO-optimiert und sichtbar vom ersten Satz bis zum letzten Klick"
-      ]
-    },
-    {
-      "title": "Website-Texte, die Träume lebendig werden lassen",
-      "image": "/assets/website/allgemein/IMG_2961.avif",
-      "imagePosition": "center",
-      "teaser": "Deine Angebote lebendig präsentieren und deine Marke authentisch zeigen. SEO-orientiert, damit deine Inhalte besser gefunden werden.",
-      "points": [
-        "Angebote werden lebendig präsentiert, Marke authentisch gezeigt",
-        "Geschichten und Emotionen statt trockener Fakten",
-        "Besucher fühlen sich angesprochen und bleiben auf der Seite",
-        "SEO-orientierte Texte, die Inhalte besser auffindbar machen"
-      ]
-    },
-    {
-      "title": "Newsletter, die Geschichten erzählen",
-      "image": "/assets/website/allgemein/leistung-newsletter.avif",
-      "imagePosition": "center",
-      "teaser": "Deine Angebote klar kommunizieren und dabei durch Geschichten, Tipps und Inspiration Nähe sowie Vertrauen schaffen, ohne aufdringlich zu wirken.",
-      "points": [
-        "Angebote klar und verständlich kommuniziert",
-        "Geschichten, Tipps und Inspiration statt Werbedruck",
-        "Schafft Nähe und Vertrauen bei deinen Lesern",
-        "Öffnet Türen zu echten, nachhaltigen Kundenbeziehungen"
-      ]
-    }
-  ],
   "stats": [
     {
       "value": "17",
@@ -77,26 +39,6 @@
     {
       "value": "8",
       "label": "Jahre im Tourismus"
-    }
-  ],
-  "testimonials": [
-    {
-      "id": "stimme-1",
-      "quote": "Janines Texte haben unsere Website komplett verändert. Aus trockenen Beschreibungen wurden Geschichten, die man lesen will.",
-      "name": "Sarah Klein",
-      "role": ""
-    },
-    {
-      "id": "stimme-2",
-      "quote": "Wir haben Janine für unseren Blog engagiert und waren schon nach dem ersten Text überzeugt. Sie trifft unseren Ton genau, recherchiert gründlich und liefert zuverlässig ab.",
-      "name": "Markus Weber",
-      "role": ""
-    },
-    {
-      "id": "stimme-3",
-      "quote": "Endlich Newsletter-Texte, die nicht nach Werbung klingen, sondern nach echten Reisegeschichten. Unsere Öffnungsraten sind seitdem deutlich besser.",
-      "name": "Lena Hoffmann",
-      "role": ""
     }
   ],
   "pages": {
@@ -109,63 +51,9 @@
       "latestEyebrow": "«Eyebrow über den neuesten Beiträgen, z. B. Aus dem Blog»",
       "latestTitle": "«Überschrift über den neuesten Beiträgen, z. B. Zuletzt erschienen»",
       "latestLink": "«Link-Text zum Archiv, z. B. Alle Beiträge»",
-      "servicesEyebrow": "Leistungen",
-      "servicesTitle": "Worte, die deine Angebote lebendig machen",
-      "servicesDescription": "Von der Website über den Blog bis zum Newsletter: Texte, die Emotionen wecken, Fernweh entfachen und deine Marke unvergesslich machen.",
-      "servicesLink": "Alle Leistungen",
-      "testimonialsEyebrow": "Stimmen",
-      "testimonialsTitle": "Was Kund:innen sagen",
       "ctaTitle": "Bereit für Texte, die wirken?",
       "ctaText": "Erzähl mir von deinem Projekt. Ich melde mich so schnell wie möglich mit den nächsten Schritten.",
       "ctaButton": "Jetzt Projekt anfragen"
-    },
-    "leistungen": {
-      "metaTitle": "Leistungen",
-      "metaDescription": "Copywriting für Reise- und Tourismusunternehmen: Website-Texte, Blogbeiträge und Newsletter, die Fernweh wecken und Geschichten erzählen.",
-      "heroEyebrow": "Leistungen",
-      "heroTitle": "Weil guter Text kein Zufall, sondern Wortwahl ist.",
-      "heroImage": "/assets/website/allgemein/leistungen-header.avif",
-      "heroImageAlt": "Kamel-Karawane im Sonnenuntergang",
-      "heroText": "Ich unterstütze Unternehmen mit professionellen Texten für ihre eigenen Kommunikationskanäle. Ob Website, Blog oder Newsletter: Ich schreibe Texte, die nicht nur informieren, sondern Emotionen wecken, Fernweh entfachen und deine Angebote lebendig präsentieren. Mit der richtigen Wortwahl werden Reiseerlebnisse greifbar, Abenteuerlust spürbar und deine Marke unvergesslich. Lass uns gemeinsam Geschichten erzählen, die deine Kunden begeistern und deine Angebote verständlich, emotional und authentisch präsentieren.",
-      "deliverablesEyebrow": "Was du bekommst",
-      "deliverablesTitle": "Alles aus einer Feder",
-      "deliverablesDescription": "Eine Auswahl der Formate, die ich regelmäßig schreibe. Du brauchst etwas anderes? Frag einfach.",
-      "deliverables": [
-        "Reise-Blogbeiträge mit SEO",
-        "Website- & Landingpage-Texte",
-        "Newsletter & E-Mail-Strecken",
-        "Hotelbeschreibungen",
-        "Storytelling & Über-uns-Seiten",
-        "Reiseführer & Guides"
-      ],
-      "mediakitEditLabel": "Media Kit bearbeiten",
-      "referencesEyebrow": "Referenzen",
-      "referenceNote": "Referenzen sende ich dir gerne auf Anfrage zu.",
-      "processEyebrow": "Ablauf",
-      "processTitle": "So arbeiten wir zusammen",
-      "process": [
-        {
-          "step": "01",
-          "title": "Kennenlernen & Briefing",
-          "description": "Wir klären Ziele, Zielgruppe und Tonalität. Ich tauche tief in deine Marke ein."
-        },
-        {
-          "step": "02",
-          "title": "Recherche & Konzept",
-          "description": "Ich recherchiere Themen, Zielgruppen und Besonderheiten des Angebots, damit die Texte authentisch und passend zur Marke entstehen."
-        },
-        {
-          "step": "03",
-          "title": "Schreiben & Feinschliff",
-          "description": "Erste Fassung, gemeinsames Feedback, zwei Korrekturschleifen inklusive."
-        },
-        {
-          "step": "04",
-          "title": "Übergabe & Wirkung",
-          "description": "Fertige Texte, sauber dokumentiert und bereit für den Einsatz."
-        }
-      ],
-      "ctaButton": "Unverbindlich anfragen"
     },
     "ueberMich": {
       "metaTitle": "Über mich",
@@ -212,10 +100,18 @@
         }
       ],
       "hobbies": [
-        { "label": "Surfen" },
-        { "label": "Inlinern am Rhein" },
-        { "label": "Ausritte durch den Wald" },
-        { "label": "Kickboxen" }
+        {
+          "label": "Surfen"
+        },
+        {
+          "label": "Inlinern am Rhein"
+        },
+        {
+          "label": "Ausritte durch den Wald"
+        },
+        {
+          "label": "Kickboxen"
+        }
       ],
       "gallery": {
         "eyebrow": "Unterwegs",
@@ -272,65 +168,6 @@
         "title": "Meine neuesten Reisegeschichten",
         "linkText": "Alle Beiträge im Blog"
       }
-    },
-    "mediakit": {
-      "metaTitle": "Media Kit",
-      "metaDescription": "Das Media Kit von Janine, Texterin & Copywriterin. Profil, Leistungen und Konditionen auf einen Blick, als PDF zum Download.",
-      "downloadLabel": "Als PDF speichern",
-      "printHint": "Tipp: Im Druckdialog „Als PDF speichern“ wählen, Ränder auf „Keine“ und „Hintergrundgrafiken“ aktivieren.",
-      "coverEyebrow": "Media Kit",
-      "coverRole": "Texterin & Copywriterin",
-      "intro": "Ich bin Janine, Texterin mit Schwerpunkt auf Reise- und Tourismusthemen. Nach meiner Ausbildung als Kauffrau für Tourismus und Freizeit und meinem staatlich geprüften Betriebswirt im Bereich Tourismus habe ich in verschiedenen Stationen, unter anderem im Vertriebsmarketing bei alltours, professionelle Texte für Websites, Social Media, Newsletter und Magazine erstellt.",
-      "portraitImage": "/assets/website/allgemein/JanineMediakit.avif",
-      "portraitAlt": "Janine",
-      "brandsTitle": "Ausgewählte Projekte & Erfahrungen",
-      "brands": [
-        "alltours",
-        "Ferien- und Campingpark Wisseler See",
-        "Niederrhein Medien"
-      ],
-      "valuesTitle": "Warum ich?",
-      "ratesEyebrow": "Services & Raten",
-      "ratesTitle": "Dienstleistungen, die ich anbiete",
-      "ratesIntro": "Blogbeiträge, Website-Texte und Newsletter: Storytelling, das Emotionen weckt und Angebote klar und authentisch präsentiert.",
-      "rates": [
-        {
-          "title": "Blogbeitrag",
-          "subtitle": "ca. 1.000–1.200 Wörter",
-          "steps": [
-            "Recherche & Konzept: 1–1,5 h",
-            "Schreiben: 2–3 h",
-            "Überarbeitung & Feinschliff: 1 h",
-            "Gesamt: ca. 4–5,5 Stunden"
-          ],
-          "price": "200–275 €"
-        },
-        {
-          "title": "Website-Texte",
-          "subtitle": "z. B. Startseite",
-          "steps": [
-            "Briefing & Struktur: 1,5–2 h",
-            "Text: 3–4 h",
-            "Überarbeitung: 1–1,5 h",
-            "Gesamt: ca. 5,5–7,5 Stunden"
-          ],
-          "price": "275–375 €"
-        },
-        {
-          "title": "Newsletter",
-          "subtitle": "1 Ausgabe",
-          "steps": [
-            "Themenfindung & Aufbau: 0,5–1 h",
-            "Text: 1–1,5 h",
-            "Feinschliff: 0,5 h",
-            "Gesamt: ca. 2–3 Stunden"
-          ],
-          "price": "100–150 €"
-        }
-      ],
-      "pricingNoteTitle": "Wie setzen sich meine Preise zusammen?",
-      "pricingNoteText": "Meine Preise basieren nicht nur auf der reinen Schreibzeit, sondern auf dem gesamten kreativen Prozess: Recherche, Konzeption, Text, Überarbeitung und Abstimmung. So entstehen Inhalte, die nicht nur gut klingen, sondern wirken.",
-      "priceLabel": "Preis"
     },
     "kontakt": {
       "metaTitle": "Kontakt",
