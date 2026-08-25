@@ -1,4 +1,4 @@
-# Janine Bergmann — Copywriter-Website
+# Janine Bergmann — Blog
 
 Moderne Dark-Mode-Website mit Blog, gebaut mit **Next.js (App Router)**,
 **TypeScript** und **Tailwind CSS v4**. Bereit für Deployment auf **Vercel**.
