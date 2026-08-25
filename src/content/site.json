@@ -19,10 +19,6 @@
       "label": "Start"
     },
     {
-      "href": "/leistungen",
-      "label": "Leistungen"
-    },
-    {
       "href": "/ueber-mich",
       "label": "Über mich"
     },
@@ -110,6 +106,9 @@
       "heroHeadingPost": " wecken.",
       "heroText": "Ich bin Janine, Texterin & Copywriterin. Ich helfe dir, deine Angebote mit Worten ins beste Licht zu rücken: auf Websites, in Blogs und Newslettern.",
       "heroPrimaryCta": "Projekt anfragen",
+      "latestEyebrow": "«Eyebrow über den neuesten Beiträgen, z. B. Aus dem Blog»",
+      "latestTitle": "«Überschrift über den neuesten Beiträgen, z. B. Zuletzt erschienen»",
+      "latestLink": "«Link-Text zum Archiv, z. B. Alle Beiträge»",
       "servicesEyebrow": "Leistungen",
       "servicesTitle": "Worte, die deine Angebote lebendig machen",
       "servicesDescription": "Von der Website über den Blog bis zum Newsletter: Texte, die Emotionen wecken, Fernweh entfachen und deine Marke unvergesslich machen.",
@@ -473,7 +472,6 @@
       "tagline": "Texte, die Angebote emotional präsentieren und Geschichten erzählen.",
       "navLabel": "Navigation",
       "contactLabel": "Kontakt",
-      "mediakitLabel": "Media Kit (PDF)",
       "rights": "Alle Rechte vorbehalten.",
       "impressum": "Impressum",
       "datenschutz": "Datenschutz"

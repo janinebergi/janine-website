@@ -69,12 +69,6 @@ export async function Footer() {
             >
               Instagram
             </a>
-            <Link
-              href="/mediakit"
-              className="text-sm text-accent-hover transition-colors hover:text-foreground"
-            >
-              {t.mediakitLabel}
-            </Link>
           </div>
         </div>
 

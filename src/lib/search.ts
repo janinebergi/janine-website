@@ -61,13 +61,6 @@ export function getSearchIndex(lang: Lang): SearchItem[] {
       content: pageContentText(pages.home),
     },
     {
-      title: shortTitle(pages.leistungen.metaTitle),
-      description: pages.leistungen.metaDescription,
-      url: "/leistungen",
-      type: "page",
-      content: pageContentText(pages.leistungen),
-    },
-    {
       title: shortTitle(pages.ueberMich.metaTitle),
       description: pages.ueberMich.metaDescription,
       url: "/ueber-mich",
@@ -80,13 +73,6 @@ export function getSearchIndex(lang: Lang): SearchItem[] {
       url: "/blog",
       type: "page",
       content: pageContentText(pages.blog),
-    },
-    {
-      title: shortTitle(pages.mediakit.metaTitle),
-      description: pages.mediakit.metaDescription,
-      url: "/mediakit",
-      type: "page",
-      content: pageContentText(pages.mediakit),
     },
     {
       title: shortTitle(pages.kontakt.metaTitle),

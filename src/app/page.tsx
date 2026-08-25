@@ -1,17 +1,19 @@
 import Image from "next/image";
 import Link from "next/link";
-import { ArrowUpRight, Quote } from "lucide-react";
+import { ArrowUpRight } from "lucide-react";
 import { Container } from "@/components/ui/container";
 import { Button } from "@/components/ui/button";
 import { Eyebrow, SectionHeading } from "@/components/ui/section-heading";
 import { getSiteContent } from "@/lib/site";
 import { getLang } from "@/lib/i18n";
 import { iconForStat } from "@/lib/stat-icons";
+import { getAllPosts, formatDate } from "@/lib/blog";
 
 export default async function Home() {
   const lang = await getLang();
-  const { pages, services, site, stats, testimonials } = getSiteContent(lang);
+  const { pages, site, stats } = getSiteContent(lang);
   const t = pages.home;
+  const recentPosts = getAllPosts(lang).slice(0, 3);
 
   return (
     <>
@@ -72,77 +74,60 @@ export default async function Home() {
         </Container>
       </section>
 
-      {/* Services */}
-      <section className="pt-10 pb-20">
-        <Container>
-          <SectionHeading
-            eyebrow={t.servicesEyebrow}
-            title={t.servicesTitle}
-            description={t.servicesDescription}
-          />
-          <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-            {services.map((service) => (
-              <div
-                key={service.title}
-                className="group flex flex-col overflow-hidden rounded-2xl border border-border bg-surface/60 transition-colors hover:border-accent/60"
+      {/* Neueste Beiträge */}
+      {recentPosts.length > 0 && (
+        <section className="pt-10 pb-20">
+          <Container>
+            <SectionHeading eyebrow={t.latestEyebrow} title={t.latestTitle} />
+            <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+              {recentPosts.map((post) => (
+                <Link
+                  key={post.slug}
+                  href={`/blog/${post.slug}`}
+                  className="group flex flex-col overflow-hidden rounded-2xl border border-border bg-surface/60 transition-colors hover:border-accent/60"
+                >
+                  <div className="relative aspect-[16/10] overflow-hidden">
+                    <Image
+                      src={post.coverImage}
+                      alt={post.title}
+                      fill
+                      sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                      className="object-cover transition-transform duration-500 group-hover:scale-105"
+                    />
+                  </div>
+                  <div className="flex flex-1 flex-col p-6">
+                    <div className="flex items-center gap-2 text-xs text-muted">
+                      <span>{formatDate(post.date, lang)}</span>
+                      <span>·</span>
+                      <span>{post.readingTime} {pages.blog.readingTimeShort}</span>
+                      {post.country && (
+                        <>
+                          <span>·</span>
+                          <span>{post.country}</span>
+                        </>
+                      )}
+                    </div>
+                    <h3 className="mt-2 text-lg font-semibold leading-snug group-hover:text-accent-hover">
+                      {post.title}
+                    </h3>
+                    <p className="mt-2 text-sm leading-relaxed text-muted">
+                      {post.excerpt}
+                    </p>
+                  </div>
+                </Link>
+              ))}
+            </div>
+            <div className="mt-10">
+              <Link
+                href="/blog"
+                className="inline-flex items-center gap-1 text-sm font-medium text-accent-hover hover:gap-2 transition-all"
               >
-                <div className="relative aspect-square overflow-hidden sm:aspect-[16/10]">
-                  <Image
-                    src={service.image}
-                    alt={service.title}
-                    fill
-                    sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
-                    style={{ objectPosition: service.imagePosition }}
-                    className="object-cover transition-transform duration-500 group-hover:scale-105"
-                  />
-                </div>
-                <div className="flex flex-1 flex-col p-7">
-                  <h3 className="text-xl font-semibold">{service.title}</h3>
-                  <p className="mt-3 leading-relaxed text-muted">
-                    {service.teaser}
-                  </p>
-                </div>
-              </div>
-            ))}
-          </div>
-          <div className="mt-10">
-            <Link
-              href="/leistungen"
-              className="inline-flex items-center gap-1 text-sm font-medium text-accent-hover hover:gap-2 transition-all"
-            >
-              {t.servicesLink} <ArrowUpRight size={16} />
-            </Link>
-          </div>
-        </Container>
-      </section>
-
-      {/* Testimonials */}
-      <section className="py-20">
-        <Container>
-          <SectionHeading
-            eyebrow={t.testimonialsEyebrow}
-            title={t.testimonialsTitle}
-            align="center"
-          />
-          <div className="mt-12 grid gap-5 lg:grid-cols-3">
-            {testimonials.map((t) => (
-              <figure
-                key={t.id}
-                className="flex flex-col gap-5 rounded-2xl border border-border bg-surface/60 p-7"
-              >
-                <Quote className="text-accent" size={28} />
-                <blockquote className="leading-relaxed text-foreground/90">
-                  „{t.quote}"
-                </blockquote>
-                <figcaption className="mt-auto">
-                  <div className="font-medium">{t.name}</div>
-                  <div className="text-sm text-muted">{t.role}</div>
-                </figcaption>
-              </figure>
-            ))}
-          </div>
-        </Container>
-      </section>
+                {t.latestLink} <ArrowUpRight size={16} />
+              </Link>
+            </div>
+          </Container>
+        </section>
+      )}
 
       {/* CTA */}
       <section className="py-20">

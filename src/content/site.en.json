@@ -19,10 +19,6 @@
       "label": "Home"
     },
     {
-      "href": "/leistungen",
-      "label": "Services"
-    },
-    {
       "href": "/ueber-mich",
       "label": "About me"
     },
@@ -110,6 +106,9 @@
       "heroHeadingPost": ".",
       "heroText": "I'm Janine, a writer and copywriter. I help you put your offers in the best possible light with words: on websites, in blogs and newsletters.",
       "heroPrimaryCta": "Enquire about a project",
+      "latestEyebrow": "«Eyebrow above the latest posts, e.g. From the blog»",
+      "latestTitle": "«Heading above the latest posts, e.g. Latest posts»",
+      "latestLink": "«Link text to the archive, e.g. All posts»",
       "servicesEyebrow": "Services",
       "servicesTitle": "Words that bring your offers to life",
       "servicesDescription": "From the website to the blog to the newsletter: copy that stirs emotion, ignites wanderlust and makes your brand unforgettable.",
@@ -475,7 +474,6 @@
       "tagline": "Copy that presents offers emotionally and tells stories.",
       "navLabel": "Navigation",
       "contactLabel": "Contact",
-      "mediakitLabel": "Media Kit (PDF)",
       "rights": "All rights reserved.",
       "impressum": "Legal Notice",
       "datenschutz": "Privacy Policy"
