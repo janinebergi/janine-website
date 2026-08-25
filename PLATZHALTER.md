@@ -1,124 +1,108 @@
 # Platzhalter — offene Texte
 
-Beim Umbau zum reinen Reiseblog (Schritt 5 aus [UMBAU-PLAN.md](UMBAU-PLAN.md))
-wurden alle geschäftlichen Texte durch markierte Platzhalter ersetzt. Der alte
-Text ist hier festgehalten, damit nichts verloren geht — auf der Website steht
-stattdessen eine Kurzbeschreibung in Guillemets.
+Die beim Umbau zum Reiseblog markierten Platzhalter (`«… »`) sind **alle gefüllt**.
+Auf der Website stehen jetzt durchgehend Texte, die zum Blog passen.
 
-**Alle offenen Stellen finden:**
+**Gegenprobe:**
 
 ```bash
-grep -rn '«' src/
+grep -rn '«' src/          # muss leer sein
+grep -rn '⟨' src/content/  # zeigt die verbliebenen Rechtstext-Lücken
 ```
 
-Jede Zeile in DE **und** EN füllen — die beiden JSON-Dateien müssen strukturgleich bleiben.
-
 ---
 
-## 1. Marke & Meta — `src/content/site.json` · `site.en.json`
+## Offen: Rechtstexte
 
-| ✓ | Key | Alter Text (DE) |
-|---|---|---|
-| ☐ | `site.role` | Texterin & Copywriterin |
-| ☐ | `site.tagline` | Weil guter Text kein Zufall, sondern Wortwahl ist. |
-| ☐ | `site.description` | Janine ist Texterin & Copywriterin. Texte für Websites, Blogs und Newsletter, die Emotionen wecken, Fernweh auslösen und Geschichten erzählen. |
-| ☐ | `stats[1].label` | Jahre im Tourismus |
-
-> `stats[0]` („17 Länder bereist") bleibt unverändert.
-> Das Icon der Kachel wird in [src/lib/stat-icons.ts](src/lib/stat-icons.ts)
-> aus dem Label abgeleitet: enthält der neue Text „Jahr" bzw. „year", bleibt
-> der Kalender, sonst erscheint ein Stern.
-
-## 2. Startseite — `pages.home`
-
-| ✓ | Key | Alter Text (DE) |
-|---|---|---|
-| ☐ | `heroHeadingPre` | „Texte, die " |
-| ☐ | `heroHeadingHighlight` | Fernweh |
-| ☐ | `heroHeadingPost` | " wecken." |
-| ☐ | `heroText` | Ich bin Janine, Texterin & Copywriterin. Ich helfe dir, deine Angebote mit Worten ins beste Licht zu rücken: auf Websites, in Blogs und Newslettern. |
-| ☐ | `heroPrimaryCta` | Projekt anfragen |
-| ☐ | `latestEyebrow` | neu (Section „Neueste Beiträge") |
-| ☐ | `latestTitle` | neu |
-| ☐ | `latestLink` | neu |
-| ☐ | `ctaTitle` | Bereit für Texte, die wirken? |
-| ☐ | `ctaText` | Erzähl mir von deinem Projekt. Ich melde mich so schnell wie möglich mit den nächsten Schritten. |
-| ☐ | `ctaButton` | Jetzt Projekt anfragen |
-
-> Die drei Hero-Teile werden ohne Trennzeichen aneinandergehängt — die
-> Leerzeichen am Ende von `heroHeadingPre` bzw. am Anfang von `heroHeadingPost`
-> gehören mit in den Text.
-
-## 3. Header & Footer
-
-| ✓ | Key | Alter Text (DE) |
-|---|---|---|
-| ☐ | `pages.header.cta` | Projekt anfragen |
-| ☐ | `pages.footer.tagline` | Texte, die Angebote emotional präsentieren und Geschichten erzählen. |
-
-## 4. Blog — `pages.blog` · `pages.blogPost`
-
-| ✓ | Key | Alter Text (DE) |
-|---|---|---|
-| ☐ | `blog.collabEyebrow` | Zusammenarbeit |
-| ☐ | `blog.collabTitle` | Du möchtest mit mir zusammenarbeiten? |
-| ☐ | `blog.collabText` | Du bist auf einen meiner Beiträge gestoßen und interessierst dich für eine Zusammenarbeit? Du hast ein Produkt, ein Hotel, eine Unterkunft oder ein Reiseerlebnis, das ich austesten und hier im Blog vorstellen soll? Dann melde dich gerne bei mir. Ich freue mich auf deine Nachricht. |
-| ☐ | `blog.collabCta` | Schreib mir |
-| ☐ | `blogPost.projectCta` | Projekt anfragen → |
-
-> Der Kooperations-Block unter der Blogliste passt inhaltlich weiterhin zu einem
-> Reiseblog. Wenn du ihn so behalten willst, kannst du den alten Text einfach
-> wieder eintragen.
-
-## 5. Kontakt & Über mich
-
-| ✓ | Key | Alter Text (DE) |
-|---|---|---|
-| ☐ | `pages.kontakt.heroTitle` | Erzähl mir von deinem Projekt. |
-| ☐ | `pages.kontakt.heroText` | Du hast Interesse an meinen Texten oder möchtest über dein Projekt sprechen? Dann schreib mir einfach kurz, worum es geht. Ich melde mich zeitnah und persönlich bei dir zurück. |
-| ☐ | `pages.ueberMich.blogNote` | Lust auf eine Leseprobe meines Schreibstils? Ich schreibe regelmäßig eigene Reisegeschichten in meinem |
-| ☐ | `pages.ueberMich.ctaButton` | Lass uns sprechen |
-
-> `blogNote` steht direkt vor dem verlinkten Wort „Blog" — der Satz muss ohne
-> Punkt enden, der wird im Code angehängt.
-> `pages.ueberMich.paragraphs` wurde durchgelesen und **nicht** markiert: die
-> Absätze erzählen deine Reise- und Berufsbiografie, kein Angebot.
-
-## 6. Code
-
-| ✓ | Ort | Alter Text |
-|---|---|---|
-| ☐ | [src/app/page.tsx:28](src/app/page.tsx#L28) — `alt` des Header-Bilds | Platzhalter – hier folgt das große Header-Bild |
-| ☐ | [src/components/contact-form.tsx:18](src/components/contact-form.tsx#L18) — Betreff der Mail | Projektanfrage von … |
-| ☐ | [src/components/contact-form.tsx:69](src/components/contact-form.tsx#L69) — Placeholder im Nachrichtenfeld | Erzähl mir kurz von deinem Projekt … |
-
-> Das Kontaktformular ist fest auf Deutsch — es gibt hier keine EN-Variante.
-
----
-
-## Nicht markiert, aber prüfenswert
-
-Diese Texte stehen nicht im Umbau-Plan und wurden deshalb unverändert gelassen.
-Für einen reinen Reiseblog passen sie aber nur bedingt:
-
-- `pages.ueberMich.valuesEyebrow` / `valuesTitle` / `values` — „Warum ich?",
-  „Was du von mir bekommst", inkl. „SEO-optimierte Inhalte" und
-  „Maßgeschneiderte Lösungen … für dein Unternehmen".
-- `pages.kontakt.callTitle` / `callValue` — „Erstgespräch · Kostenlos & unverbindlich".
-- `pages.kontakt.metaDescription` — „für dein nächstes Copywriting-Projekt".
-- `pages.ueberMich.metaDescription` — „Copywriterin mit einem Faible für …".
-- `pages.blog.metaDescription` — „… sowie Gedanken zu Copywriting".
-- Der Hero-Button auf der Startseite und der Button unter „Über mich" verlinken
-  weiterhin auf `/kontakt`. Für einen Blog wäre `/blog` naheliegender — dann
-  müssten die `href`s in [src/app/page.tsx](src/app/page.tsx) und
-  [src/app/ueber-mich/page.tsx](src/app/ueber-mich/page.tsx) angepasst werden.
-
-## Bereits vorher offen (Rechtstexte)
-
-Andere Markierung: `⟨ … ⟩`, zu finden mit `grep -rn '⟨' src/content/`.
+Diese Angaben kann nur Janine selbst eintragen — sie stehen weiterhin in
+spitzen Klammern `⟨ … ⟩`.
 
 | ✓ | Key | Fehlt |
 |---|---|---|
 | ☐ | `pages.impressum.contact.street` / `.city` / `.phone` | Anschrift und Telefonnummer |
 | ☐ | `pages.datenschutz.controller.street` / `.city` / `.phone` | dieselben Angaben |
 | ☐ | `pages.datenschutz.sections[2].text` | Name und Anschrift des Hosting-Anbieters |
+
+---
+
+## Erledigt: die gefüllten Texte
+
+Alle Texte stehen in **beiden** Sprachdateien
+(`src/content/site.json` · `site.en.json`) und sind aus den Blogbeiträgen und
+der „Über mich"-Biografie abgeleitet.
+
+### Marke & Meta
+
+| Key | Text (DE) |
+|---|---|
+| `site.role` | Reisebloggerin |
+| `site.tagline` | Immer auf der Suche nach dem nächsten Abenteuer. |
+| `site.description` | Der Reiseblog von Janine Bergmann: ehrliche Reiseberichte aus 17 Ländern, vom Surfcamp in Portugal über den Roadtrip durch Florida bis zum Tauchschein im Roten Meer. |
+| `stats[1].label` | Jahre im Tourismus (unverändert — die Zahl 8 deckt sich mit der Timeline ab 2018; das Kalender-Icon bleibt dadurch erhalten) |
+
+### Startseite — `pages.home`
+
+| Key | Text (DE) |
+|---|---|
+| `heroHeadingPre` / `Highlight` / `Post` | „Geschichten, die **Fernweh** wecken." |
+| `heroText` | Ich bin Janine und liebe es nicht nur zu reisen, sondern auch darüber zu schreiben. Hier erzähle ich, wie meine Reisen wirklich waren: von der ersten Welle in Portugal bis zu den Mantas vor Nusa Penida. |
+| `heroPrimaryCta` | Schreib mir |
+| `latestEyebrow` / `latestTitle` / `latestLink` | Aus dem Blog · Zuletzt erschienen · Alle Beiträge |
+| `ctaTitle` | Lust auf mehr Reisegeschichten? |
+| `ctaText` | Du hast eine Frage zu einer meiner Reisen, einen Tipp für mein nächstes Ziel oder willst einfach Hallo sagen? Ich freue mich über jede Nachricht. |
+| `ctaButton` | Schreib mir |
+
+### Header & Footer
+
+| Key | Text (DE) |
+|---|---|
+| `pages.header.cta` | Kontakt |
+| `pages.footer.tagline` | Reisegeschichten aus 17 Ländern: Surfen, Tauchen und alles dazwischen. |
+
+### Blog — `pages.blog` · `pages.blogPost`
+
+Der Kooperations-Block passt inhaltlich weiterhin zu einem Reiseblog und wurde
+im Wortlaut wiederhergestellt: „Zusammenarbeit" · „Du möchtest mit mir
+zusammenarbeiten?" · der Absatz über Produkte, Hotels und Reiseerlebnisse ·
+„Schreib mir". `blogPost.projectCta` lautet jetzt „Schreib mir →".
+
+### Kontakt & Über mich
+
+| Key | Text (DE) |
+|---|---|
+| `pages.kontakt.heroTitle` | Sag Hallo. |
+| `pages.kontakt.heroText` | Du hast eine Frage zu einer meiner Reisen, einen Tipp für mein nächstes Ziel oder möchtest über eine Zusammenarbeit sprechen? Dann schreib mir einfach kurz, worum es geht. Ich melde mich so schnell wie möglich persönlich bei dir zurück. |
+| `pages.ueberMich.blogNote` | Meine Reisegeschichten von Portugal bis Indonesien findest du in meinem [Blog]. |
+| `pages.ueberMich.ctaButton` | Schreib mir |
+
+### Code
+
+| Ort | Text |
+|---|---|
+| [src/app/page.tsx:26](src/app/page.tsx#L26) — `alt` des Header-Bilds | Taucherin im tiefblauen Wasser, über ihr eine Spur aus Luftblasen |
+| [src/components/contact-form.tsx:18](src/components/contact-form.tsx#L18) — Betreff der Mail | Nachricht über den Blog von … |
+| [src/components/contact-form.tsx:69](src/components/contact-form.tsx#L69) — Placeholder im Nachrichtenfeld | Erzähl mir kurz, worum es geht … |
+
+---
+
+## Zusätzlich überarbeitet
+
+Diese Texte waren nicht als Platzhalter markiert, warben aber weiter für das
+Copywriting-Angebot. Sie wurden auf den Reiseblog umgeschrieben:
+
+- `pages.ueberMich.valuesEyebrow` / `valuesTitle` / `values` — statt „Warum ich?
+  Was du von mir bekommst" mit SEO- und Agenturleistungen jetzt „Was mich
+  antreibt · Worauf du dich hier freuen kannst": ehrliche Reiseberichte, Action
+  statt Liegestuhl, Tipps zum Nachreisen, Blick hinter die Kulissen.
+- `pages.kontakt.callTitle` / `callValue` — statt „Erstgespräch · Kostenlos &
+  unverbindlich" jetzt „Zusammenarbeit · Kooperationen & Presseanfragen".
+- `pages.ueberMich.metaDescription`, `pages.kontakt.metaDescription` und
+  `pages.blog.metaDescription` — ohne Copywriting-Bezug.
+
+## Noch offen zur Entscheidung
+
+Der Hero-Button auf der Startseite und der Button unter „Über mich" verlinken
+weiterhin auf `/kontakt` und heißen deshalb „Schreib mir". Für einen Blog wäre
+`/blog` mit „Beiträge lesen" naheliegender — dafür müssten die `href`s in
+[src/app/page.tsx](src/app/page.tsx) und
+[src/app/ueber-mich/page.tsx](src/app/ueber-mich/page.tsx) geändert werden.

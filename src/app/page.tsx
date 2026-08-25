@@ -19,13 +19,11 @@ export default async function Home() {
     <>
       {/* Großer Header über der Startseite */}
       <section className="relative isolate flex min-h-[88vh] flex-col justify-center overflow-hidden">
-        {/* PLATZHALTER-Header-Bild: Quelle in src/lib/site.ts (site.heroImage).
-            Später durch ein echtes, aussagekräftiges Bild ersetzen und das
-            `unoptimized`-Flag entfernen. */}
+        {/* Header-Bild: Quelle in src/lib/site.ts (site.heroImage). */}
         <div className="absolute inset-0 -z-10">
           <Image
             src={site.heroImage}
-            alt="«Alt-Text für das Header-Bild, z. B. Blick über grüne Reisterrassen»"
+            alt="Taucherin im tiefblauen Wasser, über ihr eine Spur aus Luftblasen"
             fill
             priority
             unoptimized

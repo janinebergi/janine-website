@@ -15,7 +15,7 @@ export function ContactForm() {
   function handleSubmit(e: FormEvent) {
     e.preventDefault();
     const subject = encodeURIComponent(
-      `«Betreff der Kontakt-Mail, z. B. Nachricht über den Blog» von ${name || "Website"}`,
+      `Nachricht über den Blog von ${name || "Website"}`,
     );
     const body = encodeURIComponent(
       `Name: ${name}\nE-Mail: ${email}\n\n${message}`,
@@ -66,7 +66,7 @@ export function ContactForm() {
           value={message}
           onChange={(e) => setMessage(e.target.value)}
           className={`${field} resize-none`}
-          placeholder="«Platzhalter im Nachrichtenfeld, z. B. Erzähl mir kurz, worum es geht …»"
+          placeholder="Erzähl mir kurz, worum es geht …"
         />
       </div>
       <button

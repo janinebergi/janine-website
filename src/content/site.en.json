@@ -2,9 +2,9 @@
   "site": {
     "name": "Janine",
     "fullName": "Janine Bergmann",
-    "role": "«Role: what you want to call yourself here, e.g. travel blogger»",
-    "tagline": "«Tagline: one short sentence about the blog, shown next to the role in the hero»",
-    "description": "«Description of the blog in 1–2 sentences, shown in Google results and social media previews»",
+    "role": "Travel blogger",
+    "tagline": "Always looking for the next adventure.",
+    "description": "Janine Bergmann's travel blog: honest travel stories from 17 countries, from a surf camp in Portugal and a road trip through Florida to a diving licence in the Red Sea.",
     "email": "hallo@janinebergmann.de",
     "url": "https://janinebergmann.de",
     "heroImage": "/assets/website/allgemein/header.avif",
@@ -38,26 +38,26 @@
     },
     {
       "value": "8",
-      "label": "«Label for the second number, e.g. years on the road»"
+      "label": "Years in tourism"
     }
   ],
   "pages": {
     "home": {
-      "heroHeadingPre": "«Heading part 1, ends with a space, e.g. Stories that spark »",
-      "heroHeadingHighlight": "«highlighted word, e.g. wanderlust»",
-      "heroHeadingPost": "«Heading part 3, e.g. a closing full stop»",
-      "heroText": "«Intro text below the heading: who you are and what the blog is about, 1–2 sentences»",
-      "heroPrimaryCta": "«Hero button text, links to /kontakt, e.g. Get in touch»",
-      "latestEyebrow": "«Eyebrow above the latest posts, e.g. From the blog»",
-      "latestTitle": "«Heading above the latest posts, e.g. Latest posts»",
-      "latestLink": "«Link text to the archive, e.g. All posts»",
-      "ctaTitle": "«Heading of the CTA block at the bottom of the page, e.g. Want more travel stories?»",
-      "ctaText": "«Text in the CTA block, 1–2 sentences: why someone should get in touch»",
-      "ctaButton": "«CTA block button text, links to /kontakt, e.g. Get in touch»"
+      "heroHeadingPre": "Stories that spark ",
+      "heroHeadingHighlight": "wanderlust",
+      "heroHeadingPost": ".",
+      "heroText": "I'm Janine, and I don't just love to travel, I love writing about it too. Here I tell you what my trips were really like: from my first wave in Portugal to the mantas off Nusa Penida.",
+      "heroPrimaryCta": "Get in touch",
+      "latestEyebrow": "From the blog",
+      "latestTitle": "Latest posts",
+      "latestLink": "All posts",
+      "ctaTitle": "Fancy more travel stories?",
+      "ctaText": "Got a question about one of my trips, a tip for my next destination or do you just want to say hello? I'm glad about every message.",
+      "ctaButton": "Get in touch"
     },
     "ueberMich": {
       "metaTitle": "About me",
-      "metaDescription": "Get to know Janine, a copywriter with a passion for clear, effective language.",
+      "metaDescription": "Get to know Janine: a travel blogger from Düsseldorf, out and about between surfboard, dive tank and hiking boots.",
       "heroEyebrow": "About me",
       "heroTitle": "Who am I?",
       "heroImage": "/assets/website/allgemein/ueber-mich-2.avif",
@@ -71,8 +71,8 @@
         "I've also worked for Freizeitpark Wisseler See GmbH, helping shape the imagery and copy for their new website.",
         "I live out my passion for travel, outdoor adventure and storytelling every day."
       ],
-      "blogNote": "«Sentence leading over to the blog; the linked word “Blog” follows right after, e.g. You’ll find my travel stories on my»",
-      "ctaButton": "«Button text below the copy, links to /kontakt, e.g. Get in touch»",
+      "blogNote": "You'll find my travel stories from Portugal to Indonesia on my",
+      "ctaButton": "Get in touch",
       "timelineEyebrow": "My path",
       "timelineTitle": "Career",
       "timeline": [
@@ -145,24 +145,24 @@
           }
         ]
       },
-      "valuesEyebrow": "Why me?",
-      "valuesTitle": "What you get from me",
+      "valuesEyebrow": "What drives me",
+      "valuesTitle": "What you can look forward to here",
       "values": [
         {
-          "title": "Travel expertise & storytelling",
-          "description": "Copy that stirs emotion, sparks wanderlust and tells stories."
+          "title": "Honest travel stories",
+          "description": "How it really was: with detours, let-downs and the moments that make up for everything."
         },
         {
-          "title": "SEO-optimised content",
-          "description": "Search-friendly travel copy that makes your website more visible, without forced keywords."
+          "title": "Action over sun lounger",
+          "description": "Surfing, diving, hiking: on the road I look for the experiences that stay with you."
         },
         {
-          "title": "Tailor-made solutions",
-          "description": "Bespoke copy for your business, from the website to the blog to the newsletter."
+          "title": "Tips you can travel by",
+          "description": "Routes, costs and answers to the most common questions for every trip."
         },
         {
-          "title": "Reliability & brand voice",
-          "description": "On-time delivery, clear language and a consistent presence across every channel."
+          "title": "A look behind the scenes",
+          "description": "Training, studies and a job in tourism shape the way I look at destinations."
         }
       ],
       "blogTeaser": {
@@ -173,23 +173,23 @@
     },
     "kontakt": {
       "metaTitle": "Contact",
-      "metaDescription": "Get in touch with Janine about your next copywriting project. A reply as soon as possible.",
+      "metaDescription": "Get in touch with Janine: questions about her trips, tips for her next destination or enquiries about working together. A reply as soon as possible.",
       "heroEyebrow": "Contact",
-      "heroTitle": "«Contact page heading, e.g. Say hello.»",
+      "heroTitle": "Say hello.",
       "heroImage": "/assets/website/allgemein/ueber-mich-4.avif",
       "heroImageAlt": "Sunset over the sea with palm trees",
-      "heroText": "«Text on the contact page: what people can write to you about and how quickly you reply»",
+      "heroText": "Got a question about one of my trips, a tip for my next destination or would you like to talk about working together? Just drop me a line about what it's about. I'll get back to you personally as soon as I can.",
       "emailTitle": "Email",
       "responseTitle": "Response time",
       "responseValue": "As soon as possible",
-      "callTitle": "Initial call",
-      "callValue": "Free & no obligation",
+      "callTitle": "Collaboration",
+      "callValue": "Partnerships & press enquiries",
       "blogEyebrow": "Blog",
       "blogTitle": "Not ready yet? Have a read.",
       "allPostsLabel": "All posts"
     },
     "header": {
-      "cta": "«Header button text, links to /kontakt, e.g. Contact»",
+      "cta": "Contact",
       "menuAriaLabel": "Open menu",
       "searchAriaLabelOpen": "Open search",
       "searchAriaLabelClose": "Close search",
@@ -200,7 +200,7 @@
     },
     "blog": {
       "metaTitle": "Blog",
-      "metaDescription": "Stories and tips about travel, plus thoughts on copywriting. Personally from Janine.",
+      "metaDescription": "Stories and tips about travel. Personally from Janine.",
       "heroImageAlt": "Lush green rice terraces with palm trees under a dramatic cloudy sky",
       "heroEyebrow": "Blog",
       "heroTitle": "Stories and tips about travel.",
@@ -209,10 +209,10 @@
       "featuredLabel": "Latest post",
       "readingTimeShort": "min",
       "readingTimeLong": "min read",
-      "collabEyebrow": "«Eyebrow above the block below the blog list, e.g. Collaboration»",
-      "collabTitle": "«Heading of the block below the blog list, e.g. Want to work together?»",
-      "collabText": "«Text of the block below the blog list: what people can get in touch about»",
-      "collabCta": "«Link text to the contact page, e.g. Get in touch»"
+      "collabEyebrow": "Collaboration",
+      "collabTitle": "Want to work together?",
+      "collabText": "Came across one of my posts and interested in a collaboration? Got a product, a hotel, an accommodation or a travel experience you'd like me to try out and feature here on the blog? Feel free to get in touch. I'd love to hear from you.",
+      "collabCta": "Get in touch"
     },
     "blogPost": {
       "backToBlog": "Back to blog",
@@ -224,7 +224,7 @@
       "galleryTitle": "Gallery",
       "qaTitle": "Q & A",
       "writtenBy": "Written by",
-      "projectCta": "«Link text below every post, links to /kontakt, e.g. Get in touch →»",
+      "projectCta": "Get in touch →",
       "moreTitle": "Keep reading",
       "travelBuddy": "Travel buddy",
       "routeTitle": "Our Route at a Glance"
@@ -308,7 +308,7 @@
       ]
     },
     "footer": {
-      "tagline": "«Short sentence in the footer below the name, e.g. Travel stories from around the world»",
+      "tagline": "Travel stories from 17 countries: surfing, diving and everything in between.",
       "navLabel": "Navigation",
       "contactLabel": "Contact",
       "rights": "All rights reserved.",
