@@ -30,6 +30,9 @@ export async function generateMetadata({
   const lang = await getLang();
   const post = getPostBySlug(slug, lang);
   if (!post) return {};
+  // Das Vorschaubild liefert opengraph-image.tsx in diesem Ordner – deshalb
+  // steht hier bewusst kein `images`. Twitter wird mitgesetzt, weil sonst die
+  // Karte aus dem Root-Layout (Startseite) greifen würde.
   return {
     title: post.title,
     description: post.excerpt,
@@ -38,7 +41,11 @@ export async function generateMetadata({
       description: post.excerpt,
       type: "article",
       publishedTime: post.date,
-      images: [post.coverImage],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: post.title,
+      description: post.excerpt,
     },
   };
 }
