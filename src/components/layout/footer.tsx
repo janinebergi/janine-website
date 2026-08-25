@@ -61,14 +61,6 @@ export async function Footer() {
             >
               LinkedIn
             </a>
-            <a
-              href={site.social.instagram}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-sm text-muted transition-colors hover:text-foreground"
-            >
-              Instagram
-            </a>
           </div>
         </div>
 

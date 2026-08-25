@@ -5,12 +5,11 @@
     "role": "Travel blogger",
     "tagline": "Always looking for the next adventure.",
     "description": "Janine Bergmann's travel blog: honest travel stories from 17 countries, from a surf camp in Portugal and a road trip through Florida to a diving licence in the Red Sea.",
-    "email": "hallo@janinebergmann.de",
+    "email": "bergmann.janine@gmx.net",
     "url": "https://janinebergmann.de",
     "heroImage": "/assets/website/allgemein/header.avif",
     "social": {
-      "linkedin": "https://www.linkedin.com/in/janine-bergmann/",
-      "instagram": "https://www.instagram.com/"
+      "linkedin": "https://www.linkedin.com/in/janine-bergmann/"
     }
   },
   "nav": [
@@ -173,17 +172,17 @@
     },
     "kontakt": {
       "metaTitle": "Contact",
-      "metaDescription": "Get in touch with Janine: questions about her trips, tips for her next destination or enquiries about working together. A reply as soon as possible.",
+      "metaDescription": "Get in touch with Janine: questions about her trips, tips for her next destination or a hotel, a diving course or a travel experience she should try out and feature on the blog.",
       "heroEyebrow": "Contact",
       "heroTitle": "Say hello.",
       "heroImage": "/assets/website/allgemein/ueber-mich-4.avif",
       "heroImageAlt": "Sunset over the sea with palm trees",
-      "heroText": "Got a question about one of my trips, a tip for my next destination or would you like to talk about working together? Just drop me a line about what it's about. I'll get back to you personally as soon as I can.",
+      "heroText": "Got a question about one of my trips or a tip for my next destination? Or a hotel, a diving course or another travel experience you'd like me to try out and feature here on the blog? Just drop me a line about what it's about. I'll get back to you personally as soon as I can.",
       "emailTitle": "Email",
       "responseTitle": "Response time",
       "responseValue": "As soon as possible",
-      "callTitle": "Collaboration",
-      "callValue": "Partnerships & press enquiries",
+      "callTitle": "Trying things out",
+      "callValue": "Hotels, diving courses & travel experiences",
       "blogEyebrow": "Blog",
       "blogTitle": "Not ready yet? Have a read.",
       "allPostsLabel": "All posts"
@@ -209,9 +208,9 @@
       "featuredLabel": "Latest post",
       "readingTimeShort": "min",
       "readingTimeLong": "min read",
-      "collabEyebrow": "Collaboration",
-      "collabTitle": "Want to work together?",
-      "collabText": "Came across one of my posts and interested in a collaboration? Got a product, a hotel, an accommodation or a travel experience you'd like me to try out and feature here on the blog? Feel free to get in touch. I'd love to hear from you.",
+      "collabEyebrow": "Trying things out",
+      "collabTitle": "Something I should try out?",
+      "collabText": "Got a hotel, a diving course, a place to stay or another travel experience you'd like me to try out and feature here on the blog? Feel free to get in touch. I'd love to hear from you.",
       "collabCta": "Get in touch"
     },
     "blogPost": {

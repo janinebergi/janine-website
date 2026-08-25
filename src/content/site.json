@@ -5,12 +5,11 @@
     "role": "Reisebloggerin",
     "tagline": "Immer auf der Suche nach dem nächsten Abenteuer.",
     "description": "Der Reiseblog von Janine Bergmann: ehrliche Reiseberichte aus 17 Ländern, vom Surfcamp in Portugal über den Roadtrip durch Florida bis zum Tauchschein im Roten Meer.",
-    "email": "hallo@janinebergmann.de",
+    "email": "bergmann.janine@gmx.net",
     "url": "https://janinebergmann.de",
     "heroImage": "/assets/website/allgemein/header.avif",
     "social": {
-      "linkedin": "https://www.linkedin.com/in/janine-bergmann/",
-      "instagram": "https://www.instagram.com/"
+      "linkedin": "https://www.linkedin.com/in/janine-bergmann/"
     }
   },
   "nav": [
@@ -171,17 +170,17 @@
     },
     "kontakt": {
       "metaTitle": "Kontakt",
-      "metaDescription": "Schreib Janine: Fragen zu ihren Reisen, Tipps für das nächste Ziel oder Anfragen zur Zusammenarbeit. Antwort so schnell wie möglich.",
+      "metaDescription": "Schreib Janine: Fragen zu ihren Reisen, Tipps für das nächste Ziel oder ein Hotel, ein Tauchkurs oder ein Reiseerlebnis, das sie austesten und im Blog vorstellen soll.",
       "heroEyebrow": "Kontakt",
       "heroTitle": "Sag Hallo.",
       "heroImage": "/assets/website/allgemein/ueber-mich-4.avif",
       "heroImageAlt": "Sonnenuntergang am Meer mit Palmen",
-      "heroText": "Du hast eine Frage zu einer meiner Reisen, einen Tipp für mein nächstes Ziel oder möchtest über eine Zusammenarbeit sprechen? Dann schreib mir einfach kurz, worum es geht. Ich melde mich so schnell wie möglich persönlich bei dir zurück.",
+      "heroText": "Du hast eine Frage zu einer meiner Reisen oder einen Tipp für mein nächstes Ziel? Oder du hast ein Hotel, einen Tauchkurs oder ein anderes Reiseerlebnis, das ich austesten und hier im Blog vorstellen soll? Dann schreib mir einfach kurz, worum es geht. Ich melde mich so schnell wie möglich persönlich bei dir zurück.",
       "emailTitle": "E-Mail",
       "responseTitle": "Antwortzeit",
       "responseValue": "So schnell wie möglich",
-      "callTitle": "Zusammenarbeit",
-      "callValue": "Kooperationen & Presseanfragen",
+      "callTitle": "Austesten",
+      "callValue": "Hotels, Tauchkurse & Reiseerlebnisse",
       "blogEyebrow": "Blog",
       "blogTitle": "Noch nicht bereit? Lies dich ein.",
       "allPostsLabel": "Alle Beiträge"
@@ -207,9 +206,9 @@
       "featuredLabel": "Neuester Beitrag",
       "readingTimeShort": "Min.",
       "readingTimeLong": "Min. Lesezeit",
-      "collabEyebrow": "Zusammenarbeit",
-      "collabTitle": "Du möchtest mit mir zusammenarbeiten?",
-      "collabText": "Du bist auf einen meiner Beiträge gestoßen und interessierst dich für eine Zusammenarbeit? Du hast ein Produkt, ein Hotel, eine Unterkunft oder ein Reiseerlebnis, das ich austesten und hier im Blog vorstellen soll? Dann melde dich gerne bei mir. Ich freue mich auf deine Nachricht.",
+      "collabEyebrow": "Austesten",
+      "collabTitle": "Etwas, das ich ausprobieren soll?",
+      "collabText": "Du hast ein Hotel, einen Tauchkurs, eine Unterkunft oder ein anderes Reiseerlebnis, das ich austesten und hier im Blog vorstellen soll? Dann melde dich gerne bei mir. Ich freue mich auf deine Nachricht.",
       "collabCta": "Schreib mir"
     },
     "blogPost": {

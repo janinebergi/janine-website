@@ -61,17 +61,17 @@ der „Über mich"-Biografie abgeleitet.
 
 ### Blog — `pages.blog` · `pages.blogPost`
 
-Der Kooperations-Block passt inhaltlich weiterhin zu einem Reiseblog und wurde
-im Wortlaut wiederhergestellt: „Zusammenarbeit" · „Du möchtest mit mir
-zusammenarbeiten?" · der Absatz über Produkte, Hotels und Reiseerlebnisse ·
-„Schreib mir". `blogPost.projectCta` lautet jetzt „Schreib mir →".
+Der Block unter den Beiträgen ist bewusst nicht kommerziell formuliert:
+„Austesten" · „Etwas, das ich ausprobieren soll?" · der Absatz über Hotels,
+Tauchkurse und Reiseerlebnisse · „Schreib mir". `blogPost.projectCta` lautet
+jetzt „Schreib mir →".
 
 ### Kontakt & Über mich
 
 | Key | Text (DE) |
 |---|---|
 | `pages.kontakt.heroTitle` | Sag Hallo. |
-| `pages.kontakt.heroText` | Du hast eine Frage zu einer meiner Reisen, einen Tipp für mein nächstes Ziel oder möchtest über eine Zusammenarbeit sprechen? Dann schreib mir einfach kurz, worum es geht. Ich melde mich so schnell wie möglich persönlich bei dir zurück. |
+| `pages.kontakt.heroText` | Du hast eine Frage zu einer meiner Reisen oder einen Tipp für mein nächstes Ziel? Oder du hast ein Hotel, einen Tauchkurs oder ein anderes Reiseerlebnis, das ich austesten und hier im Blog vorstellen soll? Dann schreib mir einfach kurz, worum es geht. Ich melde mich so schnell wie möglich persönlich bei dir zurück. |
 | `pages.ueberMich.blogNote` | Meine Reisegeschichten von Portugal bis Indonesien findest du in meinem [Blog]. |
 | `pages.ueberMich.ctaButton` | Schreib mir |
 
@@ -95,7 +95,7 @@ Copywriting-Angebot. Sie wurden auf den Reiseblog umgeschrieben:
   antreibt · Worauf du dich hier freuen kannst": ehrliche Reiseberichte, Action
   statt Liegestuhl, Tipps zum Nachreisen, Blick hinter die Kulissen.
 - `pages.kontakt.callTitle` / `callValue` — statt „Erstgespräch · Kostenlos &
-  unverbindlich" jetzt „Zusammenarbeit · Kooperationen & Presseanfragen".
+  unverbindlich" jetzt „Austesten · Hotels, Tauchkurse & Reiseerlebnisse".
 - `pages.ueberMich.metaDescription`, `pages.kontakt.metaDescription` und
   `pages.blog.metaDescription` — ohne Copywriting-Bezug.
 
