@@ -36,7 +36,7 @@ der „Über mich"-Biografie abgeleitet.
 | Key | Text (DE) |
 |---|---|
 | `site.role` | Reisebloggerin |
-| `site.tagline` | Immer auf der Suche nach dem nächsten Abenteuer. |
+| `site.tagline` | Berichte aus erster Hand. |
 | `site.description` | Der Reiseblog von Janine Bergmann: ehrliche Reiseberichte aus 17 Ländern, vom Surfcamp in Portugal über den Roadtrip durch Florida bis zum Tauchschein im Roten Meer. |
 | `stats[1].label` | Jahre im Tourismus (unverändert — die Zahl 8 deckt sich mit der Timeline ab 2018; das Kalender-Icon bleibt dadurch erhalten) |
 
@@ -57,7 +57,7 @@ der „Über mich"-Biografie abgeleitet.
 | Key | Text (DE) |
 |---|---|
 | `pages.header.cta` | Kontakt |
-| `pages.footer.tagline` | Reisegeschichten aus 17 Ländern: Surfen, Tauchen und alles dazwischen. |
+| `pages.footer.tagline` | Erfahrungen aus 17 Ländern, vom Surfcamp bis zum Tauchgang. |
 
 ### Blog — `pages.blog` · `pages.blogPost`
 
@@ -92,8 +92,8 @@ Copywriting-Angebot. Sie wurden auf den Reiseblog umgeschrieben:
 
 - `pages.ueberMich.valuesEyebrow` / `valuesTitle` / `values` — statt „Warum ich?
   Was du von mir bekommst" mit SEO- und Agenturleistungen jetzt „Was mich
-  antreibt · Worauf du dich hier freuen kannst": ehrliche Reiseberichte, Action
-  statt Liegestuhl, Tipps zum Nachreisen, Blick hinter die Kulissen.
+  antreibt · Worauf du dich hier freuen kannst": ehrliche Reiseberichte, immer in
+  Bewegung, Tipps zum Nachreisen, Reisen ist mein Beruf.
 - `pages.kontakt.callTitle` / `callValue` — statt „Erstgespräch · Kostenlos &
   unverbindlich" jetzt „Austesten · Hotels, Tauchkurse & Reiseerlebnisse".
 - `pages.ueberMich.metaDescription`, `pages.kontakt.metaDescription` und

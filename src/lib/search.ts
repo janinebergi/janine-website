@@ -1,6 +1,15 @@
 import { getPostSlugs, getPostBySlug } from "@/lib/blog";
 import { getSiteContent } from "@/lib/site";
 import type { Lang } from "@/lib/i18n-constants";
+import {
+  aboutPath,
+  blogPath,
+  contactPath,
+  homePath,
+  imprintPath,
+  postPath,
+  privacyPath,
+} from "@/lib/routes";
 
 export type SearchItem = {
   title: string;
@@ -56,42 +65,42 @@ export function getSearchIndex(lang: Lang): SearchItem[] {
     {
       title: `${site.name} — ${site.role}`,
       description: site.description,
-      url: "/",
+      url: homePath(lang),
       type: "page",
       content: pageContentText(pages.home),
     },
     {
       title: shortTitle(pages.ueberMich.metaTitle),
       description: pages.ueberMich.metaDescription,
-      url: "/ueber-mich",
+      url: aboutPath(lang),
       type: "page",
       content: pageContentText(pages.ueberMich),
     },
     {
       title: shortTitle(pages.blog.metaTitle),
       description: pages.blog.metaDescription,
-      url: "/blog",
+      url: blogPath(lang),
       type: "page",
       content: pageContentText(pages.blog),
     },
     {
       title: shortTitle(pages.kontakt.metaTitle),
       description: pages.kontakt.metaDescription,
-      url: "/kontakt",
+      url: contactPath(lang),
       type: "page",
       content: pageContentText(pages.kontakt),
     },
     {
       title: shortTitle(pages.impressum.metaTitle),
       description: pages.impressum.metaDescription,
-      url: "/impressum",
+      url: imprintPath(lang),
       type: "page",
       content: pageContentText(pages.impressum),
     },
     {
       title: shortTitle(pages.datenschutz.metaTitle),
       description: pages.datenschutz.metaDescription,
-      url: "/datenschutz",
+      url: privacyPath(lang),
       type: "page",
       content: pageContentText(pages.datenschutz),
     },
@@ -103,7 +112,7 @@ export function getSearchIndex(lang: Lang): SearchItem[] {
     .map((post) => ({
       title: post.title,
       description: post.excerpt,
-      url: `/blog/${post.slug}`,
+      url: postPath(lang, post.slug),
       type: "blog" as const,
       content: [
         post.country,

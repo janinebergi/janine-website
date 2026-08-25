@@ -1,10 +1,25 @@
 import Image from "next/image";
 import Link from "next/link";
 import { getSiteContent } from "@/lib/site";
-import { getLang } from "@/lib/i18n";
+import type { Lang } from "@/lib/i18n-constants";
+import {
+  aboutPath,
+  blogPath,
+  contactPath,
+  feedPath,
+  homePath,
+  imprintPath,
+  privacyPath,
+} from "@/lib/routes";
 
-export async function Footer() {
-  const lang = await getLang();
+const NAV_PATH: Record<string, (lang: Lang) => string> = {
+  home: homePath,
+  about: aboutPath,
+  blog: blogPath,
+  contact: contactPath,
+};
+
+export function Footer({ lang }: { lang: Lang }) {
   const { nav, pages, site } = getSiteContent(lang);
   const t = pages.footer;
 
@@ -13,7 +28,7 @@ export async function Footer() {
       <div className="mx-auto w-full max-w-6xl px-6 py-14 lg:px-8">
         <div className="flex flex-col gap-10 md:flex-row md:items-start md:justify-between">
           <div className="max-w-sm">
-            <Link href="/" className="flex items-center gap-2.5 text-base font-semibold">
+            <Link href={homePath(lang)} className="flex items-center gap-2.5 text-base font-semibold">
               <Image
                 src="/assets/logo.avif"
                 alt={site.name}
@@ -34,8 +49,8 @@ export async function Footer() {
             </span>
             {nav.map((item) => (
               <Link
-                key={item.href}
-                href={item.href}
+                key={item.key}
+                href={NAV_PATH[item.key](lang)}
                 className="text-sm text-muted transition-colors hover:text-foreground"
               >
                 {item.label}
@@ -61,6 +76,12 @@ export async function Footer() {
             >
               LinkedIn
             </a>
+            <a
+              href={feedPath(lang)}
+              className="text-sm text-muted transition-colors hover:text-foreground"
+            >
+              RSS
+            </a>
           </div>
         </div>
 
@@ -69,10 +90,10 @@ export async function Footer() {
             © {new Date().getFullYear()} {site.name}. {t.rights}
           </span>
           <div className="flex gap-4">
-            <Link href="/impressum" className="hover:text-foreground">
+            <Link href={imprintPath(lang)} className="hover:text-foreground">
               {t.impressum}
             </Link>
-            <Link href="/datenschutz" className="hover:text-foreground">
+            <Link href={privacyPath(lang)} className="hover:text-foreground">
               {t.datenschutz}
             </Link>
           </div>

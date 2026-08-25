@@ -3,7 +3,7 @@
     "name": "Janine",
     "fullName": "Janine Bergmann",
     "role": "Reisebloggerin",
-    "tagline": "Immer auf der Suche nach dem nächsten Abenteuer.",
+    "tagline": "Berichte aus erster Hand.",
     "description": "Der Reiseblog von Janine Bergmann: ehrliche Reiseberichte aus 17 Ländern, vom Surfcamp in Portugal über den Roadtrip durch Florida bis zum Tauchschein im Roten Meer.",
     "email": "bergmann.janine@gmx.net",
     "url": "https://janinebergmann.de",
@@ -14,19 +14,19 @@
   },
   "nav": [
     {
-      "href": "/",
+      "key": "home",
       "label": "Start"
     },
     {
-      "href": "/ueber-mich",
+      "key": "about",
       "label": "Über mich"
     },
     {
-      "href": "/blog",
+      "key": "blog",
       "label": "Blog"
     },
     {
-      "href": "/kontakt",
+      "key": "contact",
       "label": "Kontakt"
     }
   ],
@@ -42,6 +42,8 @@
   ],
   "pages": {
     "home": {
+      "metaTitle": "Reiseblog von Janine Bergmann — Reiseberichte, Tauchen & Surfen",
+      "metaDescription": "Der Reiseblog von Janine Bergmann: ehrliche Reiseberichte aus 17 Ländern, vom Surfcamp in Portugal über den Roadtrip durch Florida bis zum Tauchschein im Roten Meer.",
       "heroHeadingPre": "Geschichten, die ",
       "heroHeadingHighlight": "Fernweh",
       "heroHeadingPost": " wecken.",
@@ -66,7 +68,7 @@
         "Wenn ich gerade nicht auf der nächsten Welle unterwegs bin oder unter Wasser nach Mantas suche, wohne ich in Düsseldorf am schönen Rhein. Auch hier suche ich abseits der Arbeit immer nach Action.",
         "Reisen, Sport und Abenteuer prägen meinen Alltag und meine Geschichten. Egal ob weit weg oder direkt vor der Haustür: Ich liebe es, jede Gelegenheit zu nutzen, um Neues zu erleben und authentische Reiseerfahrungen zu sammeln.",
         "Da mich neben meinen privaten Reisen auch der Tourismus beruflich begeistert, habe ich nach meiner Ausbildung als Kauffrau für Tourismus und Freizeit zusätzlich meinen staatlich geprüften Betriebswirt in der Fachrichtung Tourismus abgeschlossen. Schon während dieser Zeit habe ich in meinem Ausbildungsbetrieb Texte für die Website sowie Social Media geschrieben.",
-        "Nach einem kurzen Abstecher in eine Medienagentur führte mich mein Weg zum Reiseveranstalter alltours. Im Vertriebsmarketing konnte ich meine Schreibkenntnisse weiter vertiefen und verfasste zahlreiche Newsletter sowie Magazine, von Buchungshilfen bis hin zu Magazinen, die Reisebüros über Neuigkeiten informierten. Immer mit dem Ziel, Reisen und Reiseziele ansprechend zu präsentieren."
+        "Nach einem kurzen Abstecher in eine Medienagentur führte mich mein Weg zum Reiseveranstalter alltours. Im Vertriebsmarketing konnte ich meine Schreibkenntnisse weiter vertiefen und verfasste zahlreiche Texte, von Newslettern und Buchungshilfen bis hin zu Magazinen, die Reisebüros über Neuigkeiten informierten. Immer mit dem Ziel, Reisen und Reiseziele ansprechend zu präsentieren."
       ],
       "blogNote": "Meine Reisegeschichten von Portugal bis Indonesien findest du in meinem",
       "ctaButton": "Schreib mir",
@@ -136,7 +138,7 @@
           "description": "Wie es wirklich war: mit Umwegen, Reinfällen und den Momenten, die alles wettmachen."
         },
         {
-          "title": "Action statt Liegestuhl",
+          "title": "Immer in Bewegung",
           "description": "Surfen, Tauchen, Wandern: Ich suche unterwegs die Erlebnisse, die in Erinnerung bleiben."
         },
         {
@@ -144,7 +146,7 @@
           "description": "Routen, Kosten und Antworten auf die häufigsten Fragen zu jeder Reise."
         },
         {
-          "title": "Der Blick hinter die Kulissen",
+          "title": "Reisen ist mein Beruf",
           "description": "Ausbildung, Studium und Job im Tourismus prägen, wie ich auf Reiseziele schaue."
         }
       ],
@@ -179,7 +181,8 @@
       "searchPlaceholder": "Seiten & Blog durchsuchen …",
       "searchNoResults": "Keine Ergebnisse gefunden.",
       "searchTypeBlog": "Blog",
-      "searchTypePage": "Seite"
+      "searchTypePage": "Seite",
+      "languageLabel": "Auf Englisch lesen"
     },
     "blog": {
       "metaTitle": "Blog",
@@ -291,12 +294,37 @@
       ]
     },
     "footer": {
-      "tagline": "Reisegeschichten aus 17 Ländern: Surfen, Tauchen und alles dazwischen.",
+      "tagline": "Erfahrungen aus 17 Ländern, vom Surfcamp bis zum Tauchgang.",
       "navLabel": "Navigation",
       "contactLabel": "Kontakt",
       "rights": "Alle Rechte vorbehalten.",
       "impressum": "Impressum",
       "datenschutz": "Datenschutz"
+    },
+    "notFound": {
+      "metaTitle": "Seite nicht gefunden",
+      "metaDescription": "Diese Seite gibt es hier nicht (mehr).",
+      "title": "Seite nicht gefunden",
+      "text": "Diese Seite existiert nicht (mehr). Vielleicht findest du, was du suchst, im Blog oder auf der Startseite.",
+      "homeCta": "Zur Startseite",
+      "blogCta": "Zum Blog"
+    },
+    "archive": {
+      "breadcrumbHome": "Start",
+      "countryEyebrow": "Reiseziel",
+      "countryIntro": "Alle Beiträge aus {name} – Reiseberichte, Tipps und Fotos von unterwegs.",
+      "countryMetaTitle": "{name}: Reiseberichte und Tipps",
+      "countryMetaDescription": "Alle Reiseberichte aus {name} von Janine Bergmann: persönliche Erlebnisse, Tipps und Fotos.",
+      "topicEyebrow": "Thema",
+      "topicIntro": "Alle Beiträge zum Thema {name}.",
+      "topicMetaTitle": "{name}: alle Beiträge",
+      "topicMetaDescription": "Alle Reiseberichte von Janine Bergmann zum Thema {name}.",
+      "postCountOne": "1 Beitrag",
+      "postCountMany": "{count} Beiträge",
+      "countriesTitle": "Nach Reiseziel",
+      "countriesText": "Alle Länder, aus denen es hier schon Beiträge gibt.",
+      "topicsTitle": "Nach Thema",
+      "topicsText": "Die Themen, die sich durch die Reisen ziehen."
     }
   }
 }

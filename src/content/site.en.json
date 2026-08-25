@@ -3,7 +3,7 @@
     "name": "Janine",
     "fullName": "Janine Bergmann",
     "role": "Travel blogger",
-    "tagline": "Always looking for the next adventure.",
+    "tagline": "First-hand reports from the road.",
     "description": "Janine Bergmann's travel blog: honest travel stories from 17 countries, from a surf camp in Portugal and a road trip through Florida to a diving licence in the Red Sea.",
     "email": "bergmann.janine@gmx.net",
     "url": "https://janinebergmann.de",
@@ -14,19 +14,19 @@
   },
   "nav": [
     {
-      "href": "/",
+      "key": "home",
       "label": "Home"
     },
     {
-      "href": "/ueber-mich",
+      "key": "about",
       "label": "About me"
     },
     {
-      "href": "/blog",
+      "key": "blog",
       "label": "Blog"
     },
     {
-      "href": "/kontakt",
+      "key": "contact",
       "label": "Contact"
     }
   ],
@@ -42,6 +42,8 @@
   ],
   "pages": {
     "home": {
+      "metaTitle": "Travel Blog by Janine Bergmann — Honest Travel Stories",
+      "metaDescription": "Janine Bergmann's travel blog: honest travel stories from 17 countries, from a surf camp in Portugal and a road trip through Florida to a diving licence in the Red Sea.",
       "heroHeadingPre": "Stories that spark ",
       "heroHeadingHighlight": "wanderlust",
       "heroHeadingPost": ".",
@@ -66,7 +68,7 @@
         "When I'm not out catching the next wave, I live in Düsseldorf on the beautiful Rhine. Even here, away from work, I'm looking for action: whether it's inline skating along the Rhine, a horseback ride through the forest, or kickboxing. I'm always on the lookout for new challenges.",
         "Travel, sport and adventure shape my everyday life and my stories. Whether far away or right on my doorstep, I love seizing every opportunity to experience something new and gather authentic travel experiences.",
         "Since tourism excites me professionally as much as my private travels do, after training as a certified travel and leisure specialist I went on to complete a state-certified business economics qualification specialising in tourism. Even during that time, I was already writing copy for the website and social media at my training company.",
-        "After a brief stint at a media agency, my path led me to the tour operator alltours. In sales marketing, I was able to deepen my writing skills further, producing numerous newsletters and magazines, from booking guides for travellers to magazines that kept travel agencies informed of the latest news. Always with the goal of presenting trips and destinations in an appealing way.",
+        "After a brief stint at a media agency, my path led me to the tour operator alltours. In sales marketing, I was able to deepen my writing skills further, producing numerous texts, from newsletters and booking guides for travellers to magazines that kept travel agencies informed of the latest news. Always with the goal of presenting trips and destinations in an appealing way.",
         "I've also worked for Freizeitpark Wisseler See GmbH, helping shape the imagery and copy for their new website.",
         "I live out my passion for travel, outdoor adventure and storytelling every day."
       ],
@@ -138,7 +140,7 @@
           "description": "How it really was: with detours, let-downs and the moments that make up for everything."
         },
         {
-          "title": "Action over sun lounger",
+          "title": "Always on the move",
           "description": "Surfing, diving, hiking: on the road I look for the experiences that stay with you."
         },
         {
@@ -146,7 +148,7 @@
           "description": "Routes, costs and answers to the most common questions for every trip."
         },
         {
-          "title": "A look behind the scenes",
+          "title": "Travel is my job",
           "description": "Training, studies and a job in tourism shape the way I look at destinations."
         }
       ],
@@ -181,7 +183,8 @@
       "searchPlaceholder": "Search pages & blog …",
       "searchNoResults": "No results found.",
       "searchTypeBlog": "Blog",
-      "searchTypePage": "Page"
+      "searchTypePage": "Page",
+      "languageLabel": "Auf Deutsch lesen"
     },
     "blog": {
       "metaTitle": "Blog",
@@ -293,12 +296,37 @@
       ]
     },
     "footer": {
-      "tagline": "Travel stories from 17 countries: surfing, diving and everything in between.",
+      "tagline": "Experiences from 17 countries, from surf camps to dive sites.",
       "navLabel": "Navigation",
       "contactLabel": "Contact",
       "rights": "All rights reserved.",
       "impressum": "Legal Notice",
       "datenschutz": "Privacy Policy"
+    },
+    "notFound": {
+      "metaTitle": "Page not found",
+      "metaDescription": "This page does not exist (any more).",
+      "title": "Page not found",
+      "text": "This page does not exist (any more). You might find what you are looking for on the blog or the home page.",
+      "homeCta": "Back to home",
+      "blogCta": "Go to the blog"
+    },
+    "archive": {
+      "breadcrumbHome": "Home",
+      "countryEyebrow": "Destination",
+      "countryIntro": "Every post from {name} – travel stories, tips and photos from the road.",
+      "countryMetaTitle": "{name}: travel stories and tips",
+      "countryMetaDescription": "All travel stories from {name} by Janine Bergmann: personal experiences, tips and photos.",
+      "topicEyebrow": "Topic",
+      "topicIntro": "Every post on {name}.",
+      "topicMetaTitle": "{name}: all posts",
+      "topicMetaDescription": "All of Janine Bergmann's travel stories on {name}.",
+      "postCountOne": "1 post",
+      "postCountMany": "{count} posts",
+      "countriesTitle": "By destination",
+      "countriesText": "Every country there are already posts from.",
+      "topicsTitle": "By topic",
+      "topicsText": "The themes running through the trips."
     }
   }
 }
