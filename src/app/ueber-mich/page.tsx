@@ -8,10 +8,6 @@ import {
   Plane,
   FerrisWheel,
   MapPin,
-  Waves,
-  Wind,
-  Trees,
-  Dumbbell,
 } from "lucide-react";
 import { Container } from "@/components/ui/container";
 import { Button } from "@/components/ui/button";
@@ -30,9 +26,8 @@ export const metadata: Metadata = {
   description: tDe.metaDescription,
 };
 
-// Icons für Werdegang & Hobbys – Reihenfolge entspricht t.timeline / t.hobbies.
+// Icons für den Werdegang – Reihenfolge entspricht t.timeline.
 const timelineIcons = [FerrisWheel, Landmark, GraduationCap, Newspaper, Plane, MapPin];
-const hobbyIcons = [Waves, Wind, Trees, Dumbbell];
 
 export default async function UeberMichPage() {
   const lang = await getLang();
@@ -41,7 +36,6 @@ export default async function UeberMichPage() {
   const values = t.values;
   const blogTeaser = t.blogTeaser;
   const timeline = t.timeline.map((step, i) => ({ ...step, icon: timelineIcons[i] }));
-  const hobbies = t.hobbies.map((h, i) => ({ ...h, icon: hobbyIcons[i] }));
   const recentPosts = getAllPosts(lang).slice(0, 3);
 
   return (
@@ -111,7 +105,7 @@ export default async function UeberMichPage() {
       </section>
 
       {/* Grafische Darstellung des Einleitungstexts: Werdegang als Timeline
-          und Hobbys als Icon-Reihe – im selben Icon-Stil wie die Fakten oben. */}
+          im selben Icon-Stil wie die Fakten oben. */}
       <section className="pb-20">
         <Container>
           <SectionHeading
@@ -136,18 +130,6 @@ export default async function UeberMichPage() {
                 </li>
               ))}
             </ol>
-          </div>
-
-          <div className="mx-auto mt-16 flex max-w-2xl flex-wrap justify-center gap-3">
-            {hobbies.map((h) => (
-              <span
-                key={h.label}
-                className="inline-flex items-center gap-2 rounded-full border border-border bg-surface/60 px-4 py-2 text-sm text-foreground transition-colors hover:bg-surface-2/60"
-              >
-                <h.icon className="h-4 w-4 text-accent-hover" />
-                {h.label}
-              </span>
-            ))}
           </div>
         </Container>
       </section>

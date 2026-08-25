@@ -100,20 +100,6 @@
           "description": "since Jul 2025"
         }
       ],
-      "hobbies": [
-        {
-          "label": "Surfing"
-        },
-        {
-          "label": "Inline skating along the Rhine"
-        },
-        {
-          "label": "Horseback rides through the forest"
-        },
-        {
-          "label": "Kickboxing"
-        }
-      ],
       "gallery": {
         "eyebrow": "On the road",
         "title": "Moments from my travels",
@@ -174,10 +160,10 @@
       "metaTitle": "Contact",
       "metaDescription": "Get in touch with Janine: questions about her trips, tips for her next destination or a hotel, a diving course or a travel experience she should try out and feature on the blog.",
       "heroEyebrow": "Contact",
-      "heroTitle": "Say hello.",
+      "heroTitle": "Let's start a conversation.",
       "heroImage": "/assets/website/allgemein/ueber-mich-4.avif",
       "heroImageAlt": "Sunset over the sea with palm trees",
-      "heroText": "Got a question about one of my trips or a tip for my next destination? Or a hotel, a diving course or another travel experience you'd like me to try out and feature here on the blog? Just drop me a line about what it's about. I'll get back to you personally as soon as I can.",
+      "heroText": "Got a question about one of my trips or a tip for my next destination? Or do you run a hotel, teach diving courses or have another travel experience that more people should know about? Then let me try it out: I test honestly and take my readers along for the ride here on the blog. Just drop me a line about what it's about. I'll get back to you personally as soon as I can.",
       "emailTitle": "Email",
       "responseTitle": "Response time",
       "responseValue": "As soon as possible",

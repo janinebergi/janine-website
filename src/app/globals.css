@@ -86,6 +86,21 @@
   );
 }
 
+/* Weicher Ausklang unter den Seiten-Headern: der untere Bildbereich geht
+   über mehrere Stufen vollständig in die Seitenfarbe über, damit zwischen
+   Banner und Inhalt keine sichtbare Kante entsteht. */
+.page-header-fade {
+  background-image: linear-gradient(
+    to top,
+    var(--color-bg) 0%,
+    var(--color-bg) 22%,
+    color-mix(in oklab, var(--color-bg) 82%, transparent) 42%,
+    color-mix(in oklab, var(--color-bg) 55%, transparent) 62%,
+    color-mix(in oklab, var(--color-bg) 28%, transparent) 82%,
+    color-mix(in oklab, var(--color-bg) 10%, transparent) 100%
+  );
+}
+
 .text-gradient {
   background: linear-gradient(
     120deg,
