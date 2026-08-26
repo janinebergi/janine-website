@@ -7,7 +7,9 @@ export async function PrivacyPage({ lang }: { lang: Lang }) {
   const { site, pages } = getSiteContent(lang);
   const t = pages.datenschutz;
   const controller = {
-    name: site.name,
+    // Rechtstexte brauchen den vollstaendigen Namen, nicht die Kurzform
+    // aus dem Seitenkopf.
+    name: site.fullName,
     street: t.controller.street,
     city: t.controller.city,
     country: t.controller.country,

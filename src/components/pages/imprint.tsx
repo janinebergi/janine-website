@@ -7,7 +7,9 @@ export async function ImprintPage({ lang }: { lang: Lang }) {
   const { site, pages } = getSiteContent(lang);
   const t = pages.impressum;
   const contact = {
-    name: site.name,
+    // Rechtstexte brauchen den vollstaendigen Namen, nicht die Kurzform
+    // aus dem Seitenkopf.
+    name: site.fullName,
     street: t.contact.street,
     city: t.contact.city,
     country: t.contact.country,
