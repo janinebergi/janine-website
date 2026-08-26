@@ -13,7 +13,6 @@ export async function PrivacyPage({ lang }: { lang: Lang }) {
     street: t.controller.street,
     city: t.controller.city,
     country: t.controller.country,
-    phone: t.controller.phone,
     email: site.email,
   };
 
@@ -45,9 +44,6 @@ export async function PrivacyPage({ lang }: { lang: Lang }) {
                     <br />
                     {controller.country}
                     <br />
-                    <br />
-                    {t.phoneLabel}{" "}
-                    <span className="text-foreground">{controller.phone}</span>
                     <br />
                     {t.emailLabel}{" "}
                     <a

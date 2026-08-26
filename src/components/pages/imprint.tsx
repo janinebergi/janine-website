@@ -13,7 +13,6 @@ export async function ImprintPage({ lang }: { lang: Lang }) {
     street: t.contact.street,
     city: t.contact.city,
     country: t.contact.country,
-    phone: t.contact.phone,
     email: site.email,
   };
 
@@ -46,10 +45,6 @@ export async function ImprintPage({ lang }: { lang: Lang }) {
             <section>
               <h2 className="text-lg font-semibold text-foreground">{t.contactHeading}</h2>
               <div className="mt-3 leading-relaxed">
-                <div>
-                  {t.phoneLabel}{" "}
-                  <span className="text-foreground">{contact.phone}</span>
-                </div>
                 <div>
                   {t.emailLabel}{" "}
                   <a

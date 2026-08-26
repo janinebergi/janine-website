@@ -219,12 +219,10 @@
       "contact": {
         "street": "⟨Straße und Hausnummer⟩",
         "city": "⟨PLZ Ort⟩",
-        "country": "Deutschland",
-        "phone": "⟨Telefonnummer⟩"
+        "country": "Deutschland"
       },
       "addressHeading": "Angaben gemäß § 5 DDG",
       "contactHeading": "Kontakt",
-      "phoneLabel": "Telefon:",
       "emailLabel": "E-Mail:",
       "editorialHeading": "Redaktionell verantwortlich",
       "disputeHeading": "Verbraucherstreitbeilegung / Universalschlichtungsstelle",
@@ -245,10 +243,8 @@
       "controller": {
         "street": "⟨Straße und Hausnummer⟩",
         "city": "⟨PLZ Ort⟩",
-        "country": "Deutschland",
-        "phone": "⟨Telefonnummer⟩"
+        "country": "Deutschland"
       },
-      "phoneLabel": "Telefon:",
       "emailLabel": "E-Mail:",
       "sections": [
         {
@@ -265,7 +261,7 @@
         },
         {
           "heading": "4. Kontaktaufnahme",
-          "text": "Das Kontaktformular auf dieser Website speichert deine Eingaben nicht auf einem Server. Beim Absenden öffnet sich lediglich dein eigenes E-Mail-Programm mit den von dir eingegebenen Angaben (Name, E-Mail-Adresse und Nachricht), sodass du die Nachricht selbst versendest. Nimmst du per E-Mail oder Telefon Kontakt mit mir auf, verarbeite ich die von dir übermittelten Angaben zur Bearbeitung deiner Anfrage. Rechtsgrundlage ist Art. 6 Abs. 1 lit. b DSGVO (Anbahnung bzw. Erfüllung eines Vertrags) bzw. Art. 6 Abs. 1 lit. f DSGVO (berechtigtes Interesse an der Beantwortung deiner Anfrage). Ich lösche diese Daten, sobald sie für den Zweck ihrer Erhebung nicht mehr erforderlich sind und keine gesetzlichen Aufbewahrungspflichten entgegenstehen."
+          "text": "Das Kontaktformular auf dieser Website speichert deine Eingaben nicht auf einem Server. Beim Absenden öffnet sich lediglich dein eigenes E-Mail-Programm mit den von dir eingegebenen Angaben (Name, E-Mail-Adresse und Nachricht), sodass du die Nachricht selbst versendest. Nimmst du per E-Mail Kontakt mit mir auf, verarbeite ich die von dir übermittelten Angaben zur Bearbeitung deiner Anfrage. Rechtsgrundlage ist Art. 6 Abs. 1 lit. b DSGVO (Anbahnung bzw. Erfüllung eines Vertrags) bzw. Art. 6 Abs. 1 lit. f DSGVO (berechtigtes Interesse an der Beantwortung deiner Anfrage). Ich lösche diese Daten, sobald sie für den Zweck ihrer Erhebung nicht mehr erforderlich sind und keine gesetzlichen Aufbewahrungspflichten entgegenstehen."
         },
         {
           "heading": "5. Schriftarten (Fonts)",

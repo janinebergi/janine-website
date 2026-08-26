@@ -221,12 +221,10 @@
       "contact": {
         "street": "⟨Street and house number⟩",
         "city": "⟨Postcode City⟩",
-        "country": "Germany",
-        "phone": "⟨Phone number⟩"
+        "country": "Germany"
       },
       "addressHeading": "Information according to § 5 DDG",
       "contactHeading": "Contact",
-      "phoneLabel": "Phone:",
       "emailLabel": "Email:",
       "editorialHeading": "Responsible for editorial content",
       "disputeHeading": "Consumer dispute resolution / universal arbitration board",
@@ -247,10 +245,8 @@
       "controller": {
         "street": "⟨Street and house number⟩",
         "city": "⟨Postcode City⟩",
-        "country": "Germany",
-        "phone": "⟨Phone number⟩"
+        "country": "Germany"
       },
-      "phoneLabel": "Phone:",
       "emailLabel": "Email:",
       "sections": [
         {
@@ -267,7 +263,7 @@
         },
         {
           "heading": "4. Contact",
-          "text": "The contact form on this website does not store your input on a server. When submitted, it simply opens your own email programme with the details you entered (name, email address and message), so you send the message yourself. If you contact me by email or phone, I process the information you provide in order to handle your enquiry. The legal basis is Art. 6(1)(b) GDPR (initiation or performance of a contract) or Art. 6(1)(f) GDPR (legitimate interest in responding to your enquiry). I delete this data as soon as it is no longer required for the purpose for which it was collected, and no statutory retention obligations apply."
+          "text": "The contact form on this website does not store your input on a server. When submitted, it simply opens your own email programme with the details you entered (name, email address and message), so you send the message yourself. If you contact me by email, I process the information you provide in order to handle your enquiry. The legal basis is Art. 6(1)(b) GDPR (initiation or performance of a contract) or Art. 6(1)(f) GDPR (legitimate interest in responding to your enquiry). I delete this data as soon as it is no longer required for the purpose for which it was collected, and no statutory retention obligations apply."
         },
         {
           "heading": "5. Fonts",
