@@ -99,14 +99,15 @@ dort ablegen und relativ referenzieren (`/assets/website/…`).
 
 Umgebungsvariablen werden nicht benötigt.
 
-### Damit Google die Seite überhaupt sieht
+### Damit Google die Seite findet
 
-1. **Deployment Protection ausschalten** — Vercel → Projekt → Settings →
-   Deployment Protection → *Vercel Authentication* auf **Disabled**. Solange
-   sie an ist, bekommt der Googlebot nur einen Login-Redirect.
-2. **Domain verbinden** — Vercel → Settings → Domains → `janinebergmann.de`
-   hinzufügen und die dort angezeigten DNS-Einträge bei Strato setzen
-   (A-Record `76.76.21.21`, `www` als CNAME auf `cname.vercel-dns.com`).
-   `src/content/site.json` → `site.url` muss zur echten Domain passen.
-3. **Search Console** — Property für `https://janinebergmann.de` anlegen und
-   `https://janinebergmann.de/sitemap.xml` einreichen.
+Die Seite läuft unter **https://www.janineunterwegs.de** (Domain bei IONOS,
+DNS zeigt auf Vercel). Der Aufruf ohne `www` leitet dauerhaft auf `www` weiter.
+
+- `site.url` in `src/content/site.json` und `site.en.json` **muss exakt der
+  Adresse entsprechen, unter der die Seite ausgeliefert wird** – daraus werden
+  Canonical-Tags, hreflang, Sitemap, robots.txt und die Vorschaubilder gebaut.
+  Steht dort eine andere Domain, schickt die Seite Google auf eine falsche
+  Fährte und fliegt aus dem Index.
+- **Search Console:** Property für `https://www.janineunterwegs.de` anlegen und
+  `https://www.janineunterwegs.de/sitemap.xml` einreichen.
