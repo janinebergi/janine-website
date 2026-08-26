@@ -10,7 +10,6 @@ import type { Lang } from "@/lib/i18n-constants";
 import {
   OPEN_GRAPH_LOCALE,
   absoluteUrl,
-  feedPath,
   homePath,
   localeAlternates,
   pathsFor,
@@ -43,12 +42,7 @@ export function rootMetadata(lang: Lang): Metadata {
       template: `%s — ${site.fullName}`,
     },
     description: site.description,
-    alternates: {
-      ...localeAlternates(lang, paths),
-      types: {
-        "application/rss+xml": absoluteUrl(feedPath(lang)),
-      },
-    },
+    alternates: localeAlternates(lang, paths),
     icons: {
       icon: [
         { url: "/favicon-16.png", type: "image/png", sizes: "16x16" },

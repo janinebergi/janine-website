@@ -49,7 +49,6 @@ export const aboutPath = (lang: Lang): string => join(lang, SEGMENT[lang].about)
 export const contactPath = (lang: Lang): string => join(lang, SEGMENT[lang].contact);
 export const imprintPath = (lang: Lang): string => join(lang, SEGMENT[lang].imprint);
 export const privacyPath = (lang: Lang): string => join(lang, SEGMENT[lang].privacy);
-export const feedPath = (lang: Lang): string => join(lang, "feed.xml");
 
 export function absoluteUrl(path: string): string {
   return path === "/" ? site.url : `${site.url}${path}`;
