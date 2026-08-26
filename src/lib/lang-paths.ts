@@ -37,10 +37,14 @@ export function getLangPaths(from: Lang): Record<string, string> {
   // Länder und Themen heißen in beiden Sprachen anders ("Indonesien" /
   // "Indonesia"), deshalb die in archives.ts mitgeführte altSlug-Zuordnung.
   for (const entry of getCountries(from)) {
-    map[countryPath(from, entry.name)] = countryPath(to, entry.altSlug);
+    map[countryPath(from, entry.name)] = entry.altSlug
+      ? countryPath(to, entry.altSlug)
+      : blogPath(to);
   }
   for (const entry of getTopics(from)) {
-    map[topicPath(from, entry.name)] = topicPath(to, entry.altSlug);
+    map[topicPath(from, entry.name)] = entry.altSlug
+      ? topicPath(to, entry.altSlug)
+      : blogPath(to);
   }
 
   return map;

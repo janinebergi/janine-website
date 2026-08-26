@@ -6,7 +6,7 @@ import { blogPostingSchema, breadcrumbSchema, faqSchema } from "@/lib/jsonld";
 import { pageMetadata } from "@/lib/metadata";
 import { getPostBySlug, getPostSlugs } from "@/lib/blog";
 import { getSiteContent } from "@/lib/site";
-import { blogPath, homePath, postPath } from "@/lib/routes";
+import { absoluteUrl, blogPath, homePath, postPath } from "@/lib/routes";
 
 const LANG = "de" as const;
 
@@ -31,8 +31,11 @@ export async function generateMetadata({
     publishedTime: post.date,
     tags: post.tags,
     section: post.country || undefined,
-    // Das Vorschaubild liefert opengraph-image.tsx in diesem Ordner.
-    image: null,
+    // Erzeugt von /blog/<slug>/og (siehe og/route.ts). Der Ordnername
+    // trägt bewusst keine .jpg-Endung – ein Punkt in einem dynamischen
+    // Routensegment bringt den Next-Build durcheinander.
+    image: absoluteUrl(`${postPath(LANG, slug)}/og`),
+    imageAlt: post.title,
   });
 }
 

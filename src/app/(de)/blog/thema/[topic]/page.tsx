@@ -29,7 +29,7 @@ export async function generateMetadata({
     description: t.topicMetaDescription.replace("{name}", entry.name),
     paths: {
       de: topicPath("de", entry.slug),
-      en: topicPath("en", entry.altSlug),
+      ...(entry.altSlug ? { en: topicPath("en", entry.altSlug) } : {}),
     },
   });
 }

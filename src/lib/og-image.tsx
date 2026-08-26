@@ -9,15 +9,11 @@ import type { Lang } from "@/lib/i18n-constants";
 export const size = OG_SIZE;
 export const contentType = "image/jpeg";
 
-// Die Karten werden beim Build erzeugt – je Sprachfassung eine, damit die
-// englischen Beiträge auch englische Vorschaubilder bekommen.
-export function createOpengraphImage(lang: Lang) {
-  return async function OpengraphImage({
-    params,
-  }: {
-    params: Promise<{ slug: string }>;
-  }) {
-  const { slug } = await params;
+// Vorschaubild eines Beitrags, je Sprachfassung eines. Bewusst als normale
+// Route (/blog/<slug>/og.jpg) statt als Next-Metadatendatei: Die bekommt beim
+// Build einen zufälligen Namenszusatz, und dann zeigen og:image und die
+// strukturierten Daten auf eine URL, die es so nicht gibt.
+export async function postOgImage(slug: string, lang: Lang): Promise<Response> {
   const post = getPostBySlug(slug, lang);
   if (!post) notFound();
 
@@ -164,5 +160,4 @@ export function createOpengraphImage(lang: Lang) {
       "Cache-Control": "public, immutable, no-transform, max-age=31536000",
     },
   });
-  };
 }

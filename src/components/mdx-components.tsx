@@ -1,5 +1,6 @@
 import type { ReactNode } from "react";
 import Image from "next/image";
+import Link from "next/link";
 import type { MDXRemoteProps } from "next-mdx-remote/rsc";
 import { BudgetChart } from "@/components/budget-chart";
 import { Faq, FaqItem } from "@/components/faq";
@@ -37,6 +38,23 @@ export const mdxComponents: MDXRemoteProps["components"] = {
       <h2 id={slugify(headingText(children))} className="scroll-mt-28">
         {children}
       </h2>
+    );
+  },
+  // Interne Verweise im Fließtext laufen über next/link (kein Neuladen der
+  // Seite), externe bekommen die üblichen Sicherheits-Attribute.
+  a: (props) => {
+    const { href = "", children } = props as { href?: string; children: ReactNode };
+    if (href.startsWith("/")) {
+      return <Link href={href}>{children}</Link>;
+    }
+    const external = /^https?:\/\//.test(href);
+    return (
+      <a
+        href={href}
+        {...(external ? { target: "_blank", rel: "noopener noreferrer" } : {})}
+      >
+        {children}
+      </a>
     );
   },
   img: (props) => {

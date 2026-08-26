@@ -4,15 +4,19 @@ import { Container } from "@/components/ui/container";
 import { PageHeader } from "@/components/ui/page-header";
 import { ArrowRight } from "lucide-react";
 import { getAllPosts, formatDate } from "@/lib/blog";
+import { getCountries, getTopics } from "@/lib/archives";
 import { getSiteContent } from "@/lib/site";
 import type { Lang } from "@/lib/i18n-constants";
-import { contactPath, postPath } from "@/lib/routes";
+import { contactPath, countryPath, postPath, topicPath } from "@/lib/routes";
 
 export async function BlogIndexPage({ lang }: { lang: Lang }) {
   const { pages } = getSiteContent(lang);
   const t = pages.blog;
   const posts = getAllPosts(lang);
   const [featured, ...rest] = posts;
+  const countries = getCountries(lang);
+  const topics = getTopics(lang);
+  const a = pages.archive;
 
   return (
     <>
@@ -111,6 +115,48 @@ export async function BlogIndexPage({ lang }: { lang: Lang }) {
               )}
             </div>
           )}
+
+          {/* Einstiege nach Reiseziel und Thema: eigene, indexierbare Seiten
+              je Land/Thema und zugleich die interne Verlinkung dorthin. */}
+          <div className="mt-20 grid gap-10 border-t border-border/60 pt-12 md:grid-cols-2">
+            <div>
+              <h2 className="text-xl font-semibold">{a.countriesTitle}</h2>
+              <p className="mt-2 text-sm text-muted">{a.countriesText}</p>
+              <div className="mt-5 flex flex-wrap gap-2">
+                {countries.map((country) => (
+                  <Link
+                    key={country.slug}
+                    href={countryPath(lang, country.slug)}
+                    className="rounded-full border border-border px-4 py-2 text-sm text-muted transition-colors hover:border-accent/60 hover:text-foreground"
+                  >
+                    {country.name}
+                    <span className="ml-2 text-xs text-accent-hover">
+                      {country.posts.length}
+                    </span>
+                  </Link>
+                ))}
+              </div>
+            </div>
+
+            <div>
+              <h2 className="text-xl font-semibold">{a.topicsTitle}</h2>
+              <p className="mt-2 text-sm text-muted">{a.topicsText}</p>
+              <div className="mt-5 flex flex-wrap gap-2">
+                {topics.map((topic) => (
+                  <Link
+                    key={topic.slug}
+                    href={topicPath(lang, topic.slug)}
+                    className="rounded-full border border-border px-4 py-2 text-sm text-muted transition-colors hover:border-accent/60 hover:text-foreground"
+                  >
+                    {topic.name}
+                    <span className="ml-2 text-xs text-accent-hover">
+                      {topic.posts.length}
+                    </span>
+                  </Link>
+                ))}
+              </div>
+            </div>
+          </div>
 
           <section className="mt-16 rounded-2xl border border-border bg-surface/60 p-8 sm:p-10">
             <p className="text-sm text-accent-hover">{t.collabEyebrow}</p>

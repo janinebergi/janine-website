@@ -11,11 +11,12 @@ import { BlogReadAloud } from "@/components/blog-read-aloud";
 import { Gallery } from "@/components/gallery";
 import { postToSpeechText } from "@/lib/post-text";
 import { getPostBySlug, getAllPosts, formatDate } from "@/lib/blog";
+import { getTopics } from "@/lib/archives";
 import { getSiteContent } from "@/lib/site";
 import type { Lang } from "@/lib/i18n-constants";
 import { extractHeadings } from "@/lib/toc";
 import { slugify } from "@/lib/slugify";
-import { blogPath, contactPath, postPath } from "@/lib/routes";
+import { blogPath, contactPath, countryPath, postPath, topicPath } from "@/lib/routes";
 
 export async function BlogPostPage({
   slug,
@@ -48,6 +49,10 @@ export async function BlogPostPage({
 
   const RouteMap = postRouteMaps[slug];
 
+  // Land und Themen verlinken auf ihre Archivseiten – das verbindet die
+  // Beiträge untereinander und gibt Google eine erkennbare Themenstruktur.
+  const topicSlugs = new Set(getTopics(lang).map((entry) => entry.slug));
+
   const speechText = postToSpeechText(post, lang, { qaTitle: t.qaTitle });
   const galleryId = slugify(t.galleryTitle);
   const faqId = slugify(t.qaTitle);
@@ -75,7 +80,12 @@ export async function BlogPostPage({
             {post.country && (
               <>
                 <span>·</span>
-                <span>{post.country}</span>
+                <Link
+                  href={countryPath(lang, post.country)}
+                  className="transition-colors hover:text-foreground"
+                >
+                  {post.country}
+                </Link>
               </>
             )}
             {post.travelBuddy && (
@@ -84,14 +94,23 @@ export async function BlogPostPage({
                 <span>{t.travelBuddy}: {post.travelBuddy}</span>
               </>
             )}
-            {post.tags.map((tag) => (
-              <span
-                key={tag}
-                className="rounded-full bg-accent-soft px-3 py-1 text-accent-hover"
-              >
-                {tag}
-              </span>
-            ))}
+            {post.tags.map((tag) => {
+              const className =
+                "rounded-full bg-accent-soft px-3 py-1 text-accent-hover";
+              return topicSlugs.has(slugify(tag)) ? (
+                <Link
+                  key={tag}
+                  href={topicPath(lang, tag)}
+                  className={`${className} transition-colors hover:bg-accent/25`}
+                >
+                  {tag}
+                </Link>
+              ) : (
+                <span key={tag} className={className}>
+                  {tag}
+                </span>
+              );
+            })}
           </div>
           <h1 className="mt-4 text-3xl font-semibold leading-tight sm:text-4xl">
             {post.title}

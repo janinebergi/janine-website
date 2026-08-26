@@ -28,8 +28,8 @@ export async function generateMetadata({
     title: t.countryMetaTitle.replace("{name}", entry.name),
     description: t.countryMetaDescription.replace("{name}", entry.name),
     paths: {
-      de: countryPath("de", entry.altSlug),
       en: countryPath("en", entry.slug),
+      ...(entry.altSlug ? { de: countryPath("de", entry.altSlug) } : {}),
     },
   });
 }

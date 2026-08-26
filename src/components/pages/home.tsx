@@ -26,7 +26,6 @@ export async function HomePage({ lang }: { lang: Lang }) {
             alt="Taucherin im tiefblauen Wasser, über ihr eine Spur aus Luftblasen"
             fill
             priority
-            unoptimized
             sizes="100vw"
             className="object-cover object-[73%_center] sm:object-center md:object-[72%_center]"
           />

@@ -24,6 +24,7 @@ export function pageMetadata(
     type?: "website" | "article" | "profile";
     // Weglassen = generiertes Bild der Route bzw. Standardbild der Seite
     image?: string | null;
+    imageAlt?: string;
     publishedTime?: string;
     modifiedTime?: string;
     tags?: string[];
@@ -56,7 +57,13 @@ export function pageMetadata(
             section: opts.section,
           }
         : {}),
-      ...(image ? { images: [{ url: image, width: 1200, height: 630 }] } : {}),
+      ...(image
+        ? {
+            images: [
+              { url: image, width: 1200, height: 630, alt: opts.imageAlt ?? opts.title },
+            ],
+          }
+        : {}),
     },
     twitter: {
       card: "summary_large_image",

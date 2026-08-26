@@ -63,9 +63,9 @@ export function blogPostingSchema(lang: Lang, post: PostMeta) {
     "@type": "BlogPosting",
     headline: post.title,
     description: post.excerpt,
-    // Das generierte Vorschaubild ist ein PNG und damit für Google sicher
+    // Das generierte Vorschaubild ist ein JPEG und damit für Google sicher
     // lesbar – die AVIF-Originale sind es nicht.
-    image: [`${url}/opengraph-image`],
+    image: [`${url}/og`],
     datePublished: post.date,
     dateModified: post.date,
     inLanguage: LOCALE[lang],

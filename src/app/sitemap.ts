@@ -2,6 +2,7 @@ import type { MetadataRoute } from "next";
 import { getAllPosts, getPostSlugs, getPostBySlug } from "@/lib/blog";
 import { getCountries, getTopics } from "@/lib/archives";
 import type { Lang } from "@/lib/i18n-constants";
+import type { PathSet } from "@/lib/routes";
 import {
   aboutPath,
   absoluteUrl,
@@ -15,23 +16,45 @@ import {
 
 type Entry = MetadataRoute.Sitemap[number];
 
+function archivePaths(
+  build: (lang: Lang, slug: string) => string,
+  lang: Lang,
+  slug: string,
+  altSlug: string | null,
+): PathSet {
+  const other: Lang = lang === "de" ? "en" : "de";
+  return {
+    [lang]: build(lang, slug),
+    ...(altSlug ? { [other]: build(other, altSlug) } : {}),
+  };
+}
+
+const countryPaths = (lang: Lang, slug: string, alt: string | null) =>
+  archivePaths(countryPath, lang, slug, alt);
+const topicPaths = (lang: Lang, slug: string, alt: string | null) =>
+  archivePaths(topicPath, lang, slug, alt);
+
+function alternateLanguages(paths: PathSet): Record<string, string> {
+  const languages: Record<string, string> = {};
+  for (const [code, path] of Object.entries(paths)) {
+    if (path) languages[code] = absoluteUrl(path);
+  }
+  const fallback = paths.de ?? paths.en;
+  if (fallback) languages["x-default"] = absoluteUrl(fallback);
+  return languages;
+}
+
 // Jede Seite steht einmal pro Sprache drin und verweist über `alternates` auf
 // die jeweils andere Fassung – das ist dasselbe hreflang-Signal wie im <head>,
 // nur an der Stelle, an der Google es beim Crawlen zuerst sieht.
 function entry(
-  paths: Record<Lang, string>,
+  paths: PathSet,
   lang: Lang,
   extra: Omit<Entry, "url" | "alternates"> = {},
 ): Entry {
   return {
-    url: absoluteUrl(paths[lang]),
-    alternates: {
-      languages: {
-        de: absoluteUrl(paths.de),
-        en: absoluteUrl(paths.en),
-        "x-default": absoluteUrl(paths.de),
-      },
-    },
+    url: absoluteUrl(paths[lang]!),
+    alternates: { languages: alternateLanguages(paths) },
     ...extra,
   };
 }
@@ -84,14 +107,9 @@ export default function sitemap(): MetadataRoute.Sitemap {
     }
 
     for (const country of getCountries(lang)) {
-      const own = country.slug;
-      const alt = country.altSlug;
       urls.push(
         entry(
-          {
-            de: countryPath("de", lang === "de" ? own : alt),
-            en: countryPath("en", lang === "en" ? own : alt),
-          },
+          countryPaths(lang, country.slug, country.altSlug),
           lang,
           {
             lastModified: new Date(country.posts[0].date),
@@ -103,14 +121,9 @@ export default function sitemap(): MetadataRoute.Sitemap {
     }
 
     for (const topic of getTopics(lang)) {
-      const own = topic.slug;
-      const alt = topic.altSlug;
       urls.push(
         entry(
-          {
-            de: topicPath("de", lang === "de" ? own : alt),
-            en: topicPath("en", lang === "en" ? own : alt),
-          },
+          topicPaths(lang, topic.slug, topic.altSlug),
           lang,
           {
             lastModified: new Date(topic.posts[0].date),
