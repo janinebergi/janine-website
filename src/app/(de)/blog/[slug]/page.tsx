@@ -4,14 +4,14 @@ import { BlogPostPage } from "@/components/pages/blog-post";
 import { JsonLd } from "@/components/json-ld";
 import { blogPostingSchema, breadcrumbSchema, faqSchema } from "@/lib/jsonld";
 import { pageMetadata } from "@/lib/metadata";
-import { getPostBySlug, getPostSlugs } from "@/lib/blog";
+import { getPostBySlug, getPostSlugs, postSlugFor } from "@/lib/blog";
 import { getSiteContent } from "@/lib/site";
 import { absoluteUrl, blogPath, homePath, postPath } from "@/lib/routes";
 
 const LANG = "de" as const;
 
 export function generateStaticParams() {
-  return getPostSlugs().map((slug) => ({ slug }));
+  return getPostSlugs(LANG).map((slug) => ({ slug }));
 }
 
 export async function generateMetadata({
@@ -23,20 +23,28 @@ export async function generateMetadata({
   const post = getPostBySlug(slug, LANG);
   if (!post) return {};
 
-  return pageMetadata(LANG, {
-    title: post.title,
-    description: post.excerpt,
-    paths: { de: postPath("de", slug), en: postPath("en", slug) },
-    type: "article",
-    publishedTime: post.date,
-    tags: post.tags,
-    section: post.country || undefined,
-    // Erzeugt von /blog/<slug>/og (siehe og/route.ts). Der Ordnername
-    // trägt bewusst keine .jpg-Endung – ein Punkt in einem dynamischen
-    // Routensegment bringt den Next-Build durcheinander.
-    image: absoluteUrl(`${postPath(LANG, slug)}/og`),
-    imageAlt: post.title,
-  });
+  return {
+    ...pageMetadata(LANG, {
+      title: post.metaTitle ?? post.title,
+      description: post.metaDescription ?? post.excerpt,
+      paths: {
+        de: postPath("de", postSlugFor(post.id, "de")),
+        en: postPath("en", postSlugFor(post.id, "en")),
+      },
+      type: "article",
+      publishedTime: post.date,
+      tags: post.tags,
+      section: post.country || undefined,
+      // Erzeugt von /blog/<slug>/og (siehe og/route.ts). Der Ordnername
+      // trägt bewusst keine .jpg-Endung – ein Punkt in einem dynamischen
+      // Routensegment bringt den Next-Build durcheinander.
+      image: absoluteUrl(`${postPath(LANG, slug)}/og`),
+      imageAlt: post.title,
+    }),
+    // Ohne "— Janine Bergmann": Die Beitragstitel brauchen die rund 60
+    // Zeichen, die Google anzeigt, vollständig für sich.
+    title: { absolute: post.metaTitle ?? post.title },
+  };
 }
 
 export default async function Page({

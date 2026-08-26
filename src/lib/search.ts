@@ -1,4 +1,4 @@
-import { getPostSlugs, getPostBySlug } from "@/lib/blog";
+import { getPostIds, getPostById } from "@/lib/blog";
 import { getSiteContent } from "@/lib/site";
 import type { Lang } from "@/lib/i18n-constants";
 import {
@@ -106,8 +106,8 @@ export function getSearchIndex(lang: Lang): SearchItem[] {
     },
   ];
 
-  const blogPosts: SearchItem[] = getPostSlugs()
-    .map((slug) => getPostBySlug(slug, lang))
+  const blogPosts: SearchItem[] = getPostIds()
+    .map((id) => getPostById(id, lang))
     .filter((post) => post !== null)
     .map((post) => ({
       title: post.title,

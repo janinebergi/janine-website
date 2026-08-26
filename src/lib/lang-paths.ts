@@ -2,7 +2,7 @@
 // Sprachumschalter im Header bekommt diese Tabelle als Prop und wird dadurch
 // zu einem echten Link auf die Übersetzung – statt wie vorher nur ein Cookie
 // zu setzen. Genau diese Links braucht Google, um beide Fassungen zu finden.
-import { getPostSlugs } from "@/lib/blog";
+import { getPostIds, postSlugFor } from "@/lib/blog";
 import { getCountries, getTopics } from "@/lib/archives";
 import type { Lang } from "@/lib/i18n-constants";
 import {
@@ -30,8 +30,8 @@ export function getLangPaths(from: Lang): Record<string, string> {
     [privacyPath(from)]: privacyPath(to),
   };
 
-  for (const slug of getPostSlugs()) {
-    map[postPath(from, slug)] = postPath(to, slug);
+  for (const id of getPostIds()) {
+    map[postPath(from, postSlugFor(id, from))] = postPath(to, postSlugFor(id, to));
   }
 
   // Länder und Themen heißen in beiden Sprachen anders ("Indonesien" /

@@ -4,7 +4,7 @@ import { getPostSlugs } from "@/lib/blog";
 export const dynamic = "force-static";
 
 export function generateStaticParams() {
-  return getPostSlugs().map((slug) => ({ slug }));
+  return getPostSlugs("de").map((slug) => ({ slug }));
 }
 
 export async function GET(

@@ -42,8 +42,8 @@
   ],
   "pages": {
     "home": {
-      "metaTitle": "Reiseblog von Janine Bergmann — Reiseberichte, Tauchen & Surfen",
-      "metaDescription": "Der Reiseblog von Janine Bergmann: ehrliche Reiseberichte aus 17 Ländern, vom Surfcamp in Portugal über den Roadtrip durch Florida bis zum Tauchschein im Roten Meer.",
+      "metaTitle": "Reiseblog von Janine Bergmann — Tauchen, Surfen, Roadtrips",
+      "metaDescription": "Ehrliche Reiseberichte aus 17 Ländern: vom Surfcamp in Portugal über den Roadtrip durch Florida bis zum Tauchschein im Roten Meer.",
       "heroHeadingPre": "Geschichten, die ",
       "heroHeadingHighlight": "Fernweh",
       "heroHeadingPost": " wecken.",
@@ -158,7 +158,7 @@
     },
     "kontakt": {
       "metaTitle": "Kontakt",
-      "metaDescription": "Schreib Janine: Fragen zu ihren Reisen, Tipps für das nächste Ziel oder ein Hotel, ein Tauchkurs oder ein Reiseerlebnis, das sie austesten und im Blog vorstellen soll.",
+      "metaDescription": "Schreib Janine: Fragen zu ihren Reisen, Tipps für ihr nächstes Ziel oder ein Reiseerlebnis, das sie austesten und im Blog vorstellen soll.",
       "heroEyebrow": "Kontakt",
       "heroTitle": "Lass uns ins Gespräch kommen.",
       "heroImage": "/assets/website/allgemein/ueber-mich-4.avif",

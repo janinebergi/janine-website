@@ -40,17 +40,13 @@ export async function ContactPage({ lang }: { lang: Lang }) {
         imageAlt={t.heroImageAlt}
         eyebrow={t.heroEyebrow}
         title={t.heroTitle}
+        text={t.heroText}
       />
 
       <section className="py-16 sm:py-20">
         <Container>
           <div className="grid gap-12 lg:grid-cols-[0.9fr_1.1fr]">
-            <div>
-              <p className="text-lg leading-relaxed text-muted">
-                {t.heroText}
-              </p>
-
-              <div className="mt-10 flex flex-col gap-5">
+            <div className="flex flex-col gap-5">
               {points.map((p) => {
                 const Icon = p.icon;
                 const content = (
@@ -73,11 +69,10 @@ export async function ContactPage({ lang }: { lang: Lang }) {
                 );
               })}
             </div>
-          </div>
 
-          <div className="rounded-2xl border border-border bg-surface/60 p-8">
-            <ContactForm />
-          </div>
+            <div className="rounded-2xl border border-border bg-surface/60 p-8">
+              <ContactForm />
+            </div>
           </div>
         </Container>
       </section>

@@ -2,7 +2,7 @@
 // Thema unter einer eigenen URL – das gibt der Seite zusätzliche Landepunkte
 // für Suchanfragen wie „Reisebericht Marokko" und verlinkt die Beiträge
 // untereinander.
-import { getPostSlugs, getPostBySlug, type PostMeta } from "@/lib/blog";
+import { getPostIds, getPostById, type PostMeta } from "@/lib/blog";
 import { slugify } from "@/lib/slugify";
 import type { Lang } from "@/lib/i18n-constants";
 
@@ -21,11 +21,11 @@ export type ArchiveEntry = {
 type Pair = { de: PostMeta; en: PostMeta };
 
 function pairs(): Pair[] {
-  return getPostSlugs().map((slug) => ({
-    // getPostBySlug fällt für fehlende Übersetzungen auf Deutsch zurück,
+  return getPostIds().map((id) => ({
+    // getPostById fällt für fehlende Übersetzungen auf Deutsch zurück,
     // beide Seiten sind also immer belegt.
-    de: getPostBySlug(slug, "de")!,
-    en: getPostBySlug(slug, "en")!,
+    de: getPostById(id, "de")!,
+    en: getPostById(id, "en")!,
   }));
 }
 
@@ -86,7 +86,7 @@ function withValidAlt(own: ArchiveEntry[], other: ArchiveEntry[]): ArchiveEntry[
 // Blog-Übersicht; Tags mit nur einem Beitrag wären zu dünn. Beides fliegt raus,
 // damit keine überflüssigen Seiten in den Index geraten.
 export function getTopics(lang: Lang): ArchiveEntry[] {
-  const total = getPostSlugs().length;
+  const total = getPostIds().length;
   const worthOwnPage = (entry: ArchiveEntry) =>
     entry.posts.length >= 2 && entry.posts.length < total;
 

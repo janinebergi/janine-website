@@ -40,7 +40,7 @@ export function PageHeader({
           className="object-cover"
           style={imagePosition ? { objectPosition: imagePosition } : undefined}
         />
-        <div className="page-header-fade absolute inset-0" />
+        <div className="absolute inset-0 bg-gradient-to-t from-bg via-bg/55 to-bg/10" />
       </div>
       <Container className={`py-14 ${centered ? "sm:text-center" : ""}`}>
         <div

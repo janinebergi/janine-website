@@ -1,5 +1,5 @@
 import type { MetadataRoute } from "next";
-import { getAllPosts, getPostSlugs, getPostBySlug } from "@/lib/blog";
+import { getAllPosts, getPostIds, getPostById, postSlugFor } from "@/lib/blog";
 import { getCountries, getTopics } from "@/lib/archives";
 import type { Lang } from "@/lib/i18n-constants";
 import type { PathSet } from "@/lib/routes";
@@ -33,6 +33,23 @@ const countryPaths = (lang: Lang, slug: string, alt: string | null) =>
   archivePaths(countryPath, lang, slug, alt);
 const topicPaths = (lang: Lang, slug: string, alt: string | null) =>
   archivePaths(topicPath, lang, slug, alt);
+
+// Bild-Sitemap: Zu jeder Beitrags-URL kommen Titelbild und Galeriefotos.
+// Damit findet Google die Fotos für die Bildersuche – bei einem Reiseblog
+// eine eigene Besucherquelle. Die Dateinamen enthalten Leer- und Sonderzeichen
+// und müssen deshalb kodiert werden.
+function postImages(post: { coverImage: string; gallery: { src: string }[] }): string[] {
+  return [post.coverImage, ...post.gallery.map((image) => image.src)]
+    .filter((src) => src.startsWith("/"))
+    .map((src) => absoluteUrl(encodePath(src)));
+}
+
+// Die Bilddateien heißen z. B. "Janine&Philipp.avif" oder enthalten
+// Leerzeichen. encodeURI lässt das & stehen, und ein rohes & macht die
+// Sitemap als XML ungültig – deshalb Segment für Segment kodieren.
+function encodePath(path: string): string {
+  return path.split("/").map(encodeURIComponent).join("/");
+}
 
 function alternateLanguages(paths: PathSet): Record<string, string> {
   const languages: Record<string, string> = {};
@@ -94,15 +111,23 @@ export default function sitemap(): MetadataRoute.Sitemap {
     );
 
     // Beiträge: echtes Veröffentlichungsdatum statt "heute".
-    for (const slug of getPostSlugs()) {
-      const post = getPostBySlug(slug, lang);
+    for (const id of getPostIds()) {
+      const post = getPostById(id, lang);
       if (!post) continue;
       urls.push(
-        entry({ de: postPath("de", slug), en: postPath("en", slug) }, lang, {
-          lastModified: new Date(post.date),
-          changeFrequency: "yearly",
-          priority: 0.8,
-        }),
+        entry(
+          {
+            de: postPath("de", postSlugFor(id, "de")),
+            en: postPath("en", postSlugFor(id, "en")),
+          },
+          lang,
+          {
+            lastModified: new Date(post.date),
+            changeFrequency: "yearly",
+            priority: 0.8,
+            images: postImages(post),
+          },
+        ),
       );
     }
 
