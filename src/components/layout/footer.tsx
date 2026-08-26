@@ -6,7 +6,6 @@ import {
   aboutPath,
   blogPath,
   contactPath,
-  feedPath,
   homePath,
   imprintPath,
   privacyPath,
@@ -75,12 +74,6 @@ export function Footer({ lang }: { lang: Lang }) {
               className="text-sm text-muted transition-colors hover:text-foreground"
             >
               LinkedIn
-            </a>
-            <a
-              href={feedPath(lang)}
-              className="text-sm text-muted transition-colors hover:text-foreground"
-            >
-              RSS
             </a>
           </div>
         </div>

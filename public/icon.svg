@@ -1,7 +1,0 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="Janine Bergmann">
-  <rect width="64" height="64" rx="14" fill="#060f18"/>
-  <path d="M4 40c6 0 6-5 12-5s6 5 12 5 6-5 12-5 6 5 12 5 6-5 12-5" fill="none" stroke="#3d92c9" stroke-width="4" stroke-linecap="round"/>
-  <path d="M4 50c6 0 6-5 12-5s6 5 12 5 6-5 12-5 6 5 12 5 6-5 12-5" fill="none" stroke="#24384f" stroke-width="4" stroke-linecap="round"/>
-  <circle cx="32" cy="21" r="9" fill="none" stroke="#5aa9db" stroke-width="4"/>
-  <circle cx="32" cy="21" r="2.5" fill="#5aa9db"/>
-</svg>

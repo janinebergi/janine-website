@@ -28,7 +28,7 @@ export function buildFeed(lang: Lang): string {
       <guid isPermaLink="true">${url}</guid>
       <pubDate>${new Date(post.date).toUTCString()}</pubDate>
       <description>${escapeXml(post.excerpt)}</description>
-      ${[post.country, ...post.tags]
+      ${[...new Set([post.country, ...post.tags])]
         .filter(Boolean)
         .map((tag) => `<category>${escapeXml(tag)}</category>`)
         .join("\n      ")}
