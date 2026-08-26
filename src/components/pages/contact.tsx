@@ -40,34 +40,37 @@ export async function ContactPage({ lang }: { lang: Lang }) {
         imageAlt={t.heroImageAlt}
         eyebrow={t.heroEyebrow}
         title={t.heroTitle}
-        text={t.heroText}
       />
 
       <section className="py-16 sm:py-20">
         <Container>
           <div className="grid gap-12 lg:grid-cols-[0.9fr_1.1fr]">
-            <div className="flex flex-col gap-5">
-              {points.map((p) => {
-                const Icon = p.icon;
-                const content = (
-                  <div className="flex items-center gap-4">
-                    <span className="flex h-11 w-11 flex-none items-center justify-center rounded-xl bg-accent-soft text-accent-hover">
-                      <Icon size={18} />
-                    </span>
-                    <div>
-                      <div className="text-sm text-muted">{p.title}</div>
-                      <div className="font-medium">{p.value}</div>
+            <div>
+              <p className="text-lg leading-relaxed text-muted">{t.heroText}</p>
+
+              <div className="mt-10 flex flex-col gap-5">
+                {points.map((p) => {
+                  const Icon = p.icon;
+                  const content = (
+                    <div className="flex items-center gap-4">
+                      <span className="flex h-11 w-11 flex-none items-center justify-center rounded-xl bg-accent-soft text-accent-hover">
+                        <Icon size={18} />
+                      </span>
+                      <div>
+                        <div className="text-sm text-muted">{p.title}</div>
+                        <div className="font-medium">{p.value}</div>
+                      </div>
                     </div>
-                  </div>
-                );
-                return p.href ? (
-                  <a key={p.title} href={p.href} className="transition-opacity hover:opacity-80">
-                    {content}
-                  </a>
-                ) : (
-                  <div key={p.title}>{content}</div>
-                );
-              })}
+                  );
+                  return p.href ? (
+                    <a key={p.title} href={p.href} className="transition-opacity hover:opacity-80">
+                      {content}
+                    </a>
+                  ) : (
+                    <div key={p.title}>{content}</div>
+                  );
+                })}
+              </div>
             </div>
 
             <div className="rounded-2xl border border-border bg-surface/60 p-8">

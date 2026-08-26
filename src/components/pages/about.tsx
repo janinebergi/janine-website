@@ -28,9 +28,6 @@ export async function AboutPage({ lang }: { lang: Lang }) {
   const values = t.values;
   const blogTeaser = t.blogTeaser;
   const timeline = t.timeline.map((step, i) => ({ ...step, icon: timelineIcons[i] }));
-  // Der erste Absatz dient als Einleitung im Seiten-Header (wie auf der
-  // Blogübersicht), der Rest bleibt im Fließtext darunter.
-  const [intro, ...paragraphs] = t.paragraphs;
   const recentPosts = getAllPosts(lang).slice(0, 3);
 
   return (
@@ -40,14 +37,13 @@ export async function AboutPage({ lang }: { lang: Lang }) {
         imageAlt={t.heroImageAlt}
         eyebrow={t.heroEyebrow}
         title={t.heroTitle}
-        text={intro}
       />
 
       {/* Einleitungstext */}
       <section className="py-16 sm:py-20">
         <Container>
           <div className="mx-auto max-w-3xl space-y-4 text-lg leading-relaxed text-muted">
-            {paragraphs.map((paragraph, i) => (
+            {t.paragraphs.map((paragraph, i) => (
               <p key={i}>{paragraph}</p>
             ))}
             <p>

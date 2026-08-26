@@ -3,7 +3,7 @@
     "name": "Janine",
     "fullName": "Janine Bergmann",
     "role": "Reisebloggerin",
-    "tagline": "Berichte aus erster Hand.",
+    "tagline": "Immer auf der Suche nach dem nächsten Abenteuer.",
     "description": "Der Reiseblog von Janine Bergmann: ehrliche Reiseberichte aus 17 Ländern, vom Surfcamp in Portugal über den Roadtrip durch Florida bis zum Tauchschein im Roten Meer.",
     "email": "bergmann.janine@gmx.net",
     "url": "https://www.janineunterwegs.de",
@@ -294,7 +294,7 @@
       ]
     },
     "footer": {
-      "tagline": "Erfahrungen aus 17 Ländern, vom Surfcamp bis zum Tauchgang.",
+      "tagline": "Von der ersten Welle in Portugal bis zu den Mantas vor Nusa Penida.",
       "navLabel": "Navigation",
       "contactLabel": "Kontakt",
       "rights": "Alle Rechte vorbehalten.",
