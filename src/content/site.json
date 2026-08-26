@@ -61,7 +61,7 @@
       "metaDescription": "Lerne Janine kennen: Reisebloggerin aus Düsseldorf, unterwegs zwischen Surfboard, Tauchflasche und Wanderschuhen.",
       "heroEyebrow": "Über mich",
       "heroTitle": "Wer bin ich?",
-      "heroImage": "/assets/website/allgemein/ueber-mich-2.avif",
+      "heroImage": "/assets/website/allgemein/Ich im Surfcamp in Portugal.avif",
       "heroImageAlt": "Janine beim Surfen",
       "paragraphs": [
         "Ich bin Janine und liebe es nicht nur zu reisen, sondern auch darüber zu schreiben. Ich bin ein absoluter Action-Fan und stürze mich gern in das nächste Abenteuer.",
@@ -105,28 +105,24 @@
         "title": "Momente meiner Reisen",
         "images": [
           {
-            "src": "/assets/website/allgemein/ueber-mich.avif",
+            "src": "/assets/website/allgemein/Ich in Lagos bei einer Kajakfahrt.avif",
             "alt": "Janine im roten Kleid bei Sonnenuntergang"
           },
           {
-            "src": "/assets/website/allgemein/ueber-mich-3.avif",
+            "src": "/assets/website/allgemein/In Paris vorm Eifelturm.avif",
             "alt": "Janine vor dem Eiffelturm in Paris"
           },
           {
-            "src": "/assets/website/allgemein/ueber-mich-4.avif",
+            "src": "/assets/website/allgemein/Ich in den Schottischen Highlands.avif",
             "alt": "Janine an einem Bergsee"
           },
           {
-            "src": "/assets/website/allgemein/ueber-mich-5.avif",
+            "src": "/assets/website/allgemein/Ich beim Roadtrip durch florida.avif",
             "alt": "Janine im Pickup mit Cowboyhut"
           },
           {
-            "src": "/assets/website/allgemein/ueber-mich-6.avif",
+            "src": "/assets/website/allgemein/Ich bei meinen ersten Surfstunden.avif",
             "alt": "Janine mit Surfboard am Strand"
-          },
-          {
-            "src": "/assets/website/allgemein/ueber-mich-7.avif",
-            "alt": "Janine beim Schwimmen im Meer"
           }
         ]
       },
@@ -161,8 +157,8 @@
       "metaDescription": "Schreib Janine: Fragen zu ihren Reisen, Tipps für ihr nächstes Ziel oder ein Reiseerlebnis, das sie austesten und im Blog vorstellen soll.",
       "heroEyebrow": "Kontakt",
       "heroTitle": "Lass uns ins Gespräch kommen.",
-      "heroImage": "/assets/website/allgemein/ueber-mich-4.avif",
-      "heroImageAlt": "Sonnenuntergang am Meer mit Palmen",
+      "heroImage": "/assets/website/allgemein/Ich in den Schottischen Highlands.avif",
+      "heroImageAlt": "Janine an einem See in den schottischen Highlands",
       "heroText": "Du hast eine Frage zu einer meiner Reisen oder einen Tipp für mein nächstes Ziel? Oder du betreibst ein Hotel, gibst Tauchkurse oder hast ein anderes Reiseerlebnis, das mehr Menschen kennen sollten? Dann lass es mich ausprobieren: Ich teste ehrlich und nehme meine Leserinnen und Leser hier im Blog mit auf die Reise. Schreib mir einfach kurz, worum es geht. Ich melde mich so schnell wie möglich persönlich bei dir zurück.",
       "emailTitle": "E-Mail",
       "responseTitle": "Antwortzeit",
@@ -265,7 +261,7 @@
         },
         {
           "heading": "3. Hosting",
-          "text": "Diese Website wird bei einem externen Dienstleister gehostet: ⟨Name und Anschrift des Hosting-Anbieters, z. B. Vercel Inc.⟩. Der Anbieter verarbeitet die im Rahmen des Websitebesuchs anfallenden Daten (siehe „Zugriffsdaten & Server-Logfiles\") in meinem Auftrag auf Grundlage von Art. 6 Abs. 1 lit. f DSGVO. Mit dem Anbieter besteht ein Vertrag zur Auftragsverarbeitung (Art. 28 DSGVO), der den datenschutzkonformen Umgang mit den Daten sicherstellt."
+          "text": "Diese Website wird bei einem externen Dienstleister gehostet: Vercel Inc., 440 N Barranca Avenue #4133, Covina, CA 91723, USA. Der Anbieter verarbeitet die im Rahmen des Websitebesuchs anfallenden Daten (siehe „Zugriffsdaten & Server-Logfiles\") in meinem Auftrag auf Grundlage von Art. 6 Abs. 1 lit. f DSGVO. Mit dem Anbieter besteht ein Vertrag zur Auftragsverarbeitung (Art. 28 DSGVO), der den datenschutzkonformen Umgang mit den Daten sicherstellt."
         },
         {
           "heading": "4. Kontaktaufnahme",
@@ -277,7 +273,7 @@
         },
         {
           "heading": "6. Cookies & Analyse",
-          "text": "Diese Website setzt keine Cookies zu Tracking- oder Marketing­zwecken ein und verwendet keine Analyse- oder Reichweitenmessungs-Dienste."
+          "text": "Diese Website setzt keine Cookies zu Tracking- oder Marketingzwecken ein. Zur Reichweitenmessung wird Vercel Web Analytics eingesetzt, ein Dienst der Vercel Inc., 440 N Barranca Avenue #4133, Covina, CA 91723, USA. Der Dienst arbeitet ohne Cookies und ohne geräteübergreifende Wiedererkennung; es werden keine Daten erhoben, mit denen sich einzelne Besucherinnen und Besucher identifizieren lassen. Erfasst werden aggregierte Angaben wie aufgerufene Seiten, verweisende Website, Land, Betriebssystem und Browsertyp. Rechtsgrundlage ist das berechtigte Interesse an einer statistischen Auswertung der Websitenutzung (Art. 6 Abs. 1 lit. f DSGVO)."
         },
         {
           "heading": "7. Deine Rechte",

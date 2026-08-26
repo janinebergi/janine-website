@@ -61,7 +61,7 @@
       "metaDescription": "Get to know Janine: a travel blogger from Düsseldorf, out and about between surfboard, dive tank and hiking boots.",
       "heroEyebrow": "About me",
       "heroTitle": "Who am I?",
-      "heroImage": "/assets/website/allgemein/ueber-mich-2.avif",
+      "heroImage": "/assets/website/allgemein/Ich im Surfcamp in Portugal.avif",
       "heroImageAlt": "Janine surfing",
       "paragraphs": [
         "I'm Janine, and I don't just love to travel, I love writing about it too. I'm an absolute action fan and always up for the next adventure.",
@@ -107,28 +107,24 @@
         "title": "Moments from my travels",
         "images": [
           {
-            "src": "/assets/website/allgemein/ueber-mich.avif",
+            "src": "/assets/website/allgemein/Ich in Lagos bei einer Kajakfahrt.avif",
             "alt": "Janine in a red dress at sunset"
           },
           {
-            "src": "/assets/website/allgemein/ueber-mich-3.avif",
+            "src": "/assets/website/allgemein/In Paris vorm Eifelturm.avif",
             "alt": "Janine in front of the Eiffel Tower in Paris"
           },
           {
-            "src": "/assets/website/allgemein/ueber-mich-4.avif",
+            "src": "/assets/website/allgemein/Ich in den Schottischen Highlands.avif",
             "alt": "Janine at a mountain lake"
           },
           {
-            "src": "/assets/website/allgemein/ueber-mich-5.avif",
+            "src": "/assets/website/allgemein/Ich beim Roadtrip durch florida.avif",
             "alt": "Janine in a pickup truck wearing a cowboy hat"
           },
           {
-            "src": "/assets/website/allgemein/ueber-mich-6.avif",
+            "src": "/assets/website/allgemein/Ich bei meinen ersten Surfstunden.avif",
             "alt": "Janine with a surfboard on the beach"
-          },
-          {
-            "src": "/assets/website/allgemein/ueber-mich-7.avif",
-            "alt": "Janine swimming in the sea"
           }
         ]
       },
@@ -163,8 +159,8 @@
       "metaDescription": "Get in touch with Janine: questions about her trips, tips for her next destination or a travel experience she should feature on the blog.",
       "heroEyebrow": "Contact",
       "heroTitle": "Let's start a conversation.",
-      "heroImage": "/assets/website/allgemein/ueber-mich-4.avif",
-      "heroImageAlt": "Sunset over the sea with palm trees",
+      "heroImage": "/assets/website/allgemein/Ich in den Schottischen Highlands.avif",
+      "heroImageAlt": "Janine at a loch in the Scottish Highlands",
       "heroText": "Got a question about one of my trips or a tip for my next destination? Or do you run a hotel, teach diving courses or have another travel experience that more people should know about? Then let me try it out: I test honestly and take my readers along for the ride here on the blog. Just drop me a line about what it's about. I'll get back to you personally as soon as I can.",
       "emailTitle": "Email",
       "responseTitle": "Response time",
@@ -267,7 +263,7 @@
         },
         {
           "heading": "3. Hosting",
-          "text": "This website is hosted by an external service provider: ⟨name and address of the hosting provider, e.g. Vercel Inc.⟩. The provider processes the data generated in connection with visits to the website (see \"Access data & server log files\") on my behalf, based on Art. 6(1)(f) GDPR. A data processing agreement (Art. 28 GDPR) is in place with the provider, ensuring compliant handling of the data."
+          "text": "This website is hosted by an external service provider: Vercel Inc., 440 N Barranca Avenue #4133, Covina, CA 91723, USA. The provider processes the data generated in connection with visits to the website (see \"Access data & server log files\") on my behalf, based on Art. 6(1)(f) GDPR. A data processing agreement (Art. 28 GDPR) is in place with the provider, ensuring compliant handling of the data."
         },
         {
           "heading": "4. Contact",
@@ -279,7 +275,7 @@
         },
         {
           "heading": "6. Cookies & analytics",
-          "text": "This website does not use cookies for tracking or marketing purposes and does not use any analytics or reach-measurement services."
+          "text": "This website does not use cookies for tracking or marketing purposes. For audience measurement it uses Vercel Web Analytics, a service provided by Vercel Inc., 440 N Barranca Avenue #4133, Covina, CA 91723, USA. The service works without cookies and without cross-device recognition; no data is collected that would allow individual visitors to be identified. What is recorded are aggregated figures such as pages viewed, referring website, country, operating system and browser type. The legal basis is the legitimate interest in a statistical analysis of website usage (Art. 6(1)(f) GDPR)."
         },
         {
           "heading": "7. Your rights",
