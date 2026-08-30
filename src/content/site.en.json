@@ -219,8 +219,8 @@
       "eyebrow": "Legal",
       "title": "Legal Notice",
       "contact": {
-        "street": "⟨Street and house number⟩",
-        "city": "⟨Postcode City⟩",
+        "street": "Kirchfeldstraße 69",
+        "city": "40217 Düsseldorf",
         "country": "Germany"
       },
       "addressHeading": "Information according to § 5 DDG",
@@ -243,8 +243,8 @@
       "title": "Privacy Policy",
       "intro": "Protecting your personal data matters to me. Below, I explain what data is processed when you visit this website and what rights you have.",
       "controller": {
-        "street": "⟨Street and house number⟩",
-        "city": "⟨Postcode City⟩",
+        "street": "Kirchfeldstraße 69",
+        "city": "40217 Düsseldorf",
         "country": "Germany"
       },
       "emailLabel": "Email:",

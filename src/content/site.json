@@ -217,8 +217,8 @@
       "eyebrow": "Rechtliches",
       "title": "Impressum",
       "contact": {
-        "street": "⟨Straße und Hausnummer⟩",
-        "city": "⟨PLZ Ort⟩",
+        "street": "Kirchfeldstraße 69",
+        "city": "40217 Düsseldorf",
         "country": "Deutschland"
       },
       "addressHeading": "Angaben gemäß § 5 DDG",
@@ -241,8 +241,8 @@
       "title": "Datenschutzerklärung",
       "intro": "Der Schutz deiner personenbezogenen Daten ist mir wichtig. Nachfolgend informiere ich dich darüber, welche Daten beim Besuch dieser Website verarbeitet werden und welche Rechte dir zustehen.",
       "controller": {
-        "street": "⟨Straße und Hausnummer⟩",
-        "city": "⟨PLZ Ort⟩",
+        "street": "Kirchfeldstraße 69",
+        "city": "40217 Düsseldorf",
         "country": "Deutschland"
       },
       "emailLabel": "E-Mail:",
