@@ -21,6 +21,10 @@ export type GalleryImage = {
 export type FaqItem = {
   question: string;
   answer: string;
+  // Optional: Überschrift des Abschnitts, der die Frage im Fließtext
+  // ausführlich behandelt. Wird zu einem Sprunglink unter der Antwort.
+  // Muss wortgleich mit der ##-Überschrift im Beitrag sein.
+  section?: string;
 };
 
 export type PostMeta = {

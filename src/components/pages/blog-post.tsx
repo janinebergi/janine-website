@@ -1,7 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { ArrowLeft } from "lucide-react";
+import { ArrowDown, ArrowLeft } from "lucide-react";
 import { MDXRemote } from "next-mdx-remote/rsc";
 import { Container } from "@/components/ui/container";
 import { mdxComponents } from "@/components/mdx-components";
@@ -187,6 +187,15 @@ export async function BlogPostPage({
                   <p className="mt-4 leading-relaxed text-muted">
                     {item.answer}
                   </p>
+                  {item.section && (
+                    <a
+                      href={`#${slugify(item.section)}`}
+                      className="mt-4 inline-flex items-center gap-1.5 text-sm font-medium text-accent-hover transition-opacity hover:opacity-80"
+                    >
+                      {t.jumpToSection}: {item.section}
+                      <ArrowDown size={14} aria-hidden="true" />
+                    </a>
+                  )}
                 </details>
               ))}
             </div>
