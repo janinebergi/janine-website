@@ -62,8 +62,8 @@ der „Über mich"-Biografie abgeleitet.
 ### Blog — `pages.blog` · `pages.blogPost`
 
 Der Block unter den Beiträgen ist bewusst nicht kommerziell formuliert:
-„Austesten" · „Etwas, das ich ausprobieren soll?" · der Absatz über Hotels,
-Tauchkurse und Reiseerlebnisse · „Schreib mir". `blogPost.projectCta` lautet
+„Austausch" · „Etwas, das ich mal erleben sollte?" · der Absatz über
+Lieblingsorte und Reisetipps · „Schreib mir". `blogPost.projectCta` lautet
 jetzt „Schreib mir →".
 
 ### Kontakt & Über mich
