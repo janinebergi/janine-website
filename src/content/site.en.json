@@ -62,7 +62,7 @@
       "heroEyebrow": "About me",
       "heroTitle": "Who am I?",
       "heroImage": "/assets/website/allgemein/Ich im Surfcamp in Portugal.avif",
-      "heroImageAlt": "Janine surfing",
+      "heroImageAlt": "Janine at the surf camp in Portugal",
       "paragraphs": [
         "I'm Janine, and I don't just love to travel, I love writing about it too. I'm an absolute action fan and always up for the next adventure.",
         "When I'm not out catching the next wave, I live in Düsseldorf on the beautiful Rhine. Even here, away from work, I'm looking for action: whether it's inline skating along the Rhine, a horseback ride through the forest, or kickboxing. I'm always on the lookout for new challenges.",
@@ -108,23 +108,23 @@
         "images": [
           {
             "src": "/assets/website/allgemein/Ich in Lagos bei einer Kajakfahrt.avif",
-            "alt": "Janine in a red dress at sunset"
+            "alt": "Janine kayaking in Lagos"
           },
           {
             "src": "/assets/website/allgemein/In Paris vorm Eifelturm.avif",
-            "alt": "Janine in front of the Eiffel Tower in Paris"
+            "alt": "Janine in Paris in front of the Eiffel Tower"
           },
           {
             "src": "/assets/website/allgemein/Ich in den Schottischen Highlands.avif",
-            "alt": "Janine at a mountain lake"
+            "alt": "Janine in the Scottish Highlands"
           },
           {
             "src": "/assets/website/allgemein/Ich beim Roadtrip durch florida.avif",
-            "alt": "Janine in a pickup truck wearing a cowboy hat"
+            "alt": "Janine on a road trip through Florida"
           },
           {
             "src": "/assets/website/allgemein/Ich bei meinen ersten Surfstunden.avif",
-            "alt": "Janine with a surfboard on the beach"
+            "alt": "Janine during her first surf lessons"
           }
         ]
       },

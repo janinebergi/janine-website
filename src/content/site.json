@@ -62,7 +62,7 @@
       "heroEyebrow": "Über mich",
       "heroTitle": "Wer bin ich?",
       "heroImage": "/assets/website/allgemein/Ich im Surfcamp in Portugal.avif",
-      "heroImageAlt": "Janine beim Surfen",
+      "heroImageAlt": "Janine im Surfcamp in Portugal",
       "paragraphs": [
         "Ich bin Janine und liebe es nicht nur zu reisen, sondern auch darüber zu schreiben. Ich bin ein absoluter Action-Fan und stürze mich gern in das nächste Abenteuer.",
         "Wenn ich gerade nicht auf der nächsten Welle unterwegs bin oder unter Wasser nach Mantas suche, wohne ich in Düsseldorf am schönen Rhein. Auch hier suche ich abseits der Arbeit immer nach Action.",
@@ -106,23 +106,23 @@
         "images": [
           {
             "src": "/assets/website/allgemein/Ich in Lagos bei einer Kajakfahrt.avif",
-            "alt": "Janine im roten Kleid bei Sonnenuntergang"
+            "alt": "Janine bei einer Kajakfahrt in Lagos"
           },
           {
             "src": "/assets/website/allgemein/In Paris vorm Eifelturm.avif",
-            "alt": "Janine vor dem Eiffelturm in Paris"
+            "alt": "Janine in Paris vor dem Eiffelturm"
           },
           {
             "src": "/assets/website/allgemein/Ich in den Schottischen Highlands.avif",
-            "alt": "Janine an einem Bergsee"
+            "alt": "Janine in den schottischen Highlands"
           },
           {
             "src": "/assets/website/allgemein/Ich beim Roadtrip durch florida.avif",
-            "alt": "Janine im Pickup mit Cowboyhut"
+            "alt": "Janine beim Roadtrip durch Florida"
           },
           {
             "src": "/assets/website/allgemein/Ich bei meinen ersten Surfstunden.avif",
-            "alt": "Janine mit Surfboard am Strand"
+            "alt": "Janine bei ihren ersten Surfstunden"
           }
         ]
       },
