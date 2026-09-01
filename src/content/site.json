@@ -42,7 +42,7 @@
   ],
   "pages": {
     "home": {
-      "metaTitle": "Reiseblog von Janine Bergmann — Tauchen, Surfen, Roadtrips",
+      "metaTitle": "Reiseblog von Janine Bergmann: Tauchen, Surfen, Roadtrips",
       "metaDescription": "Ehrliche Reiseberichte aus 17 Ländern: vom Surfcamp in Portugal über den Roadtrip durch Florida bis zum Tauchschein im Roten Meer.",
       "heroHeadingPre": "Geschichten, die ",
       "heroHeadingHighlight": "Fernweh",
@@ -305,7 +305,7 @@
     "archive": {
       "breadcrumbHome": "Start",
       "countryEyebrow": "Reiseziel",
-      "countryIntro": "Alle Beiträge aus {name} – Reiseberichte, Tipps und Fotos von unterwegs.",
+      "countryIntro": "Alle Beiträge aus {name}: Reiseberichte, Tipps und Fotos von unterwegs.",
       "countryMetaTitle": "{name}: Reiseberichte und Tipps",
       "countryMetaDescription": "Alle Reiseberichte aus {name} von Janine Bergmann: persönliche Erlebnisse, Tipps und Fotos.",
       "topicEyebrow": "Thema",

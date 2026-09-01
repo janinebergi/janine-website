@@ -4,7 +4,7 @@ import { ArchivePage } from "@/components/pages/archive";
 import { JsonLd } from "@/components/json-ld";
 import { breadcrumbSchema, collectionSchema } from "@/lib/jsonld";
 import { pageMetadata } from "@/lib/metadata";
-import { getCountries, getCountry } from "@/lib/archives";
+import { getCountries, getCountry, isIndexable } from "@/lib/archives";
 import { getSiteContent } from "@/lib/site";
 import { blogPath, countryPath, homePath } from "@/lib/routes";
 
@@ -31,6 +31,9 @@ export async function generateMetadata({
       en: countryPath("en", entry.slug),
       ...(entry.altSlug ? { de: countryPath("de", entry.altSlug) } : {}),
     },
+    // Länder mit nur einem Beitrag bleiben für Besucher erreichbar – jeder
+    // Beitrag verlinkt sein Reiseziel –, gehören aber nicht in den Index.
+    noindex: !isIndexable(entry),
   });
 }
 

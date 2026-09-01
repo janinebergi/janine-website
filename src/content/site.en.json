@@ -42,7 +42,7 @@
   ],
   "pages": {
     "home": {
-      "metaTitle": "Janine Bergmann's Travel Blog — Diving, Surfing, Road Trips",
+      "metaTitle": "Janine Bergmann's Travel Blog: Diving, Surfing, Road Trips",
       "metaDescription": "Honest travel stories from 17 countries: from a surf camp in Portugal and a road trip through Florida to a diving licence in the Red Sea.",
       "heroHeadingPre": "Stories that spark ",
       "heroHeadingHighlight": "wanderlust",
@@ -307,7 +307,7 @@
     "archive": {
       "breadcrumbHome": "Home",
       "countryEyebrow": "Destination",
-      "countryIntro": "Every post from {name} – travel stories, tips and photos from the road.",
+      "countryIntro": "Every post from {name}: travel stories, tips and photos from the road.",
       "countryMetaTitle": "{name}: travel stories and tips",
       "countryMetaDescription": "All travel stories from {name} by Janine Bergmann: personal experiences, tips and photos.",
       "topicEyebrow": "Topic",

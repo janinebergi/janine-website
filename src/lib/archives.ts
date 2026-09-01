@@ -82,13 +82,22 @@ function withValidAlt(own: ArchiveEntry[], other: ArchiveEntry[]): ArchiveEntry[
   }));
 }
 
+// Ein Archiv mit nur einem Beitrag wiederholt bloß dessen Link und hat sonst
+// keinen eigenen Inhalt – für Suchmaschinen eine leere Seite. Ab zwei Beiträgen
+// ist es eine echte Übersicht.
+export const MIN_POSTS_FOR_INDEX = 2;
+
+export function isIndexable(entry: ArchiveEntry): boolean {
+  return entry.posts.length >= MIN_POSTS_FOR_INDEX;
+}
+
 // Ein Tag, den *jeder* Beitrag trägt (z. B. „Reise"), wäre nur eine Kopie der
 // Blog-Übersicht; Tags mit nur einem Beitrag wären zu dünn. Beides fliegt raus,
 // damit keine überflüssigen Seiten in den Index geraten.
 export function getTopics(lang: Lang): ArchiveEntry[] {
   const total = getPostIds().length;
   const worthOwnPage = (entry: ArchiveEntry) =>
-    entry.posts.length >= 2 && entry.posts.length < total;
+    isIndexable(entry) && entry.posts.length < total;
 
   return withValidAlt(
     collect(lang, (post) => post.tags).filter(worthOwnPage),

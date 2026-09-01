@@ -1,6 +1,6 @@
 import type { MetadataRoute } from "next";
 import { getAllPosts, getPostIds, getPostById, postSlugFor } from "@/lib/blog";
-import { getCountries, getTopics } from "@/lib/archives";
+import { getCountries, getTopics, isIndexable } from "@/lib/archives";
 import type { Lang } from "@/lib/i18n-constants";
 import type { PathSet } from "@/lib/routes";
 import {
@@ -131,7 +131,9 @@ export default function sitemap(): MetadataRoute.Sitemap {
       );
     }
 
-    for (const country of getCountries(lang)) {
+    // Nur Archive, die auch ein index-Signal tragen. Eine Sitemap, die auf
+    // noindex-Seiten zeigt, sendet zwei widersprüchliche Signale.
+    for (const country of getCountries(lang).filter(isIndexable)) {
       urls.push(
         entry(
           countryPaths(lang, country.slug, country.altSlug),
