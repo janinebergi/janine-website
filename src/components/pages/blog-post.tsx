@@ -47,7 +47,10 @@ export async function BlogPostPage({
     .slice(0, 3)
     .map((entry) => entry.p);
 
-  const RouteMap = postRouteMaps[slug];
+  // Nachschlagen über die sprachunabhängige ID, nicht über den URL-Slug:
+  // Englische Beiträge haben eigene Slugs ("diving-bali" …), sonst fiele
+  // die Karte in der englischen Fassung weg.
+  const RouteMap = postRouteMaps[post.id];
 
   // Land und Themen verlinken auf ihre Archivseiten – das verbindet die
   // Beiträge untereinander und gibt Google eine erkennbare Themenstruktur.
