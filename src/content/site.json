@@ -52,6 +52,19 @@
       "latestEyebrow": "Aus dem Blog",
       "latestTitle": "Zuletzt erschienen",
       "latestLink": "Alle Beiträge",
+      "testimonials": [
+        {
+          "quote": [
+            "Thank you so much for your kind words and for taking the time to write such a wonderful article about your experience with us. It truly means a lot to our team, and we're delighted to hear that you enjoyed your dives and your time on Nusa Penida.",
+            "Your blog gives a fantastic insight into what diving with Sanctum Dive is all about, and we're sure it will inspire fellow divers to visit.",
+            "Wishing you many more incredible dives and adventures."
+          ],
+          "author": "Selena",
+          "role": "Sanctum Dive, Nusa Penida",
+          "postSlug": "bali-reisebericht",
+          "linkLabel": "Zum Bali-Beitrag"
+        }
+      ],
       "ctaTitle": "Lust auf mehr Reisegeschichten?",
       "ctaText": "Du hast eine Frage zu einer meiner Reisen, einen Tipp für mein nächstes Ziel oder willst einfach Hallo sagen? Ich freue mich über jede Nachricht.",
       "ctaButton": "Schreib mir"

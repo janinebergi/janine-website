@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-import { ArrowUpRight } from "lucide-react";
+import { ArrowUpRight, Quote } from "lucide-react";
 import { Container } from "@/components/ui/container";
 import { Button } from "@/components/ui/button";
 import { Eyebrow, SectionHeading } from "@/components/ui/section-heading";
@@ -121,6 +121,42 @@ export async function HomePage({ lang }: { lang: Lang }) {
               >
                 {t.latestLink} <ArrowUpRight size={16} />
               </Link>
+            </div>
+          </Container>
+        </section>
+      )}
+
+      {/* Zitate: Rückmeldungen zu einzelnen Beiträgen */}
+      {t.testimonials.length > 0 && (
+        <section className="pb-20">
+          <Container>
+            <div className={`grid gap-6 ${t.testimonials.length > 1 ? "lg:grid-cols-2" : ""}`}>
+              {t.testimonials.map((testimonial) => (
+                <figure
+                  key={testimonial.author}
+                  className="relative overflow-hidden rounded-2xl border border-border bg-surface/60 p-8 sm:p-12"
+                >
+                  <Quote
+                    aria-hidden
+                    className="absolute right-6 top-6 h-16 w-16 text-accent-soft"
+                  />
+                  <blockquote className="relative flex max-w-2xl flex-col gap-4 text-lg leading-relaxed text-foreground/90">
+                    {testimonial.quote.map((paragraph) => (
+                      <p key={paragraph}>{paragraph}</p>
+                    ))}
+                  </blockquote>
+                  <figcaption className="relative mt-8 flex flex-wrap items-center gap-x-3 gap-y-1 border-t border-border/60 pt-6 text-sm">
+                    <span className="font-medium">{testimonial.author}</span>
+                    <span className="text-muted">{testimonial.role}</span>
+                  </figcaption>
+                  <Link
+                    href={postPath(lang, testimonial.postSlug)}
+                    className="relative mt-6 inline-flex items-center gap-1 text-sm font-medium text-accent-hover transition-all hover:gap-2"
+                  >
+                    {testimonial.linkLabel} <ArrowUpRight size={16} />
+                  </Link>
+                </figure>
+              ))}
             </div>
           </Container>
         </section>
