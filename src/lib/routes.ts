@@ -49,6 +49,8 @@ export const aboutPath = (lang: Lang): string => join(lang, SEGMENT[lang].about)
 export const contactPath = (lang: Lang): string => join(lang, SEGMENT[lang].contact);
 export const imprintPath = (lang: Lang): string => join(lang, SEGMENT[lang].imprint);
 export const privacyPath = (lang: Lang): string => join(lang, SEGMENT[lang].privacy);
+// Je Sprache ein eigener Feed: /feed.xml (deutsch), /en/feed.xml (englisch).
+export const feedPath = (lang: Lang): string => join(lang, "feed.xml");
 
 export function absoluteUrl(path: string): string {
   return path === "/" ? site.url : `${site.url}${path}`;
@@ -69,7 +71,14 @@ export function localeAlternates(lang: Lang, paths: PathSet) {
   }
   languages["x-default"] = absoluteUrl(paths.de ?? own);
 
-  return { canonical: absoluteUrl(own), languages };
+  // Der RSS-Verweis steht bewusst hier und nicht nur im Layout: Next.js
+  // ersetzt `alternates` auf Unterseiten komplett, ein Feed-Link im Layout
+  // wäre also überall dort wieder weg.
+  return {
+    canonical: absoluteUrl(own),
+    languages,
+    types: { "application/rss+xml": absoluteUrl(feedPath(lang)) },
+  };
 }
 
 // Kürzel für Seiten, die in beiden Sprachen über denselben Builder laufen.
