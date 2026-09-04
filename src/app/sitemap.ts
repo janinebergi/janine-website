@@ -1,6 +1,11 @@
 import type { MetadataRoute } from "next";
 import { getAllPosts, getPostIds, getPostById, postSlugFor } from "@/lib/blog";
-import { getCountries, getTopics, isIndexable } from "@/lib/archives";
+import {
+  duplicatesCountry,
+  getCountries,
+  getTopics,
+  isIndexable,
+} from "@/lib/archives";
 import type { Lang } from "@/lib/i18n-constants";
 import type { PathSet } from "@/lib/routes";
 import {
@@ -147,7 +152,9 @@ export default function sitemap(): MetadataRoute.Sitemap {
       );
     }
 
-    for (const topic of getTopics(lang)) {
+    // Themen, die sich mit einem Länder-Archiv decken, stehen dort schon –
+    // sie tragen ein noindex und gehören deshalb nicht in die Sitemap.
+    for (const topic of getTopics(lang).filter((t) => !duplicatesCountry(lang, t))) {
       urls.push(
         entry(
           topicPaths(lang, topic.slug, topic.altSlug),

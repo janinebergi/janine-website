@@ -112,3 +112,22 @@ export function getCountry(lang: Lang, slug: string): ArchiveEntry | null {
 export function getTopic(lang: Lang, slug: string): ArchiveEntry | null {
   return getTopics(lang).find((entry) => entry.slug === slug) ?? null;
 }
+
+// „Thema USA" und „Land USA" listen dieselben zwei Beiträge – für Google sind
+// das zwei Fassungen derselben Seite. Doppelte Seiten teilen ihre Signale auf
+// und kosten Crawl-Budget, das gerade bei einer jungen Domain knapp ist.
+// Deshalb bleibt nur das Länder-Archiv im Index; das Themen-Archiv trägt ein
+// noindex und fehlt in der Sitemap, bleibt für Besucher aber erreichbar.
+export function duplicatesCountry(lang: Lang, entry: ArchiveEntry): boolean {
+  const own = postKey(entry);
+  return getCountries(lang).some((country) => postKey(country) === own);
+}
+
+// Vergleicht Archive über ihre Beiträge, nicht über den Namen: Es geht darum,
+// ob dieselbe Liste zweimal unter verschiedenen Adressen steht.
+function postKey(entry: ArchiveEntry): string {
+  return entry.posts
+    .map((post) => post.id)
+    .sort()
+    .join("|");
+}

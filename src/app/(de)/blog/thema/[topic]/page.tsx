@@ -4,7 +4,7 @@ import { ArchivePage } from "@/components/pages/archive";
 import { JsonLd } from "@/components/json-ld";
 import { breadcrumbSchema, collectionSchema } from "@/lib/jsonld";
 import { pageMetadata } from "@/lib/metadata";
-import { getTopic, getTopics } from "@/lib/archives";
+import { duplicatesCountry, getTopic, getTopics } from "@/lib/archives";
 import { getSiteContent } from "@/lib/site";
 import { blogPath, homePath, topicPath } from "@/lib/routes";
 
@@ -31,6 +31,8 @@ export async function generateMetadata({
       de: topicPath("de", entry.slug),
       ...(entry.altSlug ? { en: topicPath("en", entry.altSlug) } : {}),
     },
+    // Deckt sich das Thema mit einem Länder-Archiv, bleibt nur jenes im Index.
+    noindex: duplicatesCountry(LANG, entry),
   });
 }
 
