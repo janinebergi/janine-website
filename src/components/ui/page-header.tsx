@@ -2,6 +2,7 @@ import Image from "next/image";
 import { type ReactNode } from "react";
 import { Container } from "@/components/ui/container";
 import { Eyebrow } from "@/components/ui/section-heading";
+import { positionVars } from "@/lib/object-position";
 
 // Einheitlicher Seiten-Header: breites Banner-Bild mit Verlauf, darüber
 // Eyebrow, Titel und optional ein kurzer Einleitungstext. Wird auf allen
@@ -10,6 +11,7 @@ export function PageHeader({
   image,
   imageAlt,
   imagePosition,
+  imagePositionMobile,
   eyebrow,
   title,
   text,
@@ -18,6 +20,7 @@ export function PageHeader({
   image: string;
   imageAlt: string;
   imagePosition?: string;
+  imagePositionMobile?: string;
   eyebrow?: string;
   title: ReactNode;
   text?: ReactNode;
@@ -37,8 +40,8 @@ export function PageHeader({
           fill
           priority
           sizes="100vw"
-          className="object-cover"
-          style={imagePosition ? { objectPosition: imagePosition } : undefined}
+          className="cover-image object-cover"
+          style={positionVars(imagePosition, imagePositionMobile)}
         />
         <div className="absolute inset-0 bg-gradient-to-t from-bg via-bg/55 to-bg/10" />
       </div>

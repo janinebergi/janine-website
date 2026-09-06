@@ -77,6 +77,19 @@
   }
 }
 
+/* Beitragsbilder: Der Ausschnitt darf auf dem Handy abweichen, weil das
+   Motiv im schmaleren Bild oft zu hoch oder zu tief sitzt. Die Werte kommen
+   als CSS-Variablen aus dem Frontmatter (coverPosition / coverPositionMobile). */
+.cover-image {
+  object-position: var(--cover-pos, 50% 50%);
+}
+
+@media (max-width: 768px) {
+  .cover-image {
+    object-position: var(--cover-pos-mobile, var(--cover-pos, 50% 50%));
+  }
+}
+
 /* Subtle ambient ocean-blue glow used on hero / sections */
 .glow-radial {
   background-image: radial-gradient(

@@ -3,7 +3,7 @@ import Link from "next/link";
 import { ArrowLeft } from "lucide-react";
 import { Container } from "@/components/ui/container";
 import { Eyebrow } from "@/components/ui/section-heading";
-import { formatDate, type PostMeta } from "@/lib/blog";
+import { formatDate, tileStyle, type PostMeta } from "@/lib/blog";
 import { getSiteContent } from "@/lib/site";
 import type { Lang } from "@/lib/i18n-constants";
 import { blogPath, postPath } from "@/lib/routes";
@@ -64,11 +64,7 @@ export function ArchivePage({
                   fill
                   sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
                   className="object-cover transition-transform duration-500 group-hover:scale-105"
-                  style={
-                    post.coverPosition
-                      ? { objectPosition: post.coverPosition }
-                      : undefined
-                  }
+                  style={tileStyle(post)}
                 />
               </div>
               <div className="flex flex-1 flex-col p-6">

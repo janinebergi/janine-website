@@ -90,6 +90,28 @@ dünne `page.tsx` in `src/app/(de)/…` und `src/app/(en)/en/…`.
 Alle Beiträge nutzen lokale Bilder aus `public/assets/website/`. Neue Bilder
 dort ablegen und relativ referenzieren (`/assets/website/…`).
 
+### Bildausschnitt einstellen
+
+Hoch- und Querformate werden in die Kacheln (16:10) und ins Beitragsbild (16:9)
+hineingeschnitten – dabei landen Köpfe schnell außerhalb. Drei Frontmatter-Felder
+steuern das:
+
+| Feld | wirkt auf |
+| --- | --- |
+| `coverPosition` | Beitragsbild, und als Rückfallwert für die beiden anderen |
+| `coverPositionMobile` | Beitragsbild unter 768 px |
+| `coverPositionTile` | alle Vorschau-Kacheln |
+
+Die Werte sind CSS-`object-position`, also `"center 40%"`: der erste Wert
+waagerecht, der zweite senkrecht. Ein höherer Prozentwert schiebt den Ausschnitt
+nach unten.
+
+Statt zu raten: `npm run dev` starten und
+[localhost:3000/dev/bildausschnitt](http://localhost:3000/dev/bildausschnitt)
+öffnen. Dort gibt es zu jedem Beitrag eine Live-Vorschau mit Reglern; *Speichern*
+schreibt den Wert in die deutsche **und** die englische `.mdx`. Die Seite
+existiert nur lokal, im Deployment liefert sie 404.
+
 ## Deployment (Vercel)
 
 1. Repository zu GitHub pushen.

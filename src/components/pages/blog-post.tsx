@@ -10,7 +10,7 @@ import { BlogToc } from "@/components/blog-toc";
 import { BlogReadAloud } from "@/components/blog-read-aloud";
 import { Gallery } from "@/components/gallery";
 import { postToSpeechText } from "@/lib/post-text";
-import { getPostBySlug, getAllPosts, formatDate } from "@/lib/blog";
+import { getPostBySlug, getAllPosts, formatDate, coverStyle, tileStyle } from "@/lib/blog";
 import { getTopics } from "@/lib/archives";
 import { getSiteContent } from "@/lib/site";
 import type { Lang } from "@/lib/i18n-constants";
@@ -141,12 +141,8 @@ export async function BlogPostPage({
             fill
             priority
             sizes="(max-width: 768px) 100vw, 768px"
-            className="object-cover"
-            style={
-              post.coverPosition
-                ? { objectPosition: post.coverPosition }
-                : undefined
-            }
+            className="cover-image object-cover"
+            style={coverStyle(post)}
           />
         </div>
 
@@ -233,11 +229,7 @@ export async function BlogPostPage({
                       fill
                       sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
                       className="object-cover transition-transform duration-500 group-hover:scale-105"
-                      style={
-                        more.coverPosition
-                          ? { objectPosition: more.coverPosition }
-                          : undefined
-                      }
+                      style={tileStyle(more)}
                     />
                   </div>
                   <div className="flex flex-1 flex-col p-6">

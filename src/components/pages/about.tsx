@@ -16,7 +16,7 @@ import { Gallery } from "@/components/gallery";
 import { getSiteContent } from "@/lib/site";
 import type { Lang } from "@/lib/i18n-constants";
 import { iconForStat } from "@/lib/stat-icons";
-import { getAllPosts, formatDate } from "@/lib/blog";
+import { getAllPosts, formatDate, tileStyle } from "@/lib/blog";
 import { blogPath, contactPath, postPath } from "@/lib/routes";
 
 // Icons für den Werdegang – Reihenfolge entspricht t.timeline.
@@ -35,6 +35,8 @@ export async function AboutPage({ lang }: { lang: Lang }) {
       <PageHeader
         image={t.heroImage}
         imageAlt={t.heroImageAlt}
+        imagePosition={t.heroImagePosition}
+        imagePositionMobile={t.heroImagePositionMobile}
         eyebrow={t.heroEyebrow}
         title={t.heroTitle}
       />
@@ -182,6 +184,7 @@ export async function AboutPage({ lang }: { lang: Lang }) {
                       fill
                       sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
                       className="object-cover transition-transform duration-500 group-hover:scale-105"
+                      style={tileStyle(post)}
                     />
                   </div>
                   <div className="flex flex-1 flex-col p-6">

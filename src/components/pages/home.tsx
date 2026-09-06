@@ -7,7 +7,8 @@ import { Eyebrow, SectionHeading } from "@/components/ui/section-heading";
 import { getSiteContent } from "@/lib/site";
 import type { Lang } from "@/lib/i18n-constants";
 import { iconForStat } from "@/lib/stat-icons";
-import { getAllPosts, formatDate } from "@/lib/blog";
+import { getAllPosts, formatDate, tileStyle } from "@/lib/blog";
+import { positionVars } from "@/lib/object-position";
 import { blogPath, contactPath, postPath } from "@/lib/routes";
 
 export async function HomePage({ lang }: { lang: Lang }) {
@@ -19,7 +20,8 @@ export async function HomePage({ lang }: { lang: Lang }) {
     <>
       {/* Großer Header über der Startseite */}
       <section className="relative isolate flex min-h-[88vh] flex-col justify-center overflow-hidden">
-        {/* Header-Bild: Quelle in src/lib/site.ts (site.heroImage). */}
+        {/* Header-Bild und sein Ausschnitt: site.heroImage* in site.json,
+            einstellbar unter /dev/bildausschnitt. */}
         <div className="absolute inset-0 -z-10">
           <Image
             src={site.heroImage}
@@ -27,7 +29,8 @@ export async function HomePage({ lang }: { lang: Lang }) {
             fill
             priority
             sizes="100vw"
-            className="object-cover object-[73%_center] sm:object-center md:object-[72%_center]"
+            className="cover-image object-cover"
+            style={positionVars(site.heroImagePosition, site.heroImagePositionMobile)}
           />
           {/* Overlays: Text links lesbar halten, Bild sichtbar lassen */}
           <div className="absolute inset-0 bg-gradient-to-r from-bg/90 via-bg/55 to-bg/20" />
@@ -90,6 +93,7 @@ export async function HomePage({ lang }: { lang: Lang }) {
                       fill
                       sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
                       className="object-cover transition-transform duration-500 group-hover:scale-105"
+                      style={tileStyle(post)}
                     />
                   </div>
                   <div className="flex flex-1 flex-col p-6">

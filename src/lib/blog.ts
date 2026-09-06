@@ -1,6 +1,8 @@
 import fs from "node:fs";
 import path from "node:path";
 import matter from "gray-matter";
+import type { CSSProperties } from "react";
+import { positionVars } from "@/lib/object-position";
 import type { Lang } from "@/lib/i18n-constants";
 
 const BLOG_DIR_DE = path.join(process.cwd(), "content", "blog");
@@ -44,6 +46,12 @@ export type PostMeta = {
   metaDescription?: string;
   coverImage: string;
   coverPosition?: string;
+  // Abweichender Ausschnitt für schmale Displays; fehlt er, gilt coverPosition.
+  coverPositionMobile?: string;
+  // Eigener Ausschnitt für die Vorschau-Kacheln (16:10). Die sind deutlich
+  // flacher als das Beitragsbild, deshalb sitzen Personen dort schnell am
+  // Rand. Fehlt der Wert, gilt coverPosition.
+  coverPositionTile?: string;
   country: string;
   travelBuddy?: string;
   tags: string[];
@@ -55,6 +63,21 @@ export type PostMeta = {
 export type Post = PostMeta & {
   content: string;
 };
+
+// Ausschnitt der Vorschau-Kachel. Ohne eigenen Wert gilt der des Beitragsbilds.
+export function tileStyle(
+  post: Pick<PostMeta, "coverPosition" | "coverPositionTile">,
+): CSSProperties | undefined {
+  const position = post.coverPositionTile ?? post.coverPosition;
+  return position ? { objectPosition: position } : undefined;
+}
+
+// Ausschnitt des Beitragsbilds, mit eigenem Wert für schmale Displays.
+export function coverStyle(
+  post: Pick<PostMeta, "coverPosition" | "coverPositionMobile">,
+): CSSProperties | undefined {
+  return positionVars(post.coverPosition, post.coverPositionMobile);
+}
 
 function readingTime(text: string): number {
   const words = text.trim().split(/\s+/).length;
@@ -76,6 +99,8 @@ function fileToPost(dir: string, fileName: string, id: string): Post {
     excerpt: data.excerpt ?? "",
     coverImage: data.coverImage ?? `https://picsum.photos/seed/${id}/1200/700`,
     coverPosition: data.coverPosition,
+    coverPositionMobile: data.coverPositionMobile,
+    coverPositionTile: data.coverPositionTile,
     country: data.country ?? "",
     travelBuddy: data.travelBuddy,
     tags: data.tags ?? [],
