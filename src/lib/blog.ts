@@ -2,7 +2,7 @@ import fs from "node:fs";
 import path from "node:path";
 import matter from "gray-matter";
 import type { CSSProperties } from "react";
-import { positionVars } from "@/lib/object-position";
+import { imageVars } from "@/lib/object-position";
 import type { Lang } from "@/lib/i18n-constants";
 
 const BLOG_DIR_DE = path.join(process.cwd(), "content", "blog");
@@ -52,6 +52,11 @@ export type PostMeta = {
   // flacher als das Beitragsbild, deshalb sitzen Personen dort schnell am
   // Rand. Fehlt der Wert, gilt coverPosition.
   coverPositionTile?: string;
+  // Zoomstufe zum jeweiligen Ausschnitt: 1 = unverändert, 1.5 = anderthalbfach
+  // herangezoomt. Skaliert wird um den Punkt, den die Position vorgibt.
+  coverZoom?: number;
+  coverZoomMobile?: number;
+  coverZoomTile?: number;
   country: string;
   travelBuddy?: string;
   tags: string[];
@@ -65,18 +70,31 @@ export type Post = PostMeta & {
 };
 
 // Ausschnitt der Vorschau-Kachel. Ohne eigenen Wert gilt der des Beitragsbilds.
+// Die Kachel kennt keine eigene Mobilfassung – sie ist überall 16:10.
 export function tileStyle(
-  post: Pick<PostMeta, "coverPosition" | "coverPositionTile">,
+  post: Pick<
+    PostMeta,
+    "coverPosition" | "coverPositionTile" | "coverZoom" | "coverZoomTile"
+  >,
 ): CSSProperties | undefined {
   const position = post.coverPositionTile ?? post.coverPosition;
-  return position ? { objectPosition: position } : undefined;
+  const zoom = post.coverZoomTile ?? post.coverZoom;
+  return imageVars({ position, positionMobile: position, zoom, zoomMobile: zoom });
 }
 
-// Ausschnitt des Beitragsbilds, mit eigenem Wert für schmale Displays.
+// Ausschnitt des Beitragsbilds, mit eigenen Werten für schmale Displays.
 export function coverStyle(
-  post: Pick<PostMeta, "coverPosition" | "coverPositionMobile">,
+  post: Pick<
+    PostMeta,
+    "coverPosition" | "coverPositionMobile" | "coverZoom" | "coverZoomMobile"
+  >,
 ): CSSProperties | undefined {
-  return positionVars(post.coverPosition, post.coverPositionMobile);
+  return imageVars({
+    position: post.coverPosition,
+    positionMobile: post.coverPositionMobile,
+    zoom: post.coverZoom,
+    zoomMobile: post.coverZoomMobile,
+  });
 }
 
 function readingTime(text: string): number {
@@ -101,6 +119,9 @@ function fileToPost(dir: string, fileName: string, id: string): Post {
     coverPosition: data.coverPosition,
     coverPositionMobile: data.coverPositionMobile,
     coverPositionTile: data.coverPositionTile,
+    coverZoom: data.coverZoom,
+    coverZoomMobile: data.coverZoomMobile,
+    coverZoomTile: data.coverZoomTile,
     country: data.country ?? "",
     travelBuddy: data.travelBuddy,
     tags: data.tags ?? [],

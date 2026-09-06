@@ -4,6 +4,7 @@ import { useState } from "react";
 import { CoverEditor, type CoverPost } from "@/components/dev/cover-editor";
 import { HeroEditor } from "@/components/dev/hero-editor";
 import type { HeroImage } from "@/lib/hero-images";
+import type { AssetFolder } from "@/lib/asset-images";
 
 const TABS = [
   { id: "beitraege", label: "Beiträge" },
@@ -13,9 +14,11 @@ const TABS = [
 export function BildausschnittTool({
   posts,
   heroes,
+  folders,
 }: {
   posts: CoverPost[];
   heroes: HeroImage[];
+  folders: AssetFolder[];
 }) {
   const [tab, setTab] = useState<(typeof TABS)[number]["id"]>("beitraege");
 
@@ -47,9 +50,9 @@ export function BildausschnittTool({
 
       <div className="mt-8">
         {tab === "beitraege" ? (
-          <CoverEditor posts={posts} />
+          <CoverEditor posts={posts} folders={folders} />
         ) : (
-          <HeroEditor heroes={heroes} />
+          <HeroEditor heroes={heroes} folders={folders} />
         )}
       </div>
     </div>

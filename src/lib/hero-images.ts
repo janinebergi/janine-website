@@ -38,8 +38,12 @@ export type HeroImage = {
   id: HeroId;
   label: string;
   image: string;
+  imageAlt: string;
+  imageAltEn: string;
   position: string;
   positionMobile: string;
+  zoom: number;
+  zoomMobile: number;
   minHeight: { mobile: string; desktop: string };
 };
 
@@ -55,6 +59,7 @@ function at(root: Node, keys: readonly string[]): Node {
 
 export function getHeroImages(): HeroImage[] {
   const content = getSiteContent("de") as unknown as Node;
+  const contentEn = getSiteContent("en") as unknown as Node;
 
   return HEROES.map((hero) => {
     const node = at(content, hero.keys);
@@ -62,29 +67,58 @@ export function getHeroImages(): HeroImage[] {
       id: hero.id,
       label: hero.label,
       image: node.heroImage as string,
+      imageAlt: node.heroImageAlt as string,
+      imageAltEn: at(contentEn, hero.keys).heroImageAlt as string,
       position: node.heroImagePosition as string,
       positionMobile: node.heroImagePositionMobile as string,
+      zoom: node.heroZoom as number,
+      zoomMobile: node.heroZoomMobile as number,
       minHeight: hero.minHeight,
     };
   });
 }
 
-const FILES = ["src/content/site.json", "src/content/site.en.json"];
+const FILES = {
+  de: "src/content/site.json",
+  en: "src/content/site.en.json",
+} as const;
 
-// Beide Sprachfassungen bekommen denselben Ausschnitt – es ist dasselbe Bild.
+export type HeroLang = keyof typeof FILES;
+
+// Bild, Ausschnitt und Zoom bekommen beide Sprachfassungen – es ist dasselbe
+// Bild. Der Alternativtext nicht: der ist übersetzt und wird deshalb nur in
+// die Datei der jeweiligen Sprache geschrieben.
 // JSON wird komplett neu geschrieben; mit zwei Leerzeichen Einrückung und
 // ohne \\u-Escapes kommt exakt das Format heraus, das die Dateien schon haben.
-export function writeHeroPosition(
+export function writeHeroValue(
   id: HeroId,
   mobile: boolean,
-  value: string,
+  what: "position" | "zoom" | "image" | "alt",
+  value: string | number,
+  lang?: HeroLang,
 ): string[] {
   const hero = HEROES.find((entry) => entry.id === id);
   if (!hero) throw new Error(`Unbekannter Header: ${id}`);
 
-  const field = mobile ? "heroImagePositionMobile" : "heroImagePosition";
+  // Bild und Alternativtext gelten für beide Breiten, nur Position und Zoom
+  // haben eine eigene Mobilfassung.
+  const field =
+    what === "image"
+      ? "heroImage"
+      : what === "alt"
+        ? "heroImageAlt"
+        : what === "zoom"
+          ? mobile
+            ? "heroZoomMobile"
+            : "heroZoom"
+          : mobile
+            ? "heroImagePositionMobile"
+            : "heroImagePosition";
 
-  return FILES.map((relative) => {
+  const targets =
+    what === "alt" && lang ? [FILES[lang]] : [FILES.de, FILES.en];
+
+  return targets.map((relative) => {
     const file = path.join(process.cwd(), relative);
     const data = JSON.parse(fs.readFileSync(file, "utf8")) as Node;
     at(data, hero.keys)[field] = value;

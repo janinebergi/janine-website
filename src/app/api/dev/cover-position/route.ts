@@ -2,8 +2,11 @@ import { NextRequest, NextResponse } from "next/server";
 import {
   isCoverField,
   isCoverValue,
+  isZoom,
+  isZoomField,
   writeCoverField,
 } from "@/lib/cover-frontmatter";
+import { isKnownImage } from "@/lib/asset-images";
 
 // Schreibt Änderungen aus /dev/bildausschnitt in die .mdx-Dateien.
 // Existiert nur lokal – im Deployment gibt es kein beschreibbares
@@ -19,7 +22,14 @@ export async function POST(request: NextRequest) {
   }
 
   const value = body.value ?? null;
-  if (value !== null && !isCoverValue(value)) {
+  const valid =
+    body.field === "coverImage"
+      ? isKnownImage(value)
+      : isZoomField(body.field)
+        ? isZoom(value)
+        : isCoverValue(value);
+  // Das Bild selbst darf nicht auf null gesetzt werden – ohne Bild keine Kachel.
+  if (body.field === "coverImage" ? !valid : value !== null && !valid) {
     return NextResponse.json({ error: `Ungültiger Wert: ${value}` }, { status: 400 });
   }
 

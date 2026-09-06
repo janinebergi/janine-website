@@ -77,16 +77,35 @@
   }
 }
 
-/* Beitragsbilder: Der Ausschnitt darf auf dem Handy abweichen, weil das
-   Motiv im schmaleren Bild oft zu hoch oder zu tief sitzt. Die Werte kommen
-   als CSS-Variablen aus dem Frontmatter (coverPosition / coverPositionMobile). */
+/* Beitrags- und Header-Bilder: Ausschnitt und Zoomstufe kommen als
+   CSS-Variablen aus dem Frontmatter bzw. site.json, einstellbar unter
+   /dev/bildausschnitt. Der Ausschnitt darf auf dem Handy abweichen, weil das
+   Motiv im schmaleren Bild oft zu hoch oder zu tief sitzt.
+
+   Der Zoom skaliert um genau den Punkt, der als Position gewählt wurde –
+   sonst würde das Motiv beim Heranzoomen aus dem Bild wandern. */
 .cover-image {
   object-position: var(--cover-pos, 50% 50%);
+  transform-origin: var(--cover-pos, 50% 50%);
+  transform: scale(var(--cover-zoom, 1));
+}
+
+/* Die Kacheln zoomen beim Darüberfahren zusätzlich leicht an. Das steht hier
+   statt als group-hover:scale-105 an der Kachel, weil eine zweite
+   transform-Angabe die erste ersetzen würde statt sie zu ergänzen. */
+.group:hover .cover-image {
+  transform: scale(calc(var(--cover-zoom, 1) * 1.05));
 }
 
 @media (max-width: 768px) {
   .cover-image {
     object-position: var(--cover-pos-mobile, var(--cover-pos, 50% 50%));
+    transform-origin: var(--cover-pos-mobile, var(--cover-pos, 50% 50%));
+    transform: scale(var(--cover-zoom-mobile, var(--cover-zoom, 1)));
+  }
+
+  .group:hover .cover-image {
+    transform: scale(calc(var(--cover-zoom-mobile, var(--cover-zoom, 1)) * 1.05));
   }
 }
 

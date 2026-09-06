@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { getAllPosts } from "@/lib/blog";
 import { getHeroImages } from "@/lib/hero-images";
+import { getAssetImages } from "@/lib/asset-images";
 import { BildausschnittTool } from "@/components/dev/bildausschnitt-tool";
 import type { CoverPost } from "@/components/dev/cover-editor";
 
@@ -19,7 +20,14 @@ export default function BildausschnittPage() {
     coverPosition: post.coverPosition ?? null,
     coverPositionMobile: post.coverPositionMobile ?? null,
     coverPositionTile: post.coverPositionTile ?? null,
+    coverZoom: post.coverZoom ?? null,
+    coverZoomMobile: post.coverZoomMobile ?? null,
+    coverZoomTile: post.coverZoomTile ?? null,
   }));
 
-  return <BildausschnittTool posts={posts} heroes={getHeroImages()} />;
+  return <BildausschnittTool
+      posts={posts}
+      heroes={getHeroImages()}
+      folders={getAssetImages()}
+    />;
 }

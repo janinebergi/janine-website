@@ -10,20 +10,36 @@ import path from "node:path";
 const BLOG_DIR_DE = path.join(process.cwd(), "content", "blog");
 const BLOG_DIR_EN = path.join(BLOG_DIR_DE, "en");
 
-export const COVER_FIELDS = [
+export const POSITION_FIELDS = [
   "coverPosition",
   "coverPositionMobile",
   "coverPositionTile",
 ] as const;
 
+// Zoomstufen sind Zahlen und werden deshalb ohne Anführungszeichen geschrieben.
+export const ZOOM_FIELDS = ["coverZoom", "coverZoomMobile", "coverZoomTile"] as const;
+
+export const COVER_FIELDS = ["coverImage", ...POSITION_FIELDS, ...ZOOM_FIELDS] as const;
+
 export type CoverField = (typeof COVER_FIELDS)[number];
+export type ZoomField = (typeof ZOOM_FIELDS)[number];
+
+export function isZoomField(value: unknown): value is ZoomField {
+  return (ZOOM_FIELDS as readonly string[]).includes(value as string);
+}
 
 // Nach welcher Zeile ein neues Feld eingefügt wird, wenn es noch fehlt.
 // So bleibt die Reihenfolge im Frontmatter immer dieselbe.
-const ORDER = ["coverImage", ...COVER_FIELDS];
+const ORDER = ["coverImage", ...POSITION_FIELDS, ...ZOOM_FIELDS];
 
 export function isCoverField(value: unknown): value is CoverField {
-  return COVER_FIELDS.includes(value as CoverField);
+  return (COVER_FIELDS as readonly string[]).includes(value as string);
+}
+
+// Weiter als dreifach heranzoomen ergibt bei diesen Bildern keinen Sinn mehr,
+// darunter wird es unscharf.
+export function isZoom(value: unknown): value is number {
+  return typeof value === "number" && Number.isFinite(value) && value >= 1 && value <= 3;
 }
 
 // Erlaubt ist genau das, was auch objectPosition versteht und was wir
@@ -37,7 +53,7 @@ export function isCoverValue(value: unknown): value is string {
 function updateFrontmatter(
   source: string,
   field: CoverField,
-  value: string | null,
+  value: string | number | null,
 ): string {
   const lines = source.split("\n");
   if (lines[0] !== "---") throw new Error("Kein Frontmatter am Dateianfang");
@@ -54,7 +70,8 @@ function updateFrontmatter(
     return lines.join("\n");
   }
 
-  const line = `${field}: "${value}"`;
+  const line =
+    typeof value === "number" ? `${field}: ${value}` : `${field}: "${value}"`;
   if (at !== -1) {
     lines[at] = line;
     return lines.join("\n");
@@ -77,7 +94,7 @@ function updateFrontmatter(
 export function writeCoverField(
   id: string,
   field: CoverField,
-  value: string | null,
+  value: string | number | null,
 ): string[] {
   if (!/^[a-z0-9-]+$/.test(id)) throw new Error(`Unerwartete Beitrags-ID: ${id}`);
 

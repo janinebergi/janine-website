@@ -25,6 +25,8 @@ export async function BlogIndexPage({ lang }: { lang: Lang }) {
         imageAlt={t.heroImageAlt}
         imagePosition={t.heroImagePosition}
         imagePositionMobile={t.heroImagePositionMobile}
+        imageZoom={t.heroZoom}
+        imageZoomMobile={t.heroZoomMobile}
         eyebrow={t.heroEyebrow}
         title={t.heroTitle}
         text={t.heroText}
@@ -47,7 +49,7 @@ export async function BlogIndexPage({ lang }: { lang: Lang }) {
                       alt={featured.title}
                       fill
                       sizes="(max-width: 768px) 100vw, 50vw"
-                      className="object-cover transition-transform duration-500 group-hover:scale-105"
+                      className="cover-image object-cover transition-transform duration-500"
                       style={tileStyle(featured)}
                     />
                   </div>
@@ -89,7 +91,7 @@ export async function BlogIndexPage({ lang }: { lang: Lang }) {
                           alt={post.title}
                           fill
                           sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
-                          className="object-cover transition-transform duration-500 group-hover:scale-105"
+                          className="cover-image object-cover transition-transform duration-500"
                           style={tileStyle(post)}
                         />
                       </div>

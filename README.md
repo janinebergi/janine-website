@@ -106,6 +106,15 @@ Die Werte sind CSS-`object-position`, also `"center 40%"`: der erste Wert
 waagerecht, der zweite senkrecht. Ein höherer Prozentwert schiebt den Ausschnitt
 nach unten.
 
+Dazu gibt es je einen Zoom (`coverZoom`, `coverZoomMobile`, `coverZoomTile`) als
+Zahl: `1` ist unverändert, `1.5` anderthalbfach herangezoomt. Skaliert wird um
+genau den Punkt, den die Position vorgibt – sonst würde das Motiv beim
+Heranzoomen aus dem Bild wandern. Fehlt das Feld, wird nicht gezoomt.
+
+Die Header-Bilder der vier Seiten funktionieren genauso, ihre Werte stehen aber
+in `site.json`: `heroImagePosition`, `heroImagePositionMobile`, `heroZoom` und
+`heroZoomMobile`.
+
 Statt zu raten: `npm run dev` starten und
 [localhost:3000/dev/bildausschnitt](http://localhost:3000/dev/bildausschnitt)
 öffnen. Dort gibt es zu jedem Beitrag eine Live-Vorschau mit Reglern; *Speichern*

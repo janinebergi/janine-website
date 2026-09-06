@@ -29,10 +29,16 @@ export function Slider({
   label,
   value,
   onChange,
+  min = 0,
+  max = 100,
+  step = 1,
 }: {
   label: string;
   value: number;
   onChange: (value: number) => void;
+  min?: number;
+  max?: number;
+  step?: number;
 }) {
   return (
     <label className="block">
@@ -42,14 +48,45 @@ export function Slider({
       </span>
       <input
         type="range"
-        min={0}
-        max={100}
+        min={min}
+        max={max}
+        step={step}
         value={value}
         onChange={(e) => onChange(Number(e.target.value))}
         className="mt-1 w-full accent-accent"
       />
     </label>
   );
+}
+
+// Der Zoom liegt in den Dateien als Faktor (1 = unverändert), im Regler aber
+// als Prozentwert – 140 % liest sich besser als 1.4.
+export function ZoomSlider({
+  zoom,
+  onChange,
+}: {
+  zoom: number;
+  onChange: (zoom: number) => void;
+}) {
+  return (
+    <Slider
+      label="Zoom"
+      value={Math.round(zoom * 100)}
+      min={100}
+      max={300}
+      step={5}
+      onChange={(percent) => onChange(percent / 100)}
+    />
+  );
+}
+
+// Vorschau-Stil: derselbe Aufbau wie `.cover-image` in globals.css.
+export function previewStyle(position: string | null, zoom: number) {
+  return {
+    objectPosition: position ?? undefined,
+    transformOrigin: position ?? undefined,
+    transform: `scale(${zoom})`,
+  };
 }
 
 export function SaveButton({

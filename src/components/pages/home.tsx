@@ -8,7 +8,7 @@ import { getSiteContent } from "@/lib/site";
 import type { Lang } from "@/lib/i18n-constants";
 import { iconForStat } from "@/lib/stat-icons";
 import { getAllPosts, formatDate, tileStyle } from "@/lib/blog";
-import { positionVars } from "@/lib/object-position";
+import { imageVars } from "@/lib/object-position";
 import { blogPath, contactPath, postPath } from "@/lib/routes";
 
 export async function HomePage({ lang }: { lang: Lang }) {
@@ -30,7 +30,12 @@ export async function HomePage({ lang }: { lang: Lang }) {
             priority
             sizes="100vw"
             className="cover-image object-cover"
-            style={positionVars(site.heroImagePosition, site.heroImagePositionMobile)}
+            style={imageVars({
+              position: site.heroImagePosition,
+              positionMobile: site.heroImagePositionMobile,
+              zoom: site.heroZoom,
+              zoomMobile: site.heroZoomMobile,
+            })}
           />
           {/* Overlays: Text links lesbar halten, Bild sichtbar lassen */}
           <div className="absolute inset-0 bg-gradient-to-r from-bg/90 via-bg/55 to-bg/20" />
@@ -92,7 +97,7 @@ export async function HomePage({ lang }: { lang: Lang }) {
                       alt={post.title}
                       fill
                       sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
-                      className="object-cover transition-transform duration-500 group-hover:scale-105"
+                      className="cover-image object-cover transition-transform duration-500"
                       style={tileStyle(post)}
                     />
                   </div>
