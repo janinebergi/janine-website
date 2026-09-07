@@ -117,9 +117,16 @@ in `site.json`: `heroImagePosition`, `heroImagePositionMobile`, `heroZoom` und
 
 Statt zu raten: `npm run dev` starten und
 [localhost:3000/dev/bildausschnitt](http://localhost:3000/dev/bildausschnitt)
-öffnen. Dort gibt es zu jedem Beitrag eine Live-Vorschau mit Reglern; *Speichern*
-schreibt den Wert in die deutsche **und** die englische `.mdx`. Die Seite
-existiert nur lokal, im Deployment liefert sie 404.
+öffnen. Dort gibt es zu jedem Beitrag und zu jedem Header eine Live-Vorschau mit
+Reglern; *Speichern* schreibt den Wert in die deutsche **und** die englische
+Fassung. Über *Bild tauschen* lässt sich auch das Bild selbst wechseln – zur
+Auswahl steht alles, was unter `public/assets/website/` liegt. Bei den Headern
+gehört der Alternativtext dazu; der ist übersetzt und wird deshalb je Sprache
+einzeln gespeichert.
+
+Die Seite existiert nur lokal, im Deployment liefert sie 404. Nicht abgedeckt
+sind die Galeriebilder in den Beiträgen: die werden quadratisch und mittig
+beschnitten, ohne einstellbaren Ausschnitt.
 
 ## Deployment (Vercel)
 
