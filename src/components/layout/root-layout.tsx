@@ -6,6 +6,8 @@ import { Header } from "@/components/layout/header";
 import { Footer } from "@/components/layout/footer";
 import { getSiteContent } from "@/lib/site";
 import { getLangPaths } from "@/lib/lang-paths";
+import { HelligkeitRegler } from "@/components/dev/helligkeit-regler";
+import { readBrightnessLevel } from "@/lib/theme-brightness-file";
 import type { Lang } from "@/lib/i18n-constants";
 import {
   OPEN_GRAPH_LOCALE,
@@ -102,6 +104,11 @@ export function SiteShell({
         <Header lang={lang} langPaths={getLangPaths(lang)} />
         <main>{children}</main>
         <Footer lang={lang} />
+        {/* Helligkeitsregler nur lokal: er schreibt beim Speichern in
+            globals.css, was im Deployment weder möglich noch erwünscht ist. */}
+        {process.env.NODE_ENV !== "production" && (
+          <HelligkeitRegler gespeichert={readBrightnessLevel()} />
+        )}
         <Analytics />
       </body>
     </html>

@@ -45,7 +45,8 @@ src/lib/metadata.ts      # Title, Description, canonical, hreflang, Open Graph
 src/lib/jsonld.ts        # Strukturierte Daten (schema.org)
 src/lib/archives.ts      # Länder- und Themenseiten
 src/lib/blog.ts          # Liest & parst die MDX-Artikel
-src/app/globals.css      # Designtokens (dunkles Blau) & globale Styles
+src/app/globals.css      # Designtokens (dunkles Blau) & globale Styles;
+                         #   Helligkeit siehe src/lib/theme-brightness.ts
 ```
 
 ## Zwei Sprachen, zwei URLs
@@ -127,6 +128,25 @@ einzeln gespeichert.
 Die Seite existiert nur lokal, im Deployment liefert sie 404. Nicht abgedeckt
 sind die Galeriebilder in den Beiträgen: die werden quadratisch und mittig
 beschnitten, ohne einstellbaren Ausschnitt.
+
+## Helligkeit des Designs
+
+Das Design ist bewusst dunkel, lässt sich aber in einer Stufe von 0 bis 100 %
+aufhellen. `npm run dev` starten: unten rechts sitzt auf jeder Seite ein
+Regler (*Helligkeit*). Er hellt die Seite sofort auf, sodass sich die Wirkung
+live beurteilen lässt, und bleibt beim Klicken durch die Seiten erhalten.
+*Speichern* schreibt die Werte in `src/app/globals.css` – ab dann gilt die
+Helligkeit überall, auch in der veröffentlichten Fassung.
+
+Aufgehellt werden nur die fünf Flächenfarben (Seitenhintergrund, Karten,
+Rahmen, Akzentfläche); Text- und Akzentfarbe bleiben, damit der Kontrast
+stimmt und das Ozean-Blau erhalten bleibt. Gerechnet wird immer ab den
+Ausgangsfarben in `src/lib/theme-brightness.ts`, mehrmals Speichern hellt also
+nicht immer weiter auf. Stufe 0 stellt genau das ursprüngliche Design wieder
+her.
+
+Wie das Bildausschnitt-Werkzeug existiert der Regler nur lokal: im Deployment
+wird er nicht angezeigt.
 
 ## Deployment (Vercel)
 

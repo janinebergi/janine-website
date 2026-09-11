@@ -92,10 +92,14 @@ export function previewStyle(position: string | null, zoom: number) {
 export function SaveButton({
   state,
   onSave,
+  savedText = "Gespeichert (de + en).",
   children,
 }: {
   state: SaveState;
   onSave: () => void;
+  // Die Bildwerte stehen in beiden Sprachfassungen, andere Werte nicht –
+  // deshalb ist die Erfolgsmeldung austauschbar.
+  savedText?: string;
   children?: React.ReactNode;
 }) {
   return (
@@ -112,7 +116,7 @@ export function SaveButton({
         {children}
       </div>
       {state.state === "saved" && (
-        <p className="text-xs text-accent-hover">Gespeichert (de + en).</p>
+        <p className="text-xs text-accent-hover">{savedText}</p>
       )}
       {state.state === "error" && (
         <p className="text-xs text-red-400">{state.message}</p>

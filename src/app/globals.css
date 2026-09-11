@@ -2,11 +2,18 @@
 @plugin "@tailwindcss/typography";
 
 @theme {
+  /* Helligkeit: 40 % */
+  /* Die fünf Flächenfarben (Hintergründe, Rahmen, Akzent-Hintergrund) werden
+     aus dieser Stufe berechnet: 0 % ist das ursprüngliche, sehr dunkle Design,
+     100 % die hellste vorgesehene Fassung. Einstellen mit dem Regler, der lokal
+     unten auf jeder Seite sitzt (`npm run dev`); *Speichern* schreibt die Werte
+     hierher zurück. Die Ausgangsfarben stehen in src/lib/theme-brightness.ts. */
+
   /* Surfaces — deep ocean near-black blue (matches header) */
-  --color-bg: #060f18;
-  --color-surface: #0c1826;
-  --color-surface-2: #132436;
-  --color-border: #24384f;
+  --color-bg: #0c1d2f;
+  --color-surface: #13253b;
+  --color-surface-2: #1a3149;
+  --color-border: #2b445f;
 
   /* Text */
   --color-foreground: #e6eef5;
@@ -15,7 +22,7 @@
   /* Accent — ocean / deep-sea blue */
   --color-accent: #3d92c9;
   --color-accent-hover: #5aa9db;
-  --color-accent-soft: #122c40;
+  --color-accent-soft: #183a54;
   --color-accent-foreground: #04121c;
 
   /* Fonts (wired up via next/font in layout) */
