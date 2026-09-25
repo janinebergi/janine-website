@@ -14,6 +14,14 @@ type GalleryImage = {
 // Es werden immer nur so viele Bilder gleichzeitig angezeigt.
 const VISIBLE = 3;
 
+// Tailwind braucht die Klassennamen ausgeschrieben, deshalb eine Tabelle statt
+// eines zusammengesetzten Strings.
+const GRID: Record<1 | 2 | 3, string> = {
+  1: "grid-cols-1",
+  2: "grid-cols-2",
+  3: "grid-cols-2 sm:grid-cols-3",
+};
+
 export function Gallery({
   images,
   // paged=true zeigt immer nur VISIBLE Bilder mit Pfeil-Navigation (z. B. Über mich).
@@ -24,11 +32,16 @@ export function Gallery({
   showCaptions = false,
   // credit zeigt unten links ein kleines ©-Zeichen; beim Hovern erscheint der Name.
   credit = "Janine Bergmann",
+  // Spalten des Rasters (nur bei paged=false). Die großen Beitragsgalerien
+  // bleiben bei drei; die Bildstreifen im Fließtext setzen hier die Zahl ihrer
+  // Bilder ein, damit ein einzelnes Foto nicht über die volle Breite läuft.
+  columns = 3,
 }: {
   images: GalleryImage[];
   paged?: boolean;
   showCaptions?: boolean;
   credit?: string;
+  columns?: 1 | 2 | 3;
 }) {
   // null = Lightbox geschlossen, sonst Index des angezeigten Bildes.
   const [active, setActive] = useState<number | null>(null);
@@ -152,7 +165,7 @@ export function Gallery({
           )}
         </div>
       ) : (
-        <div className="mt-6 grid grid-cols-2 gap-4 sm:grid-cols-3 sm:gap-5">
+        <div className={`mt-6 grid gap-4 sm:gap-5 ${GRID[columns]}`}>
           {images.map((img, i) => thumb(img, i))}
         </div>
       )}

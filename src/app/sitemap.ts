@@ -43,8 +43,19 @@ const topicPaths = (lang: Lang, slug: string, alt: string | null) =>
 // Damit findet Google die Fotos für die Bildersuche – bei einem Reiseblog
 // eine eigene Besucherquelle. Die Dateinamen enthalten Leer- und Sonderzeichen
 // und müssen deshalb kodiert werden.
-function postImages(post: { coverImage: string; gallery: { src: string }[] }): string[] {
-  return [post.coverImage, ...post.gallery.map((image) => image.src)]
+// Fotos stehen entweder in der Galerie (Frontmatter) oder als Bildstreifen
+// mitten im Text – beide Wege müssen in die Bild-Sitemap, sonst fehlen bei
+// einem Beitrag ohne Galerie alle Bilder bis auf das Titelbild.
+const IMAGE_IN_TEXT = /["(<](\/assets\/website\/[^"')<>]+)/g;
+
+function postImages(post: {
+  coverImage: string;
+  gallery: { src: string }[];
+  content: string;
+}): string[] {
+  const inText = [...post.content.matchAll(IMAGE_IN_TEXT)].map((match) => match[1]);
+  const all = [post.coverImage, ...post.gallery.map((image) => image.src), ...inText];
+  return [...new Set(all)]
     .filter((src) => src.startsWith("/"))
     .map((src) => absoluteUrl(encodePath(src)));
 }

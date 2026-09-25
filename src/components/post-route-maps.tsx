@@ -6,6 +6,7 @@ import { PortugalRouteMap } from "@/components/portugal-route-map";
 import { ScotlandRouteMap } from "@/components/scotland-route-map";
 import { FloridaRouteMap } from "@/components/florida-route-map";
 import { NewYorkRouteMap } from "@/components/new-york-route-map";
+import { RomeRouteMap } from "@/components/rome-route-map";
 
 // Ordnet jedem Beitrag seine Routenkarte zu. Die Karte wird dadurch im
 // Blog-Template an einer festen Stelle (direkt unter dem Titelbild) gerendert
@@ -21,4 +22,5 @@ export const postRouteMaps: Record<
   "harry-potter-tour-schottland": ScotlandRouteMap,
   "roadtrip-florida": FloridaRouteMap,
   "new-york": NewYorkRouteMap,
+  "rom-staedtetrip": RomeRouteMap,
 };

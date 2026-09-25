@@ -158,7 +158,16 @@ export async function BlogPostPage({
         <BlogToc items={tocItems} label={t.tocLabel} />
 
         <div className="prose prose-invert mt-12 max-w-none prose-headings:font-semibold prose-headings:tracking-tight prose-a:text-accent-hover prose-a:no-underline hover:prose-a:underline prose-strong:text-foreground prose-blockquote:border-l-accent prose-blockquote:text-foreground/90 prose-img:rounded-2xl">
-          <MDXRemote source={post.content} components={mdxComponents} />
+          <MDXRemote
+            source={post.content}
+            components={mdxComponents}
+            // next-mdx-remote wirft standardmäßig alle JavaScript-Ausdrücke aus
+            // dem MDX – damit käme die Bildliste der Bildstreifen
+            // (<Fotos images={[…]} />) nie im Bauteil an. Die Beiträge stammen
+            // aus diesem Repository, nicht von Fremden; gefährliche Aufrufe
+            // entfernt next-mdx-remote weiterhin.
+            options={{ blockJS: false }}
+          />
         </div>
 
         {post.gallery.length > 0 && (
