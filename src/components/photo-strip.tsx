@@ -9,11 +9,12 @@ type Photo = { src: string; alt: string };
 //
 // Jede Kachel ist gleich groß, egal wie viele in der Zeile stehen: Eine Zeile
 // mit einem oder zwei Fotos behält die Breite einer Dreierzeile und steht
-// mittig, statt sich über die ganze Textbreite zu ziehen.
+// mittig, statt sich über die ganze Textbreite zu ziehen. Auf dem Handy steht
+// immer nur ein Foto pro Zeile, die Fotos also untereinander.
 export function Fotos({ images }: { images: Photo[] }) {
   return (
     <div className="not-prose my-10">
-      <Gallery images={images} paged={false} showCaptions />
+      <Gallery images={images} paged={false} showCaptions stackOnMobile />
     </div>
   );
 }

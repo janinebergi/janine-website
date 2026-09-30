@@ -14,12 +14,14 @@ type GalleryImage = {
 // Es werden immer nur so viele Bilder gleichzeitig angezeigt.
 const VISIBLE = 3;
 
-// Breite einer Kachel: unten zwei, ab sm drei pro Zeile – als feste Breite
+// Breite einer Kachel: ab sm immer ein Drittel der Zeile – als feste Breite
 // statt als Raster, damit eine Zeile mit nur einem oder zwei Bildern dieselbe
 // Kachelgröße behält wie eine volle Zeile (und mittig steht) statt sich über
-// die ganze Breite zu ziehen.
-const ITEM_WIDTH =
-  "w-[calc((100%_-_1rem)/2)] sm:w-[calc((100%_-_2.5rem)/3)]";
+// die ganze Breite zu ziehen. Auf dem Handy stehen in der Galerie zwei Bilder
+// nebeneinander; die Bildstreifen im Fließtext (stackOnMobile) zeigen dort nur
+// eins pro Zeile, damit die Fotos gross genug bleiben.
+const ITEM_WIDTH = "w-[calc((100%_-_1rem)/2)] sm:w-[calc((100%_-_2.5rem)/3)]";
+const ITEM_WIDTH_STACKED = "w-full sm:w-[calc((100%_-_2.5rem)/3)]";
 
 export function Gallery({
   images,
@@ -31,11 +33,15 @@ export function Gallery({
   showCaptions = false,
   // credit zeigt unten links ein kleines ©-Zeichen; beim Hovern erscheint der Name.
   credit = "Janine Bergmann",
+  // Auf schmalen Displays ein Bild pro Zeile statt zwei (für die Bildstreifen
+  // im Fließtext).
+  stackOnMobile = false,
 }: {
   images: GalleryImage[];
   paged?: boolean;
   showCaptions?: boolean;
   credit?: string;
+  stackOnMobile?: boolean;
 }) {
   // null = Lightbox geschlossen, sonst Index des angezeigten Bildes.
   const [active, setActive] = useState<number | null>(null);
@@ -160,7 +166,9 @@ export function Gallery({
         </div>
       ) : (
         <div className="mt-6 flex flex-wrap justify-center gap-4 sm:gap-5">
-          {images.map((img, i) => thumb(img, i, ITEM_WIDTH))}
+          {images.map((img, i) =>
+            thumb(img, i, stackOnMobile ? ITEM_WIDTH_STACKED : ITEM_WIDTH),
+          )}
         </div>
       )}
 
