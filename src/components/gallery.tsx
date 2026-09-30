@@ -14,13 +14,12 @@ type GalleryImage = {
 // Es werden immer nur so viele Bilder gleichzeitig angezeigt.
 const VISIBLE = 3;
 
-// Tailwind braucht die Klassennamen ausgeschrieben, deshalb eine Tabelle statt
-// eines zusammengesetzten Strings.
-const GRID: Record<1 | 2 | 3, string> = {
-  1: "grid-cols-1",
-  2: "grid-cols-2",
-  3: "grid-cols-2 sm:grid-cols-3",
-};
+// Breite einer Kachel: unten zwei, ab sm drei pro Zeile – als feste Breite
+// statt als Raster, damit eine Zeile mit nur einem oder zwei Bildern dieselbe
+// Kachelgröße behält wie eine volle Zeile (und mittig steht) statt sich über
+// die ganze Breite zu ziehen.
+const ITEM_WIDTH =
+  "w-[calc((100%_-_1rem)/2)] sm:w-[calc((100%_-_2.5rem)/3)]";
 
 export function Gallery({
   images,
@@ -32,16 +31,11 @@ export function Gallery({
   showCaptions = false,
   // credit zeigt unten links ein kleines ©-Zeichen; beim Hovern erscheint der Name.
   credit = "Janine Bergmann",
-  // Spalten des Rasters (nur bei paged=false). Die großen Beitragsgalerien
-  // bleiben bei drei; die Bildstreifen im Fließtext setzen hier die Zahl ihrer
-  // Bilder ein, damit ein einzelnes Foto nicht über die volle Breite läuft.
-  columns = 3,
 }: {
   images: GalleryImage[];
   paged?: boolean;
   showCaptions?: boolean;
   credit?: string;
-  columns?: 1 | 2 | 3;
 }) {
   // null = Lightbox geschlossen, sonst Index des angezeigten Bildes.
   const [active, setActive] = useState<number | null>(null);
@@ -89,11 +83,11 @@ export function Gallery({
 
   const visible = paged ? images.slice(start, start + VISIBLE) : images;
 
-  const thumb = (img: GalleryImage, i: number) => {
+  const thumb = (img: GalleryImage, i: number, className = "") => {
     // Pro-Bild-Copyright hat Vorrang vor dem Galerie-Copyright.
     const imgCredit = img.credit ?? credit;
     return (
-    <figure key={img.src} className="group relative">
+    <figure key={img.src} className={`group relative ${className}`}>
       <button
         type="button"
         onClick={() => setActive(i)}
@@ -165,8 +159,8 @@ export function Gallery({
           )}
         </div>
       ) : (
-        <div className={`mt-6 grid gap-4 sm:gap-5 ${GRID[columns]}`}>
-          {images.map((img, i) => thumb(img, i))}
+        <div className="mt-6 flex flex-wrap justify-center gap-4 sm:gap-5">
+          {images.map((img, i) => thumb(img, i, ITEM_WIDTH))}
         </div>
       )}
 

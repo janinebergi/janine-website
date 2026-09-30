@@ -7,14 +7,13 @@ type Photo = { src: string; alt: string };
 // vergrößert das Bild (dieselbe Lightbox wie in der Beitragsgalerie), die
 // Bildunterschrift erscheint beim Darüberfahren.
 //
-// Ein einzelnes Foto läuft bewusst nicht über die volle Textbreite – als
-// Quadrat wäre es sonst riesig und würde den Beitrag zerreißen.
+// Jede Kachel ist gleich groß, egal wie viele in der Zeile stehen: Eine Zeile
+// mit einem oder zwei Fotos behält die Breite einer Dreierzeile und steht
+// mittig, statt sich über die ganze Textbreite zu ziehen.
 export function Fotos({ images }: { images: Photo[] }) {
-  const columns = Math.min(images.length, 3) as 1 | 2 | 3;
-
   return (
-    <div className={`not-prose my-10 ${columns === 1 ? "mx-auto max-w-sm" : ""}`}>
-      <Gallery images={images} paged={false} showCaptions columns={columns} />
+    <div className="not-prose my-10">
+      <Gallery images={images} paged={false} showCaptions />
     </div>
   );
 }
