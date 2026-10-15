@@ -7,6 +7,7 @@ import { Footer } from "@/components/layout/footer";
 import { getSiteContent } from "@/lib/site";
 import { getLangPaths } from "@/lib/lang-paths";
 import { HelligkeitRegler } from "@/components/dev/helligkeit-regler";
+import { TextEditor } from "@/components/dev/text-editor";
 import { readBrightnessLevel } from "@/lib/theme-brightness-file";
 import type { Lang } from "@/lib/i18n-constants";
 import {
@@ -104,10 +105,15 @@ export function SiteShell({
         <Header lang={lang} langPaths={getLangPaths(lang)} />
         <main>{children}</main>
         <Footer lang={lang} />
-        {/* Helligkeitsregler nur lokal: er schreibt beim Speichern in
-            globals.css, was im Deployment weder möglich noch erwünscht ist. */}
+        {/* Helligkeitsregler und Text-Werkzeug nur lokal: beide schreiben beim
+            Speichern in Dateien des Projekts (globals.css, site.json, die
+            .mdx-Beiträge), was im Deployment weder möglich noch erwünscht
+            ist. */}
         {process.env.NODE_ENV !== "production" && (
-          <HelligkeitRegler gespeichert={readBrightnessLevel()} />
+          <>
+            <HelligkeitRegler gespeichert={readBrightnessLevel()} />
+            <TextEditor lang={lang} />
+          </>
         )}
         <Analytics />
       </body>
