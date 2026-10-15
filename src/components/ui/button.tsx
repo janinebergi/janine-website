@@ -14,6 +14,12 @@ const variants: Record<Variant, string> = {
   ghost: "text-foreground hover:text-accent-hover",
 };
 
+// Dieselben Klassen ohne das Bauteil – für die Fälle, in denen next/link
+// nicht passt: ein Datei-Download aus public/ oder ein Verweis nach außen.
+export function buttonClass(variant: Variant = "primary", className = ""): string {
+  return `${base} ${variants[variant]} ${className}`;
+}
+
 export function Button({
   href,
   variant = "primary",
@@ -29,7 +35,7 @@ export function Button({
   return (
     <Link
       href={href}
-      className={`${base} ${variants[variant]} ${className}`}
+      className={buttonClass(variant, className)}
       {...props}
     >
       {children}

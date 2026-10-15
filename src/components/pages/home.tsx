@@ -4,6 +4,7 @@ import { ArrowUpRight, Quote } from "lucide-react";
 import { Container } from "@/components/ui/container";
 import { Button } from "@/components/ui/button";
 import { Eyebrow, SectionHeading } from "@/components/ui/section-heading";
+import { Reisefuehrer } from "@/components/guide-download";
 import { getSiteContent } from "@/lib/site";
 import type { Lang } from "@/lib/i18n-constants";
 import { iconForStat } from "@/lib/stat-icons";
@@ -159,7 +160,11 @@ export async function HomePage({ lang }: { lang: Lang }) {
                     <span className="text-muted">{testimonial.role}</span>
                   </figcaption>
                   <Link
-                    href={postPath(lang, testimonial.postSlug)}
+                    href={
+                      testimonial.postSlug
+                        ? postPath(lang, testimonial.postSlug)
+                        : blogPath(lang)
+                    }
                     className="relative mt-6 inline-flex items-center gap-1 text-sm font-medium text-accent-hover transition-all hover:gap-2"
                   >
                     {testimonial.linkLabel} <ArrowUpRight size={16} />
@@ -170,6 +175,14 @@ export async function HomePage({ lang }: { lang: Lang }) {
           </Container>
         </section>
       )}
+
+      {/* Reiseführer: der einzige Download der Seite. Steht bewusst hier und
+          nicht im Header – erst die Beiträge, dann das Angebot. */}
+      <section className="pb-20">
+        <Container>
+          <Reisefuehrer id="indonesien" lang={lang} ort="startseite" />
+        </Container>
+      </section>
 
       {/* CTA */}
       <section className="py-20">

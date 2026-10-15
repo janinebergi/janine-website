@@ -1,10 +1,13 @@
 import Image from "next/image";
 import Link from "next/link";
+import { DownloadLink } from "@/components/download-link";
+import { guideLink } from "@/components/guide-download";
 import { getSiteContent } from "@/lib/site";
 import type { Lang } from "@/lib/i18n-constants";
 import {
   aboutPath,
   blogPath,
+  guidePath,
   contactPath,
   homePath,
   imprintPath,
@@ -14,12 +17,15 @@ import {
 const NAV_PATH: Record<string, (lang: Lang) => string> = {
   home: homePath,
   about: aboutPath,
+  guide: guidePath,
   blog: blogPath,
   contact: contactPath,
 };
 
 export function Footer({ lang }: { lang: Lang }) {
   const { nav, pages, site } = getSiteContent(lang);
+  // Entfällt, solange die PDF-Datei nicht da ist.
+  const guide = guideLink(lang, "indonesien");
   const t = pages.footer;
 
   return (
@@ -55,6 +61,15 @@ export function Footer({ lang }: { lang: Lang }) {
                 {item.label}
               </Link>
             ))}
+            {guide && (
+              <DownloadLink
+                href={guide.href}
+                ort="footer"
+                className="text-sm text-muted transition-colors hover:text-foreground"
+              >
+                {t.guideLink}
+              </DownloadLink>
+            )}
           </div>
 
           <div className="flex flex-col gap-3">

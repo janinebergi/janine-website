@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { Container } from "@/components/ui/container";
+import { Reisefuehrer } from "@/components/guide-download";
 import { PageHeader } from "@/components/ui/page-header";
 import { ArrowRight } from "lucide-react";
 import { getAllPosts, formatDate, tileStyle } from "@/lib/blog";
@@ -162,6 +163,8 @@ export async function BlogIndexPage({ lang }: { lang: Lang }) {
               </div>
             </div>
           </div>
+
+          <Reisefuehrer id="indonesien" lang={lang} ort="blog-uebersicht" />
 
           <section className="mt-16 rounded-2xl border border-border bg-surface/60 p-8 sm:p-10">
             <p className="text-sm text-accent-hover">{t.collabEyebrow}</p>

@@ -129,6 +129,127 @@ Die Seite existiert nur lokal, im Deployment liefert sie 404. Nicht abgedeckt
 sind die Galeriebilder in den Beiträgen: die werden quadratisch und mittig
 beschnitten, ohne einstellbaren Ausschnitt.
 
+## Reiseführer als PDF
+
+Ein Reiseführer wird mit einem Kasten im Fließtext angeboten. Im Beitrag steht
+dafür eine Zeile, an der Stelle, an der der Kasten erscheinen soll:
+
+```mdx
+<Reisefuehrer id="indonesien" />            <!-- deutsche Fassung -->
+<Reisefuehrer id="indonesien" lang="en" />  <!-- englische Fassung -->
+```
+
+Die Texte dazu stehen in beiden Sprachdateien unter `pages.reisefuehrer.<id>`,
+die Datei selbst unter `public/downloads/`. Die Größe wird beim Rendern aus der
+Datei gelesen, steht also nirgends doppelt. Fehlt die Datei noch, erscheint
+kein Kasten — lokal steht an seiner Stelle ein Hinweis, in der
+veröffentlichten Fassung bleibt die Stelle leer. Die Zeile im Beitrag kann also
+schon stehen, bevor das PDF fertig ist.
+
+Eine Datei in `public/` ist für jeden erreichbar, der die Adresse kennt. Für
+etwas, das verschenkt wird, ist das genau richtig.
+
+### Wo er auftaucht
+
+| Ort | wie |
+| --- | --- |
+| Eigene Seite `/reisefuehrer` bzw. `/en/travel-guide` | Menüpunkt, in Sitemap und Suche, mit eigenem Header-Bild (einstellbar unter `/dev/bildausschnitt`) |
+| Bali-Beitrag | zweimal: früh vor „Ubud" und am Ende |
+| Gili-T-Beitrag | am Ende |
+| Startseite | Abschnitt vor dem Kontakt-Aufruf |
+| Blog-Übersicht | über dem Zusammenarbeit-Kasten |
+| Länderseite Indonesien | über der Beitragsliste |
+| Fußzeile | Textverweis auf jeder Seite |
+
+Jede dieser Stellen meldet beim Klick ein Vercel-Analytics-Ereignis
+(`reisefuehrer-download`) mit der Platzierung als Merkmal — `startseite`,
+`beitrag-oben`, `beitrag-ende`, `beitrag-gili-t`, `blog-uebersicht`,
+`laenderseite`, `reisefuehrer-seite`, `footer`. In der Vercel-Statistik ist
+damit zu sehen, welche Platzierung tatsächlich Downloads bringt. Ob eigene
+Ereignisse im gebuchten Tarif enthalten sind, zeigt das Vercel-Dashboard unter
+*Analytics → Events*; ohne sie läuft der Download trotzdem, nur ungezählt.
+
+Fällt eine Platzierung weg, reicht es, die Zeile bzw. das Bauteil zu
+entfernen — Texte und Ziel stehen an einer einzigen Stelle in site.json.
+
+### Export komprimieren
+
+Canva exportiert mit *PDF Drucken* in Druckqualität: Die Fotos liegen dann
+verlustfrei im PDF, 22 Seiten werden so 268 MB groß. Das lädt niemand herunter
+und GitHub lehnt Dateien über 100 MB beim Push ohnehin ab. Entweder in Canva
+*PDF Standard* wählen oder den vorhandenen Export nachrechnen lassen:
+
+```bash
+brew install ghostscript   # einmalig
+
+gs -sDEVICE=pdfwrite -dCompatibilityLevel=1.5 -dPDFSETTINGS=/ebook \
+   -dDownsampleColorImages=true -dColorImageDownsampleType=/Bicubic \
+   -dColorImageResolution=300 \
+   -dDownsampleGrayImages=true -dGrayImageDownsampleType=/Bicubic \
+   -dGrayImageResolution=300 \
+   -dAutoFilterColorImages=false -dColorImageFilter=/DCTEncode \
+   -dAutoFilterGrayImages=false -dGrayImageFilter=/DCTEncode \
+   -dNOPAUSE -dQUIET -dBATCH \
+   -sOutputFile=public/downloads/indonesien-reisefuehrer.pdf "Rohexport.pdf"
+```
+
+Aus 268 MB werden damit 11 MB, bei 300 dpi — vom Original ist auch bei vollem
+Zoom nichts zu unterscheiden. Der Text bleibt Vektor, also scharf und
+durchsuchbar.
+
+Zwei Eigenheiten von Ghostscript, die einiges Ausprobieren gekostet haben:
+
+- Nur das Profil `/ebook` rechnet die Bilder überhaupt in JPEG um. Mit
+  `/printer`, `/prepress` oder ganz ohne Profil bleiben sie verlustfrei, und
+  die Datei bleibt bei rund 190 MB — trotz gesetztem `/DCTEncode`.
+- `-dJPEGQ` wird ignoriert (q92 und q96 ergeben byteidentische Dateien). Die
+  Qualität steuert man deshalb über die Auflösung: `/ebook` allein nimmt
+  150 dpi (sichtbar weich auf Retina-Displays), die 300 dpi oben sind die
+  Einstellung, die zählt — und sind dabei sogar kleiner als 150 dpi ohne die
+  erzwungenen DCT-Filter.
+
+Der Rohexport gehört nicht ins Repo – er steht deshalb in `.gitignore`.
+
+## Texte direkt auf der Seite bearbeiten
+
+`npm run dev` starten: unten links sitzt auf jeder Seite der Knopf *Texte
+bearbeiten*. Eingeschaltet bekommt jeder Text, der aus einer Quelldatei stammt,
+einen gestrichelten Rahmen. Ein Klick öffnet ein kleines Fenster mit dem Text,
+*Speichern* schreibt ihn in seine Datei zurück – die Seite baut sich sofort neu
+auf, der Modus bleibt beim Klicken durch die Seiten erhalten.
+
+| auf der Seite | landet in |
+| --- | --- |
+| Überschriften, Absätze, Knopftexte, Menü, Fußzeile | `src/content/site.json` |
+| Titel und Teaser eines Beitrags (auch in den Kacheln) | Frontmatter der `.mdx` |
+| Fragen und Antworten im Q&A | `faq:` im Frontmatter der `.mdx` |
+| die Absätze des Beitragstextes | Fließtext der `.mdx` |
+
+Im Fenster steht immer, in welche Datei und an welche Stelle gespeichert wird.
+Bei einem Absatz aus einem Beitrag steht dort die Markdown-Quelle, also mit
+`## Überschrift`, `**fett**` und `[Text](/pfad)` – so bleiben Überschriften,
+Links und Betonungen beim Bearbeiten erhalten. Eine Leerzeile im Fenster teilt
+den Absatz in zwei.
+
+Kommt derselbe Text an mehreren Stellen vor („Kontakt“ ist Menüpunkt,
+Überschrift und Knopf), erscheint ein Auswahlfeld mit allen Stellen.
+
+Gespeichert wird immer die Sprachfassung, die gerade offen ist: unter `/…` die
+deutsche, unter `/en/…` die englische. Deutsch bleibt die Leitfassung – die
+englische Fassung danach also unter `/en/…` nachziehen.
+
+Ein Klick trifft im Bearbeiten-Modus immer den Text, nicht den Link. Zum
+Weiterklicken deshalb auf *Fertig* gehen oder mit ⌘ bzw. Strg klicken. `Esc`
+schließt das Fenster, ⌘ + `Enter` speichert.
+
+Die Seiten selbst wissen nichts von dem Werkzeug: es holt sich die
+bearbeitbaren Texte der offenen Seite vom Server und sucht sie im fertigen
+HTML. Deshalb muss an einer neuen Seite nichts markiert werden, damit ihre
+Texte bearbeitbar sind.
+
+Wie die beiden anderen Werkzeuge existiert es nur lokal: im Deployment wird der
+Knopf nicht angezeigt und die Route, die schreibt, liefert 404.
+
 ## Helligkeit des Designs
 
 Das Design ist bewusst dunkel, lässt sich aber in einer Stufe von 0 bis 100 %

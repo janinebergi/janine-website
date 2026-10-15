@@ -2,7 +2,7 @@ import fs from "node:fs";
 import path from "node:path";
 import { getSiteContent } from "@/lib/site";
 
-// Die vier Header-Bilder der Website und wo ihre Werte in site.json stehen.
+// Die Header-Bilder der Website und wo ihre Werte in site.json stehen.
 // Nur diese Pfade dürfen vom Dev-Werkzeug beschrieben werden.
 export const HEROES = [
   {
@@ -23,6 +23,12 @@ export const HEROES = [
     label: "Über mich",
     minHeight: { mobile: "45vh", desktop: "52vh" },
     keys: ["pages", "ueberMich"],
+  },
+  {
+    id: "reisefuehrer",
+    label: "Reiseführer",
+    minHeight: { mobile: "45vh", desktop: "52vh" },
+    keys: ["pages", "reisefuehrerSeite"],
   },
   {
     id: "kontakt",

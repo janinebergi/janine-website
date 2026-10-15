@@ -25,6 +25,24 @@ spitzen Klammern `⟨ … ⟩`.
 
 ---
 
+## Offen: Indonesien-Reiseführer
+
+Der Kasten steht am Ende des Bali-Beitrags (`<Reisefuehrer id="indonesien" />`), die
+Texte dazu in `pages.reisefuehrer.indonesien` (beide Sprachdateien). Solange die
+Datei fehlt, erscheint der Kasten nicht — lokal steht an seiner Stelle ein
+Hinweis.
+
+| ✓ | Was | Wo |
+|---|---|---|
+| ☑ | PDF abgelegt (Canva-Export auf 11 MB bei 300 dpi gerechnet) | `public/downloads/indonesien-reisefuehrer.pdf` |
+| ☐ | Titel, Beschreibung und Zusatz schärfen | `pages.reisefuehrer.indonesien.title` / `.text` / `.note` (DE **und** EN) |
+| ☐ | Texte der Reiseführer-Seite gegenlesen (aus der PDF-Gliederung abgeleitet) | `pages.reisefuehrerSeite` (DE **und** EN) |
+| ☐ | Prüfen, ob der Hinweis in der englischen Fassung stimmt | `site.en.json`: dort steht aktuell, der Reiseführer sei auf Deutsch |
+
+Die Dateigröße steht nirgends: sie wird beim Rendern aus der Datei gelesen.
+
+---
+
 ## Erledigt: die gefüllten Texte
 
 Alle Texte stehen in **beiden** Sprachdateien

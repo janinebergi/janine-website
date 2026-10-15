@@ -36,3 +36,8 @@ yarn-error.log*
 next-env.d.ts
 .claude/settings.local.json
 .env*
+
+# Rohexport des Reiseführers aus Canva (268 MB, Druckqualität).
+# Ins Repo gehört nur die komprimierte Fassung daneben; GitHub lehnt Dateien
+# über 100 MB beim Push ohnehin ab.
+/public/downloads/Reiseführer Indo.pdf

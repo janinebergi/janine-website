@@ -7,7 +7,7 @@ import { useState } from "react";
 import { Menu, X } from "lucide-react";
 import { getSiteContent } from "@/lib/site";
 import type { Lang } from "@/lib/i18n-constants";
-import { aboutPath, blogPath, contactPath, homePath } from "@/lib/routes";
+import { aboutPath, blogPath, contactPath, guidePath, homePath } from "@/lib/routes";
 import { Button } from "@/components/ui/button";
 import { LanguageToggle } from "@/components/layout/language-toggle";
 import { SiteSearch } from "@/components/layout/site-search";
@@ -17,6 +17,7 @@ import { SiteSearch } from "@/components/layout/site-search";
 const NAV_PATH: Record<string, (lang: Lang) => string> = {
   home: homePath,
   about: aboutPath,
+  guide: guidePath,
   blog: blogPath,
   contact: contactPath,
 };

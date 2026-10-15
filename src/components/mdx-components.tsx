@@ -7,6 +7,7 @@ import type { MDXRemoteProps } from "next-mdx-remote/rsc";
 import { BudgetChart } from "@/components/budget-chart";
 import { Faq, FaqItem } from "@/components/faq";
 import { Fotos } from "@/components/photo-strip";
+import { Reisefuehrer } from "@/components/guide-download";
 import { slugify } from "@/lib/slugify";
 
 // Extrahiert reinen Text aus den Kind-Elementen einer Überschrift, damit
@@ -77,6 +78,7 @@ export const mdxComponents: MDXRemoteProps["components"] = {
   Faq,
   FaqItem,
   Fotos,
+  Reisefuehrer,
   h2: (props) => {
     const { children } = props as { children: ReactNode };
     return (

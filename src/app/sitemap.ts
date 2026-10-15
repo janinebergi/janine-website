@@ -14,6 +14,7 @@ import {
   blogPath,
   contactPath,
   countryPath,
+  guidePath,
   homePath,
   postPath,
   topicPath,
@@ -115,6 +116,10 @@ export default function sitemap(): MetadataRoute.Sitemap {
         lastModified: newest,
         changeFrequency: "weekly",
         priority: 0.9,
+      }),
+      entry({ de: guidePath("de"), en: guidePath("en") }, lang, {
+        changeFrequency: "monthly",
+        priority: 0.8,
       }),
       entry({ de: aboutPath("de"), en: aboutPath("en") }, lang, {
         changeFrequency: "monthly",

@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { ArchivePage } from "@/components/pages/archive";
+import { Reisefuehrer } from "@/components/guide-download";
 import { JsonLd } from "@/components/json-ld";
 import { breadcrumbSchema, collectionSchema } from "@/lib/jsonld";
 import { pageMetadata } from "@/lib/metadata";
@@ -72,6 +73,12 @@ export default async function Page({
         title={entry.name}
         intro={t.countryIntro.replace("{name}", entry.name)}
         posts={entry.posts}
+        // Der Reiseführer gehört thematisch genau auf diese eine Länderseite.
+        guide={
+          entry.slug === "indonesien" || entry.slug === "indonesia" ? (
+            <Reisefuehrer id="indonesien" lang={LANG} ort="laenderseite" />
+          ) : undefined
+        }
       />
     </>
   );

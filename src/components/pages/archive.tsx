@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
+import type { ReactNode } from "react";
 import { ArrowLeft } from "lucide-react";
 import { Container } from "@/components/ui/container";
 import { Eyebrow } from "@/components/ui/section-heading";
@@ -17,12 +18,16 @@ export function ArchivePage({
   title,
   intro,
   posts,
+  // Platz für den Reiseführer-Kasten: Die Länderseite Indonesien reicht ihn
+  // durch, alle anderen Archivseiten lassen ihn weg.
+  guide,
 }: {
   lang: Lang;
   eyebrow: string;
   title: string;
   intro: string;
   posts: PostMeta[];
+  guide?: ReactNode;
 }) {
   const { pages } = getSiteContent(lang);
   const t = pages.archive;
@@ -49,6 +54,8 @@ export function ArchivePage({
           <p className="mt-5 text-lg leading-relaxed text-muted">{intro}</p>
           <p className="mt-2 text-sm text-muted">{count}</p>
         </div>
+
+        {guide}
 
         <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
           {posts.map((post) => (

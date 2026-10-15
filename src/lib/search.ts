@@ -5,6 +5,7 @@ import {
   aboutPath,
   blogPath,
   contactPath,
+  guidePath,
   homePath,
   imprintPath,
   postPath,
@@ -82,6 +83,13 @@ export function getSearchIndex(lang: Lang): SearchItem[] {
       url: blogPath(lang),
       type: "page",
       content: pageContentText(pages.blog),
+    },
+    {
+      title: shortTitle(pages.reisefuehrerSeite.metaTitle),
+      description: pages.reisefuehrerSeite.metaDescription,
+      url: guidePath(lang),
+      type: "page",
+      content: pageContentText(pages.reisefuehrerSeite),
     },
     {
       title: shortTitle(pages.kontakt.metaTitle),
