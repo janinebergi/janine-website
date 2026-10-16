@@ -37,7 +37,9 @@ next-env.d.ts
 .claude/settings.local.json
 .env*
 
-# Rohexport des Reiseführers aus Canva (268 MB, Druckqualität).
-# Ins Repo gehört nur die komprimierte Fassung daneben; GitHub lehnt Dateien
-# über 100 MB beim Push ohnehin ab.
-/public/downloads/Reiseführer Indo.pdf
+# Rohexporte des Reiseführers aus Canva (Druckqualität, rund 270 MB) bleiben
+# lokal: Ins Repo gehört nur die komprimierte Fassung, GitHub lehnt Dateien
+# über 100 MB beim Push ohnehin ab. Deshalb alles in public/downloads
+# ignorieren und die ausgelieferte Datei ausdrücklich wieder aufnehmen.
+/public/downloads/*
+!/public/downloads/indonesien-reisefuehrer.pdf
