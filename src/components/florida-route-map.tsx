@@ -1,6 +1,7 @@
 import { MapPin } from "lucide-react";
 import type { Lang } from "@/lib/i18n-constants";
 import { RouteMarkers } from "@/components/route-map-marker";
+import { RouteArrows } from "@/components/route-arrows";
 
 type Stop = {
   n: number;
@@ -73,8 +74,8 @@ const sectionsByLang: Record<Lang, Record<number, string>> = {
 };
 
 const captions: Record<Lang, string> = {
-  de: "Im Uhrzeigersinn ab Orlando: die Ostküste hinab über Kennedy Space Center, Miami und die Keys bis Key West, dann die Golfküste hinauf und zurück nach Orlando · Zahl = Reihenfolge der Stationen · rund 1.900 km / 14 Tage",
-  en: "Clockwise from Orlando: down the east coast via Kennedy Space Center, Miami and the Keys to Key West, then up the Gulf coast and back to Orlando · number = order of stops · about 1,900 km / 14 days",
+  de: "Pfeile = Fahrtrichtung · im Uhrzeigersinn ab Orlando: die Ostküste hinab über Kennedy Space Center, Miami und die Keys bis Key West, dann die Golfküste hinauf und zurück nach Orlando · Zahl = Reihenfolge der Stationen · rund 1.900 km / 14 Tage",
+  en: "Arrows = direction of travel · clockwise from Orlando: down the east coast via Kennedy Space Center, Miami and the Keys to Key West, then up the Gulf coast and back to Orlando · number = order of stops · about 1,900 km / 14 days",
 };
 
 // Stilisierter, aber erkennbarer Umriss der Florida-Halbinsel (lon, lat),
@@ -176,6 +177,17 @@ export function FloridaRouteMap({ lang = "de" }: { lang?: Lang }) {
       })
       .join(" ") + " Z";
 
+  // Pfeile in zwei Zügen: hin bis Key West und ab den Everglades zurück nach
+  // Orlando. Zwischen Key West und den Everglades liegen Hin- und Rückweg über
+  // dieselben Keys übereinander – dort würde eine Spitze nur verwirren.
+  const arrowsOut: [number, number][] = [
+    ...[1, 2, 3, 4, 5].map((n) => project(at(n).lon, at(n).lat)),
+    ...keys.map(([lon, lat]) => project(lon, lat)),
+  ];
+  const arrowsBack: [number, number][] = [8, 9, 10, 11, 12, 1].map((n) =>
+    project(at(n).lon, at(n).lat),
+  );
+
   return (
     <div className="not-prose my-10 overflow-hidden rounded-2xl border border-border bg-surface/60">
       <div className="flex justify-center p-6 sm:p-8">
@@ -223,6 +235,9 @@ export function FloridaRouteMap({ lang = "de" }: { lang?: Lang }) {
             strokeLinecap="round"
             strokeLinejoin="round"
           />
+          {/* Richtungspfeile: sie machen die Reihenfolge der Etappen auf einen Blick klar */}
+          <RouteArrows points={arrowsOut} size={7} />
+          <RouteArrows points={arrowsBack} size={7} />
           {/* Verbindungslinien zu den Labels */}
           {stops.map((s) => {
             const [x, y] = project(s.lon, s.lat);

@@ -1,6 +1,7 @@
 import { MapPin } from "lucide-react";
 import type { Lang } from "@/lib/i18n-constants";
 import { RouteMarkers } from "@/components/route-map-marker";
+import { RouteArrows, bowSegment } from "@/components/route-arrows";
 
 type Stop = {
   n: number;
@@ -36,21 +37,21 @@ const stopsByLang: Record<Lang, Stop[]> = {
 const sectionsByLang: Record<Lang, Record<number, string>> = {
   de: {
     1: "Ankunft in Marrakesch",
-    2: "Aufbruch in die Wüste",
+    2: "Aufbruch in die Wüste: über den Atlas nach Aït-Ben-Haddou",
     3: "Auf dem Kamel Richtung Sonnenuntergang",
-    4: "Ab ans Meer",
+    4: "Ab ans Meer: mit dem Bus nach Agadir",
   },
   en: {
     1: "Arriving in Marrakech",
-    2: "Setting Off Into the Desert",
+    2: "Setting Off Into the Desert: Over the Atlas to Aït-Ben-Haddou",
     3: "On a Camel Towards the Sunset",
-    4: "Off to the Sea",
+    4: "Off to the Sea: By Bus to Agadir",
   },
 };
 
 const captions: Record<Lang, string> = {
-  de: "Ab Marrakesch über das Atlasgebirge und Aït-Ben-Haddou in die Merzouga-Wüste, zurück nach Marrakesch und weiter an den Atlantik nach Agadir · Klammer = Nächte vor Ort · 6 Nächte / 6 Tage",
-  en: "From Marrakech across the Atlas Mountains and Aït Ben Haddou to the Merzouga desert, back to Marrakech and on to the Atlantic in Agadir · brackets = nights spent there · 6 nights / 6 days",
+  de: "Pfeile = Fahrtrichtung, der Bogen ist der Rückweg aus der Wüste · ab Marrakesch über das Atlasgebirge und Aït-Ben-Haddou in die Merzouga-Wüste, zurück nach Marrakesch und weiter an den Atlantik nach Agadir · Klammer = Nächte vor Ort · 6 Nächte / 6 Tage",
+  en: "Arrows = direction of travel, the arc is the way back from the desert · from Marrakech across the Atlas Mountains and Aït Ben Haddou to the Merzouga desert, back to Marrakech and on to the Atlantic in Agadir · brackets = nights spent there · 6 nights / 6 days",
 };
 
 // Stilisierter, aber erkennbarer Umriss Marokkos (lon, lat), im Uhrzeigersinn:
@@ -115,14 +116,23 @@ export function MoroccoRouteMap({ lang = "de" }: { lang?: Lang }) {
   const byName = (n: number) => stops.find((s) => s.n === n)!;
 
   // Route in Reisereihenfolge inkl. Rückweg von der Wüste nach Marrakesch,
-  // bevor es an den Atlantik geht: 1 → 2 → 3 → 1 → 4
-  const routePath = [1, 2, 3, 1, 4]
-    .map((n, i) => {
-      const s = byName(n);
-      const [x, y] = project(s.lon, s.lat);
-      return `${i === 0 ? "M" : "L"}${x.toFixed(1)} ${y.toFixed(1)}`;
-    })
-    .join(" ");
+  // bevor es an den Atlantik geht: 1 → 2 → 3 → 1 → 4. Der Rückweg nimmt
+  // dieselbe Strecke wie der Hinweg und wird deshalb als Bogen nördlich davon
+  // gezeichnet – sonst lägen beide Linien übereinander.
+  const RUECKWEG_BOGEN = 34;
+  const [p1, p2, p3, p4] = [1, 2, 3, 4].map((n) => {
+    const s = byName(n);
+    return project(s.lon, s.lat);
+  });
+  const routePath = [
+    `M${p1[0].toFixed(1)} ${p1[1].toFixed(1)}`,
+    `L${p2[0].toFixed(1)} ${p2[1].toFixed(1)}`,
+    `L${p3[0].toFixed(1)} ${p3[1].toFixed(1)}`,
+    bowSegment(p3, p1, RUECKWEG_BOGEN),
+    `L${p4[0].toFixed(1)} ${p4[1].toFixed(1)}`,
+  ].join(" ");
+  const arrowCoords: [number, number][] = [p1, p2, p3, p1, p4];
+  const arrowBow = [0, 0, RUECKWEG_BOGEN, 0];
 
   return (
     <div className="not-prose my-10 overflow-hidden rounded-2xl border border-border bg-surface/60">
@@ -154,6 +164,8 @@ export function MoroccoRouteMap({ lang = "de" }: { lang?: Lang }) {
             strokeLinecap="round"
             strokeLinejoin="round"
           />
+          {/* Richtungspfeile: sie machen die Reihenfolge der Etappen auf einen Blick klar */}
+          <RouteArrows points={arrowCoords} bow={arrowBow} size={8} />
           {/* Verbindungslinien zu den Labels */}
           {stops.map((s) => {
             const [x, y] = project(s.lon, s.lat);

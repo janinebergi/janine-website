@@ -1,6 +1,7 @@
 import { MapPin } from "lucide-react";
 import type { Lang } from "@/lib/i18n-constants";
 import { RouteMarkers } from "@/components/route-map-marker";
+import { RouteArrows } from "@/components/route-arrows";
 
 type Stop = {
   n: number;
@@ -49,30 +50,30 @@ const stopsByLang: Record<Lang, Stop[]> = {
 // hat keinen eigenen Abschnitt und bleibt daher ohne Verweis.
 const sectionsByLang: Record<Lang, Record<number, string>> = {
   de: {
-    2: "Sigiriya – ein Hotel mitten im Dschungel",
-    3: "Kandy – Zahntempel und verschlossene Türen",
-    4: "Ella – Wasserfall, Teeplantage und Kochkurs",
+    2: "Sigiriya: ein Hotel mitten im Dschungel",
+    3: "Kandy: Zahntempel und verschlossene Türen",
+    4: "Ella: Wasserfall, Teeplantage und Kochkurs",
     5: "Safari-Reinfall und Fahrt an die Küste",
-    6: "Hiriketiya – Surfen und Entspannen",
+    6: "Hiriketiya: Surfen und Entspannen",
     7: "Weligama und Mirissa",
     8: "Weligama und Mirissa",
-    9: "Galle – heißer Tag in der Altstadt",
+    9: "Galle: heißer Tag in der Altstadt",
   },
   en: {
-    2: "Sigiriya – a hotel in the middle of the jungle",
-    3: "Kandy – the Temple of the Tooth and locked doors",
-    4: "Ella – waterfall, tea plantation and cooking class",
+    2: "Sigiriya: a hotel in the middle of the jungle",
+    3: "Kandy: the Temple of the Tooth and locked doors",
+    4: "Ella: waterfall, tea plantation and cooking class",
     5: "A safari letdown and the drive to the coast",
-    6: "Hiriketiya – surfing and relaxing",
+    6: "Hiriketiya: surfing and relaxing",
     7: "Weligama and Mirissa",
     8: "Weligama and Mirissa",
-    9: "Galle – a hot day in the old town",
+    9: "Galle: a hot day in the old town",
   },
 };
 
 const captions: Record<Lang, string> = {
-  de: "Rundreise im Uhrzeigersinn zurück nach Colombo · Klammer = Nächte vor Ort · gepunktete Abzweige = Tagesausflüge von Weligama · 14 Nächte / 15 Tage",
-  en: "Clockwise loop back to Colombo · brackets = nights spent there · dotted branches = day trips from Weligama · 14 nights / 15 days",
+  de: "Pfeile = Fahrtrichtung · Rundreise im Uhrzeigersinn zurück nach Colombo · Klammer = Nächte vor Ort · gepunktete Abzweige = Tagesausflüge von Weligama · 14 Nächte / 15 Tage",
+  en: "Arrows = direction of travel · clockwise loop back to Colombo · brackets = nights spent there · dotted branches = day trips from Weligama · 14 nights / 15 days",
 };
 
 // Vereinfachter Küstenumriss von Sri Lanka (lon, lat)
@@ -122,14 +123,15 @@ export function SriLankaRouteMap({ lang = "de" }: { lang?: Lang }) {
 
   // Route verbindet alle Übernachtungsstopps und schließt am Ende zurück zu
   // Colombo (Z). Tagesausflüge (Mirissa, Galle) liegen nicht auf der Route.
+  const routeCoords: [number, number][] = stops
+    .filter((s) => !s.dayTrip)
+    .map((s) => project(s.lon, s.lat));
   const routePath =
-    stops
-      .filter((s) => !s.dayTrip)
-      .map((s, i) => {
-        const [x, y] = project(s.lon, s.lat);
-        return `${i === 0 ? "M" : "L"}${x.toFixed(1)} ${y.toFixed(1)}`;
-      })
+    routeCoords
+      .map(([x, y], i) => `${i === 0 ? "M" : "L"}${x.toFixed(1)} ${y.toFixed(1)}`)
       .join(" ") + " Z";
+  // Für die Richtungspfeile zählt auch die Schlussetappe zurück nach Colombo.
+  const arrowCoords: [number, number][] = [...routeCoords, routeCoords[0]];
 
   // Basis, von der aus die Tagesausflüge gemacht wurden
   const dayTripBase = stops.find((s) => s.name === "Weligama")!;
@@ -163,6 +165,8 @@ export function SriLankaRouteMap({ lang = "de" }: { lang?: Lang }) {
             strokeLinecap="round"
             strokeLinejoin="round"
           />
+          {/* Richtungspfeile: sie machen die Reihenfolge der Etappen auf einen Blick klar */}
+          <RouteArrows points={arrowCoords} size={8} />
           {/* Abzweige der Tagesausflüge von Weligama aus */}
           {stops.map((s) => {
             if (!s.dayTrip) return null;

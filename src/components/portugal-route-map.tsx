@@ -1,6 +1,7 @@
 import { MapPin } from "lucide-react";
 import type { Lang } from "@/lib/i18n-constants";
 import { RouteMarkers } from "@/components/route-map-marker";
+import { RouteArrows, bowSegment } from "@/components/route-arrows";
 
 type Stop = {
   n: number;
@@ -22,16 +23,16 @@ type Stop = {
 // Karte im Querformat erscheint.
 const stopsByLang: Record<Lang, Stop[]> = {
   de: [
-    { n: 1, name: "Lissabon", note: "Ausflug & Transit", highlight: "Ankunft · Tagesausflug", lon: -9.14, lat: 38.5, lx: 150, ly: 176, anchor: "start" },
-    { n: 2, name: "Ericeira", note: "4 Nächte", highlight: "Vila Galé · Surf-Resort", lon: -9.4, lat: 38.85, lx: 150, ly: 132, anchor: "start" },
-    { n: 3, name: "Santa Cruz", note: "7 Nächte", highlight: "Surfcamp · Surfen in Peniche", lon: -9.42, lat: 39.25, lx: 150, ly: 88, anchor: "start" },
-    { n: 4, name: "Lagos", note: "5 Nächte", highlight: "Algarve · Buchten & Roller", lon: -8.67, lat: 37.1, lx: 150, ly: 216, anchor: "start" },
+    { n: 1, name: "Lissabon", note: "Ausflug & Transit", highlight: "Ankunft · Tagesausflug", lon: -9.14, lat: 38.5, lx: -12, ly: 281, anchor: "end" },
+    { n: 2, name: "Ericeira", note: "4 Nächte", highlight: "Vila Galé · Surf-Resort", lon: -9.4, lat: 38.85, lx: -12, ly: 241, anchor: "end" },
+    { n: 3, name: "Santa Cruz", note: "7 Nächte", highlight: "Surfcamp · Surfen in Peniche", lon: -9.42, lat: 39.25, lx: -12, ly: 205, anchor: "end" },
+    { n: 4, name: "Lagos", note: "5 Nächte", highlight: "Algarve · Buchten & Roller", lon: -8.67, lat: 37.1, lx: -12, ly: 367, anchor: "end" },
   ],
   en: [
-    { n: 1, name: "Lisbon", note: "day trip & transit", highlight: "Arrival · day trip", lon: -9.14, lat: 38.5, lx: 150, ly: 176, anchor: "start" },
-    { n: 2, name: "Ericeira", note: "4 nights", highlight: "Vila Galé · surf resort", lon: -9.4, lat: 38.85, lx: 150, ly: 132, anchor: "start" },
-    { n: 3, name: "Santa Cruz", note: "7 nights", highlight: "Surf camp · surfing in Peniche", lon: -9.42, lat: 39.25, lx: 150, ly: 88, anchor: "start" },
-    { n: 4, name: "Lagos", note: "5 nights", highlight: "Algarve · coves & scooter", lon: -8.67, lat: 37.1, lx: 150, ly: 216, anchor: "start" },
+    { n: 1, name: "Lisbon", note: "day trip & transit", highlight: "Arrival · day trip", lon: -9.14, lat: 38.5, lx: -12, ly: 281, anchor: "end" },
+    { n: 2, name: "Ericeira", note: "4 nights", highlight: "Vila Galé · surf resort", lon: -9.4, lat: 38.85, lx: -12, ly: 241, anchor: "end" },
+    { n: 3, name: "Santa Cruz", note: "7 nights", highlight: "Surf camp · surfing in Peniche", lon: -9.42, lat: 39.25, lx: -12, ly: 205, anchor: "end" },
+    { n: 4, name: "Lagos", note: "5 nights", highlight: "Algarve · coves & scooter", lon: -8.67, lat: 37.1, lx: -12, ly: 367, anchor: "end" },
   ],
 };
 
@@ -52,8 +53,8 @@ const sectionsByLang: Record<Lang, Record<number, string>> = {
 };
 
 const captions: Record<Lang, string> = {
-  de: "Ankunft in Lissabon, Surf-Resort in Ericeira, Surfcamp in Santa Cruz (Surfen in Peniche), zurück über Lissabon an die Algarve nach Lagos · Klammer = Nächte vor Ort · 16 Nächte / 17 Tage",
-  en: "Arrival in Lisbon, surf resort in Ericeira, surf camp in Santa Cruz (surfing in Peniche), back via Lisbon to the Algarve in Lagos · brackets = nights spent there · 16 nights / 17 days",
+  de: "Pfeile = Reiserichtung, der Bogen ist der Weg zurück nach Lissabon · Ankunft in Lissabon, Surf-Resort in Ericeira, Surfcamp in Santa Cruz (Surfen in Peniche), zurück über Lissabon an die Algarve nach Lagos · Klammer = Nächte vor Ort · 16 Nächte / 17 Tage",
+  en: "Arrows = direction of travel, the arc is the way back to Lisbon · arrival in Lisbon, surf resort in Ericeira, surf camp in Santa Cruz (surfing in Peniche), back via Lisbon to the Algarve in Lagos · brackets = nights spent there · 16 nights / 17 days",
 };
 
 // Stilisierter, aber erkennbarer Umriss des portugiesischen Festlands
@@ -93,7 +94,7 @@ const outline: [number, number][] = [
 
 const MIN_LON = -9.6;
 const MAX_LAT = 42.2;
-const PX_PER_DEG = 42;
+const PX_PER_DEG = 72;
 
 function project(lon: number, lat: number): [number, number] {
   return [(lon - MIN_LON) * PX_PER_DEG, (MAX_LAT - lat) * PX_PER_DEG];
@@ -112,27 +113,36 @@ export function PortugalRouteMap({ lang = "de" }: { lang?: Lang }) {
   const byName = (n: number) => stops.find((s) => s.n === n)!;
 
   // Route in Reisereihenfolge inkl. Zwischenstopp in Lissabon auf dem Weg von
-  // der Surfküste an die Algarve: 1 → 2 → 3 → 1 → 4
-  const routePath = [1, 2, 3, 1, 4]
-    .map((n, i) => {
-      const s = byName(n);
-      const [x, y] = project(s.lon, s.lat);
-      return `${i === 0 ? "M" : "L"}${x.toFixed(1)} ${y.toFixed(1)}`;
-    })
-    .join(" ");
+  // der Surfküste an die Algarve: 1 → 2 → 3 → 1 → 4. Der Weg zurück nach
+  // Lissabon führt dieselbe Küste entlang und wird deshalb als Bogen über dem
+  // Atlantik gezeichnet, sonst lägen Hin- und Rückweg übereinander.
+  const RUECKWEG_BOGEN = 30;
+  const [p1, p2, p3, p4] = [1, 2, 3, 4].map((n) => {
+    const s = byName(n);
+    return project(s.lon, s.lat);
+  });
+  const routePath = [
+    `M${p1[0].toFixed(1)} ${p1[1].toFixed(1)}`,
+    `L${p2[0].toFixed(1)} ${p2[1].toFixed(1)}`,
+    `L${p3[0].toFixed(1)} ${p3[1].toFixed(1)}`,
+    bowSegment(p3, p1, RUECKWEG_BOGEN),
+    `L${p4[0].toFixed(1)} ${p4[1].toFixed(1)}`,
+  ].join(" ");
+  const arrowCoords: [number, number][] = [p1, p2, p3, p1, p4];
+  const arrowBow = [0, 0, RUECKWEG_BOGEN, 0];
 
   return (
     <div className="not-prose my-10 overflow-hidden rounded-2xl border border-border bg-surface/60">
       <div className="flex justify-center p-6 sm:p-8">
         <svg
-          viewBox="-12 -12 352 246"
+          viewBox="-180 -15 445 400"
           role="img"
           aria-label={
             lang === "en"
               ? "Map of the 17-day Portugal trip with all stops"
               : "Karte der 17-tägigen Portugal-Reise mit allen Stationen"
           }
-          className="h-auto w-full max-w-[300px]"
+          className="h-auto w-full max-w-[460px]"
         >
           {/* Landfläche */}
           <path
@@ -151,6 +161,8 @@ export function PortugalRouteMap({ lang = "de" }: { lang?: Lang }) {
             strokeLinecap="round"
             strokeLinejoin="round"
           />
+          {/* Richtungspfeile: sie machen die Reihenfolge der Etappen auf einen Blick klar */}
+          <RouteArrows points={arrowCoords} bow={arrowBow} size={6} />
           {/* Verbindungslinien zu den Labels */}
           {stops.map((s) => {
             const [x, y] = project(s.lon, s.lat);

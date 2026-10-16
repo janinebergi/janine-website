@@ -1,6 +1,7 @@
 import { MapPin } from "lucide-react";
 import type { Lang } from "@/lib/i18n-constants";
 import { RouteMarkers } from "@/components/route-map-marker";
+import { RouteArrows } from "@/components/route-arrows";
 
 type Stop = {
   n: number;
@@ -32,23 +33,41 @@ const stopsByLang: Record<Lang, Stop[]> = {
   ],
 };
 
+// Ziele der Tagesausflüge vom Standquartier Fort William aus. Sie sind keine
+// Übernachtungsstationen und deshalb kleine Punkte statt nummerierter Marker –
+// erst mit ihnen sieht man, wo die Reise in den Highlands wirklich langging.
+type DayTrip = { name: string; lon: number; lat: number; lx: number; ly: number; anchor: "start" | "middle" | "end" };
+
+const dayTripsByLang: Record<Lang, DayTrip[]> = {
+  de: [
+    { name: "Glenfinnan-Viadukt", lon: -5.4333, lat: 56.8757, lx: -12, ly: 214, anchor: "end" },
+    { name: "Silver Sands of Morar", lon: -5.83, lat: 56.95, lx: -12, ly: 180, anchor: "end" },
+    { name: "Loch Ness", lon: -4.4425, lat: 57.3242, lx: 112, ly: 140, anchor: "start" },
+  ],
+  en: [
+    { name: "Glenfinnan Viaduct", lon: -5.4333, lat: 56.8757, lx: -12, ly: 214, anchor: "end" },
+    { name: "Silver Sands of Morar", lon: -5.83, lat: 56.95, lx: -12, ly: 180, anchor: "end" },
+    { name: "Loch Ness", lon: -4.4425, lat: 57.3242, lx: 112, ly: 140, anchor: "start" },
+  ],
+};
+
 // Zielüberschrift je Station (Titel der ## -Überschrift im Beitrag).
 const sectionsByLang: Record<Lang, Record<number, string>> = {
   de: {
-    1: "Ein wirklich Tiny House",
+    1: "Ein wirklich winziges Tiny House in Glasgow",
     2: "Panoramafahrt in die Highlands",
     3: "Zaubertränke und Whisky in Edinburgh",
   },
   en: {
-    1: "A truly tiny house",
+    1: "A truly tiny house in Glasgow",
     2: "A panoramic drive into the Highlands",
     3: "Potions and whisky in Edinburgh",
   },
 };
 
 const captions: Record<Lang, string> = {
-  de: "Rundreise ab Flughafen Edinburgh nach Glasgow, weiter nach Fort William und zurück nach Edinburgh · Klammer = Nächte vor Ort · 7 Nächte / 8 Tage",
-  en: "Round trip from Edinburgh airport to Glasgow, on to Fort William and back to Edinburgh · brackets = nights spent there · 7 nights / 8 days",
+  de: "Pfeile = Fahrtrichtung: ab Flughafen Edinburgh nach Glasgow, weiter nach Fort William und zurück nach Edinburgh · Klammer = Nächte vor Ort · kleine Punkte = Tagesausflüge vom Standquartier Fort William aus · 7 Nächte / 8 Tage",
+  en: "Arrows = direction of travel: from Edinburgh airport to Glasgow, on to Fort William and back to Edinburgh · brackets = nights spent there · small dots = day trips from the base in Fort William · 7 nights / 8 days",
 };
 
 // Stilisierter, aber erkennbarer Umriss des schottischen Festlands (lon, lat),
@@ -115,30 +134,32 @@ const outlinePath =
 
 export function ScotlandRouteMap({ lang = "de" }: { lang?: Lang }) {
   const stops = stopsByLang[lang];
+  const dayTrips = dayTripsByLang[lang];
   const byName = (n: number) => stops.find((s) => s.n === n)!;
 
   // Route als Rundreise: ab Edinburgh (Flughafen) → Glasgow → Fort William →
   // zurück nach Edinburgh
-  const routePath = [3, 1, 2, 3]
-    .map((n, i) => {
-      const s = byName(n);
-      const [x, y] = project(s.lon, s.lat);
-      return `${i === 0 ? "M" : "L"}${x.toFixed(1)} ${y.toFixed(1)}`;
-    })
+  const routeCoords: [number, number][] = [3, 1, 2, 3].map((n) => {
+    const s = byName(n);
+    return project(s.lon, s.lat);
+  });
+  const routePath = routeCoords
+    .map(([x, y], i) => `${i === 0 ? "M" : "L"}${x.toFixed(1)} ${y.toFixed(1)}`)
     .join(" ");
+  const base = project(byName(2).lon, byName(2).lat);
 
   return (
     <div className="not-prose my-10 overflow-hidden rounded-2xl border border-border bg-surface/60">
       <div className="flex justify-center p-6 sm:p-8">
         <svg
-          viewBox="-45 -15 405 425"
+          viewBox="-165 -15 525 425"
           role="img"
           aria-label={
             lang === "en"
               ? "Map of the eight-day Scotland round trip with all stops"
               : "Karte der achttägigen Schottland-Rundreise mit allen Stationen"
           }
-          className="h-auto w-full max-w-[420px]"
+          className="h-auto w-full max-w-[540px]"
         >
           {/* Landfläche */}
           <path
@@ -157,6 +178,53 @@ export function ScotlandRouteMap({ lang = "de" }: { lang?: Lang }) {
             strokeLinecap="round"
             strokeLinejoin="round"
           />
+          {/* Richtungspfeile auf der Route */}
+          <RouteArrows points={routeCoords} />
+          {/* Tagesausflüge: gepunktete Abzweige vom Standquartier Fort William */}
+          {dayTrips.map((trip) => {
+            const [x, y] = project(trip.lon, trip.lat);
+            return (
+              <g key={trip.name}>
+                <line
+                  x1={base[0]}
+                  y1={base[1]}
+                  x2={x}
+                  y2={y}
+                  className="stroke-accent-hover"
+                  strokeWidth={1.6}
+                  strokeDasharray="2 4"
+                  strokeLinecap="round"
+                  opacity={0.8}
+                />
+                <line
+                  x1={x}
+                  y1={y}
+                  x2={trip.anchor === "end" ? trip.lx + 4 : trip.lx - 4}
+                  y2={trip.ly}
+                  className="stroke-muted"
+                  strokeWidth={1}
+                  opacity={0.45}
+                />
+                <circle
+                  cx={x}
+                  cy={y}
+                  r={4}
+                  className="fill-accent-hover stroke-bg"
+                  strokeWidth={1.5}
+                />
+                <text
+                  x={trip.lx}
+                  y={trip.ly}
+                  textAnchor={trip.anchor}
+                  dominantBaseline="central"
+                  className="fill-muted"
+                  fontSize={11}
+                >
+                  {trip.name}
+                </text>
+              </g>
+            );
+          })}
           {/* Verbindungslinien zu den Labels */}
           {stops.map((s) => {
             const [x, y] = project(s.lon, s.lat);

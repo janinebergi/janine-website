@@ -1,6 +1,7 @@
 import { MapPin } from "lucide-react";
 import type { Lang } from "@/lib/i18n-constants";
 import { RouteMarkers } from "@/components/route-map-marker";
+import { RouteArrows } from "@/components/route-arrows";
 
 type Stop = {
   n: number;
@@ -44,25 +45,25 @@ function nightsLabel(nights: number, lang: Lang): string {
 const sectionsByLang: Record<Lang, Record<number, string>> = {
   de: {
     1: "Ankunft in Uluwatu",
-    2: "Ubud – Körper und Geist reinigen",
-    3: "Nusa Penida – Mantas und private Riffe",
-    4: "Gili Trawangan – vom Fahrrad ins Wrack",
-    5: "Tulamben – noch ein Wrack zum Abschluss",
+    2: "Ubud: Körper und Geist reinigen",
+    3: "Nusa Penida: Mantas und private Riffe",
+    4: "Gili Trawangan: vom Fahrrad ins Wrack",
+    5: "Tulamben: noch ein Wrack zum Abschluss",
     6: "Canggu und Abreise",
   },
   en: {
     1: "Arrival in Uluwatu",
-    2: "Ubud – Cleansing Body and Mind",
-    3: "Nusa Penida – Manta Rays and Private Reefs",
-    4: "Gili Trawangan – From Bicycle to Shipwreck",
-    5: "Tulamben – One More Wreck to Finish",
+    2: "Ubud: Cleansing Body and Mind",
+    3: "Nusa Penida: Manta Rays and Private Reefs",
+    4: "Gili Trawangan: From Bicycle to Shipwreck",
+    5: "Tulamben: One More Wreck to Finish",
     6: "Canggu and Departure",
   },
 };
 
 const captions: Record<Lang, string> = {
-  de: "Zwei Wochen von der Bukit-Halbinsel über Ubud bis zu den Tauchspots vor Nusa Penida, Gili Trawangan und Tulamben",
-  en: "Two weeks from the Bukit Peninsula via Ubud to the dive spots off Nusa Penida, Gili Trawangan and Tulamben",
+  de: "Pfeile = Reiserichtung · zwei Wochen von der Bukit-Halbinsel über Ubud bis zu den Tauchspots vor Nusa Penida, Gili Trawangan und Tulamben",
+  en: "Arrows = direction of travel · two weeks from the Bukit Peninsula via Ubud to the dive spots off Nusa Penida, Gili Trawangan and Tulamben",
 };
 
 // Vereinfachte Küstenumrisse (lon, lat)
@@ -139,11 +140,9 @@ function toPath(points: [number, number][]): string {
 
 export function BaliRouteMap({ lang = "de" }: { lang?: Lang }) {
   const stops = stopsByLang[lang];
-  const routePath = stops
-    .map((s, i) => {
-      const [x, y] = project(s.lon, s.lat);
-      return `${i === 0 ? "M" : "L"}${x.toFixed(1)} ${y.toFixed(1)}`;
-    })
+  const routeCoords: [number, number][] = stops.map((s) => project(s.lon, s.lat));
+  const routePath = routeCoords
+    .map(([x, y], i) => `${i === 0 ? "M" : "L"}${x.toFixed(1)} ${y.toFixed(1)}`)
     .join(" ");
 
   return (
@@ -178,6 +177,8 @@ export function BaliRouteMap({ lang = "de" }: { lang?: Lang }) {
             strokeLinecap="round"
             strokeLinejoin="round"
           />
+          {/* Richtungspfeile: sie machen die Reihenfolge der Etappen auf einen Blick klar */}
+          <RouteArrows points={routeCoords} size={7} />
           {/* Verbindungslinien zu den Labels */}
           {stops.map((s) => {
             const [x, y] = project(s.lon, s.lat);
