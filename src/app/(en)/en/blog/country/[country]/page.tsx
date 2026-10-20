@@ -6,6 +6,7 @@ import { JsonLd } from "@/components/json-ld";
 import { breadcrumbSchema, collectionSchema } from "@/lib/jsonld";
 import { pageMetadata } from "@/lib/metadata";
 import { getCountries, getCountry, isIndexable } from "@/lib/archives";
+import { getGuideForCountry } from "@/lib/guides";
 import { getSiteContent } from "@/lib/site";
 import { blogPath, countryPath, homePath } from "@/lib/routes";
 
@@ -46,6 +47,7 @@ export default async function Page({
   const { country } = await params;
   const entry = getCountry(LANG, country);
   if (!entry) notFound();
+  const guideForCountry = getGuideForCountry(LANG, entry.name);
   const { pages } = getSiteContent(LANG);
   const t = pages.archive;
   const path = countryPath(LANG, entry.slug);
@@ -73,10 +75,10 @@ export default async function Page({
         title={entry.name}
         intro={t.countryIntro.replace("{name}", entry.name)}
         posts={entry.posts}
-        // Der Reiseführer gehört thematisch genau auf diese eine Länderseite.
+        // Gibt es zum Land einen Reiseführer, steht sein Kasten hier.
         guide={
-          entry.slug === "indonesien" || entry.slug === "indonesia" ? (
-            <Reisefuehrer id="indonesien" lang={LANG} ort="laenderseite" />
+          guideForCountry ? (
+            <Reisefuehrer id={guideForCountry.id} lang={LANG} ort="laenderseite" />
           ) : undefined
         }
       />

@@ -1,10 +1,12 @@
 import { getPostIds, getPostById } from "@/lib/blog";
+import { getGuides } from "@/lib/guides";
 import { getSiteContent } from "@/lib/site";
 import type { Lang } from "@/lib/i18n-constants";
 import {
   aboutPath,
   blogPath,
   contactPath,
+  guideDetailPath,
   guidePath,
   homePath,
   imprintPath,
@@ -91,6 +93,13 @@ export function getSearchIndex(lang: Lang): SearchItem[] {
       type: "page",
       content: pageContentText(pages.reisefuehrerSeite),
     },
+    ...getGuides(lang).map((guide) => ({
+      title: shortTitle(guide.metaTitle),
+      description: guide.metaDescription,
+      url: guideDetailPath(lang, guide.slug),
+      type: "page" as const,
+      content: pageContentText(guide),
+    })),
     {
       title: shortTitle(pages.kontakt.metaTitle),
       description: pages.kontakt.metaDescription,

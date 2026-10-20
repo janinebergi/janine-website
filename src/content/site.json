@@ -84,11 +84,20 @@
         },
         {
           "quote": [
-            "Wow wie cool ist das denn 😍👏🏼 bin gerade richtig im Blog versackt und obwohl ich bei zwei Reisen dabei war, war es so schön das noch mal zu lesen und so noch mal zu erleben.",
-            "Das sieht super professionell alles aus und du kommst so authentisch rüber – richtig super 😍☺️👏🏼"
+            "Wow wie cool ist das denn! Bin gerade richtig im Blog versackt und obwohl ich bei zwei Reisen dabei war, war es so schön das noch mal zu lesen und so noch mal zu erleben.",
+            "Das sieht super professionell alles aus und du kommst so authentisch rüber – richtig super!"
           ],
           "author": "Laura",
           "role": "Mitreisende",
+          "postSlug": "",
+          "linkLabel": "Zum Blog"
+        },
+        {
+          "quote": [
+            "Thank you so much! I read your travel blog and it's really wonderful. I like it so much – thank you!"
+          ],
+          "author": "Hassan",
+          "role": "Leser",
           "postSlug": "",
           "linkLabel": "Zum Blog"
         }
@@ -346,8 +355,7 @@
       "contactLabel": "Kontakt",
       "rights": "Alle Rechte vorbehalten.",
       "impressum": "Impressum",
-      "datenschutz": "Datenschutz",
-      "guideLink": "Reiseführer (PDF)"
+      "datenschutz": "Datenschutz"
     },
     "notFound": {
       "metaTitle": "Seite nicht gefunden",
@@ -376,18 +384,62 @@
     },
     "reisefuehrer": {
       "indonesien": {
+        "slug": "indonesien",
+        "countries": [
+          "Indonesien"
+        ],
         "eyebrow": "Reiseführer",
         "title": "Mein Indonesien-Reiseführer",
         "text": "Mein Reiseführer zu Indonesien als PDF – zum Mitnehmen und offline lesen.",
         "note": "Kostenlos, ohne Anmeldung.",
         "cta": "PDF herunterladen",
         "ctaExternal": "Zum Reiseführer",
-        "file": "/downloads/indonesien-reisefuehrer.pdf"
+        "file": "/downloads/indonesien-reisefuehrer.pdf",
+        "metaTitle": "Indonesien-Reiseführer als PDF",
+        "metaDescription": "17 Tage, 6 Stationen, 13 Tauchgänge: Bali, Nusa Penida und Gili Trawangan. Route, Adressen und Kosten auf 22 Seiten — kostenlos als PDF.",
+        "heroImage": "/assets/website/Bali/Kelingking Beach Nusa Penida.avif",
+        "heroImageAlt": "Blick auf den Kelingking Beach auf Nusa Penida",
+        "heroImagePosition": "center 50%",
+        "heroImagePositionMobile": "center 50%",
+        "heroZoom": 1,
+        "heroZoomMobile": 1,
+        "heroTitle": "Indonesien in 17 Tagen",
+        "heroText": "Bali, Nusa Penida und Gili Trawangan: die Route, die Adressen und was alles gekostet hat.",
+        "contents": [
+          {
+            "title": "Vor der Reise",
+            "text": "Einreise, Geld, SIM-Karte und Gesundheit, Stand 2026."
+          },
+          {
+            "title": "Die Route",
+            "text": "Alle Stationen auf einer Karte, dazu Fähren und Transfers dazwischen."
+          },
+          {
+            "title": "6 Stationen mit Adressen",
+            "text": "Uluwatu, Ubud mit Mount Batur, Nusa Penida, Gili Trawangan, Tulamben und Canggu – je mit Karte, Dauer und Anreise."
+          },
+          {
+            "title": "Tauchen",
+            "text": "13 Tauchgänge auf Nusa Penida, Gili T und in Tulamben, mit Preisen."
+          },
+          {
+            "title": "Geld, Verhalten und Notfall",
+            "text": "Bargeld, Tempelregeln und was im Notfall zu tun ist."
+          },
+          {
+            "title": "Budget",
+            "text": "Was wir zu zweit ausgegeben haben: ⌀ 217 € pro Tag ohne Flüge."
+          },
+          {
+            "title": "Packliste",
+            "text": "Zum Abhaken, von Kleidung bis Kosmetik."
+          }
+        ]
       }
     },
     "reisefuehrerSeite": {
-      "metaTitle": "Indonesien-Reiseführer als PDF",
-      "metaDescription": "17 Tage, 6 Stationen, 13 Tauchgänge: Bali, Nusa Penida und Gili Trawangan. Route, Adressen und Kosten auf 22 Seiten — kostenlos als PDF.",
+      "metaTitle": "Reiseführer als PDF",
+      "metaDescription": "Meine Reiseführer zum Herunterladen: Route, Adressen und was alles gekostet hat — kostenlos als PDF.",
       "heroImageAlt": "Blick auf den Kelingking Beach auf Nusa Penida",
       "heroImage": "/assets/website/Bali/Kelingking Beach Nusa Penida.avif",
       "heroImagePosition": "center 50%",
@@ -395,58 +447,13 @@
       "heroZoom": 1,
       "heroZoomMobile": 1,
       "heroEyebrow": "Reiseführer",
-      "heroTitle": "Indonesien in 17 Tagen",
-      "heroText": "Bali, Nusa Penida und Gili Trawangan: die Route, die Adressen und was alles gekostet hat.",
-      "facts": [
-        {
-          "value": "22",
-          "label": "Seiten"
-        },
-        {
-          "value": "6",
-          "label": "Stationen"
-        },
-        {
-          "value": "13",
-          "label": "Tauchgänge"
-        },
-        {
-          "value": "17",
-          "label": "Tage"
-        }
-      ],
+      "heroTitle": "Reiseführer",
+      "heroText": "Meine Reisen zum Mitnehmen: die Route, die Adressen und was alles gekostet hat – als PDF zum Herunterladen.",
+      "cardCta": "Zum Reiseführer",
+      "moreTitle": "Weitere Reiseführer folgen",
+      "moreText": "Die nächsten Reiseführer sind in Arbeit.",
       "contentsEyebrow": "Inhalt",
       "contentsTitle": "Was drin ist",
-      "contents": [
-        {
-          "title": "Vor der Reise",
-          "text": "Einreise, Geld, SIM-Karte und Gesundheit, Stand 2026."
-        },
-        {
-          "title": "Die Route",
-          "text": "Alle Stationen auf einer Karte, dazu Fähren und Transfers dazwischen."
-        },
-        {
-          "title": "6 Stationen mit Adressen",
-          "text": "Uluwatu, Ubud mit Mount Batur, Nusa Penida, Gili Trawangan, Tulamben und Canggu – je mit Karte, Dauer und Anreise."
-        },
-        {
-          "title": "Tauchen",
-          "text": "13 Tauchgänge auf Nusa Penida, Gili T und in Tulamben, mit Preisen."
-        },
-        {
-          "title": "Geld, Verhalten und Notfall",
-          "text": "Bargeld, Tempelregeln und was im Notfall zu tun ist."
-        },
-        {
-          "title": "Budget",
-          "text": "Was wir zu zweit ausgegeben haben: ⌀ 217 € pro Tag ohne Flüge."
-        },
-        {
-          "title": "Packliste",
-          "text": "Zum Abhaken, von Kleidung bis Kosmetik."
-        }
-      ],
       "blogEyebrow": "Aus dem Blog",
       "blogTitle": "Die ganze Reise zum Nachlesen",
       "blogText": "Alle Geschichten, Begegnungen und Eindrücke dieser Reise stehen ausführlich in den Beiträgen."

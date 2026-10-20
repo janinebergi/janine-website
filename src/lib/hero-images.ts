@@ -26,9 +26,17 @@ export const HEROES = [
   },
   {
     id: "reisefuehrer",
-    label: "Reiseführer",
+    label: "Reiseführer-Übersicht",
     minHeight: { mobile: "45vh", desktop: "52vh" },
     keys: ["pages", "reisefuehrerSeite"],
+  },
+  // Je Reiseführer ein eigener Header – ein neuer Reiseführer braucht hier
+  // eine weitere Zeile, damit sein Bild im Werkzeug auftaucht.
+  {
+    id: "reisefuehrer-indonesien",
+    label: "Reiseführer Indonesien",
+    minHeight: { mobile: "45vh", desktop: "52vh" },
+    keys: ["pages", "reisefuehrer", "indonesien"],
   },
   {
     id: "kontakt",

@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { GuidePage } from "@/components/pages/guide";
+import { GuideOverviewPage } from "@/components/pages/guide";
 import { JsonLd } from "@/components/json-ld";
 import { breadcrumbSchema } from "@/lib/jsonld";
 import { pageMetadata } from "@/lib/metadata";
@@ -28,7 +28,7 @@ export default function Page() {
           ]),
         ]}
       />
-      <GuidePage lang={LANG} />
+      <GuideOverviewPage lang={LANG} />
     </>
   );
 }

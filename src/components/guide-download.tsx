@@ -3,7 +3,7 @@ import path from "node:path";
 import { ArrowUpRight, Download } from "lucide-react";
 import { DownloadLink } from "@/components/download-link";
 import { buttonClass } from "@/components/ui/button";
-import { getSiteContent } from "@/lib/site";
+import { getGuide } from "@/lib/guides";
 import type { Lang } from "@/lib/i18n-constants";
 
 // Kasten für einen Reiseführer im Fließtext: <Reisefuehrer id="bali" />, in der
@@ -20,16 +20,6 @@ import type { Lang } from "@/lib/i18n-constants";
 // Fehlt die Datei noch, erscheint kein Kasten: lokal steht an seiner Stelle
 // ein Hinweis, in der veröffentlichten Fassung bleibt die Stelle leer. So kann
 // der Verweis im Beitrag schon stehen, bevor das PDF fertig ist.
-
-type Guide = {
-  eyebrow: string;
-  title: string;
-  text: string;
-  note: string;
-  cta: string;
-  ctaExternal: string;
-  file: string;
-};
 
 // Die Größe wird aus der Datei gelesen, nicht gepflegt: ein neues PDF ändert
 // sie automatisch mit.
@@ -48,14 +38,6 @@ function fileSize(file: string, lang: Lang): string | null {
   }
 }
 
-function guideEntry(lang: Lang, id: string): Guide | null {
-  const guides = getSiteContent(lang).pages.reisefuehrer as Record<
-    string,
-    Guide | undefined
-  >;
-  return guides?.[id] ?? null;
-}
-
 // Adresse des Reiseführers, wenn es ihn gibt – für Stellen, an denen kein
 // ganzer Kasten passt, etwa der Verweis in der Fußzeile. Fehlt die Datei,
 // kommt null zurück und der Verweis entfällt, statt ins Leere zu führen.
@@ -63,7 +45,7 @@ export function guideLink(
   lang: Lang,
   id: string,
 ): { href: string; external: boolean } | null {
-  const guide = guideEntry(lang, id);
+  const guide = getGuide(lang, id);
   if (!guide) return null;
 
   const external = /^https?:\/\//.test(guide.file);
@@ -82,7 +64,7 @@ export function Reisefuehrer({
   lang?: Lang;
   ort?: string;
 }) {
-  const guide = guideEntry(lang, id);
+  const guide = getGuide(lang, id);
   if (!guide) return null;
 
   const external = /^https?:\/\//.test(guide.file);

@@ -53,6 +53,10 @@ export type TextEntry = {
 // beim Abgleich im Browser nur falsche Treffer erzeugen.
 const SKIP_KEYS = /^(metaTitle|metaDescription|url)$/;
 
+// Keine Texte, sondern Schalter: die Adresse eines Reiseführers
+// (/reisefuehrer/<slug>) und die Länder, deren Beiträge er verlinkt.
+const SKIP_PATHS = /\.(slug|countries\.\d+)$/;
+
 // Bildpfade, Adressen und Bildausschnitte ("center 38%") sind keine Texte –
 // letztere haben ihr eigenes Werkzeug unter /dev/bildausschnitt.
 const SKIP_VALUES =
@@ -138,7 +142,13 @@ export function blockToPlainText(source: string): string {
 function collectSite(value: unknown, keyPath: string, file: string, out: TextEntry[]) {
   if (typeof value === "string") {
     const key = keyPath.split(".").pop() ?? "";
-    if (SKIP_KEYS.test(key) || SKIP_VALUES.test(value) || value.trim() === "") return;
+    if (
+      SKIP_KEYS.test(key) ||
+      SKIP_PATHS.test(keyPath) ||
+      SKIP_VALUES.test(value) ||
+      value.trim() === ""
+    )
+      return;
     out.push({
       target: { kind: "site", path: keyPath },
       file,

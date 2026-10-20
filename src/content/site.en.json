@@ -84,11 +84,20 @@
         },
         {
           "quote": [
-            "Wow, how cool is that 😍👏🏼 I just got completely lost in the blog, and even though I was along for two of the trips, it was so lovely to read it all again and relive it like that.",
-            "It all looks super professional and you come across so authentically – really great 😍☺️👏🏼"
+            "Wow, how cool is that! I just got completely lost in the blog, and even though I was along for two of the trips, it was so lovely to read it all again and relive it like that.",
+            "It all looks super professional and you come across so authentically – really great!"
           ],
           "author": "Laura",
           "role": "Travel companion",
+          "postSlug": "",
+          "linkLabel": "Read the blog"
+        },
+        {
+          "quote": [
+            "Thank you so much! I read your travel blog and it's really wonderful. I like it so much – thank you!"
+          ],
+          "author": "Hassan",
+          "role": "Reader",
           "postSlug": "",
           "linkLabel": "Read the blog"
         }
@@ -348,8 +357,7 @@
       "contactLabel": "Contact",
       "rights": "All rights reserved.",
       "impressum": "Legal Notice",
-      "datenschutz": "Privacy Policy",
-      "guideLink": "Travel guide (PDF)"
+      "datenschutz": "Privacy Policy"
     },
     "notFound": {
       "metaTitle": "Page not found",
@@ -378,18 +386,62 @@
     },
     "reisefuehrer": {
       "indonesien": {
+        "slug": "indonesia",
+        "countries": [
+          "Indonesia"
+        ],
         "eyebrow": "Travel guide",
         "title": "My Indonesia travel guide",
         "text": "My Indonesia travel guide as a PDF – to take along and read offline.",
         "note": "Free, no sign-up needed. The guide is written in German.",
         "cta": "Download PDF",
         "ctaExternal": "Get the guide",
-        "file": "/downloads/indonesien-reisefuehrer.pdf"
+        "file": "/downloads/indonesien-reisefuehrer.pdf",
+        "metaTitle": "Indonesia travel guide as a PDF",
+        "metaDescription": "17 days, 6 stops, 13 dives: Bali, Nusa Penida and Gili Trawangan. Route, addresses and costs on 22 pages — free as a PDF.",
+        "heroImage": "/assets/website/Bali/Kelingking Beach Nusa Penida.avif",
+        "heroImageAlt": "View of Kelingking Beach on Nusa Penida",
+        "heroImagePosition": "center 50%",
+        "heroImagePositionMobile": "center 50%",
+        "heroZoom": 1,
+        "heroZoomMobile": 1,
+        "heroTitle": "Indonesia in 17 days",
+        "heroText": "Bali, Nusa Penida and Gili Trawangan: the route, the addresses and what it all cost.",
+        "contents": [
+          {
+            "title": "Before you go",
+            "text": "Entry rules, money, SIM card and health, as of 2026."
+          },
+          {
+            "title": "The route",
+            "text": "Every stop on one map, plus the ferries and transfers between them."
+          },
+          {
+            "title": "6 stops with addresses",
+            "text": "Uluwatu, Ubud with Mount Batur, Nusa Penida, Gili Trawangan, Tulamben and Canggu – each with a map, length of stay and how to get there."
+          },
+          {
+            "title": "Diving",
+            "text": "13 dives off Nusa Penida, Gili T and in Tulamben, with prices."
+          },
+          {
+            "title": "Money, etiquette and emergencies",
+            "text": "Cash, temple rules and what to do if something goes wrong."
+          },
+          {
+            "title": "Budget",
+            "text": "What the two of us actually spent: €217 a day on average, excluding flights."
+          },
+          {
+            "title": "Packing list",
+            "text": "To tick off, from clothes to toiletries."
+          }
+        ]
       }
     },
     "reisefuehrerSeite": {
-      "metaTitle": "Indonesia travel guide as a PDF",
-      "metaDescription": "17 days, 6 stops, 13 dives: Bali, Nusa Penida and Gili Trawangan. Route, addresses and costs on 22 pages — free as a PDF.",
+      "metaTitle": "Travel guides as PDFs",
+      "metaDescription": "My travel guides to download: the route, the addresses and what it all cost — free as PDFs.",
       "heroImageAlt": "View of Kelingking Beach on Nusa Penida",
       "heroImage": "/assets/website/Bali/Kelingking Beach Nusa Penida.avif",
       "heroImagePosition": "center 50%",
@@ -397,58 +449,13 @@
       "heroZoom": 1,
       "heroZoomMobile": 1,
       "heroEyebrow": "Travel guide",
-      "heroTitle": "Indonesia in 17 days",
-      "heroText": "Bali, Nusa Penida and Gili Trawangan: the route, the addresses and what it all cost.",
-      "facts": [
-        {
-          "value": "22",
-          "label": "pages"
-        },
-        {
-          "value": "6",
-          "label": "stops"
-        },
-        {
-          "value": "13",
-          "label": "dives"
-        },
-        {
-          "value": "17",
-          "label": "days"
-        }
-      ],
+      "heroTitle": "Travel guides",
+      "heroText": "My trips to take along: the route, the addresses and what it all cost – as PDFs to download.",
+      "cardCta": "View the guide",
+      "moreTitle": "More guides to come",
+      "moreText": "The next travel guides are in the works.",
       "contentsEyebrow": "Contents",
       "contentsTitle": "What's inside",
-      "contents": [
-        {
-          "title": "Before you go",
-          "text": "Entry rules, money, SIM card and health, as of 2026."
-        },
-        {
-          "title": "The route",
-          "text": "Every stop on one map, plus the ferries and transfers between them."
-        },
-        {
-          "title": "6 stops with addresses",
-          "text": "Uluwatu, Ubud with Mount Batur, Nusa Penida, Gili Trawangan, Tulamben and Canggu – each with a map, length of stay and how to get there."
-        },
-        {
-          "title": "Diving",
-          "text": "13 dives off Nusa Penida, Gili T and in Tulamben, with prices."
-        },
-        {
-          "title": "Money, etiquette and emergencies",
-          "text": "Cash, temple rules and what to do if something goes wrong."
-        },
-        {
-          "title": "Budget",
-          "text": "What the two of us actually spent: €217 a day on average, excluding flights."
-        },
-        {
-          "title": "Packing list",
-          "text": "To tick off, from clothes to toiletries."
-        }
-      ],
       "blogEyebrow": "From the blog",
       "blogTitle": "The whole trip, in words",
       "blogText": "Every story, encounter and impression from this trip is written up in the posts."

@@ -4,28 +4,31 @@ import { ArrowUpRight } from "lucide-react";
 import { Container } from "@/components/ui/container";
 import { PageHeader } from "@/components/ui/page-header";
 import { SectionHeading } from "@/components/ui/section-heading";
-import { Reisefuehrer } from "@/components/guide-download";
+import { Reisefuehrer, guideLink } from "@/components/guide-download";
 import { getSiteContent } from "@/lib/site";
 import { formatDate, getAllPosts, tileStyle } from "@/lib/blog";
-import { postPath } from "@/lib/routes";
+import { getGuides, type Guide } from "@/lib/guides";
+import { imageVars } from "@/lib/object-position";
+import { guideDetailPath, postPath } from "@/lib/routes";
 import type { Lang } from "@/lib/i18n-constants";
 
-// Eigene Seite zum Reiseführer (/reisefuehrer bzw. /en/travel-guide). Auf sie
-// zeigen Menü, Suche und Google – und sie ist die Seite, aus der später die
-// Verkaufsseite wird, falls der Reiseführer etwas kosten soll. Der
-// Download-Kasten ist dasselbe Bauteil wie in den Beiträgen, damit es nur eine
-// Stelle gibt, an der Texte und Ziel gepflegt werden.
+// Die Reiseführer-Seiten: /reisefuehrer (bzw. /en/travel-guide) ist die
+// Übersicht aller Reiseführer, /reisefuehrer/<slug> die Seite zu einem
+// einzelnen – und die Seite, aus der später die Verkaufsseite wird, falls ein
+// Reiseführer etwas kosten soll. Der Download-Kasten ist dasselbe Bauteil wie
+// in den Beiträgen, damit es nur eine Stelle gibt, an der Texte und Ziel
+// gepflegt werden.
 
-// Welche Beiträge unten als „die ganze Reise“ verlinkt werden. Beide
-// Schreibweisen, weil das Land in der englischen Fassung „Indonesia“ heißt.
-const GUIDE_COUNTRIES = ["Indonesien", "Indonesia"];
+// In der Übersicht stehen nur Reiseführer, deren PDF schon da ist (oder die
+// auf einen Shop zeigen). Lokal stehen alle drin, damit ein neuer schon
+// sichtbar ist, bevor die Datei fertig ist.
+function isPublished(lang: Lang, guide: Guide): boolean {
+  return process.env.NODE_ENV !== "production" || guideLink(lang, guide.id) !== null;
+}
 
-export function GuidePage({ lang }: { lang: Lang }) {
-  const { pages } = getSiteContent(lang);
-  const t = pages.reisefuehrerSeite;
-  const posts = getAllPosts(lang).filter((post) =>
-    GUIDE_COUNTRIES.includes(post.country),
-  );
+export function GuideOverviewPage({ lang }: { lang: Lang }) {
+  const t = getSiteContent(lang).pages.reisefuehrerSeite;
+  const guides = getGuides(lang).filter((guide) => isPublished(lang, guide));
 
   return (
     <>
@@ -36,33 +39,89 @@ export function GuidePage({ lang }: { lang: Lang }) {
         imagePositionMobile={t.heroImagePositionMobile}
         imageZoom={t.heroZoom}
         imageZoomMobile={t.heroZoomMobile}
-        eyebrow={t.heroEyebrow}
         title={t.heroTitle}
         text={t.heroText}
       />
 
       <section className="py-16 sm:py-20">
         <Container>
-          {/* Die Eckdaten aus dem Reiseführer selbst */}
-          <dl className="grid grid-cols-2 gap-6 border-b border-border pb-10 sm:grid-cols-4">
-            {t.facts.map((fact) => (
-              <div key={fact.label}>
-                <dt className="text-3xl font-semibold text-foreground sm:text-4xl">
-                  {fact.value}
-                </dt>
-                <dd className="mt-1 text-sm uppercase tracking-widest text-muted">
-                  {fact.label}
-                </dd>
-              </div>
+          <div className="grid gap-6 sm:grid-cols-2">
+            {guides.map((guide) => (
+              <Link
+                key={guide.id}
+                href={guideDetailPath(lang, guide.slug)}
+                className="group flex flex-col overflow-hidden rounded-2xl border border-border bg-surface/60"
+              >
+                <div className="relative aspect-[16/10] overflow-hidden">
+                  <Image
+                    src={guide.heroImage}
+                    alt={guide.heroImageAlt}
+                    fill
+                    sizes="(max-width: 640px) 100vw, 50vw"
+                    className="cover-image object-cover transition-transform duration-500"
+                    style={imageVars({
+                      position: guide.heroImagePosition,
+                      positionMobile: guide.heroImagePositionMobile,
+                    })}
+                  />
+                </div>
+                <div className="flex flex-1 flex-col p-6">
+                  <p className="text-xs uppercase tracking-[0.2em] text-accent-hover">
+                    {guide.countries.join(" · ")}
+                  </p>
+                  <h2 className="mt-2 text-xl font-semibold leading-snug group-hover:text-accent-hover">
+                    {guide.heroTitle}
+                  </h2>
+                  <p className="mt-2 leading-relaxed text-muted">{guide.heroText}</p>
+                  <span className="mt-auto inline-flex items-center gap-1 pt-4 text-sm font-medium text-accent-hover transition-all group-hover:gap-2">
+                    {t.cardCta} <ArrowUpRight size={16} aria-hidden />
+                  </span>
+                </div>
+              </Link>
             ))}
-          </dl>
 
-          <Reisefuehrer id="indonesien" lang={lang} ort="reisefuehrer-seite" />
+            {/* Platzhalter, bis der nächste Reiseführer da ist – macht klar,
+                dass die Seite mehr als ein Land werden soll. */}
+            <div className="flex flex-col justify-center rounded-2xl border border-dashed border-border p-6 sm:p-8">
+              <h2 className="text-xl font-semibold leading-snug">{t.moreTitle}</h2>
+              <p className="mt-2 leading-relaxed text-muted">{t.moreText}</p>
+            </div>
+          </div>
+        </Container>
+      </section>
+    </>
+  );
+}
+
+export function GuideDetailPage({ lang, guide }: { lang: Lang; guide: Guide }) {
+  const { pages } = getSiteContent(lang);
+  const t = pages.reisefuehrerSeite;
+  const posts = getAllPosts(lang).filter((post) =>
+    guide.countries.includes(post.country),
+  );
+
+  return (
+    <>
+      <PageHeader
+        image={guide.heroImage}
+        imageAlt={guide.heroImageAlt}
+        imagePosition={guide.heroImagePosition}
+        imagePositionMobile={guide.heroImagePositionMobile}
+        imageZoom={guide.heroZoom}
+        imageZoomMobile={guide.heroZoomMobile}
+        eyebrow={t.heroEyebrow}
+        title={guide.heroTitle}
+        text={guide.heroText}
+      />
+
+      <section className="py-16 sm:py-20">
+        <Container>
+          <Reisefuehrer id={guide.id} lang={lang} ort="reisefuehrer-seite" />
 
           <div className="mt-16">
             <SectionHeading eyebrow={t.contentsEyebrow} title={t.contentsTitle} />
             <div className="mt-8 grid gap-6 sm:grid-cols-2">
-              {t.contents.map((item) => (
+              {guide.contents.map((item) => (
                 <div
                   key={item.title}
                   className="rounded-2xl border border-border bg-surface/60 p-6"

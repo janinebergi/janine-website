@@ -49,6 +49,8 @@ export const topicPath = (lang: Lang, tag: string): string =>
   join(lang, SEGMENT[lang].blog, SEGMENT[lang].topic, slugify(tag));
 export const aboutPath = (lang: Lang): string => join(lang, SEGMENT[lang].about);
 export const guidePath = (lang: Lang): string => join(lang, SEGMENT[lang].guide);
+export const guideDetailPath = (lang: Lang, slug: string): string =>
+  join(lang, SEGMENT[lang].guide, slug);
 export const contactPath = (lang: Lang): string => join(lang, SEGMENT[lang].contact);
 export const imprintPath = (lang: Lang): string => join(lang, SEGMENT[lang].imprint);
 export const privacyPath = (lang: Lang): string => join(lang, SEGMENT[lang].privacy);
