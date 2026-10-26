@@ -109,6 +109,18 @@ const budgetsByLang: Record<Lang, Record<string, Budget>> = {
       ],
       avgPerDay: { total: 278, perPerson: 139 },
     },
+    rome: {
+      title: "Kosten für 2 Personen",
+      items: [
+        { label: "Unterkünfte", amount: 514 },
+        { label: "Flüge", amount: 389 },
+        { label: "Restaurants", amount: 286 },
+        { label: "Getränke", amount: 108 },
+        { label: "Transport", amount: 72 },
+        { label: "Andere", amount: 128, note: "Aktivitäten, Gebühren, Einkäufe" },
+      ],
+      avgPerDay: { total: 277, perPerson: 139 },
+    },
   },
   en: {
     bali: {
@@ -202,6 +214,18 @@ const budgetsByLang: Record<Lang, Record<string, Budget>> = {
         { label: "Other", amount: 442.68, note: "Purchases, sights, shopping, drinks, fees" },
       ],
       avgPerDay: { total: 278, perPerson: 139 },
+    },
+    rome: {
+      title: "Cost for 2 people",
+      items: [
+        { label: "Accommodation", amount: 514 },
+        { label: "Flights", amount: 389 },
+        { label: "Restaurants", amount: 286 },
+        { label: "Drinks", amount: 108 },
+        { label: "Transport", amount: 72 },
+        { label: "Other", amount: 128, note: "Activities, fees, shopping" },
+      ],
+      avgPerDay: { total: 277, perPerson: 139 },
     },
   },
 };

@@ -39,6 +39,12 @@ export const HEROES = [
     keys: ["pages", "reisefuehrer", "indonesien"],
   },
   {
+    id: "reisefuehrer-rom",
+    label: "Reiseführer Rom",
+    minHeight: { mobile: "45vh", desktop: "52vh" },
+    keys: ["pages", "reisefuehrer", "rom"],
+  },
+  {
     id: "kontakt",
     label: "Kontakt",
     minHeight: { mobile: "45vh", desktop: "52vh" },

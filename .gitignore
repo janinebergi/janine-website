@@ -43,3 +43,4 @@ next-env.d.ts
 # ignorieren und die ausgelieferte Datei ausdrücklich wieder aufnehmen.
 /public/downloads/*
 !/public/downloads/indonesien-reisefuehrer.pdf
+!/public/downloads/rom-reisefuehrer.pdf

@@ -437,6 +437,63 @@
             "text": "To tick off, from clothes to toiletries."
           }
         ]
+      },
+      "rom": {
+        "slug": "rome",
+        "countries": [
+          "Italy"
+        ],
+        "eyebrow": "Travel guide",
+        "title": "My Rome travel guide",
+        "text": "My Rome travel guide as a PDF – to take along and read offline.",
+        "note": "Free, no sign-up needed. The guide is written in German.",
+        "cta": "Download PDF",
+        "ctaExternal": "Get the guide",
+        "file": "/downloads/rom-reisefuehrer.pdf",
+        "metaTitle": "Rome travel guide as a PDF",
+        "metaDescription": "4 days exploring Rome on foot, staying right in Trastevere: maps, addresses, insider tips and costs on 13 pages — free as a PDF.",
+        "heroImage": "/assets/website/Rom/Petersdom.avif",
+        "heroImageAlt": "The decorated dome inside St Peter's Basilica",
+        "heroImagePosition": "center 40%",
+        "heroImagePositionMobile": "center 40%",
+        "heroZoom": 1,
+        "heroZoomMobile": 1,
+        "heroTitle": "Rome in 4 days",
+        "heroText": "The places where we marvelled, ate and searched for a long time, with maps, addresses and the insider tips I found along the way.",
+        "contents": [
+          {
+            "title": "Map",
+            "text": "All the highlights at a glance."
+          },
+          {
+            "title": "Ancient Rome",
+            "text": "The Colosseum, Via del Cardello and the Vittoriano."
+          },
+          {
+            "title": "Centro Storico",
+            "text": "Navona, the Trevi Fountain, a courtyard and a rooftop terrace, with a map."
+          },
+          {
+            "title": "Prati & Villa Doria Pamphilj",
+            "text": "Castel Sant'Angelo and the park with its orange trees."
+          },
+          {
+            "title": "Trastevere",
+            "text": "Pasta, street food and bar hopping, with a map."
+          },
+          {
+            "title": "St. Peter's Basilica",
+            "text": "The dome in the early morning."
+          },
+          {
+            "title": "Costs",
+            "text": "What Rome cost: €277 a day on average for the two of us, excluding flights."
+          },
+          {
+            "title": "Packing list",
+            "text": "Hand luggage only."
+          }
+        ]
       }
     },
     "reisefuehrerSeite": {

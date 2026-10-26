@@ -435,6 +435,63 @@
             "text": "Zum Abhaken, von Kleidung bis Kosmetik."
           }
         ]
+      },
+      "rom": {
+        "slug": "rom",
+        "countries": [
+          "Italien"
+        ],
+        "eyebrow": "Reiseführer",
+        "title": "Mein Rom-Reiseführer",
+        "text": "Mein Reiseführer zu Rom als PDF – zum Mitnehmen und offline lesen.",
+        "note": "Kostenlos, ohne Anmeldung.",
+        "cta": "PDF herunterladen",
+        "ctaExternal": "Zum Reiseführer",
+        "file": "/downloads/rom-reisefuehrer.pdf",
+        "metaTitle": "Rom-Reiseführer als PDF",
+        "metaDescription": "4 Tage zu Fuß durch Rom, mit Unterkunft mitten in Trastevere: Karten, Adressen, Geheimtipps und Kosten auf 13 Seiten — kostenlos als PDF.",
+        "heroImage": "/assets/website/Rom/Petersdom.avif",
+        "heroImageAlt": "Die verzierte Kuppel im Inneren des Petersdoms",
+        "heroImagePosition": "center 40%",
+        "heroImagePositionMobile": "center 40%",
+        "heroZoom": 1,
+        "heroZoomMobile": 1,
+        "heroTitle": "Rom in 4 Tagen",
+        "heroText": "Die Orte, an denen wir gestaunt, gegessen und lange gesucht haben, mit Karten, Adressen und den Geheimtipps, die ich unterwegs gefunden habe.",
+        "contents": [
+          {
+            "title": "Karte",
+            "text": "Alle Highlights im Überblick."
+          },
+          {
+            "title": "Antikes Rom",
+            "text": "Kolosseum, Via del Cardello und Vittoriano."
+          },
+          {
+            "title": "Centro Storico",
+            "text": "Navona, Trevi-Brunnen, Innenhof und Dachterrasse, mit Karte."
+          },
+          {
+            "title": "Prati & Villa Doria Pamphilj",
+            "text": "Castel Sant'Angelo und der Park mit Orangenbäumen."
+          },
+          {
+            "title": "Trastevere",
+            "text": "Pasta, Streetfood und Barhopping, mit Karte."
+          },
+          {
+            "title": "Petersdom",
+            "text": "Die Kuppel am frühen Morgen."
+          },
+          {
+            "title": "Preisübersicht",
+            "text": "Was Rom gekostet hat: ⌀ 277 € pro Tag zu zweit ohne Flüge."
+          },
+          {
+            "title": "Packliste",
+            "text": "Nur Handgepäck."
+          }
+        ]
       }
     },
     "reisefuehrerSeite": {
