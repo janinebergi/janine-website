@@ -3,18 +3,14 @@ import type { Lang } from "@/lib/i18n-constants";
 
 // Alle Reiseführer stehen in site.json unter pages.reisefuehrer.<id>. Ein
 // neuer Reiseführer ist ein neuer Eintrag dort (in beiden Sprachdateien,
-// unter derselben id) plus die PDF-Datei in public/downloads/ – Übersicht,
-// eigene Seite, Sitemap und Suche ergeben sich daraus von selbst.
-//
-// Die id bleibt intern (<Reisefuehrer id="indonesien" /> in den Beiträgen),
-// die Adresse kommt aus `slug` und darf je Sprache anders lauten
-// (/reisefuehrer/indonesien, /en/travel-guide/indonesia).
+// unter derselben id) plus die PDF-Datei in public/downloads/ – die Kachel in
+// der Übersicht ergibt sich daraus von selbst. Die id bleibt intern
+// (<Reisefuehrer id="indonesien" /> in den Beiträgen).
 
 export type Guide = {
   id: string;
-  slug: string;
-  // Länder wie im Frontmatter der Beiträge: deren Beiträge verlinkt die
-  // Reiseführer-Seite, und auf deren Länderseite steht der Download-Kasten.
+  // Länder wie im Frontmatter der Beiträge: auf deren Länderseite steht der
+  // Download-Kasten.
   countries: string[];
   // Download-Kasten
   eyebrow: string;
@@ -24,9 +20,8 @@ export type Guide = {
   cta: string;
   ctaExternal: string;
   file: string;
-  // Eigene Seite
-  metaTitle: string;
-  metaDescription: string;
+  // Kachel in der Übersicht (heißt „hero“, weil das Bild im Header-Werkzeug
+  // eingestellt wird)
   heroImage: string;
   heroImageAlt: string;
   heroImagePosition: string;
@@ -35,7 +30,6 @@ export type Guide = {
   heroZoomMobile: number;
   heroTitle: string;
   heroText: string;
-  contents: { title: string; text: string }[];
 };
 
 export function getGuides(lang: Lang): Guide[] {
@@ -48,10 +42,6 @@ export function getGuides(lang: Lang): Guide[] {
 
 export function getGuide(lang: Lang, id: string): Guide | null {
   return getGuides(lang).find((guide) => guide.id === id) ?? null;
-}
-
-export function getGuideBySlug(lang: Lang, slug: string): Guide | null {
-  return getGuides(lang).find((guide) => guide.slug === slug) ?? null;
 }
 
 // Für die Länderseiten im Blog: der Reiseführer zu genau diesem Land.

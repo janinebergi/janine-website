@@ -384,7 +384,6 @@
     },
     "reisefuehrer": {
       "indonesien": {
-        "slug": "indonesien",
         "countries": [
           "Indonesien"
         ],
@@ -395,8 +394,6 @@
         "cta": "PDF herunterladen",
         "ctaExternal": "Zum Reiseführer",
         "file": "/downloads/indonesien-reisefuehrer.pdf",
-        "metaTitle": "Indonesien-Reiseführer als PDF",
-        "metaDescription": "17 Tage, 6 Stationen, 13 Tauchgänge: Bali, Nusa Penida und Gili Trawangan. Route, Adressen und Kosten auf 22 Seiten — kostenlos als PDF.",
         "heroImage": "/assets/website/Bali/Kelingking Beach Nusa Penida.avif",
         "heroImageAlt": "Blick auf den Kelingking Beach auf Nusa Penida",
         "heroImagePosition": "center 50%",
@@ -404,40 +401,9 @@
         "heroZoom": 1,
         "heroZoomMobile": 1,
         "heroTitle": "Indonesien in 17 Tagen",
-        "heroText": "Bali, Nusa Penida und Gili Trawangan: die Route, die Adressen und was alles gekostet hat.",
-        "contents": [
-          {
-            "title": "Vor der Reise",
-            "text": "Einreise, Geld, SIM-Karte und Gesundheit, Stand 2026."
-          },
-          {
-            "title": "Die Route",
-            "text": "Alle Stationen auf einer Karte, dazu Fähren und Transfers dazwischen."
-          },
-          {
-            "title": "6 Stationen mit Adressen",
-            "text": "Uluwatu, Ubud mit Mount Batur, Nusa Penida, Gili Trawangan, Tulamben und Canggu – je mit Karte, Dauer und Anreise."
-          },
-          {
-            "title": "Tauchen",
-            "text": "13 Tauchgänge auf Nusa Penida, Gili T und in Tulamben, mit Preisen."
-          },
-          {
-            "title": "Geld, Verhalten und Notfall",
-            "text": "Bargeld, Tempelregeln und was im Notfall zu tun ist."
-          },
-          {
-            "title": "Budget",
-            "text": "Was wir zu zweit ausgegeben haben: ⌀ 217 € pro Tag ohne Flüge."
-          },
-          {
-            "title": "Packliste",
-            "text": "Zum Abhaken, von Kleidung bis Kosmetik."
-          }
-        ]
+        "heroText": "Bali, Nusa Penida und Gili Trawangan: die Route, die Adressen und was alles gekostet hat."
       },
       "rom": {
-        "slug": "rom",
         "countries": [
           "Italien"
         ],
@@ -448,8 +414,6 @@
         "cta": "PDF herunterladen",
         "ctaExternal": "Zum Reiseführer",
         "file": "/downloads/rom-reisefuehrer.pdf",
-        "metaTitle": "Rom-Reiseführer als PDF",
-        "metaDescription": "4 Tage zu Fuß durch Rom, mit Unterkunft mitten in Trastevere: Karten, Adressen, Geheimtipps und Kosten auf 13 Seiten — kostenlos als PDF.",
         "heroImage": "/assets/website/Rom/Petersdom.avif",
         "heroImageAlt": "Die verzierte Kuppel im Inneren des Petersdoms",
         "heroImagePosition": "center 40%",
@@ -457,41 +421,7 @@
         "heroZoom": 1,
         "heroZoomMobile": 1,
         "heroTitle": "Rom in 4 Tagen",
-        "heroText": "Die Orte, an denen wir gestaunt, gegessen und lange gesucht haben, mit Karten, Adressen und den Geheimtipps, die ich unterwegs gefunden habe.",
-        "contents": [
-          {
-            "title": "Karte",
-            "text": "Alle Highlights im Überblick."
-          },
-          {
-            "title": "Antikes Rom",
-            "text": "Kolosseum, Via del Cardello und Vittoriano."
-          },
-          {
-            "title": "Centro Storico",
-            "text": "Navona, Trevi-Brunnen, Innenhof und Dachterrasse, mit Karte."
-          },
-          {
-            "title": "Prati & Villa Doria Pamphilj",
-            "text": "Castel Sant'Angelo und der Park mit Orangenbäumen."
-          },
-          {
-            "title": "Trastevere",
-            "text": "Pasta, Streetfood und Barhopping, mit Karte."
-          },
-          {
-            "title": "Petersdom",
-            "text": "Die Kuppel am frühen Morgen."
-          },
-          {
-            "title": "Preisübersicht",
-            "text": "Was Rom gekostet hat: ⌀ 277 € pro Tag zu zweit ohne Flüge."
-          },
-          {
-            "title": "Packliste",
-            "text": "Nur Handgepäck."
-          }
-        ]
+        "heroText": "Die Orte, an denen wir gestaunt, gegessen und lange gesucht haben, mit Karten, Adressen und den Geheimtipps, die ich unterwegs gefunden habe."
       }
     },
     "reisefuehrerSeite": {
@@ -503,17 +433,8 @@
       "heroImagePositionMobile": "center 50%",
       "heroZoom": 1,
       "heroZoomMobile": 1,
-      "heroEyebrow": "Reiseführer",
       "heroTitle": "Reiseführer",
-      "heroText": "Meine Reisen zum Mitnehmen: die Route, die Adressen und was alles gekostet hat – als PDF zum Herunterladen.",
-      "cardCta": "Zum Reiseführer",
-      "moreTitle": "Weitere Reiseführer folgen",
-      "moreText": "Die nächsten Reiseführer sind in Arbeit.",
-      "contentsEyebrow": "Inhalt",
-      "contentsTitle": "Was drin ist",
-      "blogEyebrow": "Aus dem Blog",
-      "blogTitle": "Die ganze Reise zum Nachlesen",
-      "blogText": "Alle Geschichten, Begegnungen und Eindrücke dieser Reise stehen ausführlich in den Beiträgen."
+      "heroText": "Meine Reisen zum Mitnehmen: die Route, die Adressen und was alles gekostet hat – als PDF zum Herunterladen."
     }
   }
 }

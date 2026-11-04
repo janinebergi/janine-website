@@ -35,11 +35,21 @@ const nextConfig = {
       "surfcamp-portugal": "surf-camp-portugal",
     };
 
-    return Object.entries(renamedEnglishPosts).map(([from, to]) => ({
-      source: `/en/blog/${from}`,
-      destination: `/en/blog/${to}`,
-      permanent: true,
-    }));
+    // Die Reiseführer hatten kurz je eine eigene Seite; inzwischen lädt die
+    // Übersicht das PDF direkt herunter.
+    const guidePages = [
+      { source: "/reisefuehrer/:guide", destination: "/reisefuehrer" },
+      { source: "/en/travel-guide/:guide", destination: "/en/travel-guide" },
+    ];
+
+    return [
+      ...Object.entries(renamedEnglishPosts).map(([from, to]) => ({
+        source: `/en/blog/${from}`,
+        destination: `/en/blog/${to}`,
+        permanent: true,
+      })),
+      ...guidePages.map((page) => ({ ...page, permanent: true })),
+    ];
   },
 };
 

@@ -23,7 +23,7 @@ import type { Lang } from "@/lib/i18n-constants";
 
 // Die Größe wird aus der Datei gelesen, nicht gepflegt: ein neues PDF ändert
 // sie automatisch mit.
-function fileSize(file: string, lang: Lang): string | null {
+export function fileSize(file: string, lang: Lang): string | null {
   try {
     const bytes = fs.statSync(
       path.join(process.cwd(), "public", decodeURIComponent(file)),
@@ -36,21 +36,6 @@ function fileSize(file: string, lang: Lang): string | null {
   } catch {
     return null;
   }
-}
-
-// Adresse des Reiseführers, wenn es ihn gibt – für Stellen, an denen kein
-// ganzer Kasten passt, etwa der Verweis in der Fußzeile. Fehlt die Datei,
-// kommt null zurück und der Verweis entfällt, statt ins Leere zu führen.
-export function guideLink(
-  lang: Lang,
-  id: string,
-): { href: string; external: boolean } | null {
-  const guide = getGuide(lang, id);
-  if (!guide) return null;
-
-  const external = /^https?:\/\//.test(guide.file);
-  if (!external && fileSize(guide.file, lang) === null) return null;
-  return { href: guide.file, external };
 }
 
 export function Reisefuehrer({

@@ -53,9 +53,9 @@ export type TextEntry = {
 // beim Abgleich im Browser nur falsche Treffer erzeugen.
 const SKIP_KEYS = /^(metaTitle|metaDescription|url)$/;
 
-// Keine Texte, sondern Schalter: die Adresse eines Reiseführers
-// (/reisefuehrer/<slug>) und die Länder, deren Beiträge er verlinkt.
-const SKIP_PATHS = /\.(slug|countries\.\d+)$/;
+// Keine Texte, sondern Schalter: die Länder eines Reiseführers, auf deren
+// Länderseite sein Download-Kasten steht.
+const SKIP_PATHS = /\.countries\.\d+$/;
 
 // Bildpfade, Adressen und Bildausschnitte ("center 38%") sind keine Texte –
 // letztere haben ihr eigenes Werkzeug unter /dev/bildausschnitt.

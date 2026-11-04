@@ -6,7 +6,6 @@ import {
   getTopics,
   isIndexable,
 } from "@/lib/archives";
-import { getGuide, getGuides } from "@/lib/guides";
 import type { Lang } from "@/lib/i18n-constants";
 import type { PathSet } from "@/lib/routes";
 import {
@@ -15,7 +14,6 @@ import {
   blogPath,
   contactPath,
   countryPath,
-  guideDetailPath,
   guidePath,
   homePath,
   postPath,
@@ -133,21 +131,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
       }),
     );
 
-    // Die einzelnen Reiseführer, über ihre id mit der anderen Sprache verbunden.
-    for (const guide of getGuides(lang)) {
-      const otherLang: Lang = lang === "de" ? "en" : "de";
-      const other = getGuide(otherLang, guide.id);
-      urls.push(
-        entry(
-          {
-            [lang]: guideDetailPath(lang, guide.slug),
-            ...(other ? { [otherLang]: guideDetailPath(otherLang, other.slug) } : {}),
-          },
-          lang,
-          { changeFrequency: "monthly", priority: 0.8 },
-        ),
-      );
-    }
 
     // Beiträge: echtes Veröffentlichungsdatum statt "heute".
     for (const id of getPostIds()) {
