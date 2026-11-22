@@ -23,13 +23,13 @@ const nextConfig = {
     ],
   },
 
-  // Die Vorschaubilder lesen das Titelbild über einen zusammengesetzten Pfad.
-  // Deshalb packt Next.js sonst den kompletten public-Ordner in die Funktion
-  // und sprengt Vercels 250-MB-Grenze. Die Bilder werden ohnehin beim Build
-  // erzeugt (force-static), zur Laufzeit braucht die Funktion public nicht.
+  // Beiträge und Vorschaubilder lesen Bilder über zusammengesetzte Pfade aus
+  // public (Bildmaße, Titelbild). Deshalb packt Next.js sonst den kompletten
+  // public-Ordner in jede dieser Funktionen und sprengt Vercels 250-MB-Grenze.
+  // Alle Seiten werden beim Build vorgerendert; zur Laufzeit braucht keine
+  // Funktion public – Vercel liefert die Dateien ohnehin direkt aus.
   outputFileTracingExcludes: {
-    "/blog/[slug]/og": ["./public/**/*"],
-    "/en/blog/[slug]/og": ["./public/**/*"],
+    "/**": ["./public/**/*"],
   },
 
   // Die englischen Beiträge haben eigene, englische Slugs bekommen. Wer noch
